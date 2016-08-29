@@ -1,0 +1,10 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}FIRST Tech Challenge Vortex Counter
+${licensePrefix}Created by Alexander Fera
+${licensePrefix}Fera Group
+${licensePrefix}Novi, MI 48377{licensePrefix}
+<#if licenseLast??>
+${licenseLast}
+</#if>
