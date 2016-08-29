@@ -1,0 +1,3 @@
+# FTC-Vortex-Score-Counter-Java-master
+CONFIDENTIAL
+KEEP PRIVATE UNTIL SEPTEMBER 10th, 2016
