@@ -16,6 +16,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
     /**
      * Creates new form GoalCounterUI
      */
+    	
+    
     public GoalCounterUI() {
         initComponents();
     }
