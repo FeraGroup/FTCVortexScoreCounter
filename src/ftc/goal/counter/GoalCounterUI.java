@@ -16,7 +16,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     /**
      * Creates new form GoalCounterUI
      */
-    
+      
     public GoalCounterUI() {
         initComponents();
     }
@@ -29,6 +29,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         RedAlliance = new javax.swing.JPanel();
         RedVortCenVar = new javax.swing.JSpinner();
         RedVortCorVar = new javax.swing.JSpinner();
@@ -264,6 +265,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
         new AudDisplay().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -318,5 +321,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
     private javax.swing.JLabel VersionInfo;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton1;
+    private javax.swing.JSpinner jSpinner1;
     // End of variables declaration//GEN-END:variables
 }
