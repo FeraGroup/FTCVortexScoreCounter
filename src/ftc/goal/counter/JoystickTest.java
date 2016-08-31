@@ -1,5 +1,11 @@
 package ftc.goal.counter;
 
+/*
+ * Created for FIRST Tech Challenge
+ * To count balls scored in the Goals
+ * During the 2016 - 2017 Game
+ */
+
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,27 +20,17 @@ import net.java.games.input.ControllerEnvironment;
 /**
  *
  * Joystick Test with JInput
- *
- *
- * @author TheUzo007 
- *         http://theuzo007.wordpress.com
- *
- * Created 22 Oct 2013
+ *@author afera
+ * Alexander Fera
+ * Fera Group
+ * Novi, MI 48377
  *
  */
 public class JoystickTest {
     int counter =0;
     boolean pressedLast=false;
-   // public static void main(String args[]) {
-        //JInputJoystickTest jinputJoystickTest = new JInputJoystickTest();
-        // Writes (into console) informations of all controllers that are found.
-        //jinputJoystickTest.getAllControllersInfo();
-        // In loop writes (into console) all joystick components and its current values.
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.STICK);
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.GAMEPAD);
-        
-     //   new JoystickTest();
-    //}
+
+    
     
     
     final SettingsUI window;
@@ -95,13 +91,6 @@ public class JoystickTest {
                 break;
             }
             
-            // X axis and Y axis
-           // int xAxisPercentage = 0;
-            //int yAxisPercentage = 0;
-            // JPanel for other axes.
-            //JPanel axesPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 25, 2));
-            //axesPanel.setBounds(0, 0, 200, 190);
-            
             // JPanel for controller buttons
             JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 1, 1));
             buttonsPanel.setBounds(6, 19, 246, 110);
@@ -130,65 +119,21 @@ public class JoystickTest {
                       }
                       pressedLast = isItPressed;
                     
-                
-
-//System.out.println("1");
-                    // Button index
+               //System.out.println("1");
+               
+               
+            // Button index
                     String buttonIndex;
                     buttonIndex = component.getIdentifier().toString();
                     
                     // Create and add new button to panel.
                     JToggleButton aToggleButton = new JToggleButton(buttonIndex, isItPressed);
-                    //aToggleButton.setPreferredSize(new Dimension(48, 25));
-                    //aToggleButton.setEnabled(false);
-                   // buttonsPanel.add(aToggleButton);
                     
                     // We know that this component was button so we can skip to next component.
                     continue;
                 }
-                
-                // Hat switch
-                //if(componentIdentifier == Component.Identifier.Axis.POV){
-                //    float hatSwitchPosition = component.getPollData();
-                //    window.setHatSwitch(hatSwitchPosition);
-                    
-                    // We know that this component was hat switch so we can skip to next component.
-                //    continue;
-                //}
-                
-                // Axes
-                //if(component.isAnalog()){
-                    //float axisValue = component.getPollData();
-                //    int axisValueInPercentage = getAxisValueInPercentage(axisValue);
-                    
-                    // X axis
-                    //if(componentIdentifier == Component.Identifier.Axis.X){
-                      //  xAxisPercentage = axisValueInPercentage;
-                        //continue; // Go to next component.
-                    //}
-                    // Y axis
-                    //if(componentIdentifier == Component.Identifier.Axis.Y){
-                    //    yAxisPercentage = axisValueInPercentage;
-                    //    continue; // Go to next component.
-                    //}
-                    
-                    // Other axis
-                    //JLabel progressBarLabel = new JLabel(component.getName());
-                   // JProgressBar progressBar = new JProgressBar(0, 100);
-                  //  progressBar.setValue(axisValueInPercentage);
-                   // axesPanel.add(progressBarLabel);
-                   // axesPanel.add(progressBar);
-                //}
             }
-            
-            // Now that we go trough all controller components,
-            // we add butons panel to window,
-            //window.setControllerButtons(buttonsPanel);
-            // set x and y axes,
-           // window.setXYAxis(xAxisPercentage, yAxisPercentage);
-            // add other axes panel to window.
-            //window.addAxisPanel(axesPanel);
-            
+           
             // We have to give processor some rest.
             try {
                 Thread.sleep(25);
@@ -198,18 +143,4 @@ public class JoystickTest {
         }
     }
     
-    
-    
-    /**
-     * Given value of axis in percentage.
-     * Percentages increases from left/top to right/bottom.
-     * If idle (in center) returns 50, if joystick axis is pushed to the left/top 
-     * edge returns 0 and if it's pushed to the right/bottom returns 100.
-     * 
-     * @return value of axis in percentage.
-     */
-  //  public int getAxisValueInPercentage(float axisValue)
-  //  {
-  //      return (int)(((2 - (1 - axisValue)) * 100) / 2);
-  //  }
 }
