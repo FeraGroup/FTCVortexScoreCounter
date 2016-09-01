@@ -12,14 +12,16 @@ package ftc.goal.counter;
  * Novi, MI 48377
  */
 public class GoalCounterUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form GoalCounterUI
      */
-      
+    
     public GoalCounterUI() {
         initComponents();
+        
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -153,7 +155,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
         });
 
         VersionInfo.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        VersionInfo.setText("VER DEV.0");
+        VersionInfo.setText("REV DEV.0.0");
+        VersionInfo.setToolTipText("");
 
         SettingButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         SettingButton.setText("SETTINGS");
@@ -265,7 +268,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
         new AudDisplay().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-   
     
     /**
      * @param args the command line arguments
