@@ -5,6 +5,8 @@
  */
 package ftc.goal.counter;
 
+import net.java.games.input.Controller;
+
 /*
  * @author afera
  * Alexander Fera
@@ -296,6 +298,16 @@ public class GoalCounterUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        
+        //JoyStickBasic jinputJoystickTest = new JoyStickBasic();
+        // Writes (into console) informations of all controllers that are found.
+        //jinputJoystickTest.getAllControllersInfo();
+        // In loop writes (into console) all joystick components and its current values.
+        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.STICK);
+        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.GAMEPAD);
+        
+        //new GoalCounterUI();
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
