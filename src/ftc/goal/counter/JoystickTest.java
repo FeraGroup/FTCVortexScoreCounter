@@ -16,6 +16,7 @@ import net.java.games.input.Component;
 import net.java.games.input.Component.Identifier;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
+import ftc.goal.counter.GoalCounterUI;
 
 /**
  *
@@ -28,25 +29,29 @@ import net.java.games.input.ControllerEnvironment;
  */
 public class JoystickTest {
     int counter =0;
-    boolean pressedLast=false;
+    static public boolean pressedLast=false;
+    static public boolean isItPressed = false;
 
     
     
     
     final SettingsUI window;
+    
+    final GoalCounterUI count;
+    
     private ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
         window = new SettingsUI();
+        count = new GoalCounterUI();
         
         foundControllers = new ArrayList<>();
         searchForControllers();
-        
         // If at least one controller was found we start showing controller data on window.
         if(!foundControllers.isEmpty())
             startShowingControllerData();
         else
-            window.addControllerName("No controller found!");
+            System.out.println("No controller found!");
     }
 
     /**
@@ -88,7 +93,7 @@ public class JoystickTest {
             // Pull controller for current data, and break while loop if controller is disconnected.
             if( !controller.poll() ){
                 window.showControllerDisconnected();
-                break;
+               // break;
             }
             
             // JPanel for controller buttons
@@ -104,34 +109,27 @@ public class JoystickTest {
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
-                if(componentIdentifier.getName().matches("^[1]*$")){ // If the component identifier name contains only numbers, then this is a button.
+                if(componentIdentifier.getName().matches("^[0]*$")){ // If the component identifier name contains only numbers, then this is a button.
                     // Is button pressed?
-                    boolean isItPressed = false;
+                    
+                    
                     //System.out.println("1");
                     
                     if(component.getPollData() != 0.0f){
-                        isItPressed = true;
+                        isItPressed = true;    
                     }
-              
+                    else{
+                        isItPressed = false;
+                    }
+                      
+                    if(isItPressed == false){
+                        pressedLast = false;
+                    }
+                    
+                    GoalCounterUI.goal.increment();
 
-                      if(isItPressed==true && pressedLast!=true){
-                          System.out.println("1");
-                      }
-                      pressedLast = isItPressed;
-                    
-               //System.out.println("1");
-               
-               
-            // Button index
-                    String buttonIndex;
-                    buttonIndex = component.getIdentifier().toString();
-                    
-                    // Create and add new button to panel.
-                    JToggleButton aToggleButton = new JToggleButton(buttonIndex, isItPressed);
-                    
-                    // We know that this component was button so we can skip to next component.
-                    continue;
                 }
+                
             }
            
             // We have to give processor some rest.

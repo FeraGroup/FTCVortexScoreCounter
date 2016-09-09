@@ -5,7 +5,9 @@
  */
 package ftc.goal.counter;
 
+import static ftc.goal.counter.JoystickTest.pressedLast;
 import net.java.games.input.Controller;
+import java.util.ArrayList;
 
 /*
  * @author afera
@@ -22,6 +24,15 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public GoalCounterUI() {
         initComponents();
         
+    }
+    
+    int increment = 0;
+
+    public void increment(){
+         if(JoystickTest.isItPressed==true && JoystickTest.pressedLast!=true){
+                          RedVortCenVar.setValue(increment++);
+                          JoystickTest.pressedLast = true;
+                   }
     }
     
     /**
@@ -61,6 +72,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
         RedAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Red Vortex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         RedVortCenVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        RedVortCenVar.setName("redvorcencount"); // NOI18N
 
         RedVortCorVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -99,6 +111,11 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 .addComponent(RedVortCorVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        RedVortCenVar.getAccessibleContext().setAccessibleName("redvorcencount");
+        RedVortCenVar.getAccessibleContext().setAccessibleDescription("");
+        RedVortCorVar.getAccessibleContext().setAccessibleName("RedCorVor");
+        RedVortCorVar.getAccessibleContext().setAccessibleDescription("");
 
         BlueAlliance.setBackground(new java.awt.Color(0, 101, 179));
         BlueAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Blue Votex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -252,10 +269,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-            RedVortCenVar.setValue(new Integer(0));
-            RedVortCorVar.setValue(new Integer(0));
-            BlueVortCenVar.setValue(new Integer(0));
-            BlueVortCorVar.setValue(new Integer(0));
+            RedVortCenVar.setValue(0);
+            RedVortCorVar.setValue(0);
+            BlueVortCenVar.setValue(0);
+            BlueVortCorVar.setValue(0);
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
@@ -270,7 +287,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
         new AudDisplay().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+    public static GoalCounterUI goal;
     /**
      * @param args the command line arguments
      */
@@ -297,9 +314,18 @@ public class GoalCounterUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GoalCounterUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+       
         
-        //JoyStickBasic jinputJoystickTest = new JoyStickBasic();
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                goal = new GoalCounterUI();
+                goal.setVisible(true);
+                new SettingsUI().setVisible(true);
+            }
+        });
+        
+         JoyStickBasic jinputJoystickTest = new JoyStickBasic();
         // Writes (into console) informations of all controllers that are found.
         //jinputJoystickTest.getAllControllersInfo();
         // In loop writes (into console) all joystick components and its current values.
@@ -308,12 +334,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
         
         //new GoalCounterUI();
         
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GoalCounterUI().setVisible(true);
-            }
-        });
+        new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
