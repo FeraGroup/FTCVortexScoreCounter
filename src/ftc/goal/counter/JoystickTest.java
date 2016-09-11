@@ -29,12 +29,11 @@ import ftc.goal.counter.GoalCounterUI;
  */
 public class JoystickTest {
     int counter =0;
-    static public boolean pressedLast=false;
-    static public boolean isItPressed = false;
+    static public boolean pressLstJSRedCenAbtn = false;
+    static public boolean PressJSRedCenAbtn = false;
+    static public boolean pressLstJSRedCenBbtn = false;
+    static public boolean PressJSRedCenBbtn = false;
 
-    
-    
-    
     final SettingsUI window;
     
     final GoalCounterUI count;
@@ -109,24 +108,39 @@ public class JoystickTest {
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
-                if(componentIdentifier.getName().matches("^[0]*$")){ // If the component identifier name contains only numbers, then this is a button.
+                if(componentIdentifier.getName().matches("^[0]*$")){ // This is for Center Controller B Button
                     // Is button pressed?
-                    
-                    
-                    //System.out.println("1");
-                    
+
                     if(component.getPollData() != 0.0f){
-                        isItPressed = true;    
+                        PressJSRedCenAbtn = true;    
                     }
                     else{
-                        isItPressed = false;
+                        PressJSRedCenAbtn = false;
                     }
                       
-                    if(isItPressed == false){
-                        pressedLast = false;
+                    if(PressJSRedCenAbtn == false){
+                        pressLstJSRedCenAbtn = false;
                     }
                     
-                    GoalCounterUI.goal.increment();
+                    GoalCounterUI.goal.IncrsRedCenA();
+
+                }
+                
+                if(componentIdentifier.getName().matches("^[1]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(component.getPollData() != 0.0f){
+                        PressJSRedCenBbtn = true;    
+                    }
+                    else{
+                        PressJSRedCenBbtn = false;
+                    }
+                      
+                    if(PressJSRedCenBbtn == false){
+                        pressLstJSRedCenBbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.DcrsRedCenB();
 
                 }
                 

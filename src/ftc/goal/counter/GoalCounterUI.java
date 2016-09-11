@@ -5,9 +5,6 @@
  */
 package ftc.goal.counter;
 
-import static ftc.goal.counter.JoystickTest.pressedLast;
-import net.java.games.input.Controller;
-import java.util.ArrayList;
 
 /*
  * @author afera
@@ -23,18 +20,28 @@ public class GoalCounterUI extends javax.swing.JFrame {
     
     public GoalCounterUI() {
         initComponents();
-        
+
     }
     
-    int increment = 0;
+    int RedCenVal = 0;
 
-    public void increment(){
-         if(JoystickTest.isItPressed==true && JoystickTest.pressedLast!=true){
-                          RedVortCenVar.setValue(increment++);
-                          JoystickTest.pressedLast = true;
+    public void IncrsRedCenA(){
+         if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true){
+                          RedVortCenVar.setValue(RedCenVal++);
+                          JoystickTest.pressLstJSRedCenAbtn = true;
+                          
                    }
     }
     
+        public void DcrsRedCenB(){
+         if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && RedCenVal!=0){
+                          RedVortCenVar.setValue(RedCenVal--);
+                          JoystickTest.pressLstJSRedCenBbtn = true;
+                   }
+    }
+    
+        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -273,6 +280,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
             RedVortCorVar.setValue(0);
             BlueVortCenVar.setValue(0);
             BlueVortCorVar.setValue(0);
+            RedCenVal = 0;
+            //RedVortCorVar.setValue(0);
+            //BlueVortCenVar.setValue(0);
+            //BlueVortCorVar.setValue(0);
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
