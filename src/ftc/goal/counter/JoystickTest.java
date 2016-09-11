@@ -108,7 +108,7 @@ public class JoystickTest {
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
-                if(componentIdentifier.getName().matches("^[0]*$")){ // This is for Center Controller B Button
+                if(componentIdentifier.getName().matches("^[0]*$")){ // This is for Center Controller A Button
                     // Is button pressed?
 
                     if(component.getPollData() != 0.0f){
@@ -117,13 +117,14 @@ public class JoystickTest {
                     else{
                         PressJSRedCenAbtn = false;
                     }
-                      
+
+                    
                     if(PressJSRedCenAbtn == false){
                         pressLstJSRedCenAbtn = false;
                     }
                     
                     GoalCounterUI.goal.IncrsRedCenA();
-
+                    
                 }
                 
                 if(componentIdentifier.getName().matches("^[1]*$")){ // This is for Center Controller B Button
