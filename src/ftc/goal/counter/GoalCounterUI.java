@@ -34,10 +34,15 @@ public class GoalCounterUI extends javax.swing.JFrame {
     }
     
         public void DcrsRedCenB(){
-         if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && RedCenVal!=0){
-                          RedVortCenVar.setValue(RedCenVal--);
-                          JoystickTest.pressLstJSRedCenBbtn = true;
-                   }
+         if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true){
+                if(RedCenVal < 0){
+                    RedCenVal = 0;   
+                }
+                else{
+                    RedVortCenVar.setValue(RedCenVal--);
+                    JoystickTest.pressLstJSRedCenBbtn = true;
+                }  
+            }
     }
     
         
