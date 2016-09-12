@@ -13,6 +13,8 @@ package ftc.goal.counter;
  * Novi, MI 48377
  */
 public class GoalCounterUI extends javax.swing.JFrame {
+
+private static final String version = "DEV.0.13";
     
     /**
      * Creates new form GoalCounterUI
@@ -28,8 +30,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true){
                           RedVortCenVar.setValue(++RedCenVal);
-                          JoystickTest.pressLstJSRedCenAbtn = true;
-                          
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
                    }
     }
     
@@ -44,7 +45,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 }  
             }
     }
-    
+        
         
 
     /**
@@ -186,7 +187,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
         });
 
         VersionInfo.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        VersionInfo.setText("REV DEV.0.0");
+        VersionInfo.setText("VER: " + version);
         VersionInfo.setToolTipText("");
 
         SettingButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N

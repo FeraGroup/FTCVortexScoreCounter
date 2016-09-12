@@ -170,6 +170,9 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="redvorcencount"/>
             <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
           </AccessibilityProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="GoalCounterUI_RedVortCenVar"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JSpinner" name="RedVortCorVar">
           <Properties>
@@ -314,7 +317,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="10" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="REV DEV.0.0"/>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="&quot;VER: &quot; + version" type="code"/>
+        </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>

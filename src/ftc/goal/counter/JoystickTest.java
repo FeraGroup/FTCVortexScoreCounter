@@ -28,7 +28,6 @@ import ftc.goal.counter.GoalCounterUI;
  *
  */
 public class JoystickTest {
-    int counter =0;
     static public boolean pressLstJSRedCenAbtn = false;
     static public boolean PressJSRedCenAbtn = false;
     static public boolean pressLstJSRedCenBbtn = false;
@@ -36,13 +35,10 @@ public class JoystickTest {
 
     final SettingsUI window;
     
-    final GoalCounterUI count;
-    
     private ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
         window = new SettingsUI();
-        count = new GoalCounterUI();
         
         foundControllers = new ArrayList<>();
         searchForControllers();
