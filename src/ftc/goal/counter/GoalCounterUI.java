@@ -14,7 +14,7 @@ package ftc.goal.counter;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-private static final String version = "DEV.0.13";
+private static final String version = "DEV.0.16";
     
     /**
      * Creates new form GoalCounterUI
@@ -80,6 +80,7 @@ private static final String version = "DEV.0.13";
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
         RedAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Red Vortex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N

@@ -38,25 +38,25 @@ public class SettingsUI extends javax.swing.JFrame {
         jCheckBox12 = new javax.swing.JCheckBox();
         jPanel1 = new javax.swing.JPanel();
         RedCenControlSelect = new javax.swing.JComboBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        RedCenContButton = new javax.swing.JCheckBox();
+        RedCenContLeft = new javax.swing.JCheckBox();
+        RedCenContRight = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        RedCenControlSelect1 = new javax.swing.JComboBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        RedCorControlSelect = new javax.swing.JComboBox();
+        RedCorContRight = new javax.swing.JCheckBox();
+        RedCorContLeft = new javax.swing.JCheckBox();
+        RedCorContButton = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        RedCenControlSelect6 = new javax.swing.JComboBox();
-        jCheckBox19 = new javax.swing.JCheckBox();
-        jCheckBox20 = new javax.swing.JCheckBox();
-        jCheckBox21 = new javax.swing.JCheckBox();
+        BlueCenControlSelect = new javax.swing.JComboBox();
+        BlueCenContButton = new javax.swing.JCheckBox();
+        BlueCenContLeft = new javax.swing.JCheckBox();
+        BlueCenContRight = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
-        RedCenControlSelect7 = new javax.swing.JComboBox();
-        jCheckBox22 = new javax.swing.JCheckBox();
-        jCheckBox23 = new javax.swing.JCheckBox();
-        jCheckBox24 = new javax.swing.JCheckBox();
+        BlueCorControlSelect = new javax.swing.JComboBox();
+        BlueCorContRight = new javax.swing.JCheckBox();
+        BlueCorContLeft = new javax.swing.JCheckBox();
+        BlueCorContButton = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
 
         RedCenControlSelect2.setName(""); // NOI18N
@@ -107,6 +107,7 @@ public class SettingsUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(237, 28, 36));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Red Alliance"));
@@ -118,49 +119,51 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Button Pad");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        RedCenContButton.setSelected(true);
+        RedCenContButton.setText("Button Pad");
+        RedCenContButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                RedCenContButtonActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Left Trigger");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        RedCenContLeft.setText("Left Trigger");
+        RedCenContLeft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                RedCenContLeftActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("Right Trigger");
+        RedCenContRight.setText("Right Trigger");
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel1.setText("Center Vortex");
 
-        RedCenControlSelect1.setName(""); // NOI18N
-        RedCenControlSelect1.addActionListener(new java.awt.event.ActionListener() {
+        RedCorControlSelect.setName(""); // NOI18N
+        RedCorControlSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RedCenControlSelect1ActionPerformed(evt);
+                RedCorControlSelectActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("Right Trigger");
+        RedCorContRight.setText("Right Trigger");
 
-        jCheckBox6.setText("Left Trigger");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        RedCorContLeft.setText("Left Trigger");
+        RedCorContLeft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                RedCorContLeftActionPerformed(evt);
             }
         });
 
-        jCheckBox5.setSelected(true);
-        jCheckBox5.setText("Button Pad");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        RedCorContButton.setSelected(true);
+        RedCorContButton.setText("Button Pad");
+        RedCorContButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                RedCorContButtonActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel2.setText("Corner Vortex");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -178,22 +181,22 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
+                                .addComponent(RedCenContButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox2)
+                                .addComponent(RedCenContLeft)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox3))
+                                .addComponent(RedCenContRight))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
                                     .addGap(229, 229, 229))
-                                .addComponent(RedCenControlSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jCheckBox5)
+                                .addComponent(RedCorContButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox6)
+                                .addComponent(RedCorContLeft)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox4)))
+                                .addComponent(RedCorContRight)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -204,74 +207,76 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addComponent(RedCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3))
+                    .addComponent(RedCenContButton)
+                    .addComponent(RedCenContLeft)
+                    .addComponent(RedCenContRight))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCenControlSelect1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox4))
+                    .addComponent(RedCorContButton)
+                    .addComponent(RedCorContLeft)
+                    .addComponent(RedCorContRight))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 101, 179));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Blue Alliance"));
 
-        RedCenControlSelect6.setName(""); // NOI18N
-        RedCenControlSelect6.addActionListener(new java.awt.event.ActionListener() {
+        BlueCenControlSelect.setName(""); // NOI18N
+        BlueCenControlSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RedCenControlSelect6ActionPerformed(evt);
+                BlueCenControlSelectActionPerformed(evt);
             }
         });
 
-        jCheckBox19.setSelected(true);
-        jCheckBox19.setText("Button Pad");
-        jCheckBox19.addActionListener(new java.awt.event.ActionListener() {
+        BlueCenContButton.setSelected(true);
+        BlueCenContButton.setText("Button Pad");
+        BlueCenContButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox19ActionPerformed(evt);
+                BlueCenContButtonActionPerformed(evt);
             }
         });
 
-        jCheckBox20.setText("Left Trigger");
-        jCheckBox20.addActionListener(new java.awt.event.ActionListener() {
+        BlueCenContLeft.setText("Left Trigger");
+        BlueCenContLeft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox20ActionPerformed(evt);
+                BlueCenContLeftActionPerformed(evt);
             }
         });
 
-        jCheckBox21.setText("Right Trigger");
+        BlueCenContRight.setText("Right Trigger");
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel3.setText("Center Vortex");
 
-        RedCenControlSelect7.setName(""); // NOI18N
-        RedCenControlSelect7.addActionListener(new java.awt.event.ActionListener() {
+        BlueCorControlSelect.setName(""); // NOI18N
+        BlueCorControlSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RedCenControlSelect7ActionPerformed(evt);
+                BlueCorControlSelectActionPerformed(evt);
             }
         });
 
-        jCheckBox22.setText("Right Trigger");
+        BlueCorContRight.setText("Right Trigger");
 
-        jCheckBox23.setText("Left Trigger");
-        jCheckBox23.addActionListener(new java.awt.event.ActionListener() {
+        BlueCorContLeft.setText("Left Trigger");
+        BlueCorContLeft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox23ActionPerformed(evt);
+                BlueCorContLeftActionPerformed(evt);
             }
         });
 
-        jCheckBox24.setSelected(true);
-        jCheckBox24.setText("Button Pad");
-        jCheckBox24.addActionListener(new java.awt.event.ActionListener() {
+        BlueCorContButton.setSelected(true);
+        BlueCorContButton.setText("Button Pad");
+        BlueCorContButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox24ActionPerformed(evt);
+                BlueCorContButtonActionPerformed(evt);
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         jLabel4.setText("Corner Vortex");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -283,28 +288,28 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RedCenControlSelect6, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BlueCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox24)
+                                .addComponent(BlueCorContButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox23)
+                                .addComponent(BlueCorContLeft)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox22))
+                                .addComponent(BlueCorContRight))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jCheckBox19)
-                                .addGap(4, 4, 4)
-                                .addComponent(jCheckBox20)
+                                .addComponent(BlueCenContButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox21))
+                                .addComponent(BlueCenContLeft)
+                                .addGap(4, 4, 4)
+                                .addComponent(BlueCenContRight))
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addComponent(jLabel4)
                                     .addGap(229, 229, 229))
-                                .addComponent(RedCenControlSelect7, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(BlueCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -312,21 +317,21 @@ public class SettingsUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCenControlSelect6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BlueCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox19)
-                    .addComponent(jCheckBox20)
-                    .addComponent(jCheckBox21))
+                    .addComponent(BlueCenContButton)
+                    .addComponent(BlueCenContLeft)
+                    .addComponent(BlueCenContRight))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCenControlSelect7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BlueCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox24)
-                    .addComponent(jCheckBox23)
-                    .addComponent(jCheckBox22))
+                    .addComponent(BlueCorContButton)
+                    .addComponent(BlueCorContLeft)
+                    .addComponent(BlueCorContRight))
                 .addContainerGap())
         );
 
@@ -348,7 +353,7 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -358,25 +363,25 @@ public class SettingsUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RedCenControlSelectActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void RedCenContButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenContButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_RedCenContButtonActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void RedCenContLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenContLeftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_RedCenContLeftActionPerformed
 
-    private void RedCenControlSelect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelect1ActionPerformed
+    private void RedCorControlSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCorControlSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RedCenControlSelect1ActionPerformed
+    }//GEN-LAST:event_RedCorControlSelectActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void RedCorContButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCorContButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_RedCorContButtonActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void RedCorContLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCorContLeftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_RedCorContLeftActionPerformed
 
     private void RedCenControlSelect2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelect2ActionPerformed
         // TODO add your handling code here:
@@ -402,29 +407,29 @@ public class SettingsUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox12ActionPerformed
 
-    private void RedCenControlSelect6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelect6ActionPerformed
+    private void BlueCenControlSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCenControlSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RedCenControlSelect6ActionPerformed
+    }//GEN-LAST:event_BlueCenControlSelectActionPerformed
 
-    private void jCheckBox19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox19ActionPerformed
+    private void BlueCenContButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCenContButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox19ActionPerformed
+    }//GEN-LAST:event_BlueCenContButtonActionPerformed
 
-    private void jCheckBox20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox20ActionPerformed
+    private void BlueCenContLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCenContLeftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox20ActionPerformed
+    }//GEN-LAST:event_BlueCenContLeftActionPerformed
 
-    private void RedCenControlSelect7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelect7ActionPerformed
+    private void BlueCorControlSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCorControlSelectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RedCenControlSelect7ActionPerformed
+    }//GEN-LAST:event_BlueCorControlSelectActionPerformed
 
-    private void jCheckBox23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox23ActionPerformed
+    private void BlueCorContLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCorContLeftActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox23ActionPerformed
+    }//GEN-LAST:event_BlueCorContLeftActionPerformed
 
-    private void jCheckBox24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox24ActionPerformed
+    private void BlueCorContButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCorContButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox24ActionPerformed
+    }//GEN-LAST:event_BlueCorContButtonActionPerformed
 
     
 public int getSelectedControllerName(){
@@ -477,27 +482,27 @@ public int getSelectedControllerName(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox BlueCenContButton;
+    private javax.swing.JCheckBox BlueCenContLeft;
+    private javax.swing.JCheckBox BlueCenContRight;
+    private javax.swing.JComboBox BlueCenControlSelect;
+    private javax.swing.JCheckBox BlueCorContButton;
+    private javax.swing.JCheckBox BlueCorContLeft;
+    private javax.swing.JCheckBox BlueCorContRight;
+    private javax.swing.JComboBox BlueCorControlSelect;
+    private javax.swing.JCheckBox RedCenContButton;
+    private javax.swing.JCheckBox RedCenContLeft;
+    private javax.swing.JCheckBox RedCenContRight;
     private javax.swing.JComboBox RedCenControlSelect;
-    private javax.swing.JComboBox RedCenControlSelect1;
     private javax.swing.JComboBox RedCenControlSelect2;
     private javax.swing.JComboBox RedCenControlSelect3;
-    private javax.swing.JComboBox RedCenControlSelect6;
-    private javax.swing.JComboBox RedCenControlSelect7;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox RedCorContButton;
+    private javax.swing.JCheckBox RedCorContLeft;
+    private javax.swing.JCheckBox RedCorContRight;
+    private javax.swing.JComboBox RedCorControlSelect;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;
-    private javax.swing.JCheckBox jCheckBox19;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox20;
-    private javax.swing.JCheckBox jCheckBox21;
-    private javax.swing.JCheckBox jCheckBox22;
-    private javax.swing.JCheckBox jCheckBox23;
-    private javax.swing.JCheckBox jCheckBox24;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
