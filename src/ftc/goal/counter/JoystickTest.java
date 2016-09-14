@@ -32,6 +32,7 @@ public class JoystickTest {
     static public boolean PressJSRedCenAbtn = false;
     static public boolean pressLstJSRedCenBbtn = false;
     static public boolean PressJSRedCenBbtn = false;
+    static public int count = 0;
 
     final SettingsUI window;
     
@@ -58,7 +59,7 @@ public class JoystickTest {
 
         for(int i = 0; i < controllers.length; i++){
             Controller controller = controllers[i];
-            
+
             if (
                     controller.getType() == Controller.Type.STICK || 
                     controller.getType() == Controller.Type.GAMEPAD || 
@@ -70,7 +71,7 @@ public class JoystickTest {
                 foundControllers.add(controller);
                 
                 // Add new controller to the list on the window.
-                SettingsUI.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type");
+                SettingsUI.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type" +count);
             }
         }
     }

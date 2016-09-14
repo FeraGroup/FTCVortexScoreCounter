@@ -14,7 +14,7 @@ package ftc.goal.counter;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-public static final String version = "0.0.17-DEV";
+public static final String version = "0.0.20-DEV";
     
     /**
      * Creates new form GoalCounterUI
