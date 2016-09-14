@@ -70,7 +70,7 @@ public class JoystickTest {
                 foundControllers.add(controller);
                 
                 // Add new controller to the list on the window.
-                window.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type");
+                SettingsUI.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type");
             }
         }
     }
@@ -82,7 +82,7 @@ public class JoystickTest {
         while(true)
         {
             // Currently selected controller.
-            int selectedControllerIndex = window.getSelectedControllerName();
+            int selectedControllerIndex = SettingsUI.getSelectedControllerName();
             Controller controller = foundControllers.get(selectedControllerIndex);
 
             // Pull controller for current data, and break while loop if controller is disconnected.

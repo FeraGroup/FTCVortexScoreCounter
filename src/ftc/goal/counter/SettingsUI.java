@@ -432,11 +432,11 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_BlueCorContButtonActionPerformed
 
     
-public int getSelectedControllerName(){
+public static int getSelectedControllerName(){
         return RedCenControlSelect.getSelectedIndex();
     }
     
-    public void addControllerName(String controllerName){
+    public static void addControllerName(String controllerName){
         RedCenControlSelect.addItem(controllerName);
     }
     
@@ -493,7 +493,7 @@ public int getSelectedControllerName(){
     private javax.swing.JCheckBox RedCenContButton;
     private javax.swing.JCheckBox RedCenContLeft;
     private javax.swing.JCheckBox RedCenContRight;
-    private javax.swing.JComboBox RedCenControlSelect;
+    private static javax.swing.JComboBox RedCenControlSelect;
     private javax.swing.JComboBox RedCenControlSelect2;
     private javax.swing.JComboBox RedCenControlSelect3;
     private javax.swing.JCheckBox RedCorContButton;
