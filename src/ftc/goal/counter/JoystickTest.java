@@ -62,16 +62,14 @@ public class JoystickTest {
 
             if (
                     controller.getType() == Controller.Type.STICK || 
-                    controller.getType() == Controller.Type.GAMEPAD || 
-                    controller.getType() == Controller.Type.WHEEL ||
-                    controller.getType() == Controller.Type.FINGERSTICK
+                    controller.getType() == Controller.Type.GAMEPAD
                )
             {
                 // Add new controller to the list of all controllers.
                 foundControllers.add(controller);
                 
                 // Add new controller to the list on the window.
-                SettingsUI.addControllerName(controller.getName() + " - " + controller.getType().toString() + " type" +count);
+                SettingsUI.addControllerName(controller.getName() + " - " + controller.getPortNumber());
             }
         }
     }
