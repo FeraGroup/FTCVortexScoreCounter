@@ -69,7 +69,7 @@ public class JoystickTest {
                 foundControllers.add(controller);
                 
                 // Add new controller to the list on the window.
-                SettingsUI.addControllerName(controller.getName() + " - " + controller.getPortNumber());
+                SettingsUI.addControllerName(controller.getName() + " - " + controller.hashCode());
             }
         }
     }
