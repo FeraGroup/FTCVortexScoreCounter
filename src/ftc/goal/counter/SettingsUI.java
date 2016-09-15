@@ -438,6 +438,9 @@ public static int getSelectedControllerName(){
     
     public static void addControllerName(String controllerName){
         RedCenControlSelect.addItem(controllerName);
+        BlueCenControlSelect.addItem(controllerName);
+        RedCorControlSelect.addItem(controllerName);
+        BlueCorControlSelect.addItem(controllerName);
     }
     
     public void showControllerDisconnected(){
@@ -485,11 +488,11 @@ public static int getSelectedControllerName(){
     private javax.swing.JCheckBox BlueCenContButton;
     private javax.swing.JCheckBox BlueCenContLeft;
     private javax.swing.JCheckBox BlueCenContRight;
-    private javax.swing.JComboBox BlueCenControlSelect;
+    private static javax.swing.JComboBox BlueCenControlSelect;
     private javax.swing.JCheckBox BlueCorContButton;
     private javax.swing.JCheckBox BlueCorContLeft;
     private javax.swing.JCheckBox BlueCorContRight;
-    private javax.swing.JComboBox BlueCorControlSelect;
+    private static javax.swing.JComboBox BlueCorControlSelect;
     private javax.swing.JCheckBox RedCenContButton;
     private javax.swing.JCheckBox RedCenContLeft;
     private javax.swing.JCheckBox RedCenContRight;
@@ -499,7 +502,7 @@ public static int getSelectedControllerName(){
     private javax.swing.JCheckBox RedCorContButton;
     private javax.swing.JCheckBox RedCorContLeft;
     private javax.swing.JCheckBox RedCorContRight;
-    private javax.swing.JComboBox RedCorControlSelect;
+    private static javax.swing.JComboBox RedCorControlSelect;
     private javax.swing.JCheckBox jCheckBox10;
     private javax.swing.JCheckBox jCheckBox11;
     private javax.swing.JCheckBox jCheckBox12;

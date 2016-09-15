@@ -86,7 +86,7 @@ public class JoystickTest {
 
             // Pull controller for current data, and break while loop if controller is disconnected.
             if( !controller.poll() ){
-                window.showControllerDisconnected();
+               // window.showControllerDisconnected();
                // break;
             }
             
