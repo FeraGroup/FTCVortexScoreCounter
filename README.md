@@ -1,2 +1,2 @@
-# FTC-Vortex-Score-Counter-Java-master
+# FTCVortexScoreCounter
 MORE INFORMATION TO COME LATER
