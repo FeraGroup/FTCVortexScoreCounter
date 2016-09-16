@@ -432,10 +432,17 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_BlueCorContButtonActionPerformed
 
     
-public static int getSelectedControllerName(){
-        return RedCenControlSelect.getSelectedIndex();
+public static int getSelectedControllerNameRedCen(){
+    while(true){   
+    return RedCenControlSelect.getSelectedIndex();
+    }
+}
+    
+public static int getSelectedControllerNameBlueCen(){
+    return BlueCenControlSelect.getSelectedIndex();
     }
     
+
     public static void addControllerName(String controllerName){
         RedCenControlSelect.addItem(controllerName);
         BlueCenControlSelect.addItem(controllerName);

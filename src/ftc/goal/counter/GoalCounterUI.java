@@ -14,8 +14,16 @@ package ftc.goal.counter;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-public static final String version = "0.0.24-DEV";
+    public void updatevalues(){
     
+        while(true){
+    //edVortCenVar.getValue(RedCenVal) = RedCenVal;
+}
+    }
+       
+public static final String version = "0.0.25-DEV";
+    
+
     /**
      * Creates new form GoalCounterUI
      */
@@ -26,6 +34,7 @@ public static final String version = "0.0.24-DEV";
     }
     
     int RedCenVal = 0;
+    int BlueCenVal = 0;
 
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true){
@@ -44,6 +53,26 @@ public static final String version = "0.0.24-DEV";
                     JoystickTest.pressLstJSRedCenBbtn = true;
                 }  
             }
+        }
+    public void IncrsBlueCenA(){
+         if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true){
+                          BlueVortCenVar.setValue(++BlueCenVal);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                   }
+    }
+    
+        public void DcrsBlueCenB(){
+         if(JoystickTest.PressJSBlueCenBbtn==true && JoystickTest.pressLstJSBlueCenBbtn!=true){
+                if(BlueCenVal < 1){
+                    BlueCenVal = 0;   
+                }
+                else{
+                    BlueVortCenVar.setValue(--BlueCenVal);
+                    JoystickTest.pressLstJSBlueCenBbtn = true;
+                }  
+            }
+         
+         
     }
         
         
@@ -309,6 +338,11 @@ public static final String version = "0.0.24-DEV";
     /**
      * @param args the command line arguments
      */
+    
+    //public static redcencount {
+      // RedCenVal = RedVortCenVar.get;
+       
+//}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

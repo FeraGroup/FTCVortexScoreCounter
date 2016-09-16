@@ -32,6 +32,11 @@ public class JoystickTest {
     static public boolean PressJSRedCenAbtn = false;
     static public boolean pressLstJSRedCenBbtn = false;
     static public boolean PressJSRedCenBbtn = false;
+    static public boolean pressLstJSBlueCenAbtn = false;
+    static public boolean PressJSBlueCenAbtn = false;
+    static public boolean pressLstJSBlueCenBbtn = false;
+    static public boolean PressJSBlueCenBbtn = false;
+    
     static public int count = 0;
 
     final SettingsUI window;
@@ -81,11 +86,21 @@ public class JoystickTest {
         while(true)
         {
             // Currently selected controller.
-            int selectedControllerIndex = SettingsUI.getSelectedControllerName();
-            Controller controller = foundControllers.get(selectedControllerIndex);
+            int selectedControllerRedCen = SettingsUI.getSelectedControllerNameRedCen();
+            Controller controllerRedCen = foundControllers.get(selectedControllerRedCen);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
-            if( !controller.poll() ){
+            if( !controllerRedCen.poll() ){
+               // window.showControllerDisconnected();
+               // break;
+            }
+            
+            int selectedControllerBlueCen = SettingsUI.getSelectedControllerNameBlueCen();
+            Controller controllerBlueCen = foundControllers.get(selectedControllerBlueCen);
+
+            // Pull controller for current data, and break while loop if controller is disconnected.
+            
+            if( !controllerBlueCen.poll() ){
                // window.showControllerDisconnected();
                // break;
             }
@@ -95,7 +110,7 @@ public class JoystickTest {
             buttonsPanel.setBounds(6, 19, 246, 110);
                     
             // Go trough all components of the controller.
-            Component[] components = controller.getComponents();
+            Component[] components = controllerRedCen.getComponents();
             for(int i=0; i < components.length; i++)
             {
                 Component component = components[i];
@@ -139,6 +154,52 @@ public class JoystickTest {
                     GoalCounterUI.goal.DcrsRedCenB();
 
                 }
+            }
+                
+            Component[] componentsbluecen = controllerBlueCen.getComponents();
+            for(int i=0; i < componentsbluecen.length; i++)
+            {
+                Component componentbluecen = componentsbluecen[i];
+                Identifier componentIdentifierbluecen = componentbluecen.getIdentifier();
+                
+                // Buttons
+                //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
+                if(componentIdentifierbluecen.getName().matches("^[0]*$")){ // This is for Center Controller A Button
+                    // Is button pressed?
+
+                    if(componentbluecen.getPollData() != 0.0f){
+                        PressJSBlueCenAbtn = true;    
+                    }
+                    else{
+                        PressJSBlueCenAbtn = false;
+                    }
+
+                    
+                    if(PressJSBlueCenAbtn == false){
+                        pressLstJSBlueCenAbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.IncrsBlueCenA();
+                    
+                }
+                
+                if(componentIdentifierbluecen.getName().matches("^[1]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(componentbluecen.getPollData() != 0.0f){
+                        PressJSBlueCenBbtn = true;    
+                    }
+                    else{
+                        PressJSBlueCenBbtn = false;
+                    }
+                      
+                    if(PressJSBlueCenBbtn == false){
+                        pressLstJSBlueCenBbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.DcrsBlueCenB();
+
+                }
                 
             }
            
@@ -152,3 +213,4 @@ public class JoystickTest {
     }
     
 }
+
