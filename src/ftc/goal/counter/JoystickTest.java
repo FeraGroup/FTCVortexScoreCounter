@@ -36,6 +36,15 @@ public class JoystickTest {
     static public boolean PressJSBlueCenAbtn = false;
     static public boolean pressLstJSBlueCenBbtn = false;
     static public boolean PressJSBlueCenBbtn = false;
+    static public boolean pressLstJSRedCorAbtn = false;
+    static public boolean PressJSRedCorAbtn = false;
+    static public boolean pressLstJSRedCorBbtn = false;
+    static public boolean PressJSRedCorBbtn = false;
+    static public boolean pressLstJSBlueCorAbtn = false;
+    static public boolean PressJSBlueCorAbtn = false;
+    static public boolean pressLstJSBlueCorBbtn = false;
+    static public boolean PressJSBlueCorBbtn = false;
+    
     
     static public int count = 0;
 
@@ -105,9 +114,25 @@ public class JoystickTest {
                // break;
             }
             
-            // JPanel for controller buttons
-            JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 1, 1));
-            buttonsPanel.setBounds(6, 19, 246, 110);
+           int selectedControllerRedCor = SettingsUI.getSelectedControllerNameRedCor();
+            Controller controllerRedCor = foundControllers.get(selectedControllerRedCor);
+
+            // Pull controller for current data, and break while loop if controller is disconnected.
+            
+            if( !controllerRedCor.poll() ){
+               // window.showControllerDisconnected();
+               // break;
+            }
+            
+            int selectedControllerBlueCor = SettingsUI.getSelectedControllerNameBlueCor();
+            Controller controllerBlueCor = foundControllers.get(selectedControllerBlueCor);
+
+            // Pull controller for current data, and break while loop if controller is disconnected.
+            
+            if( !controllerBlueCor.poll() ){
+               // window.showControllerDisconnected();
+               // break;
+            }
                     
             // Go trough all components of the controller.
             Component[] components = controllerRedCen.getComponents();
@@ -203,6 +228,102 @@ public class JoystickTest {
                 
             }
            
+                        // Go trough all components of the controller.
+            Component[] componentsredcor = controllerRedCor.getComponents();
+            for(int i=0; i < componentsredcor.length; i++)
+            {
+                Component componentredcor = componentsredcor[i];
+                Identifier componentIdentifier = componentredcor.getIdentifier();
+                
+                // Buttons
+                //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
+                if(componentIdentifier.getName().matches("^[0]*$")){ // This is for Center Controller A Button
+                    // Is button pressed?
+
+                    if(componentredcor.getPollData() != 0.0f){
+                        PressJSRedCorAbtn = true;    
+                    }
+                    else{
+                        PressJSRedCorAbtn = false;
+                    }
+
+                    
+                    if(PressJSRedCorAbtn == false){
+                        pressLstJSRedCorAbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.IncrsRedCorA();
+                    
+                }
+                
+                if(componentIdentifier.getName().matches("^[1]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(componentredcor.getPollData() != 0.0f){
+                        PressJSRedCorBbtn = true;    
+                    }
+                    else{
+                        PressJSRedCorBbtn = false;
+                    }
+                      
+                    if(PressJSRedCorBbtn == false){
+                        pressLstJSRedCorBbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.DcrsRedCorB();
+
+                }
+            }
+                
+            Component[] componentsbluecor = controllerBlueCor.getComponents();
+            for(int i=0; i < componentsbluecor.length; i++)
+            {
+                Component componentbluecor = componentsbluecor[i];
+                Identifier componentIdentifierbluecen = componentbluecor.getIdentifier();
+                
+                // Buttons
+                //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
+                if(componentIdentifierbluecen.getName().matches("^[0]*$")){ // This is for Center Controller A Button
+                    // Is button pressed?
+
+                    if(componentbluecor.getPollData() != 0.0f){
+                        PressJSBlueCorAbtn = true;    
+                    }
+                    else{
+                        PressJSBlueCorAbtn = false;
+                    }
+
+                    
+                    if(PressJSBlueCorAbtn == false){
+                        pressLstJSBlueCorAbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.IncrsBlueCorA();
+                    
+                }
+                
+                if(componentIdentifierbluecen.getName().matches("^[1]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(componentbluecor.getPollData() != 0.0f){
+                        PressJSBlueCorBbtn = true;    
+                    }
+                    else{
+                        PressJSBlueCorBbtn = false;
+                    }
+                      
+                    if(PressJSBlueCorBbtn == false){
+                        pressLstJSBlueCorBbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.DcrsBlueCorB();
+
+                }
+                
+            }
+            
+            
+            
             // We have to give processor some rest.
             try {
                 Thread.sleep(25);

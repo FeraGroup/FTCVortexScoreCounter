@@ -442,14 +442,21 @@ public static int getSelectedControllerNameBlueCen(){
     return BlueCenControlSelect.getSelectedIndex();
     }
     
-
+public static int getSelectedControllerNameRedCor(){
+    return RedCorControlSelect.getSelectedIndex();
+    }
+    
+public static int getSelectedControllerNameBlueCor(){
+    return BlueCorControlSelect.getSelectedIndex();
+    }
+    
     public static void addControllerName(String controllerName){
         RedCenControlSelect.addItem(controllerName);
         BlueCenControlSelect.addItem(controllerName);
         RedCorControlSelect.addItem(controllerName);
         BlueCorControlSelect.addItem(controllerName);
     }
-    
+
     public void showControllerDisconnected(){
         RedCenControlSelect.removeAllItems();
         RedCenControlSelect.addItem("Controller disconnected!");

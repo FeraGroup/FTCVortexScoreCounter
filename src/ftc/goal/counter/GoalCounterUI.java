@@ -21,7 +21,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
 }
     }
        
-public static final String version = "0.0.25-DEV";
+public static final String version = "0.0.26-DEV";
     
 
     /**
@@ -35,6 +35,9 @@ public static final String version = "0.0.25-DEV";
     
     int RedCenVal = 0;
     int BlueCenVal = 0;
+    int RedCorVal = 0;
+    int BlueCorVal = 0;
+    
 
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true){
@@ -69,6 +72,45 @@ public static final String version = "0.0.25-DEV";
                 else{
                     BlueVortCenVar.setValue(--BlueCenVal);
                     JoystickTest.pressLstJSBlueCenBbtn = true;
+                }  
+            }
+         
+         
+    }
+        
+            public void IncrsRedCorA(){
+         if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true){
+                          RedVortCorVar.setValue(++RedCorVal);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                   }
+    }
+    
+        public void DcrsRedCorB(){
+         if(JoystickTest.PressJSRedCorBbtn==true && JoystickTest.pressLstJSRedCorBbtn!=true){
+                if(RedCorVal < 1){
+                    RedCenVal = 0;   
+                }
+                else{
+                    RedVortCorVar.setValue(--RedCorVal);
+                    JoystickTest.pressLstJSRedCorBbtn = true;
+                }  
+            }
+        }
+    public void IncrsBlueCorA(){
+         if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true){
+                          BlueVortCorVar.setValue(++BlueCorVal);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                   }
+    }
+    
+        public void DcrsBlueCorB(){
+         if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true){
+                if(BlueCorVal < 1){
+                    BlueCorVal = 0;   
+                }
+                else{
+                    BlueVortCorVar.setValue(--BlueCorVal);
+                    JoystickTest.pressLstJSBlueCorBbtn = true;
                 }  
             }
          
