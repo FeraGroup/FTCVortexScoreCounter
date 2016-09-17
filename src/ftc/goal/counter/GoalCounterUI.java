@@ -21,7 +21,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
 }
     }
        
-public static final String version = "0.0.26-DEV";
+public static final String version = "0.0.29-DEV";
     
 
     /**
@@ -40,14 +40,14 @@ public static final String version = "0.0.26-DEV";
     
 
     public void IncrsRedCenA(){
-         if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true){
+         if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
                           RedVortCenVar.setValue(++RedCenVal);
                           JoystickTest.pressLstJSRedCenAbtn = true;     
                    }
     }
     
         public void DcrsRedCenB(){
-         if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true){
+         if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && SettingsUI.RedCenBtn == true){
                 if(RedCenVal < 1){
                     RedCenVal = 0;   
                 }
@@ -57,15 +57,54 @@ public static final String version = "0.0.26-DEV";
                 }  
             }
         }
+        
+     public void IncrsRedCenLB(){
+         if(JoystickTest.PressJSRedCenLB==true && JoystickTest.pressLstJSRedCenLB!=true && SettingsUI.RedCenLeft==true){
+                          RedVortCenVar.setValue(++RedCenVal);
+                          JoystickTest.pressLstJSRedCenLB = true;     
+                   }
+    }
+        
+    public void DcrsRedCenLT(){
+         if(JoystickTest.PressJSRedCenLT==true && JoystickTest.pressLstJSRedCenLT!=true && SettingsUI.RedCenLeft==true){
+                if(RedCenVal < 1){
+                    RedCenVal = 0;   
+                }
+                else{
+                    RedVortCenVar.setValue(--RedCenVal);
+                    JoystickTest.pressLstJSRedCenLT = true;
+                }  
+            }
+        }
+    
+         public void IncrsRedCenRB(){
+         if(JoystickTest.PressJSRedCenRB==true && JoystickTest.pressLstJSRedCenRB!=true && SettingsUI.RedCenRight==true){
+                          RedVortCenVar.setValue(++RedCenVal);
+                          JoystickTest.pressLstJSRedCenRB = true;     
+                   }
+    }
+        
+    public void DcrsRedCenRT(){
+         if(JoystickTest.PressJSRedCenRT==true && JoystickTest.pressLstJSRedCenRT!=true && SettingsUI.RedCenRight==true){
+                if(RedCenVal < 1){
+                    RedCenVal = 0;   
+                }
+                else{
+                    RedVortCenVar.setValue(--RedCenVal);
+                    JoystickTest.pressLstJSRedCenRT = true;
+                }  
+            }
+        }
+    
     public void IncrsBlueCenA(){
-         if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true){
+         if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true && SettingsUI.BlueCenBtn == true){
                           BlueVortCenVar.setValue(++BlueCenVal);
                           JoystickTest.pressLstJSBlueCenAbtn = true;     
                    }
     }
     
         public void DcrsBlueCenB(){
-         if(JoystickTest.PressJSBlueCenBbtn==true && JoystickTest.pressLstJSBlueCenBbtn!=true){
+         if(JoystickTest.PressJSBlueCenBbtn==true && JoystickTest.pressLstJSBlueCenBbtn!=true && SettingsUI.BlueCenBtn == true){
                 if(BlueCenVal < 1){
                     BlueCenVal = 0;   
                 }
@@ -73,20 +112,57 @@ public static final String version = "0.0.26-DEV";
                     BlueVortCenVar.setValue(--BlueCenVal);
                     JoystickTest.pressLstJSBlueCenBbtn = true;
                 }  
-            }
-         
-         
+            }         
+    }
+     
+    public void IncrsBlueCenLB(){
+         if(JoystickTest.PressJSBlueCenLB==true && JoystickTest.pressLstJSBlueCenLB!=true && SettingsUI.BlueCenLeft==true){
+                          BlueVortCenVar.setValue(++BlueCenVal);
+                          JoystickTest.pressLstJSBlueCenLB = true;     
+                   }
     }
         
+    public void DcrsBlueCenLT(){
+         if(JoystickTest.PressJSBlueCenLT==true && JoystickTest.pressLstJSBlueCenLT!=true && SettingsUI.BlueCenLeft==true){
+                if(BlueCenVal < 1){
+                    BlueCenVal = 0;   
+                }
+                else{
+                    BlueVortCenVar.setValue(--BlueCenVal);
+                    JoystickTest.pressLstJSBlueCenLT = true;
+                }  
+            }
+        }
+    
+         public void IncrsBlueCenRB(){
+         if(JoystickTest.PressJSBlueCenRB==true && JoystickTest.pressLstJSBlueCenRB!=true && SettingsUI.BlueCenRight==true){
+                          BlueVortCenVar.setValue(++BlueCenVal);
+                          JoystickTest.pressLstJSBlueCenRB = true;     
+                   }
+    }
+        
+    public void DcrsBlueCenRT(){
+         if(JoystickTest.PressJSBlueCenRT==true && JoystickTest.pressLstJSBlueCenRT!=true && SettingsUI.BlueCenRight==true){
+                if(BlueCenVal < 1){
+                    BlueCenVal = 0;   
+                }
+                else{
+                    BlueVortCenVar.setValue(--BlueCenVal);
+                    JoystickTest.pressLstJSBlueCenRT = true;
+                }  
+            }
+        }
+        
+        
             public void IncrsRedCorA(){
-         if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true){
+         if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true && SettingsUI.RedCorBtn == true){
                           RedVortCorVar.setValue(++RedCorVal);
                           JoystickTest.pressLstJSRedCorAbtn = true;     
                    }
     }
     
         public void DcrsRedCorB(){
-         if(JoystickTest.PressJSRedCorBbtn==true && JoystickTest.pressLstJSRedCorBbtn!=true){
+         if(JoystickTest.PressJSRedCorBbtn==true && JoystickTest.pressLstJSRedCorBbtn!=true && SettingsUI.RedCorBtn == true){
                 if(RedCorVal < 1){
                     RedCenVal = 0;   
                 }
@@ -96,15 +172,54 @@ public static final String version = "0.0.26-DEV";
                 }  
             }
         }
+        
+             public void IncrsRedCorLB(){
+         if(JoystickTest.PressJSRedCorLB==true && JoystickTest.pressLstJSRedCorLB!=true && SettingsUI.RedCorLeft==true){
+                          RedVortCorVar.setValue(++RedCorVal);
+                          JoystickTest.pressLstJSRedCorLB = true;     
+                   }
+    }
+        
+    public void DcrsRedCorLT(){
+         if(JoystickTest.PressJSRedCorLT==true && JoystickTest.pressLstJSRedCorLT!=true && SettingsUI.RedCorLeft==true){
+                if(RedCorVal < 1){
+                    RedCorVal = 0;   
+                }
+                else{
+                    RedVortCorVar.setValue(--RedCorVal);
+                    JoystickTest.pressLstJSRedCorLT = true;
+                }  
+            }
+        }
+    
+         public void IncrsRedCorRB(){
+         if(JoystickTest.PressJSRedCorRB==true && JoystickTest.pressLstJSRedCorRB!=true && SettingsUI.RedCorRight==true){
+                          RedVortCorVar.setValue(++RedCorVal);
+                          JoystickTest.pressLstJSRedCorRB = true;     
+                   }
+    }
+        
+    public void DcrsRedCorRT(){
+         if(JoystickTest.PressJSRedCorRT==true && JoystickTest.pressLstJSRedCorRT!=true && SettingsUI.RedCorRight==true){
+                if(RedCorVal < 1){
+                    RedCorVal = 0;   
+                }
+                else{
+                    RedVortCorVar.setValue(--RedCorVal);
+                    JoystickTest.pressLstJSRedCorRT = true;
+                }  
+            }
+        }
+        
     public void IncrsBlueCorA(){
-         if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true){
+         if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true && SettingsUI.BlueCorBtn == true){
                           BlueVortCorVar.setValue(++BlueCorVal);
                           JoystickTest.pressLstJSBlueCorAbtn = true;     
                    }
     }
     
         public void DcrsBlueCorB(){
-         if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true){
+         if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true && SettingsUI.BlueCorBtn == true){
                 if(BlueCorVal < 1){
                     BlueCorVal = 0;   
                 }
@@ -112,10 +227,45 @@ public static final String version = "0.0.26-DEV";
                     BlueVortCorVar.setValue(--BlueCorVal);
                     JoystickTest.pressLstJSBlueCorBbtn = true;
                 }  
-            }
-         
-         
+            }     
     }
+        public void IncrsBlueCorLB(){
+         if(JoystickTest.PressJSBlueCorLB==true && JoystickTest.pressLstJSBlueCorLB!=true && SettingsUI.BlueCorLeft==true){
+                          BlueVortCorVar.setValue(++BlueCorVal);
+                          JoystickTest.pressLstJSBlueCorLB = true;     
+                   }
+    }
+        
+    public void DcrsBlueCorLT(){
+         if(JoystickTest.PressJSBlueCorLT==true && JoystickTest.pressLstJSBlueCorLT!=true && SettingsUI.BlueCorLeft==true){
+                if(BlueCorVal < 1){
+                    BlueCorVal = 0;   
+                }
+                else{
+                    BlueVortCorVar.setValue(--BlueCorVal);
+                    JoystickTest.pressLstJSBlueCorLT = true;
+                }  
+            }
+        }
+    
+         public void IncrsBlueCorRB(){
+         if(JoystickTest.PressJSBlueCorRB==true && JoystickTest.pressLstJSBlueCorRB!=true && SettingsUI.BlueCorRight==true){
+                          BlueVortCorVar.setValue(++BlueCorVal);
+                          JoystickTest.pressLstJSBlueCorRB = true;     
+                   }
+    }
+        
+    public void DcrsBlueCorRT(){
+         if(JoystickTest.PressJSBlueCorRT==true && JoystickTest.pressLstJSBlueCorRT!=true && SettingsUI.BlueCorRight==true){
+                if(BlueCorVal < 1){
+                    BlueCorVal = 0;   
+                }
+                else{
+                    BlueVortCorVar.setValue(--BlueCorVal);
+                    JoystickTest.pressLstJSBlueCorRT = true;
+                }  
+            }
+        }
         
         
 
@@ -359,6 +509,9 @@ public static final String version = "0.0.26-DEV";
             BlueVortCenVar.setValue(0);
             BlueVortCorVar.setValue(0);
             RedCenVal = 0;
+            RedCorVal = 0;
+            BlueCenVal = 0;
+            BlueCorVal = 0;
             //RedVortCorVar.setValue(0);
             //BlueVortCenVar.setValue(0);
             //BlueVortCorVar.setValue(0);
