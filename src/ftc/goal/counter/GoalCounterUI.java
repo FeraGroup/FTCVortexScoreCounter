@@ -14,6 +14,9 @@ package ftc.goal.counter;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
+    boolean AutoState = true;
+    boolean TeleState = false;
+    
     public void updatevalues(){
     
         while(true){
@@ -21,7 +24,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
 }
     }
        
-public static final String version = "0.0.29-DEV";
+public static final String version = "0.0.32-DEV";
     
 
     /**
@@ -33,237 +36,445 @@ public static final String version = "0.0.29-DEV";
 
     }
     
-    int RedCenVal = 0;
-    int BlueCenVal = 0;
-    int RedCorVal = 0;
-    int BlueCorVal = 0;
+    int RedCenAuto = 0;
+    int BlueCenAuto = 0;
+    int RedCorAuto = 0;
+    int BlueCorAuto = 0;
+    int RedCenTele = 0;
+    int BlueCenTele = 0;
+    int RedCorTele = 0;
+    int BlueCorTele = 0;
     
 
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
-                          RedVortCenVar.setValue(++RedCenVal);
+                if(AutoState == true){
+                          RedCenAutoSpin.setValue(++RedCenAuto);
                           JoystickTest.pressLstJSRedCenAbtn = true;     
-                   }
+                }
+                if(TeleState == true){
+                          RedCenTeleSpin.setValue(++RedCenTele);
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                }
+                }
     }
     
         public void DcrsRedCenB(){
          if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && SettingsUI.RedCenBtn == true){
-                if(RedCenVal < 1){
-                    RedCenVal = 0;   
+            if(AutoState == true){
+                if(RedCenAuto < 1){
+                    RedCenAuto = 0;   
                 }
                 else{
-                    RedVortCenVar.setValue(--RedCenVal);
-                    JoystickTest.pressLstJSRedCenBbtn = true;
+                    RedCenAutoSpin.setValue(--RedCenAuto);
+                    JoystickTest.pressLstJSRedCenLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(RedCenTele < 1){
+                    RedCenTele = 0;   
+                }
+                else{
+                    RedCenTeleSpin.setValue(--RedCenTele);
+                    JoystickTest.pressLstJSRedCenLT = true;
+                }  
+            }  
             }
         }
         
      public void IncrsRedCenLB(){
          if(JoystickTest.PressJSRedCenLB==true && JoystickTest.pressLstJSRedCenLB!=true && SettingsUI.RedCenLeft==true){
-                          RedVortCenVar.setValue(++RedCenVal);
-                          JoystickTest.pressLstJSRedCenLB = true;     
+                if(AutoState == true){
+                          RedCenAutoSpin.setValue(++RedCenAuto);
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                }
+                if(TeleState == true){
+                          RedCenTeleSpin.setValue(++RedCenTele);
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                }     
                    }
     }
         
     public void DcrsRedCenLT(){
          if(JoystickTest.PressJSRedCenLT==true && JoystickTest.pressLstJSRedCenLT!=true && SettingsUI.RedCenLeft==true){
-                if(RedCenVal < 1){
-                    RedCenVal = 0;   
+            if(AutoState == true){
+                if(RedCenAuto < 1){
+                    RedCenAuto = 0;   
                 }
                 else{
-                    RedVortCenVar.setValue(--RedCenVal);
+                    RedCenAutoSpin.setValue(--RedCenAuto);
+                    JoystickTest.pressLstJSRedCenLT = true;
+                }  
+            }
+            if(TeleState == true){
+                if(RedCenTele < 1){
+                    RedCenTele = 0;   
+                }
+                else{
+                    RedCenTeleSpin.setValue(--RedCenTele);
                     JoystickTest.pressLstJSRedCenLT = true;
                 }  
             }
         }
+         
+    }
     
          public void IncrsRedCenRB(){
          if(JoystickTest.PressJSRedCenRB==true && JoystickTest.pressLstJSRedCenRB!=true && SettingsUI.RedCenRight==true){
-                          RedVortCenVar.setValue(++RedCenVal);
-                          JoystickTest.pressLstJSRedCenRB = true;     
-                   }
+                if(AutoState == true){
+                          RedCenAutoSpin.setValue(++RedCenAuto);
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                }
+                if(TeleState == true){
+                          RedCenTeleSpin.setValue(++RedCenTele);
+                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                }
     }
+         }
         
     public void DcrsRedCenRT(){
          if(JoystickTest.PressJSRedCenRT==true && JoystickTest.pressLstJSRedCenRT!=true && SettingsUI.RedCenRight==true){
-                if(RedCenVal < 1){
-                    RedCenVal = 0;   
+            if(AutoState == true){
+                if(RedCenAuto < 1){
+                    RedCenAuto = 0;   
                 }
                 else{
-                    RedVortCenVar.setValue(--RedCenVal);
-                    JoystickTest.pressLstJSRedCenRT = true;
+                    RedCenAutoSpin.setValue(--RedCenAuto);
+                    JoystickTest.pressLstJSRedCenLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(RedCenTele < 1){
+                    RedCenTele = 0;   
+                }
+                else{
+                    RedCenTeleSpin.setValue(--RedCenTele);
+                    JoystickTest.pressLstJSRedCenLT = true;
+                }  
+            } 
             }
         }
     
     public void IncrsBlueCenA(){
          if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true && SettingsUI.BlueCenBtn == true){
-                          BlueVortCenVar.setValue(++BlueCenVal);
+                if(AutoState == true){
+                          BlueCenAutoSpin.setValue(++BlueCenAuto);
                           JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCenTeleSpin.setValue(++BlueCenTele);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }   
                    }
     }
     
         public void DcrsBlueCenB(){
          if(JoystickTest.PressJSBlueCenBbtn==true && JoystickTest.pressLstJSBlueCenBbtn!=true && SettingsUI.BlueCenBtn == true){
-                if(BlueCenVal < 1){
-                    BlueCenVal = 0;   
+            if(AutoState == true){
+                if(BlueCenAuto < 1){
+                    BlueCenAuto = 0;   
                 }
                 else{
-                    BlueVortCenVar.setValue(--BlueCenVal);
-                    JoystickTest.pressLstJSBlueCenBbtn = true;
+                    BlueCenAutoSpin.setValue(--BlueCenAuto);
+                    JoystickTest.pressLstJSBlueCenLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(BlueCenTele < 1){
+                    BlueCenTele = 0;   
+                }
+                else{
+                    BlueCenTeleSpin.setValue(--BlueCenTele);
+                    JoystickTest.pressLstJSBlueCenLT = true;
+                } 
             }         
     }
+        }
      
     public void IncrsBlueCenLB(){
          if(JoystickTest.PressJSBlueCenLB==true && JoystickTest.pressLstJSBlueCenLB!=true && SettingsUI.BlueCenLeft==true){
-                          BlueVortCenVar.setValue(++BlueCenVal);
-                          JoystickTest.pressLstJSBlueCenLB = true;     
+                if(AutoState == true){
+                          BlueCenAutoSpin.setValue(++BlueCenAuto);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCenTeleSpin.setValue(++BlueCenTele);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }      
                    }
     }
         
     public void DcrsBlueCenLT(){
          if(JoystickTest.PressJSBlueCenLT==true && JoystickTest.pressLstJSBlueCenLT!=true && SettingsUI.BlueCenLeft==true){
-                if(BlueCenVal < 1){
-                    BlueCenVal = 0;   
+            if(AutoState == true){
+                if(BlueCenAuto < 1){
+                    BlueCenAuto = 0;   
                 }
                 else{
-                    BlueVortCenVar.setValue(--BlueCenVal);
+                    BlueCenAutoSpin.setValue(--BlueCenAuto);
+                    JoystickTest.pressLstJSBlueCenLT = true;
+                }  
+            }
+            if(TeleState == true){
+                if(BlueCenTele < 1){
+                    BlueCenTele = 0;   
+                }
+                else{
+                    BlueCenTeleSpin.setValue(--BlueCenTele);
                     JoystickTest.pressLstJSBlueCenLT = true;
                 }  
             }
         }
+    }
     
          public void IncrsBlueCenRB(){
          if(JoystickTest.PressJSBlueCenRB==true && JoystickTest.pressLstJSBlueCenRB!=true && SettingsUI.BlueCenRight==true){
-                          BlueVortCenVar.setValue(++BlueCenVal);
-                          JoystickTest.pressLstJSBlueCenRB = true;     
+                if(AutoState == true){
+                          BlueCenAutoSpin.setValue(++BlueCenAuto);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCenTeleSpin.setValue(++BlueCenTele);
+                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                }      
                    }
     }
         
     public void DcrsBlueCenRT(){
          if(JoystickTest.PressJSBlueCenRT==true && JoystickTest.pressLstJSBlueCenRT!=true && SettingsUI.BlueCenRight==true){
-                if(BlueCenVal < 1){
-                    BlueCenVal = 0;   
+            if(AutoState == true){
+                if(BlueCenAuto < 1){
+                    BlueCenAuto = 0;   
                 }
                 else{
-                    BlueVortCenVar.setValue(--BlueCenVal);
-                    JoystickTest.pressLstJSBlueCenRT = true;
+                    BlueCenAutoSpin.setValue(--BlueCenAuto);
+                    JoystickTest.pressLstJSBlueCenLT = true;
+                }  
+            }
+            if(TeleState == true){
+                if(BlueCenTele < 1){
+                    BlueCenTele = 0;   
+                }
+                else{
+                    BlueCenTeleSpin.setValue(--BlueCenTele);
+                    JoystickTest.pressLstJSBlueCenLT = true;
                 }  
             }
         }
-        
+    }
         
             public void IncrsRedCorA(){
          if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true && SettingsUI.RedCorBtn == true){
-                          RedVortCorVar.setValue(++RedCorVal);
+                if(AutoState == true){
+                          RedCorAutoSpin.setValue(++RedCorAuto);
                           JoystickTest.pressLstJSRedCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          RedCorTeleSpin.setValue(++RedCorTele);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                }       
                    }
     }
     
         public void DcrsRedCorB(){
          if(JoystickTest.PressJSRedCorBbtn==true && JoystickTest.pressLstJSRedCorBbtn!=true && SettingsUI.RedCorBtn == true){
-                if(RedCorVal < 1){
-                    RedCenVal = 0;   
+            if(AutoState == true){
+                if(RedCorAuto < 1){
+                    RedCorAuto = 0;   
                 }
                 else{
-                    RedVortCorVar.setValue(--RedCorVal);
-                    JoystickTest.pressLstJSRedCorBbtn = true;
+                    RedCorAutoSpin.setValue(--RedCorAuto);
+                    JoystickTest.pressLstJSRedCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(RedCorTele < 1){
+                    RedCorTele = 0;   
+                }
+                else{
+                    RedCenTeleSpin.setValue(--RedCorTele);
+                    JoystickTest.pressLstJSRedCorLT = true;
+                }  
+            }    
             }
         }
         
              public void IncrsRedCorLB(){
          if(JoystickTest.PressJSRedCorLB==true && JoystickTest.pressLstJSRedCorLB!=true && SettingsUI.RedCorLeft==true){
-                          RedVortCorVar.setValue(++RedCorVal);
-                          JoystickTest.pressLstJSRedCorLB = true;     
+                if(AutoState == true){
+                          RedCorAutoSpin.setValue(++RedCorAuto);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          RedCorTeleSpin.setValue(++RedCorTele);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                }   
                    }
     }
         
     public void DcrsRedCorLT(){
          if(JoystickTest.PressJSRedCorLT==true && JoystickTest.pressLstJSRedCorLT!=true && SettingsUI.RedCorLeft==true){
-                if(RedCorVal < 1){
-                    RedCorVal = 0;   
+            if(AutoState == true){
+                if(RedCorAuto < 1){
+                    RedCorAuto = 0;   
                 }
                 else{
-                    RedVortCorVar.setValue(--RedCorVal);
+                    RedCorAutoSpin.setValue(--RedCorAuto);
                     JoystickTest.pressLstJSRedCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(RedCorTele < 1){
+                    RedCorTele = 0;   
+                }
+                else{
+                    RedCorTeleSpin.setValue(--RedCorTele);
+                    JoystickTest.pressLstJSRedCorLT = true;
+                }  
+            }   
             }
         }
     
          public void IncrsRedCorRB(){
          if(JoystickTest.PressJSRedCorRB==true && JoystickTest.pressLstJSRedCorRB!=true && SettingsUI.RedCorRight==true){
-                          RedVortCorVar.setValue(++RedCorVal);
-                          JoystickTest.pressLstJSRedCorRB = true;     
+                if(AutoState == true){
+                          RedCorAutoSpin.setValue(++RedCorAuto);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          RedCorTeleSpin.setValue(++RedCorTele);
+                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                }  
                    }
     }
         
     public void DcrsRedCorRT(){
          if(JoystickTest.PressJSRedCorRT==true && JoystickTest.pressLstJSRedCorRT!=true && SettingsUI.RedCorRight==true){
-                if(RedCorVal < 1){
-                    RedCorVal = 0;   
+            if(AutoState == true){
+                if(RedCorAuto < 1){
+                    RedCorAuto = 0;   
                 }
                 else{
-                    RedVortCorVar.setValue(--RedCorVal);
-                    JoystickTest.pressLstJSRedCorRT = true;
+                    RedCorAutoSpin.setValue(--RedCorAuto);
+                    JoystickTest.pressLstJSRedCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(RedCorTele < 1){
+                    RedCorTele = 0;   
+                }
+                else{
+                    RedCorTeleSpin.setValue(--RedCorTele);
+                    JoystickTest.pressLstJSRedCorLT = true;
+                }  
+            }    
             }
         }
         
     public void IncrsBlueCorA(){
          if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true && SettingsUI.BlueCorBtn == true){
-                          BlueVortCorVar.setValue(++BlueCorVal);
+                if(AutoState == true){
+                          BlueCorAutoSpin.setValue(++BlueCorAuto);
                           JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCorTeleSpin.setValue(++BlueCorTele);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }    
                    }
     }
     
         public void DcrsBlueCorB(){
          if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true && SettingsUI.BlueCorBtn == true){
-                if(BlueCorVal < 1){
-                    BlueCorVal = 0;   
+            if(AutoState == true){
+                if(BlueCorAuto < 1){
+                    BlueCorAuto = 0;   
                 }
                 else{
-                    BlueVortCorVar.setValue(--BlueCorVal);
-                    JoystickTest.pressLstJSBlueCorBbtn = true;
+                    BlueCorAutoSpin.setValue(--BlueCorAuto);
+                    JoystickTest.pressLstJSBlueCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(BlueCorTele < 1){
+                    BlueCorTele = 0;   
+                }
+                else{
+                    BlueCorTeleSpin.setValue(--BlueCorTele);
+                    JoystickTest.pressLstJSBlueCorLT = true;
+                } 
+            }  
             }     
     }
         public void IncrsBlueCorLB(){
          if(JoystickTest.PressJSBlueCorLB==true && JoystickTest.pressLstJSBlueCorLB!=true && SettingsUI.BlueCorLeft==true){
-                          BlueVortCorVar.setValue(++BlueCorVal);
-                          JoystickTest.pressLstJSBlueCorLB = true;     
+                if(AutoState == true){
+                          BlueCorAutoSpin.setValue(++BlueCorAuto);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCorTeleSpin.setValue(++BlueCorTele);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }    
                    }
     }
         
     public void DcrsBlueCorLT(){
          if(JoystickTest.PressJSBlueCorLT==true && JoystickTest.pressLstJSBlueCorLT!=true && SettingsUI.BlueCorLeft==true){
-                if(BlueCorVal < 1){
-                    BlueCorVal = 0;   
+            if(AutoState == true){
+                if(BlueCorAuto < 1){
+                    BlueCorAuto = 0;   
                 }
                 else{
-                    BlueVortCorVar.setValue(--BlueCorVal);
+                    BlueCorAutoSpin.setValue(--BlueCorAuto);
                     JoystickTest.pressLstJSBlueCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(BlueCorTele < 1){
+                    BlueCorTele = 0;   
+                }
+                else{
+                    BlueCorTeleSpin.setValue(--BlueCorTele);
+                    JoystickTest.pressLstJSBlueCorLT = true;
+                } 
+            }  
             }
         }
     
          public void IncrsBlueCorRB(){
          if(JoystickTest.PressJSBlueCorRB==true && JoystickTest.pressLstJSBlueCorRB!=true && SettingsUI.BlueCorRight==true){
-                          BlueVortCorVar.setValue(++BlueCorVal);
-                          JoystickTest.pressLstJSBlueCorRB = true;     
+                if(AutoState == true){
+                          BlueCorAutoSpin.setValue(++BlueCorAuto);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }
+                if(TeleState == true){
+                          BlueCorTeleSpin.setValue(++BlueCorTele);
+                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                }    
                    }
     }
         
     public void DcrsBlueCorRT(){
          if(JoystickTest.PressJSBlueCorRT==true && JoystickTest.pressLstJSBlueCorRT!=true && SettingsUI.BlueCorRight==true){
-                if(BlueCorVal < 1){
-                    BlueCorVal = 0;   
+            if(AutoState == true){
+                if(BlueCorAuto < 1){
+                    BlueCorAuto = 0;   
                 }
                 else{
-                    BlueVortCorVar.setValue(--BlueCorVal);
-                    JoystickTest.pressLstJSBlueCorRT = true;
+                    BlueCorAutoSpin.setValue(--BlueCorAuto);
+                    JoystickTest.pressLstJSBlueCorLT = true;
                 }  
+            }
+            if(TeleState == true){
+                if(BlueCorTele < 1){
+                    BlueCorTele = 0;   
+                }
+                else{
+                    BlueCorTeleSpin.setValue(--BlueCorTele);
+                    JoystickTest.pressLstJSBlueCorLT = true;
+                } 
+            }
             }
         }
         
@@ -280,8 +491,8 @@ public static final String version = "0.0.29-DEV";
 
         ModeSelect = new javax.swing.ButtonGroup();
         RedAlliance = new javax.swing.JPanel();
-        RedVortCenVar = new javax.swing.JSpinner();
-        RedVortCorVar = new javax.swing.JSpinner();
+        RedCenAutoSpin = new javax.swing.JSpinner();
+        RedCorAutoSpin = new javax.swing.JSpinner();
         RedVortCenLabel = new javax.swing.JLabel();
         RedVortCorLabel = new javax.swing.JLabel();
         RedCenAutoLabel = new javax.swing.JLabel();
@@ -291,9 +502,9 @@ public static final String version = "0.0.29-DEV";
         RedCorTeleLabel = new javax.swing.JLabel();
         RedCorTeleSpin = new javax.swing.JSpinner();
         BlueAlliance = new javax.swing.JPanel();
-        BlueVortCorVar = new javax.swing.JSpinner();
+        BlueCorAutoSpin = new javax.swing.JSpinner();
         BlueVortCenLabel = new javax.swing.JLabel();
-        BlueVortCenVar = new javax.swing.JSpinner();
+        BlueCenAutoSpin = new javax.swing.JSpinner();
         BlueVortCorLabel = new javax.swing.JLabel();
         BlueCorAutoLabel = new javax.swing.JLabel();
         BlueCorTeleLabel = new javax.swing.JLabel();
@@ -323,10 +534,10 @@ public static final String version = "0.0.29-DEV";
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
         RedAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Red Vortex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        RedVortCenVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        RedVortCenVar.setName("redvorcencount"); // NOI18N
+        RedCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        RedCenAutoSpin.setName("redvorcencount"); // NOI18N
 
-        RedVortCorVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        RedCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         RedVortCenLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         RedVortCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -359,7 +570,7 @@ public static final String version = "0.0.29-DEV";
                 .addGap(1, 1, 1)
                 .addComponent(RedCenAutoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedVortCenVar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RedCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCenTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -369,7 +580,7 @@ public static final String version = "0.0.29-DEV";
             .addGroup(RedAllianceLayout.createSequentialGroup()
                 .addComponent(RedCorAutoeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedVortCorVar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCorTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -383,7 +594,7 @@ public static final String version = "0.0.29-DEV";
                 .addComponent(RedVortCenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RedVortCenVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RedCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RedCenAutoLabel)
                     .addComponent(RedCenTeleLabel)
                     .addComponent(RedCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -395,25 +606,25 @@ public static final String version = "0.0.29-DEV";
                     .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RedCorTeleLabel)
                         .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RedVortCorVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        RedVortCenVar.getAccessibleContext().setAccessibleName("redvorcencount");
-        RedVortCenVar.getAccessibleContext().setAccessibleDescription("");
-        RedVortCorVar.getAccessibleContext().setAccessibleName("RedCorVor");
-        RedVortCorVar.getAccessibleContext().setAccessibleDescription("");
+        RedCenAutoSpin.getAccessibleContext().setAccessibleName("redvorcencount");
+        RedCenAutoSpin.getAccessibleContext().setAccessibleDescription("");
+        RedCorAutoSpin.getAccessibleContext().setAccessibleName("RedCorVor");
+        RedCorAutoSpin.getAccessibleContext().setAccessibleDescription("");
 
         BlueAlliance.setBackground(new java.awt.Color(0, 101, 179));
         BlueAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Blue Votex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        BlueVortCorVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        BlueCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         BlueVortCenLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         BlueVortCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueVortCenLabel.setText("Center Vortex");
 
-        BlueVortCenVar.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        BlueCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         BlueVortCorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         BlueVortCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -439,7 +650,7 @@ public static final String version = "0.0.29-DEV";
                 .addGap(2, 2, 2)
                 .addComponent(BlueCorAutoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BlueVortCenVar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BlueCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCorTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -450,7 +661,7 @@ public static final String version = "0.0.29-DEV";
             .addGroup(BlueAllianceLayout.createSequentialGroup()
                 .addComponent(BlueCenAutoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BlueVortCorVar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCenTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -464,7 +675,7 @@ public static final String version = "0.0.29-DEV";
                 .addComponent(BlueVortCenLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BlueVortCenVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlueCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueCorAutoLabel)
                     .addComponent(BlueCorTeleLabel)
                     .addComponent(BlueCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -473,7 +684,7 @@ public static final String version = "0.0.29-DEV";
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BlueCenAutoLabel)
-                    .addComponent(BlueVortCorVar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(BlueCenTeleLabel)
                         .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -535,6 +746,11 @@ public static final String version = "0.0.29-DEV";
         });
 
         Teleop.setText("Teleop");
+        Teleop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TeleopActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -608,14 +824,18 @@ public static final String version = "0.0.29-DEV";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-            RedVortCenVar.setValue(0);
-            RedVortCorVar.setValue(0);
-            BlueVortCenVar.setValue(0);
-            BlueVortCorVar.setValue(0);
-            RedCenVal = 0;
-            RedCorVal = 0;
-            BlueCenVal = 0;
-            BlueCorVal = 0;
+            RedCenAutoSpin.setValue(0);
+            RedCorAutoSpin.setValue(0);
+            BlueCenAutoSpin.setValue(0);
+            BlueCorAutoSpin.setValue(0);
+            RedCenAuto = 0;
+            RedCorAuto = 0;
+            BlueCenAuto = 0;
+            BlueCorAuto = 0;
+            RedCenTele = 0;
+            RedCorTele = 0;
+            BlueCenTele = 0;
+            BlueCorTele = 0;
             //RedVortCorVar.setValue(0);
             //BlueVortCenVar.setValue(0);
             //BlueVortCorVar.setValue(0);
@@ -634,8 +854,26 @@ public static final String version = "0.0.29-DEV";
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoActionPerformed
-        // TODO add your handling code here:
+      if(Auto.isSelected()){
+         AutoState = true;
+         TeleState = false;
+                 }
+        else{
+         AutoState = false;
+         TeleState = true;
+     } 
     }//GEN-LAST:event_AutoActionPerformed
+
+    private void TeleopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeleopActionPerformed
+      if(Teleop.isSelected()){
+         TeleState = true;
+         AutoState = false;
+                 }
+        else{
+         TeleState = false;
+         AutoState = true;
+     } 
+    }//GEN-LAST:event_TeleopActionPerformed
 
     public static GoalCounterUI goal;
     /**
@@ -697,29 +935,29 @@ public static final String version = "0.0.29-DEV";
     private javax.swing.JRadioButton Auto;
     private javax.swing.JPanel BlueAlliance;
     private javax.swing.JLabel BlueCenAutoLabel;
+    private javax.swing.JSpinner BlueCenAutoSpin;
     private javax.swing.JLabel BlueCenTeleLabel;
     private javax.swing.JSpinner BlueCenTeleSpin;
     private javax.swing.JLabel BlueCorAutoLabel;
+    private javax.swing.JSpinner BlueCorAutoSpin;
     private javax.swing.JLabel BlueCorTeleLabel;
     private javax.swing.JSpinner BlueCorTeleSpin;
     private javax.swing.JLabel BlueVortCenLabel;
-    private javax.swing.JSpinner BlueVortCenVar;
     private javax.swing.JLabel BlueVortCorLabel;
-    private javax.swing.JSpinner BlueVortCorVar;
     private javax.swing.JLabel FTCLogoSmall;
     private javax.swing.JLabel HeaderLabel;
     private javax.swing.ButtonGroup ModeSelect;
     private javax.swing.JPanel RedAlliance;
     private javax.swing.JLabel RedCenAutoLabel;
+    private javax.swing.JSpinner RedCenAutoSpin;
     private javax.swing.JLabel RedCenTeleLabel;
     private javax.swing.JSpinner RedCenTeleSpin;
+    private javax.swing.JSpinner RedCorAutoSpin;
     private javax.swing.JLabel RedCorAutoeLabel;
     private javax.swing.JLabel RedCorTeleLabel;
     private javax.swing.JSpinner RedCorTeleSpin;
     private javax.swing.JLabel RedVortCenLabel;
-    private javax.swing.JSpinner RedVortCenVar;
     private javax.swing.JLabel RedVortCorLabel;
-    private javax.swing.JSpinner RedVortCorVar;
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton SettingButton;
     private javax.swing.JRadioButton Teleop;

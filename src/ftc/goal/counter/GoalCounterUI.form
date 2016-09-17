@@ -145,7 +145,7 @@
                   <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                   <Component id="RedCenAutoLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="RedVortCenVar" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="RedCenAutoSpin" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="RedCenTeleLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="RedCorAutoeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="RedVortCorVar" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="RedCorAutoSpin" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="RedCorTeleLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -172,7 +172,7 @@
                   <Component id="RedVortCenLabel" min="-2" pref="15" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RedVortCenVar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="RedCenAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RedCenAutoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RedCenTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RedCenTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -185,7 +185,7 @@
                       <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                           <Component id="RedCorTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RedCorTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RedVortCorVar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RedCorAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -194,7 +194,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JSpinner" name="RedVortCenVar">
+        <Component class="javax.swing.JSpinner" name="RedCenAutoSpin">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -209,7 +209,7 @@
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="GoalCounterUI_RedVortCenVar"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JSpinner" name="RedVortCorVar">
+        <Component class="javax.swing.JSpinner" name="RedCorAutoSpin">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -303,7 +303,7 @@
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Component id="BlueCorAutoLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BlueVortCenVar" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="BlueCenAutoSpin" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BlueCorTeleLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -315,7 +315,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="BlueCenAutoLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="BlueVortCorVar" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="BlueCorAutoSpin" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BlueCenTeleLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -331,7 +331,7 @@
                   <Component id="BlueVortCenLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BlueVortCenVar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BlueCenAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BlueCorAutoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BlueCorTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BlueCenTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -341,7 +341,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="BlueCenAutoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BlueVortCorVar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="BlueCorAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="3" groupAlignment="3" attributes="0">
                           <Component id="BlueCenTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="BlueCorTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -353,7 +353,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JSpinner" name="BlueVortCorVar">
+        <Component class="javax.swing.JSpinner" name="BlueCorAutoSpin">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -369,7 +369,7 @@
             <Property name="text" type="java.lang.String" value="Center Vortex"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="BlueVortCenVar">
+        <Component class="javax.swing.JSpinner" name="BlueCenAutoSpin">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
@@ -514,6 +514,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Teleop"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TeleopActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
