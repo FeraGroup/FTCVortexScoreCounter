@@ -1,4 +1,4 @@
-# FTCVortexScoreCounter
+# FIRST Tech Challenge Vortex Score Counter
 ##### The instructions on how to use the Vortex Counter is in the [Wiki](https://github.com/FeraGroup/FTCVortexScoreCounter/wiki) - Comming Soon
 ##### The Vortex Program can be Downloaded Here - Comming Soon 
 
