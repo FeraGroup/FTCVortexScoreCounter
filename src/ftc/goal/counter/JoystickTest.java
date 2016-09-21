@@ -391,11 +391,11 @@ public class JoystickTest {
             for(int i=0; i < componentsredcor.length; i++)
             {
                 Component componentredcor = componentsredcor[i];
-                Identifier componentIdentifier = componentredcor.getIdentifier();
+                Identifier componentIdentifierredcor = componentredcor.getIdentifier();
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
-                if(componentIdentifier.getName().matches("^[0]*$")){ // This is for Center Controller A Button
+                if(componentIdentifierredcor.getName().matches("^[0]*$")){ // This is for Center Controller A Button
                     // Is button pressed?
 
                     if(componentredcor.getPollData() != 0.0f){
@@ -414,7 +414,7 @@ public class JoystickTest {
                     
                 }
                 
-                if(componentIdentifier.getName().matches("^[1]*$")){ // This is for Center Controller B Button
+                if(componentIdentifierredcor.getName().matches("^[1]*$")){ // This is for Center Controller B Button
                     // Is button pressed?
                     
                     if(componentredcor.getPollData() != 0.0f){
@@ -432,7 +432,7 @@ public class JoystickTest {
 
                 }
                 
-                                if(componentIdentifier.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
+                                if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
                     if(componentredcor.getPollData() != 0.0f){
@@ -451,7 +451,7 @@ public class JoystickTest {
                     
                 }
                 
-                if(componentIdentifier.getName().matches("^[5]*$")){ // This is for Center Controller RB Button
+                if(componentIdentifierredcor.getName().matches("^[5]*$")){ // This is for Center Controller RB Button
                     // Is button pressed?
 
                     if(componentredcor.getPollData() != 0.0f){
@@ -470,7 +470,7 @@ public class JoystickTest {
                     
                 }
 
-                if(componentIdentifier == Component.Identifier.Axis.Z){
+                if(componentIdentifierredcor == Component.Identifier.Axis.Z){
                     if(componentredcor.getPollData() <= -0.75){
                         PressJSRedCorRT = true;    
                     }
@@ -484,7 +484,7 @@ public class JoystickTest {
                     GoalCounterUI.goal.DcrsRedCorRT();
                     }
                 
-                if(componentIdentifier == Component.Identifier.Axis.Z){
+                if(componentIdentifierredcor == Component.Identifier.Axis.Z){
                     if(componentredcor.getPollData() <= 0.75){
                         PressJSRedCorLT = true;    
                     }

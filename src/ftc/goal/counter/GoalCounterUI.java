@@ -16,15 +16,16 @@ public class GoalCounterUI extends javax.swing.JFrame {
 
     boolean AutoState = true;
     boolean TeleState = false;
+    int RedCenAuto = 0;
+    int BlueCenAuto = 0;
+    int RedCorAuto = 0;
+    int BlueCorAuto = 0;
+    int RedCenTele = 0;
+    int BlueCenTele = 0;
+    int RedCorTele = 0;
+    int BlueCorTele = 0;
     
-    public void updatevalues(){
-    
-        while(true){
-    //edVortCenVar.getValue(RedCenVal) = RedCenVal;
-}
-    }
-       
-public static final String version = "0.0.32-DEV";
+public static final String version = "0.0.35-DEV";
     
 
     /**
@@ -36,16 +37,6 @@ public static final String version = "0.0.32-DEV";
 
     }
     
-    int RedCenAuto = 0;
-    int BlueCenAuto = 0;
-    int RedCorAuto = 0;
-    int BlueCorAuto = 0;
-    int RedCenTele = 0;
-    int BlueCenTele = 0;
-    int RedCorTele = 0;
-    int BlueCorTele = 0;
-    
-
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
                 if(AutoState == true){
