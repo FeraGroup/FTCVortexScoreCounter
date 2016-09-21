@@ -89,7 +89,6 @@
                   <Component id="BlueAlliance" max="32767" attributes="0"/>
                   <Component id="RedAlliance" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -180,13 +179,13 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="RedVortCorLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RedCorAutoeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="RedCorTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RedCorTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RedCorAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="RedCorAutoeLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -339,12 +338,14 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="BlueVortCorLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BlueCenAutoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="BlueCorAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="BlueCenTeleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="BlueCorTeleSpin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="BlueCenAutoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BlueCorAutoSpin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>

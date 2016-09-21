@@ -25,7 +25,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     int RedCorTele = 0;
     int BlueCorTele = 0;
     
-public static final String version = "0.0.35-DEV";
+public static final String version = "0.0.36-DEV";
     
 
     /**
@@ -58,7 +58,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCenAutoSpin.setValue(--RedCenAuto);
-                    JoystickTest.pressLstJSRedCenLT = true;
+                    JoystickTest.pressLstJSRedCenBbtn = true;
                 }  
             }
             if(TeleState == true){
@@ -67,7 +67,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCenTeleSpin.setValue(--RedCenTele);
-                    JoystickTest.pressLstJSRedCenLT = true;
+                    JoystickTest.pressLstJSRedCenBbtn = true;
                 }  
             }  
             }
@@ -77,11 +77,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSRedCenLB==true && JoystickTest.pressLstJSRedCenLB!=true && SettingsUI.RedCenLeft==true){
                 if(AutoState == true){
                           RedCenAutoSpin.setValue(++RedCenAuto);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                          JoystickTest.pressLstJSRedCenLB = true;     
                 }
                 if(TeleState == true){
                           RedCenTeleSpin.setValue(++RedCenTele);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                          JoystickTest.pressLstJSRedCenLB = true;     
                 }     
                    }
     }
@@ -114,11 +114,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSRedCenRB==true && JoystickTest.pressLstJSRedCenRB!=true && SettingsUI.RedCenRight==true){
                 if(AutoState == true){
                           RedCenAutoSpin.setValue(++RedCenAuto);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                          JoystickTest.pressLstJSRedCenRB = true;     
                 }
                 if(TeleState == true){
                           RedCenTeleSpin.setValue(++RedCenTele);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                          JoystickTest.pressLstJSRedCenRB = true;     
                 }
     }
          }
@@ -131,7 +131,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCenAutoSpin.setValue(--RedCenAuto);
-                    JoystickTest.pressLstJSRedCenLT = true;
+                    JoystickTest.pressLstJSRedCenRT = true;
                 }  
             }
             if(TeleState == true){
@@ -140,7 +140,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCenTeleSpin.setValue(--RedCenTele);
-                    JoystickTest.pressLstJSRedCenLT = true;
+                    JoystickTest.pressLstJSRedCenRT = true;
                 }  
             } 
             }
@@ -167,7 +167,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCenAutoSpin.setValue(--BlueCenAuto);
-                    JoystickTest.pressLstJSBlueCenLT = true;
+                    JoystickTest.pressLstJSBlueCenBbtn = true;
                 }  
             }
             if(TeleState == true){
@@ -176,7 +176,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCenTeleSpin.setValue(--BlueCenTele);
-                    JoystickTest.pressLstJSBlueCenLT = true;
+                    JoystickTest.pressLstJSBlueCenBbtn = true;
                 } 
             }         
     }
@@ -186,11 +186,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSBlueCenLB==true && JoystickTest.pressLstJSBlueCenLB!=true && SettingsUI.BlueCenLeft==true){
                 if(AutoState == true){
                           BlueCenAutoSpin.setValue(++BlueCenAuto);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                          JoystickTest.pressLstJSBlueCenLB = true;     
                 }
                 if(TeleState == true){
                           BlueCenTeleSpin.setValue(++BlueCenTele);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                          JoystickTest.pressLstJSBlueCenLB = true;     
                 }      
                    }
     }
@@ -222,11 +222,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSBlueCenRB==true && JoystickTest.pressLstJSBlueCenRB!=true && SettingsUI.BlueCenRight==true){
                 if(AutoState == true){
                           BlueCenAutoSpin.setValue(++BlueCenAuto);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                          JoystickTest.pressLstJSBlueCenRB = true;     
                 }
                 if(TeleState == true){
                           BlueCenTeleSpin.setValue(++BlueCenTele);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
+                          JoystickTest.pressLstJSBlueCenRB = true;     
                 }      
                    }
     }
@@ -239,7 +239,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCenAutoSpin.setValue(--BlueCenAuto);
-                    JoystickTest.pressLstJSBlueCenLT = true;
+                    JoystickTest.pressLstJSBlueCenRT = true;
                 }  
             }
             if(TeleState == true){
@@ -248,7 +248,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCenTeleSpin.setValue(--BlueCenTele);
-                    JoystickTest.pressLstJSBlueCenLT = true;
+                    JoystickTest.pressLstJSBlueCenRT = true;
                 }  
             }
         }
@@ -275,7 +275,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCorAutoSpin.setValue(--RedCorAuto);
-                    JoystickTest.pressLstJSRedCorLT = true;
+                    JoystickTest.pressLstJSRedCorBbtn = true;
                 }  
             }
             if(TeleState == true){
@@ -284,7 +284,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCenTeleSpin.setValue(--RedCorTele);
-                    JoystickTest.pressLstJSRedCorLT = true;
+                    JoystickTest.pressLstJSRedCorBbtn = true;
                 }  
             }    
             }
@@ -294,11 +294,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSRedCorLB==true && JoystickTest.pressLstJSRedCorLB!=true && SettingsUI.RedCorLeft==true){
                 if(AutoState == true){
                           RedCorAutoSpin.setValue(++RedCorAuto);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                          JoystickTest.pressLstJSRedCorLB = true;     
                 }
                 if(TeleState == true){
                           RedCorTeleSpin.setValue(++RedCorTele);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                          JoystickTest.pressLstJSRedCorLB = true;     
                 }   
                    }
     }
@@ -330,11 +330,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSRedCorRB==true && JoystickTest.pressLstJSRedCorRB!=true && SettingsUI.RedCorRight==true){
                 if(AutoState == true){
                           RedCorAutoSpin.setValue(++RedCorAuto);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                          JoystickTest.pressLstJSRedCorRB = true;     
                 }
                 if(TeleState == true){
                           RedCorTeleSpin.setValue(++RedCorTele);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
+                          JoystickTest.pressLstJSRedCorRB = true;     
                 }  
                    }
     }
@@ -347,7 +347,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCorAutoSpin.setValue(--RedCorAuto);
-                    JoystickTest.pressLstJSRedCorLT = true;
+                    JoystickTest.pressLstJSRedCorRT = true;
                 }  
             }
             if(TeleState == true){
@@ -356,7 +356,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     RedCorTeleSpin.setValue(--RedCorTele);
-                    JoystickTest.pressLstJSRedCorLT = true;
+                    JoystickTest.pressLstJSRedCorRT = true;
                 }  
             }    
             }
@@ -383,7 +383,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCorAutoSpin.setValue(--BlueCorAuto);
-                    JoystickTest.pressLstJSBlueCorLT = true;
+                    JoystickTest.pressLstJSBlueCorBbtn = true;
                 }  
             }
             if(TeleState == true){
@@ -392,7 +392,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCorTeleSpin.setValue(--BlueCorTele);
-                    JoystickTest.pressLstJSBlueCorLT = true;
+                    JoystickTest.pressLstJSBlueCorBbtn = true;
                 } 
             }  
             }     
@@ -401,11 +401,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSBlueCorLB==true && JoystickTest.pressLstJSBlueCorLB!=true && SettingsUI.BlueCorLeft==true){
                 if(AutoState == true){
                           BlueCorAutoSpin.setValue(++BlueCorAuto);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                          JoystickTest.pressLstJSBlueCorLB = true;     
                 }
                 if(TeleState == true){
                           BlueCorTeleSpin.setValue(++BlueCorTele);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                          JoystickTest.pressLstJSBlueCorLB = true;     
                 }    
                    }
     }
@@ -437,11 +437,11 @@ public static final String version = "0.0.35-DEV";
          if(JoystickTest.PressJSBlueCorRB==true && JoystickTest.pressLstJSBlueCorRB!=true && SettingsUI.BlueCorRight==true){
                 if(AutoState == true){
                           BlueCorAutoSpin.setValue(++BlueCorAuto);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                          JoystickTest.pressLstJSBlueCorRB = true;     
                 }
                 if(TeleState == true){
                           BlueCorTeleSpin.setValue(++BlueCorTele);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
+                          JoystickTest.pressLstJSBlueCorRB= true;     
                 }    
                    }
     }
@@ -454,7 +454,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCorAutoSpin.setValue(--BlueCorAuto);
-                    JoystickTest.pressLstJSBlueCorLT = true;
+                    JoystickTest.pressLstJSBlueCorRT = true;
                 }  
             }
             if(TeleState == true){
@@ -463,7 +463,7 @@ public static final String version = "0.0.35-DEV";
                 }
                 else{
                     BlueCorTeleSpin.setValue(--BlueCorTele);
-                    JoystickTest.pressLstJSBlueCorLT = true;
+                    JoystickTest.pressLstJSBlueCorRT = true;
                 } 
             }
             }
@@ -592,12 +592,12 @@ public static final String version = "0.0.35-DEV";
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RedVortCorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RedCorAutoeLabel)
+                .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(RedCorTeleLabel)
                         .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RedCorAutoeLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -673,12 +673,13 @@ public static final String version = "0.0.35-DEV";
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BlueVortCorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BlueCenAutoLabel)
-                    .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(BlueCenTeleLabel)
-                        .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BlueCenAutoLabel)
+                        .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -787,7 +788,6 @@ public static final String version = "0.0.35-DEV";
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
