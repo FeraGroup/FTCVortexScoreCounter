@@ -25,7 +25,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     int RedCorTele = 0;
     int BlueCorTele = 0;
     
-public static final String version = "0.0.36-DEV";
+public static final String version = "0.0.37-DEV";
     
 
     /**
@@ -36,6 +36,19 @@ public static final String version = "0.0.36-DEV";
         initComponents();
 
     }
+    
+    public void spinnersync(){
+        while(true){
+          RedCenAuto = (Integer) RedCenAutoSpin.getValue();
+          BlueCenAuto = (Integer) BlueCenAutoSpin.getValue();
+          RedCorAuto = (Integer) RedCorAutoSpin.getValue();
+          BlueCorAuto = (Integer) BlueCorAutoSpin.getValue();
+          RedCenTele = (Integer) RedCenTeleSpin.getValue();
+          BlueCenTele = (Integer) BlueCenTeleSpin.getValue();
+          RedCorTele = (Integer) RedCorTeleSpin.getValue();
+          BlueCorTele = (Integer) BlueCorTeleSpin.getValue();
+        }
+  }
     
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
@@ -482,27 +495,31 @@ public static final String version = "0.0.36-DEV";
 
         ModeSelect = new javax.swing.ButtonGroup();
         RedAlliance = new javax.swing.JPanel();
-        RedCenAutoSpin = new javax.swing.JSpinner();
-        RedCorAutoSpin = new javax.swing.JSpinner();
-        RedVortCenLabel = new javax.swing.JLabel();
-        RedVortCorLabel = new javax.swing.JLabel();
-        RedCenAutoLabel = new javax.swing.JLabel();
-        RedCenTeleLabel = new javax.swing.JLabel();
-        RedCenTeleSpin = new javax.swing.JSpinner();
-        RedCorAutoeLabel = new javax.swing.JLabel();
-        RedCorTeleLabel = new javax.swing.JLabel();
+        RedCorJSStatus = new javax.swing.JPanel();
         RedCorTeleSpin = new javax.swing.JSpinner();
+        RedCorTeleLabel = new javax.swing.JLabel();
+        RedCorAutoSpin = new javax.swing.JSpinner();
+        RedCorAutoeLabel = new javax.swing.JLabel();
+        RedVortCorLabel = new javax.swing.JLabel();
+        RedCenJSStatus = new javax.swing.JPanel();
+        RedCenTeleSpin = new javax.swing.JSpinner();
+        RedCenTeleLabel = new javax.swing.JLabel();
+        RedCenAutoSpin = new javax.swing.JSpinner();
+        RedCenAutoLabel = new javax.swing.JLabel();
+        RedVortCenLabel = new javax.swing.JLabel();
         BlueAlliance = new javax.swing.JPanel();
-        BlueCorAutoSpin = new javax.swing.JSpinner();
-        BlueVortCenLabel = new javax.swing.JLabel();
-        BlueCenAutoSpin = new javax.swing.JSpinner();
-        BlueVortCorLabel = new javax.swing.JLabel();
-        BlueCorAutoLabel = new javax.swing.JLabel();
-        BlueCorTeleLabel = new javax.swing.JLabel();
+        BlueCenJSStatus = new javax.swing.JPanel();
         BlueCenTeleSpin = new javax.swing.JSpinner();
+        BlueCorTeleLabel = new javax.swing.JLabel();
+        BlueCenAutoSpin = new javax.swing.JSpinner();
+        BlueCorAutoLabel = new javax.swing.JLabel();
+        BlueVortCenLabel = new javax.swing.JLabel();
+        BlueCorJSStatus = new javax.swing.JPanel();
         BlueCenAutoLabel = new javax.swing.JLabel();
-        BlueCorTeleSpin = new javax.swing.JSpinner();
+        BlueVortCorLabel = new javax.swing.JLabel();
+        BlueCorAutoSpin = new javax.swing.JSpinner();
         BlueCenTeleLabel = new javax.swing.JLabel();
+        BlueCorTeleSpin = new javax.swing.JSpinner();
         FTCLogoSmall = new javax.swing.JLabel();
         HeaderLabel = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
@@ -525,161 +542,223 @@ public static final String version = "0.0.36-DEV";
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
         RedAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Red Vortex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        RedCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        RedCenAutoSpin.setName("redvorcencount"); // NOI18N
+        RedCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        RedCorTeleSpin.setName("redvorcencount"); // NOI18N
+
+        RedCorTeleLabel.setText("T:");
 
         RedCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        RedVortCenLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        RedVortCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        RedVortCenLabel.setText("Center Vortex");
+        RedCorAutoeLabel.setText("A:");
 
         RedVortCorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         RedVortCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedVortCorLabel.setText("Corner Vortex");
 
-        RedCenAutoLabel.setText("A:");
+        javax.swing.GroupLayout RedCorJSStatusLayout = new javax.swing.GroupLayout(RedCorJSStatus);
+        RedCorJSStatus.setLayout(RedCorJSStatusLayout);
+        RedCorJSStatusLayout.setHorizontalGroup(
+            RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCorJSStatusLayout.createSequentialGroup()
+                .addGap(0, 9, Short.MAX_VALUE)
+                .addComponent(RedCorAutoeLabel)
+                .addGap(6, 6, 6)
+                .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(RedCorTeleLabel)
+                .addGap(6, 6, 6)
+                .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(RedVortCorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        RedCorJSStatusLayout.setVerticalGroup(
+            RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCorJSStatusLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RedVortCorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RedCorAutoeLabel)
+                    .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RedCorTeleLabel)
+                    .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
-        RedCenTeleLabel.setText("T:");
+        RedCorAutoSpin.getAccessibleContext().setAccessibleName("RedCorVor");
+        RedCorAutoSpin.getAccessibleContext().setAccessibleDescription("");
 
         RedCenTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         RedCenTeleSpin.setName("redvorcencount"); // NOI18N
 
-        RedCorAutoeLabel.setText("A:");
+        RedCenTeleLabel.setText("T:");
 
-        RedCorTeleLabel.setText("T:");
+        RedCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        RedCenAutoSpin.setName("redvorcencount"); // NOI18N
 
-        RedCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-        RedCorTeleSpin.setName("redvorcencount"); // NOI18N
+        RedCenAutoLabel.setText("A:");
 
-        javax.swing.GroupLayout RedAllianceLayout = new javax.swing.GroupLayout(RedAlliance);
-        RedAlliance.setLayout(RedAllianceLayout);
-        RedAllianceLayout.setHorizontalGroup(
-            RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedVortCenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(RedAllianceLayout.createSequentialGroup()
-                .addGap(1, 1, 1)
+        RedVortCenLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        RedVortCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RedVortCenLabel.setText("Center Vortex");
+
+        javax.swing.GroupLayout RedCenJSStatusLayout = new javax.swing.GroupLayout(RedCenJSStatus);
+        RedCenJSStatus.setLayout(RedCenJSStatusLayout);
+        RedCenJSStatusLayout.setHorizontalGroup(
+            RedCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCenJSStatusLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(RedCenAutoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(RedCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCenTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(RedVortCorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(RedAllianceLayout.createSequentialGroup()
-                .addComponent(RedCorAutoeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCorTeleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+            .addGroup(RedCenJSStatusLayout.createSequentialGroup()
+                .addComponent(RedVortCenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        RedAllianceLayout.setVerticalGroup(
-            RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RedAllianceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(RedVortCenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+        RedCenJSStatusLayout.setVerticalGroup(
+            RedCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCenJSStatusLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RedVortCenLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RedCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RedCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RedCenAutoLabel)
                     .addComponent(RedCenTeleLabel)
                     .addComponent(RedCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RedVortCorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(RedCorTeleLabel)
-                        .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(RedCorAutoeLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         RedCenAutoSpin.getAccessibleContext().setAccessibleName("redvorcencount");
         RedCenAutoSpin.getAccessibleContext().setAccessibleDescription("");
-        RedCorAutoSpin.getAccessibleContext().setAccessibleName("RedCorVor");
-        RedCorAutoSpin.getAccessibleContext().setAccessibleDescription("");
+
+        javax.swing.GroupLayout RedAllianceLayout = new javax.swing.GroupLayout(RedAlliance);
+        RedAlliance.setLayout(RedAllianceLayout);
+        RedAllianceLayout.setHorizontalGroup(
+            RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(RedCorJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        RedAllianceLayout.setVerticalGroup(
+            RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RedAllianceLayout.createSequentialGroup()
+                .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RedCorJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         BlueAlliance.setBackground(new java.awt.Color(0, 101, 179));
         BlueAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Blue Votex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        BlueCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        BlueCenTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        BlueCorTeleLabel.setText("T:");
+
+        BlueCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        BlueCorAutoLabel.setText("A:");
 
         BlueVortCenLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         BlueVortCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueVortCenLabel.setText("Center Vortex");
 
-        BlueCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
-        BlueVortCorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        BlueVortCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BlueVortCorLabel.setText("Corner Vortex");
-
-        BlueCorAutoLabel.setText("A:");
-
-        BlueCorTeleLabel.setText("T:");
-
-        BlueCenTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
-        BlueCenAutoLabel.setText("A:");
-
-        BlueCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
-
-        BlueCenTeleLabel.setText("T:");
-
-        javax.swing.GroupLayout BlueAllianceLayout = new javax.swing.GroupLayout(BlueAlliance);
-        BlueAlliance.setLayout(BlueAllianceLayout);
-        BlueAllianceLayout.setHorizontalGroup(
-            BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BlueAllianceLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
+        javax.swing.GroupLayout BlueCenJSStatusLayout = new javax.swing.GroupLayout(BlueCenJSStatus);
+        BlueCenJSStatus.setLayout(BlueCenJSStatusLayout);
+        BlueCenJSStatusLayout.setHorizontalGroup(
+            BlueCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BlueVortCenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BlueCenJSStatusLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BlueCorAutoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(BlueCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCorTeleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(BlueVortCenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(BlueVortCorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(BlueAllianceLayout.createSequentialGroup()
-                .addComponent(BlueCenAutoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BlueCenTeleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        BlueAllianceLayout.setVerticalGroup(
-            BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BlueAllianceLayout.createSequentialGroup()
+        BlueCenJSStatusLayout.setVerticalGroup(
+            BlueCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCenJSStatusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(BlueVortCenLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(BlueCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BlueCenAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueCorAutoLabel)
                     .addComponent(BlueCorTeleLabel)
                     .addComponent(BlueCenTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BlueVortCorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BlueCenTeleLabel)
-                        .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        BlueCenAutoLabel.setText("A:");
+
+        BlueVortCorLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        BlueVortCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BlueVortCorLabel.setText("Corner Vortex");
+
+        BlueCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        BlueCenTeleLabel.setText("T:");
+
+        BlueCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        javax.swing.GroupLayout BlueCorJSStatusLayout = new javax.swing.GroupLayout(BlueCorJSStatus);
+        BlueCorJSStatus.setLayout(BlueCorJSStatusLayout);
+        BlueCorJSStatusLayout.setHorizontalGroup(
+            BlueCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCorJSStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BlueCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BlueVortCorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(BlueCorJSStatusLayout.createSequentialGroup()
                         .addComponent(BlueCenAutoLabel)
-                        .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BlueCenTeleLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(1, 1, 1))
+        );
+        BlueCorJSStatusLayout.setVerticalGroup(
+            BlueCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCorJSStatusLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(BlueVortCorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(BlueCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BlueCenAutoLabel)
+                    .addComponent(BlueCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlueCenTeleLabel)
+                    .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout BlueAllianceLayout = new javax.swing.GroupLayout(BlueAlliance);
+        BlueAlliance.setLayout(BlueAllianceLayout);
+        BlueAllianceLayout.setHorizontalGroup(
+            BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BlueAllianceLayout.createSequentialGroup()
+                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BlueCenJSStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BlueCorJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        BlueAllianceLayout.setVerticalGroup(
+            BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueAllianceLayout.createSequentialGroup()
+                .addComponent(BlueCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BlueCorJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -751,31 +830,34 @@ public static final String version = "0.0.36-DEV";
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(FTCLogoSmall)
+                    .addComponent(HeaderLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FTCLogoSmall)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(copyright)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SettingButton)
-                                            .addComponent(jButton1))
-                                        .addGap(49, 49, 49)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(VersionInfo))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(SettingButton)
+                                        .addComponent(jButton1))
+                                    .addGap(49, 49, 49)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
                                             .addComponent(Auto)
-                                            .addComponent(Teleop))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(VersionInfo, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                                .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(26, Short.MAX_VALUE))
-                    .addComponent(HeaderLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ResetButton))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(Teleop)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(AboutButton))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -788,27 +870,21 @@ public static final String version = "0.0.36-DEV";
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SettingButton)
-                            .addComponent(Auto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(Teleop))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(copyright))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(ResetButton)
-                                .addGap(34, 34, 34))
-                            .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(VersionInfo)))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SettingButton)
+                    .addComponent(Auto)
+                    .addComponent(ResetButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(Teleop)
+                    .addComponent(AboutButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(copyright)
+                    .addComponent(VersionInfo))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -834,6 +910,7 @@ public static final String version = "0.0.36-DEV";
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
         new SettingsUI().setVisible(true);
+            JoystickTest.searchForControllers();
     }//GEN-LAST:event_SettingButtonActionPerformed
 
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
@@ -927,10 +1004,12 @@ public static final String version = "0.0.36-DEV";
     private javax.swing.JPanel BlueAlliance;
     private javax.swing.JLabel BlueCenAutoLabel;
     private javax.swing.JSpinner BlueCenAutoSpin;
+    public static javax.swing.JPanel BlueCenJSStatus;
     private javax.swing.JLabel BlueCenTeleLabel;
     private javax.swing.JSpinner BlueCenTeleSpin;
     private javax.swing.JLabel BlueCorAutoLabel;
     private javax.swing.JSpinner BlueCorAutoSpin;
+    public static javax.swing.JPanel BlueCorJSStatus;
     private javax.swing.JLabel BlueCorTeleLabel;
     private javax.swing.JSpinner BlueCorTeleSpin;
     private javax.swing.JLabel BlueVortCenLabel;
@@ -941,10 +1020,12 @@ public static final String version = "0.0.36-DEV";
     private javax.swing.JPanel RedAlliance;
     private javax.swing.JLabel RedCenAutoLabel;
     private javax.swing.JSpinner RedCenAutoSpin;
+    public static javax.swing.JPanel RedCenJSStatus;
     private javax.swing.JLabel RedCenTeleLabel;
     private javax.swing.JSpinner RedCenTeleSpin;
     private javax.swing.JSpinner RedCorAutoSpin;
     private javax.swing.JLabel RedCorAutoeLabel;
+    public static javax.swing.JPanel RedCorJSStatus;
     private javax.swing.JLabel RedCorTeleLabel;
     private javax.swing.JSpinner RedCorTeleSpin;
     private javax.swing.JLabel RedVortCenLabel;

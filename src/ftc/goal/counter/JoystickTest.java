@@ -76,10 +76,10 @@ public class JoystickTest {
     static public boolean PressJSBlueCorRT = false;
     static public boolean pressLstJSBlueCorRB = false;
     static public boolean PressJSBlueCorRB = false;
-    
+        
     final SettingsUI window;
     
-    private ArrayList<Controller> foundControllers;
+    private static ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
         window = new SettingsUI();
@@ -97,7 +97,8 @@ public class JoystickTest {
      * Search (and save) for controllers of type Controller.Type.STICK,
      * Controller.Type.GAMEPAD, Controller.Type.WHEEL and Controller.Type.FINGERSTICK.
      */
-    private void searchForControllers() {
+    public static void searchForControllers() {
+        
         Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
         for(int i = 0; i < controllers.length; i++){
@@ -116,13 +117,15 @@ public class JoystickTest {
             }
         }
     }
+
     
     /**
      * Starts showing controller data on the window.
      */
-    private void startShowingControllerData(){
+    public static void startShowingControllerData(){
         while(true)
         {
+            
             // Currently selected controller.
             int selectedControllerRedCen = SettingsUI.getSelectedControllerNameRedCen();
             Controller controllerRedCen = foundControllers.get(selectedControllerRedCen);
@@ -163,6 +166,47 @@ public class JoystickTest {
                // break;
             }
             
+             if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
+                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            }
+             else {
+                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+             }
+             if( !controllerRedCen.poll() ){
+                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            }
+             
+            if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
+                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            }
+             else {
+                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+             }
+             if( !controllerRedCen.poll() ){
+                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            }
+            
+            if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
+                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            }
+             else {
+                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+             }
+             if( !controllerRedCen.poll() ){
+                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            } 
+            
+            if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
+                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            }
+             else {
+                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+             }
+             if( !controllerRedCen.poll() ){
+                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            } 
+            
+             
             // Go trough all components of the controller.
             Component[] components = controllerRedCen.getComponents();
             for(int i=0; i < components.length; i++)

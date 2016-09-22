@@ -11,7 +11,6 @@ package ftc.goal.counter;
  * @author afera
  */
 public class SettingsUI extends javax.swing.JFrame {
-
     
     public static boolean RedCenBtn = true;
     public static boolean RedCenLeft = false;
