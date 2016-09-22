@@ -126,6 +126,8 @@ public class JoystickTest {
         while(true)
         {
             
+            GoalCounterUI.spinnersync();
+            
             // Currently selected controller.
             int selectedControllerRedCen = SettingsUI.getSelectedControllerNameRedCen();
             Controller controllerRedCen = foundControllers.get(selectedControllerRedCen);

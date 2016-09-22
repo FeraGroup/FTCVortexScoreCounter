@@ -16,17 +16,17 @@ public class GoalCounterUI extends javax.swing.JFrame {
 
     boolean AutoState = true;
     boolean TeleState = false;
-    int RedCenAuto = 0;
-    int BlueCenAuto = 0;
-    int RedCorAuto = 0;
-    int BlueCorAuto = 0;
-    int RedCenTele = 0;
-    int BlueCenTele = 0;
-    int RedCorTele = 0;
-    int BlueCorTele = 0;
+    public static int RedCenAuto = 0;
+    public static int BlueCenAuto = 0;
+    public static int RedCorAuto = 0;
+    public static int BlueCorAuto = 0;
+    public static int RedCenTele = 0;
+    public static int BlueCenTele = 0;
+    public static int RedCorTele = 0;
+    public static int BlueCorTele = 0;
     
+
 public static final String version = "0.0.37-DEV";
-    
 
     /**
      * Creates new form GoalCounterUI
@@ -37,8 +37,7 @@ public static final String version = "0.0.37-DEV";
 
     }
     
-    public void spinnersync(){
-        while(true){
+    public static void spinnersync(){
           RedCenAuto = (Integer) RedCenAutoSpin.getValue();
           BlueCenAuto = (Integer) BlueCenAutoSpin.getValue();
           RedCorAuto = (Integer) RedCorAutoSpin.getValue();
@@ -47,7 +46,7 @@ public static final String version = "0.0.37-DEV";
           BlueCenTele = (Integer) BlueCenTeleSpin.getValue();
           RedCorTele = (Integer) RedCorTeleSpin.getValue();
           BlueCorTele = (Integer) BlueCorTeleSpin.getValue();
-        }
+          System.out.println(RedCenAuto);
   }
     
     public void IncrsRedCenA(){
@@ -1003,15 +1002,15 @@ public static final String version = "0.0.37-DEV";
     private javax.swing.JRadioButton Auto;
     private javax.swing.JPanel BlueAlliance;
     private javax.swing.JLabel BlueCenAutoLabel;
-    private javax.swing.JSpinner BlueCenAutoSpin;
+    public static javax.swing.JSpinner BlueCenAutoSpin;
     public static javax.swing.JPanel BlueCenJSStatus;
     private javax.swing.JLabel BlueCenTeleLabel;
-    private javax.swing.JSpinner BlueCenTeleSpin;
+    public static javax.swing.JSpinner BlueCenTeleSpin;
     private javax.swing.JLabel BlueCorAutoLabel;
-    private javax.swing.JSpinner BlueCorAutoSpin;
+    public static javax.swing.JSpinner BlueCorAutoSpin;
     public static javax.swing.JPanel BlueCorJSStatus;
     private javax.swing.JLabel BlueCorTeleLabel;
-    private javax.swing.JSpinner BlueCorTeleSpin;
+    public static javax.swing.JSpinner BlueCorTeleSpin;
     private javax.swing.JLabel BlueVortCenLabel;
     private javax.swing.JLabel BlueVortCorLabel;
     private javax.swing.JLabel FTCLogoSmall;
@@ -1019,15 +1018,15 @@ public static final String version = "0.0.37-DEV";
     private javax.swing.ButtonGroup ModeSelect;
     private javax.swing.JPanel RedAlliance;
     private javax.swing.JLabel RedCenAutoLabel;
-    private javax.swing.JSpinner RedCenAutoSpin;
+    public static javax.swing.JSpinner RedCenAutoSpin;
     public static javax.swing.JPanel RedCenJSStatus;
     private javax.swing.JLabel RedCenTeleLabel;
-    private javax.swing.JSpinner RedCenTeleSpin;
-    private javax.swing.JSpinner RedCorAutoSpin;
+    public static javax.swing.JSpinner RedCenTeleSpin;
+    public static javax.swing.JSpinner RedCorAutoSpin;
     private javax.swing.JLabel RedCorAutoeLabel;
     public static javax.swing.JPanel RedCorJSStatus;
     private javax.swing.JLabel RedCorTeleLabel;
-    private javax.swing.JSpinner RedCorTeleSpin;
+    public static javax.swing.JSpinner RedCorTeleSpin;
     private javax.swing.JLabel RedVortCenLabel;
     private javax.swing.JLabel RedVortCorLabel;
     private javax.swing.JButton ResetButton;
