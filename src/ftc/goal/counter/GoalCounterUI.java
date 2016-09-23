@@ -24,9 +24,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCenTele = 0;
     public static int RedCorTele = 0;
     public static int BlueCorTele = 0;
+    public static SettingsUI settings;
     
 
-public static final String version = "0.0.37-DEV";
+public static final String version = "0.0.43-DEV";
 
     /**
      * Creates new form GoalCounterUI
@@ -46,7 +47,6 @@ public static final String version = "0.0.37-DEV";
           BlueCenTele = (Integer) BlueCenTeleSpin.getValue();
           RedCorTele = (Integer) RedCorTeleSpin.getValue();
           BlueCorTele = (Integer) BlueCorTeleSpin.getValue();
-          System.out.println(RedCenAuto);
   }
     
     public void IncrsRedCenA(){
@@ -890,10 +890,7 @@ public static final String version = "0.0.37-DEV";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-            RedCenAutoSpin.setValue(0);
-            RedCorAutoSpin.setValue(0);
-            BlueCenAutoSpin.setValue(0);
-            BlueCorAutoSpin.setValue(0);
+
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -902,14 +899,12 @@ public static final String version = "0.0.37-DEV";
             RedCorTele = 0;
             BlueCenTele = 0;
             BlueCorTele = 0;
-            //RedVortCorVar.setValue(0);
-            //BlueVortCenVar.setValue(0);
-            //BlueVortCorVar.setValue(0);
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
-        new SettingsUI().setVisible(true);
-            JoystickTest.searchForControllers();
+        if(!settings.isVisible()){
+            settings.setVisible(true);
+        }
     }//GEN-LAST:event_SettingButtonActionPerformed
 
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
@@ -981,7 +976,8 @@ public static final String version = "0.0.37-DEV";
             public void run() {
                 goal = new GoalCounterUI();
                 goal.setVisible(true);
-                new SettingsUI().setVisible(true);
+                settings = new SettingsUI();
+                settings.setVisible(true);
             }
         });
         
