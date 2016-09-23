@@ -133,7 +133,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="RedCenJSStatus" alignment="0" pref="0" max="32767" attributes="0"/>
+              <Component id="RedCenJSStatus" alignment="0" pref="156" max="32767" attributes="0"/>
               <Component id="RedCorJSStatus" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>

@@ -168,6 +168,11 @@ public class JoystickTest {
                // break;
             }
             
+            
+                         if( !controllerRedCen.poll() ){
+                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            }
+                         else{
              if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
             }
@@ -177,36 +182,42 @@ public class JoystickTest {
              if( !controllerRedCen.poll() ){
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
             }
-             
+                         }
+                         
+                          if( !controllerRedCor.poll() ){
+                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            }
+                          else{            
             if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
                 GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
             }
              else {
                 GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
              }
-             if( !controllerRedCen.poll() ){
-                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-            }
-            
+                          }
+                              if( !controllerBlueCor.poll() ){
+                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            } 
+                              else{
             if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
                 GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
             }
              else {
                 GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
              }
-             if( !controllerRedCen.poll() ){
-                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-            } 
+                              }
             
+                                           if( !controllerBlueCen.poll() ){
+                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+            } 
+                                           else{
             if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
             }
              else {
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
              }
-             if( !controllerRedCen.poll() ){
-                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-            } 
+                                           }
             
              
             // Go trough all components of the controller.
@@ -234,6 +245,8 @@ public class JoystickTest {
                     }
                     
                     GoalCounterUI.goal.IncrsRedCenA();
+                   
+                   
                     
                 }
                 
@@ -655,7 +668,14 @@ public class JoystickTest {
                 
             }
             
-            
+            AudDisplay.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+            AudDisplay.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+            AudDisplay.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+            AudDisplay.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+            AudDisplay.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+            AudDisplay.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+            AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+            AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
             
             // We have to give processor some rest.
             try {

@@ -321,7 +321,7 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Restore Defualt");
+        jButton2.setText("Re-Pull Joysticks");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -487,7 +487,11 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_BlueCorContRightActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        RedCenControlSelect.removeAllItems();
+        BlueCenControlSelect.removeAllItems();
+        RedCorControlSelect.removeAllItems();
+        BlueCorControlSelect.removeAllItems();
+        JoystickTest.searchForControllers();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -520,10 +524,10 @@ public static int getSelectedControllerNameBlueCor(){
         BlueCorControlSelect.addItem(controllerName);
     }
 
-    public void showControllerDisconnected(){
-        RedCenControlSelect.removeAllItems();
-        RedCenControlSelect.addItem("Controller disconnected!");
-    }
+//    public void showControllerDisconnected(){
+//        RedCenControlSelect.addItem("Controller disconnected!");
+//        RedCenControlSelect.addItem("Controller disconnected!");
+//    }
     
     
     /**
