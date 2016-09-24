@@ -29,147 +29,259 @@ public class AudDisplay extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        RedCenAutoDisplay = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        RedCenTeleDisplay = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        RedCorDisplay = new javax.swing.JPanel();
+        RedCorAutoDisplay = new javax.swing.JLabel();
         RedCorTeleDisplay = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        RedCorAutoDisplay = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        RedCenDisplay = new javax.swing.JPanel();
+        RedCenAutoDisplay = new javax.swing.JLabel();
+        RedCenTeleDisplay = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        BlueCenDisplay = new javax.swing.JPanel();
         BlueCenAutoDisplay = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         BlueCenTeleDisplay = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        BlueCorTeleDisplay = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        BlueCorDisplay = new javax.swing.JPanel();
         BlueCorAutoDisplay = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        BlueCorTeleDisplay = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
 
-        RedCenAutoDisplay.setText("0");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setText("Red Cen Auto");
+        RedCorDisplay.setBackground(new java.awt.Color(237, 28, 36));
+        RedCorDisplay.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setText("Red Cen Tel");
-
-        RedCenTeleDisplay.setText("0");
-
-        jLabel3.setText("Red Cor Tel");
-
-        RedCorTeleDisplay.setText("0");
-
-        jLabel4.setText("Red Cor Auto");
-
+        RedCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        RedCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCorAutoDisplay.setText("0");
 
-        jLabel5.setText("Blue Cen Auto");
+        RedCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 100)); // NOI18N
+        RedCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RedCorTeleDisplay.setText("0");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("/");
+
+        javax.swing.GroupLayout RedCorDisplayLayout = new javax.swing.GroupLayout(RedCorDisplay);
+        RedCorDisplay.setLayout(RedCorDisplayLayout);
+        RedCorDisplayLayout.setHorizontalGroup(
+            RedCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RedCorDisplayLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RedCorAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RedCorTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        RedCorDisplayLayout.setVerticalGroup(
+            RedCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RedCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(RedCorAutoDisplay)
+                .addComponent(RedCorTeleDisplay)
+                .addComponent(jLabel4))
+        );
+
+        RedCenDisplay.setBackground(new java.awt.Color(237, 28, 36));
+        RedCenDisplay.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        RedCenAutoDisplay.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        RedCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RedCenAutoDisplay.setText("0");
+
+        RedCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 100)); // NOI18N
+        RedCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RedCenTeleDisplay.setText("0");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("/");
+
+        javax.swing.GroupLayout RedCenDisplayLayout = new javax.swing.GroupLayout(RedCenDisplay);
+        RedCenDisplay.setLayout(RedCenDisplayLayout);
+        RedCenDisplayLayout.setHorizontalGroup(
+            RedCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RedCenDisplayLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RedCenAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RedCenTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        RedCenDisplayLayout.setVerticalGroup(
+            RedCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RedCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(RedCenAutoDisplay)
+                .addComponent(RedCenTeleDisplay)
+                .addComponent(jLabel9))
+        );
+
+        BlueCenDisplay.setBackground(new java.awt.Color(0, 101, 179));
+        BlueCenDisplay.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        BlueCenAutoDisplay.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        BlueCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenAutoDisplay.setText("0");
 
-        jLabel6.setText("Blued Cen Tel");
-
+        BlueCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 100)); // NOI18N
+        BlueCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenTeleDisplay.setText("0");
 
-        jLabel7.setText("Blue Cor Tel");
+        jLabel12.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("/");
 
-        BlueCorTeleDisplay.setText("0");
+        javax.swing.GroupLayout BlueCenDisplayLayout = new javax.swing.GroupLayout(BlueCenDisplay);
+        BlueCenDisplay.setLayout(BlueCenDisplayLayout);
+        BlueCenDisplayLayout.setHorizontalGroup(
+            BlueCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCenDisplayLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BlueCenAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BlueCenTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        BlueCenDisplayLayout.setVerticalGroup(
+            BlueCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCenDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(BlueCenAutoDisplay)
+                .addComponent(BlueCenTeleDisplay)
+                .addComponent(jLabel12))
+        );
 
+        BlueCorDisplay.setBackground(new java.awt.Color(0, 101, 179));
+        BlueCorDisplay.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
+
+        BlueCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        BlueCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCorAutoDisplay.setText("0");
 
-        jLabel8.setText("Blue Cor Auto");
+        BlueCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 100)); // NOI18N
+        BlueCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BlueCorTeleDisplay.setText("0");
+
+        jLabel13.setFont(new java.awt.Font("Arial", 0, 100)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("/");
+
+        javax.swing.GroupLayout BlueCorDisplayLayout = new javax.swing.GroupLayout(BlueCorDisplay);
+        BlueCorDisplay.setLayout(BlueCorDisplayLayout);
+        BlueCorDisplayLayout.setHorizontalGroup(
+            BlueCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCorDisplayLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(BlueCorAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BlueCorTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+        BlueCorDisplayLayout.setVerticalGroup(
+            BlueCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BlueCorDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(BlueCorAutoDisplay)
+                .addComponent(BlueCorTeleDisplay)
+                .addComponent(jLabel13))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 100)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("CORNER");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 100)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("CENTER");
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/VVSmall.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/FIRSTTech_IconVert_RGB.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 75)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Vortex Status");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(RedCorAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(RedCorTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(RedCenAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(RedCenTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(114, 114, 114)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addComponent(BlueCorAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(BlueCorTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(BlueCenAutoDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(BlueCenTeleDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(922, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RedCenDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(RedCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BlueCenDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BlueCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(321, 321, 321)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(460, 460, 460)
+                    .addComponent(jLabel2)
+                    .addContainerGap(464, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
+                                .addComponent(BlueCenDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BlueCenTeleDisplay))
+                                .addComponent(BlueCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(RedCenDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BlueCenAutoDisplay)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BlueCorTeleDisplay))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BlueCorAutoDisplay))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RedCenTeleDisplay))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RedCenAutoDisplay)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RedCorTeleDisplay))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(RedCorAutoDisplay)))))
-                .addContainerGap(626, Short.MAX_VALUE))
+                                .addComponent(RedCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(575, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(159, 159, 159)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,10 +295,7 @@ public class AudDisplay extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -229,21 +338,26 @@ public class AudDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel BlueCenAutoDisplay;
+    private javax.swing.JPanel BlueCenDisplay;
     public static javax.swing.JLabel BlueCenTeleDisplay;
     public static javax.swing.JLabel BlueCorAutoDisplay;
+    private javax.swing.JPanel BlueCorDisplay;
     public static javax.swing.JLabel BlueCorTeleDisplay;
     public static javax.swing.JLabel RedCenAutoDisplay;
+    private javax.swing.JPanel RedCenDisplay;
     public static javax.swing.JLabel RedCenTeleDisplay;
     public static javax.swing.JLabel RedCorAutoDisplay;
+    private javax.swing.JPanel RedCorDisplay;
     public static javax.swing.JLabel RedCorTeleDisplay;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
