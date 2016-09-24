@@ -1,6 +1,6 @@
 # FIRST Tech Challenge Vortex Score Counter
 ##### The instructions on how to use the Vortex Counter is in the [Wiki](https://github.com/FeraGroup/FTCVortexScoreCounter/wiki) - Comming Soon
-##### The Vortex Program can be [Downloaded Here](http://projects.feragroup.com/FTC_Goal_Counter_Alpha_0-1-0.zip)
+##### The Vortex Program can be [Downloaded Here](http://projects.feragroup.com/FTC_Goal_Counter_Alpha_0-1-1.zip)
 
 ## Development Enviroment Setup Instructions:
 1. Install the latest version of [NetBeans Java SE](https://netbeans.org/downloads/)
