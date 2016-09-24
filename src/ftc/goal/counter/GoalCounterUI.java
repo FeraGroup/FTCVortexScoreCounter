@@ -28,7 +28,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AudDisplay AudDisp;
     
 
-public static final String version = "0.1.0-ALPHA";
+public static final String version = "0.1.1-ALPHA";
 
     /**
      * Creates new form GoalCounterUI
