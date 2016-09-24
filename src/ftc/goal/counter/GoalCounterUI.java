@@ -58,9 +58,9 @@ public static final String version = "0.1.0-ALPHA";
                 }
                 if(TeleState == true){
                           RedCenTeleSpin.setValue(++RedCenTele);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
+                          JoystickTest.pressLstJSRedCenAbtn = true;  
                 }
-                }
+        }
     }
     
         public void DcrsRedCenB(){
@@ -296,7 +296,7 @@ public static final String version = "0.1.0-ALPHA";
                     RedCorTele = 0;   
                 }
                 else{
-                    RedCenTeleSpin.setValue(--RedCorTele);
+                    RedCorTeleSpin.setValue(--RedCorTele);
                     JoystickTest.pressLstJSRedCorBbtn = true;
                 }  
             }    

@@ -6,6 +6,7 @@ package ftc.goal.counter;
  * During the 2016 - 2017 Game
  */
 
+import ftc.goal.counter.AudDisplay;
 import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -17,6 +18,7 @@ import net.java.games.input.Component.Identifier;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 import ftc.goal.counter.GoalCounterUI;
+import ftc.goal.counter.AudDisplay;
 
 /**
  *
@@ -76,7 +78,7 @@ public class JoystickTest {
     static public boolean PressJSBlueCorRT = false;
     static public boolean pressLstJSBlueCorRB = false;
     static public boolean PressJSBlueCorRB = false;
-        
+    
     final SettingsUI window;
     
     private static ArrayList<Controller> foundControllers;
@@ -175,6 +177,7 @@ public class JoystickTest {
                          else{
              if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                //AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/jsred.jpg")));
             }
              else {
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
@@ -491,7 +494,7 @@ public class JoystickTest {
 
                 }
                 
-                                if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
+                if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
                     if(componentredcor.getPollData() != 0.0f){
