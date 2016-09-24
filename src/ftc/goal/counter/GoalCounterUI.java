@@ -296,7 +296,7 @@ public static final String version = "0.1.0-ALPHA";
                     RedCorTele = 0;   
                 }
                 else{
-                    RedCenTeleSpin.setValue(--RedCorTele);
+                    RedCorTeleSpin.setValue(--RedCorTele);
                     JoystickTest.pressLstJSRedCorBbtn = true;
                 }  
             }    

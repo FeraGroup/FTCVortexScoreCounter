@@ -491,7 +491,7 @@ public class JoystickTest {
 
                 }
                 
-                                if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
+                if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
                     if(componentredcor.getPollData() != 0.0f){
