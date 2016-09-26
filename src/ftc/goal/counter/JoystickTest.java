@@ -89,8 +89,9 @@ public class JoystickTest {
         // If at least one controller was found we start showing controller data on window.
         if(!foundControllers.isEmpty())
             startShowingControllerData();
-        else
-            System.out.println("No controller found!");
+        else{
+        SettingsUI.NoControllerName();
+    }
     }
 
     /**

@@ -894,7 +894,6 @@ public static final String version = "0.1.2-DEV";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -903,6 +902,14 @@ public static final String version = "0.1.2-DEV";
             RedCorTele = 0;
             BlueCenTele = 0;
             BlueCorTele = 0;
+            RedCenAutoSpin.setValue(0);
+            BlueCenAutoSpin.setValue(0);
+            RedCorAutoSpin.setValue(0);
+            BlueCorAutoSpin.setValue(0);
+            RedCenTeleSpin.setValue(0);
+            BlueCenTeleSpin.setValue(0);
+            RedCorTeleSpin.setValue(0);
+            BlueCorTeleSpin.setValue(0);
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
@@ -994,15 +1001,8 @@ public static final String version = "0.1.2-DEV";
         });
         
          JoyStickBasic jinputJoystickTest = new JoyStickBasic();
-        // Writes (into console) informations of all controllers that are found.
-        //jinputJoystickTest.getAllControllersInfo();
-        // In loop writes (into console) all joystick components and its current values.
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.STICK);
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.GAMEPAD);
-        
-        //new GoalCounterUI();
-        
-        new JoystickTest();
+
+        //new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
