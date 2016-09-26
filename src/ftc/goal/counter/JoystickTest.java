@@ -81,7 +81,7 @@ public class JoystickTest {
     
     final SettingsUI window;
     
-    private static ArrayList<Controller> foundControllers;
+    public static ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
         window = new SettingsUI();
