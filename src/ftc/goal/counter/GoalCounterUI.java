@@ -1002,7 +1002,7 @@ public static final String version = "0.1.2-DEV";
         
          JoyStickBasic jinputJoystickTest = new JoyStickBasic();
 
-        //new JoystickTest();
+        new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
