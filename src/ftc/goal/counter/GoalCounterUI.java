@@ -26,10 +26,9 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCorTele = 0;
     public static SettingsUI settings;
     public static AudDisplay AudDisp;
-    public static AboutUI about;
     
 
-public static final String version = "0.1.2-DEV";
+public static final String version = "0.1.1-ALPHA";
 
     /**
      * Creates new form GoalCounterUI
@@ -560,17 +559,17 @@ public static final String version = "0.1.2-DEV";
         RedCorJSStatus.setLayout(RedCorJSStatusLayout);
         RedCorJSStatusLayout.setHorizontalGroup(
             RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedVortCorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-            .addGroup(RedCorJSStatusLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCorJSStatusLayout.createSequentialGroup()
+                .addGap(0, 9, Short.MAX_VALUE)
                 .addComponent(RedCorAutoeLabel)
                 .addGap(6, 6, 6)
                 .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCorTeleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(RedCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addComponent(RedVortCorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         RedCorJSStatusLayout.setVerticalGroup(
             RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -642,7 +641,7 @@ public static final String version = "0.1.2-DEV";
         RedAlliance.setLayout(RedAllianceLayout);
         RedAllianceLayout.setHorizontalGroup(
             RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 165, Short.MAX_VALUE)
+            .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(RedCorJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         RedAllianceLayout.setVerticalGroup(
@@ -728,7 +727,7 @@ public static final String version = "0.1.2-DEV";
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BlueCorTeleSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(1, 1, 1))
         );
         BlueCorJSStatusLayout.setVerticalGroup(
             BlueCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,12 +747,10 @@ public static final String version = "0.1.2-DEV";
         BlueAlliance.setLayout(BlueAllianceLayout);
         BlueAllianceLayout.setHorizontalGroup(
             BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BlueAllianceLayout.createSequentialGroup()
-                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BlueCenJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(BlueAllianceLayout.createSequentialGroup()
-                        .addComponent(BlueCorJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BlueAllianceLayout.createSequentialGroup()
+                .addGroup(BlueAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BlueCenJSStatus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BlueCorJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         BlueAllianceLayout.setVerticalGroup(
@@ -912,9 +909,7 @@ public static final String version = "0.1.2-DEV";
     }//GEN-LAST:event_SettingButtonActionPerformed
 
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
-        if(!about.isVisible()){
-            about.setVisible(true);
-        }
+        new AboutUI().setVisible(true);
     }//GEN-LAST:event_AboutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -988,8 +983,6 @@ public static final String version = "0.1.2-DEV";
                 settings.setVisible(true);
                 AudDisp = new AudDisplay();
                 AudDisp.setVisible(false);
-                about = new AboutUI();
-                about.setVisible(false);
             }
         });
         
