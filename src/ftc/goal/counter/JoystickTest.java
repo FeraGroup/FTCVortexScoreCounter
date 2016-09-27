@@ -93,6 +93,7 @@ public class JoystickTest {
             startShowingControllerData();
         else
             System.out.println("No controller found!");
+            SettingsUI.NoControllerName();
     }
 
     /**

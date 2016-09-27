@@ -523,6 +523,13 @@ public static int getSelectedControllerNameBlueCor(){
         RedCorControlSelect.addItem(controllerName);
         BlueCorControlSelect.addItem(controllerName);
     }
+    
+    public static void NoControllerName(){
+        RedCenControlSelect.addItem("No Controllers Found");
+        BlueCenControlSelect.addItem("No Controllers Found");
+        RedCorControlSelect.addItem("No COntrollers Found");
+        BlueCorControlSelect.addItem("No Controllers Found");
+    }
 
 //    public void showControllerDisconnected(){
 //        RedCenControlSelect.addItem("Controller disconnected!");

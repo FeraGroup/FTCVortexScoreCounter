@@ -26,9 +26,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCorTele = 0;
     public static SettingsUI settings;
     public static AudDisplay AudDisp;
+    public static AboutUI about;
     
 
-public static final String version = "0.1.1-ALPHA";
+public static final String version = "0.1.2-ALPHA";
 
     /**
      * Creates new form GoalCounterUI
@@ -909,7 +910,9 @@ public static final String version = "0.1.1-ALPHA";
     }//GEN-LAST:event_SettingButtonActionPerformed
 
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
-        new AboutUI().setVisible(true);
+        if(!about.isVisible()){
+            about.setVisible(true);
+        }
     }//GEN-LAST:event_AboutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -983,6 +986,8 @@ public static final String version = "0.1.1-ALPHA";
                 settings.setVisible(true);
                 AudDisp = new AudDisplay();
                 AudDisp.setVisible(false);
+                about = new AboutUI();
+                about.setVisible(false);
             }
         });
         
