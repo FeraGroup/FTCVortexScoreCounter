@@ -27,6 +27,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static SettingsUI settings;
     public static AudDisplay AudDisp;
     public static AboutUI about;
+    public static JoystickTest JS;
     
 
 public static final String version = "0.1.2-ALPHA";
@@ -1000,7 +1001,7 @@ public static final String version = "0.1.2-ALPHA";
         
         //new GoalCounterUI();
         
-        new JoystickTest();
+       JS = new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
