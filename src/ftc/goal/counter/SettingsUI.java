@@ -6,6 +6,10 @@
  */
 package ftc.goal.counter;
 
+import ftc.goal.counter.GoalCounterUI;
+
+
+
 /**
  *
  * @author afera
@@ -24,6 +28,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCorBtn = true;
     public static boolean BlueCorLeft = false;
     public static boolean BlueCorRight = false;
+    public static JoystickTest JS;
     /**
      * Creates new form SettingsUI
      */
@@ -568,27 +573,29 @@ public static int getSelectedControllerNameBlueCor(){
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SettingsUI().setVisible(true);
+
             }
         });
+        //new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox BlueCenContButton;
     private javax.swing.JCheckBox BlueCenContLeft;
     private javax.swing.JCheckBox BlueCenContRight;
-    private static javax.swing.JComboBox BlueCenControlSelect;
+    public static javax.swing.JComboBox BlueCenControlSelect;
     private javax.swing.JCheckBox BlueCorContButton;
     private javax.swing.JCheckBox BlueCorContLeft;
     private javax.swing.JCheckBox BlueCorContRight;
-    private static javax.swing.JComboBox BlueCorControlSelect;
+    public static javax.swing.JComboBox BlueCorControlSelect;
     private javax.swing.JCheckBox RedCenContButton;
     private javax.swing.JCheckBox RedCenContLeft;
     private javax.swing.JCheckBox RedCenContRight;
-    private static javax.swing.JComboBox RedCenControlSelect;
+    public static javax.swing.JComboBox RedCenControlSelect;
     private javax.swing.JCheckBox RedCorContButton;
     private javax.swing.JCheckBox RedCorContLeft;
     private javax.swing.JCheckBox RedCorContRight;
-    private static javax.swing.JComboBox RedCorControlSelect;
+    public static javax.swing.JComboBox RedCorControlSelect;
     private javax.swing.JPanel blue;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

@@ -5,6 +5,7 @@
  */
 package ftc.goal.counter;
 
+//import static ftc.goal.counter.SettingsUI.JS;
 
 /*
  * @author afera
@@ -27,8 +28,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static SettingsUI settings;
     public static AudDisplay AudDisp;
     public static AboutUI about;
-    public static JoystickTest JS;
-    
 
 public static final String version = "0.1.2-ALPHA";
 
@@ -65,7 +64,7 @@ public static final String version = "0.1.2-ALPHA";
         }
     }
     
-        public void DcrsRedCenB(){
+    public void DcrsRedCenB(){
          if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && SettingsUI.RedCenBtn == true){
             if(AutoState == true){
                 if(RedCenAuto < 1){
@@ -85,8 +84,8 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSRedCenBbtn = true;
                 }  
             }  
-            }
         }
+    }
         
      public void IncrsRedCenLB(){
          if(JoystickTest.PressJSRedCenLB==true && JoystickTest.pressLstJSRedCenLB!=true && SettingsUI.RedCenLeft==true){
@@ -98,7 +97,7 @@ public static final String version = "0.1.2-ALPHA";
                           RedCenTeleSpin.setValue(++RedCenTele);
                           JoystickTest.pressLstJSRedCenLB = true;     
                 }     
-                   }
+        }
     }
         
     public void DcrsRedCenLT(){
@@ -121,8 +120,7 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSRedCenLT = true;
                 }  
             }
-        }
-         
+        } 
     }
     
          public void IncrsRedCenRB(){
@@ -135,7 +133,7 @@ public static final String version = "0.1.2-ALPHA";
                           RedCenTeleSpin.setValue(++RedCenTele);
                           JoystickTest.pressLstJSRedCenRB = true;     
                 }
-    }
+            }
          }
         
     public void DcrsRedCenRT(){
@@ -158,23 +156,23 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSRedCenRT = true;
                 }  
             } 
-            }
         }
+    }
     
     public void IncrsBlueCenA(){
          if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true && SettingsUI.BlueCenBtn == true){
-                if(AutoState == true){
-                          BlueCenAutoSpin.setValue(++BlueCenAuto);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
-                }
-                if(TeleState == true){
-                          BlueCenTeleSpin.setValue(++BlueCenTele);
-                          JoystickTest.pressLstJSBlueCenAbtn = true;     
-                }   
-                   }
+            if(AutoState == true){
+                BlueCenAutoSpin.setValue(++BlueCenAuto);
+                JoystickTest.pressLstJSBlueCenAbtn = true;     
+            }
+            if(TeleState == true){
+                BlueCenTeleSpin.setValue(++BlueCenTele);
+                JoystickTest.pressLstJSBlueCenAbtn = true;     
+            }   
+        }
     }
     
-        public void DcrsBlueCenB(){
+    public void DcrsBlueCenB(){
          if(JoystickTest.PressJSBlueCenBbtn==true && JoystickTest.pressLstJSBlueCenBbtn!=true && SettingsUI.BlueCenBtn == true){
             if(AutoState == true){
                 if(BlueCenAuto < 1){
@@ -194,20 +192,20 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSBlueCenBbtn = true;
                 } 
             }         
-    }
         }
+    }
      
     public void IncrsBlueCenLB(){
          if(JoystickTest.PressJSBlueCenLB==true && JoystickTest.pressLstJSBlueCenLB!=true && SettingsUI.BlueCenLeft==true){
-                if(AutoState == true){
-                          BlueCenAutoSpin.setValue(++BlueCenAuto);
-                          JoystickTest.pressLstJSBlueCenLB = true;     
-                }
-                if(TeleState == true){
-                          BlueCenTeleSpin.setValue(++BlueCenTele);
-                          JoystickTest.pressLstJSBlueCenLB = true;     
-                }      
-                   }
+            if(AutoState == true){
+                BlueCenAutoSpin.setValue(++BlueCenAuto);
+                JoystickTest.pressLstJSBlueCenLB = true;     
+            }
+            if(TeleState == true){
+                BlueCenTeleSpin.setValue(++BlueCenTele);
+                JoystickTest.pressLstJSBlueCenLB = true;     
+            }      
+        }
     }
         
     public void DcrsBlueCenLT(){
@@ -233,17 +231,17 @@ public static final String version = "0.1.2-ALPHA";
         }
     }
     
-         public void IncrsBlueCenRB(){
+    public void IncrsBlueCenRB(){
          if(JoystickTest.PressJSBlueCenRB==true && JoystickTest.pressLstJSBlueCenRB!=true && SettingsUI.BlueCenRight==true){
-                if(AutoState == true){
-                          BlueCenAutoSpin.setValue(++BlueCenAuto);
-                          JoystickTest.pressLstJSBlueCenRB = true;     
-                }
-                if(TeleState == true){
-                          BlueCenTeleSpin.setValue(++BlueCenTele);
-                          JoystickTest.pressLstJSBlueCenRB = true;     
-                }      
-                   }
+            if(AutoState == true){
+                BlueCenAutoSpin.setValue(++BlueCenAuto);
+                JoystickTest.pressLstJSBlueCenRB = true;     
+            }
+            if(TeleState == true){
+                BlueCenTeleSpin.setValue(++BlueCenTele);
+                JoystickTest.pressLstJSBlueCenRB = true;     
+            }      
+        }
     }
         
     public void DcrsBlueCenRT(){
@@ -269,20 +267,20 @@ public static final String version = "0.1.2-ALPHA";
         }
     }
         
-            public void IncrsRedCorA(){
+    public void IncrsRedCorA(){
          if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true && SettingsUI.RedCorBtn == true){
-                if(AutoState == true){
-                          RedCorAutoSpin.setValue(++RedCorAuto);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
-                }
-                if(TeleState == true){
-                          RedCorTeleSpin.setValue(++RedCorTele);
-                          JoystickTest.pressLstJSRedCorAbtn = true;     
-                }       
-                   }
+            if(AutoState == true){
+                RedCorAutoSpin.setValue(++RedCorAuto);
+                JoystickTest.pressLstJSRedCorAbtn = true;     
+            }
+            if(TeleState == true){
+                RedCorTeleSpin.setValue(++RedCorTele);
+                JoystickTest.pressLstJSRedCorAbtn = true;     
+            }       
+        }
     }
     
-        public void DcrsRedCorB(){
+    public void DcrsRedCorB(){
          if(JoystickTest.PressJSRedCorBbtn==true && JoystickTest.pressLstJSRedCorBbtn!=true && SettingsUI.RedCorBtn == true){
             if(AutoState == true){
                 if(RedCorAuto < 1){
@@ -302,20 +300,20 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSRedCorBbtn = true;
                 }  
             }    
-            }
         }
+    }
         
-             public void IncrsRedCorLB(){
+    public void IncrsRedCorLB(){
          if(JoystickTest.PressJSRedCorLB==true && JoystickTest.pressLstJSRedCorLB!=true && SettingsUI.RedCorLeft==true){
-                if(AutoState == true){
-                          RedCorAutoSpin.setValue(++RedCorAuto);
-                          JoystickTest.pressLstJSRedCorLB = true;     
-                }
-                if(TeleState == true){
-                          RedCorTeleSpin.setValue(++RedCorTele);
-                          JoystickTest.pressLstJSRedCorLB = true;     
-                }   
-                   }
+            if(AutoState == true){
+                RedCorAutoSpin.setValue(++RedCorAuto);
+                JoystickTest.pressLstJSRedCorLB = true;     
+            }
+            if(TeleState == true){
+                RedCorTeleSpin.setValue(++RedCorTele);
+                JoystickTest.pressLstJSRedCorLB = true;     
+            }   
+        }
     }
         
     public void DcrsRedCorLT(){
@@ -338,20 +336,20 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSRedCorLT = true;
                 }  
             }   
-            }
         }
+    }
     
-         public void IncrsRedCorRB(){
+    public void IncrsRedCorRB(){
          if(JoystickTest.PressJSRedCorRB==true && JoystickTest.pressLstJSRedCorRB!=true && SettingsUI.RedCorRight==true){
-                if(AutoState == true){
-                          RedCorAutoSpin.setValue(++RedCorAuto);
-                          JoystickTest.pressLstJSRedCorRB = true;     
-                }
-                if(TeleState == true){
-                          RedCorTeleSpin.setValue(++RedCorTele);
-                          JoystickTest.pressLstJSRedCorRB = true;     
-                }  
-                   }
+            if(AutoState == true){
+                RedCorAutoSpin.setValue(++RedCorAuto);
+                JoystickTest.pressLstJSRedCorRB = true;     
+            }
+            if(TeleState == true){
+                RedCorTeleSpin.setValue(++RedCorTele);
+                JoystickTest.pressLstJSRedCorRB = true;     
+            }  
+        }
     }
         
     public void DcrsRedCorRT(){
@@ -379,19 +377,19 @@ public static final String version = "0.1.2-ALPHA";
         
     public void IncrsBlueCorA(){
          if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true && SettingsUI.BlueCorBtn == true){
-                if(AutoState == true){
-                          BlueCorAutoSpin.setValue(++BlueCorAuto);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
-                }
-                if(TeleState == true){
-                          BlueCorTeleSpin.setValue(++BlueCorTele);
-                          JoystickTest.pressLstJSBlueCorAbtn = true;     
-                }    
-                   }
+            if(AutoState == true){
+                BlueCorAutoSpin.setValue(++BlueCorAuto);
+                JoystickTest.pressLstJSBlueCorAbtn = true;     
+            }
+            if(TeleState == true){
+                BlueCorTeleSpin.setValue(++BlueCorTele);
+                JoystickTest.pressLstJSBlueCorAbtn = true;     
+            }    
+        }
     }
     
-        public void DcrsBlueCorB(){
-         if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true && SettingsUI.BlueCorBtn == true){
+    public void DcrsBlueCorB(){
+        if(JoystickTest.PressJSBlueCorBbtn==true && JoystickTest.pressLstJSBlueCorBbtn!=true && SettingsUI.BlueCorBtn == true){
             if(AutoState == true){
                 if(BlueCorAuto < 1){
                     BlueCorAuto = 0;   
@@ -410,19 +408,19 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSBlueCorBbtn = true;
                 } 
             }  
-            }     
+        }     
     }
-        public void IncrsBlueCorLB(){
+    public void IncrsBlueCorLB(){
          if(JoystickTest.PressJSBlueCorLB==true && JoystickTest.pressLstJSBlueCorLB!=true && SettingsUI.BlueCorLeft==true){
-                if(AutoState == true){
-                          BlueCorAutoSpin.setValue(++BlueCorAuto);
-                          JoystickTest.pressLstJSBlueCorLB = true;     
-                }
-                if(TeleState == true){
-                          BlueCorTeleSpin.setValue(++BlueCorTele);
-                          JoystickTest.pressLstJSBlueCorLB = true;     
-                }    
-                   }
+            if(AutoState == true){
+                BlueCorAutoSpin.setValue(++BlueCorAuto);
+                JoystickTest.pressLstJSBlueCorLB = true;     
+            }
+            if(TeleState == true){
+                BlueCorTeleSpin.setValue(++BlueCorTele);
+                JoystickTest.pressLstJSBlueCorLB = true;     
+            }    
+        }
     }
         
     public void DcrsBlueCorLT(){
@@ -445,20 +443,20 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSBlueCorLT = true;
                 } 
             }  
-            }
         }
+    }
     
-         public void IncrsBlueCorRB(){
-         if(JoystickTest.PressJSBlueCorRB==true && JoystickTest.pressLstJSBlueCorRB!=true && SettingsUI.BlueCorRight==true){
-                if(AutoState == true){
-                          BlueCorAutoSpin.setValue(++BlueCorAuto);
-                          JoystickTest.pressLstJSBlueCorRB = true;     
-                }
-                if(TeleState == true){
-                          BlueCorTeleSpin.setValue(++BlueCorTele);
-                          JoystickTest.pressLstJSBlueCorRB= true;     
-                }    
-                   }
+    public void IncrsBlueCorRB(){
+        if(JoystickTest.PressJSBlueCorRB==true && JoystickTest.pressLstJSBlueCorRB!=true && SettingsUI.BlueCorRight==true){
+            if(AutoState == true){
+                BlueCorAutoSpin.setValue(++BlueCorAuto);
+                JoystickTest.pressLstJSBlueCorRB = true;     
+            }
+            if(TeleState == true){
+                BlueCorTeleSpin.setValue(++BlueCorTele);
+                JoystickTest.pressLstJSBlueCorRB= true;     
+            }    
+        }
     }
         
     public void DcrsBlueCorRT(){
@@ -481,8 +479,8 @@ public static final String version = "0.1.2-ALPHA";
                     JoystickTest.pressLstJSBlueCorRT = true;
                 } 
             }
-            }
         }
+    }
         
         
 
@@ -927,18 +925,18 @@ public static final String version = "0.1.2-ALPHA";
          AutoState = true;
          TeleState = false;
                  }
-        else{
+    else{
          AutoState = false;
          TeleState = true;
      } 
     }//GEN-LAST:event_AutoActionPerformed
 
     private void TeleopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeleopActionPerformed
-      if(Teleop.isSelected()){
+     if(Teleop.isSelected()){
          TeleState = true;
          AutoState = false;
-                 }
-        else{
+     }
+     else{
          TeleState = false;
          AutoState = true;
      } 
@@ -989,19 +987,9 @@ public static final String version = "0.1.2-ALPHA";
                 AudDisp.setVisible(false);
                 about = new AboutUI();
                 about.setVisible(false);
-            }
+            }   
         });
-        
-         JoyStickBasic jinputJoystickTest = new JoyStickBasic();
-        // Writes (into console) informations of all controllers that are found.
-        //jinputJoystickTest.getAllControllersInfo();
-        // In loop writes (into console) all joystick components and its current values.
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.STICK);
-        //jinputJoystickTest.pollControllerAndItsComponents(Controller.Type.GAMEPAD);
-        
-        //new GoalCounterUI();
-        
-       JS = new JoystickTest();
+                //JS = new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
