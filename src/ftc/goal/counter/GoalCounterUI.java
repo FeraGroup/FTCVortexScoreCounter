@@ -5,8 +5,6 @@
  */
 package ftc.goal.counter;
 
-//import static ftc.goal.counter.SettingsUI.JS;
-
 /*
  * @author afera
  * Alexander Fera
@@ -25,9 +23,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCenTele = 0;
     public static int RedCorTele = 0;
     public static int BlueCorTele = 0;
-    public static SettingsUI settings;
+    //public static SettingsUI settings;
     public static AudDisplay AudDisp;
     public static AboutUI about;
+    public static JoystickTest JS;
 
 public static final String version = "0.1.2-ALPHA";
 
@@ -53,14 +52,14 @@ public static final String version = "0.1.2-ALPHA";
     
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
-                if(AutoState == true){
-                          RedCenAutoSpin.setValue(++RedCenAuto);
-                          JoystickTest.pressLstJSRedCenAbtn = true;     
-                }
-                if(TeleState == true){
-                          RedCenTeleSpin.setValue(++RedCenTele);
-                          JoystickTest.pressLstJSRedCenAbtn = true;  
-                }
+            if(AutoState == true){
+                RedCenAutoSpin.setValue(++RedCenAuto);
+                JoystickTest.pressLstJSRedCenAbtn = true;     
+            }
+            if(TeleState == true){
+                RedCenTeleSpin.setValue(++RedCenTele);
+                JoystickTest.pressLstJSRedCenAbtn = true;  
+            }
         }
     }
     
@@ -903,8 +902,8 @@ public static final String version = "0.1.2-ALPHA";
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
-        if(!settings.isVisible()){
-            settings.setVisible(true);
+        if(!JoystickTest.settings.isVisible()){
+            JoystickTest.settings.setVisible(true);
         }
     }//GEN-LAST:event_SettingButtonActionPerformed
 
@@ -981,15 +980,15 @@ public static final String version = "0.1.2-ALPHA";
             public void run() {
                 goal = new GoalCounterUI();
                 goal.setVisible(true);
-                settings = new SettingsUI();
-                settings.setVisible(true);
+                //settings = new SettingsUI();
+                //settings.setVisible(true);
                 AudDisp = new AudDisplay();
                 AudDisp.setVisible(false);
                 about = new AboutUI();
                 about.setVisible(false);
             }   
         });
-                //JS = new JoystickTest();
+        JS = new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

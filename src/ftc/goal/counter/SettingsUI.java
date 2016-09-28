@@ -28,7 +28,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCorBtn = true;
     public static boolean BlueCorLeft = false;
     public static boolean BlueCorRight = false;
-    public static JoystickTest JS;
+
     /**
      * Creates new form SettingsUI
      */
@@ -576,7 +576,6 @@ public static int getSelectedControllerNameBlueCor(){
 
             }
         });
-        //new JoystickTest();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
