@@ -532,7 +532,7 @@ public static int getSelectedControllerNameBlueCor(){
     public static void NoControllerName(){
         RedCenControlSelect.addItem("No Controllers Found");
         BlueCenControlSelect.addItem("No Controllers Found");
-        RedCorControlSelect.addItem("No COntrollers Found");
+        RedCorControlSelect.addItem("No Controllers Found");
         BlueCorControlSelect.addItem("No Controllers Found");
     }
 
