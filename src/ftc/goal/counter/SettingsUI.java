@@ -51,25 +51,25 @@ public class SettingsUI extends javax.swing.JFrame {
         RedCenContButton = new javax.swing.JCheckBox();
         RedCenContLeft = new javax.swing.JCheckBox();
         RedCenContRight = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        CenVor = new javax.swing.JLabel();
         RedCorControlSelect = new javax.swing.JComboBox();
         RedCorContRight = new javax.swing.JCheckBox();
         RedCorContLeft = new javax.swing.JCheckBox();
         RedCorContButton = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
+        CorVor = new javax.swing.JLabel();
         blue = new javax.swing.JPanel();
         BlueCenControlSelect = new javax.swing.JComboBox();
         BlueCenContButton = new javax.swing.JCheckBox();
         BlueCenContLeft = new javax.swing.JCheckBox();
         BlueCenContRight = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
+        BCenVor = new javax.swing.JLabel();
         BlueCorControlSelect = new javax.swing.JComboBox();
         BlueCorContRight = new javax.swing.JCheckBox();
         BlueCorContLeft = new javax.swing.JCheckBox();
         BlueCorContButton = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        BCorVor = new javax.swing.JLabel();
+        Save = new javax.swing.JButton();
+        RePullJS = new javax.swing.JButton();
 
         setTitle("Settings");
         setResizable(false);
@@ -106,8 +106,8 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel1.setText("Center Vortex");
+        CenVor.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        CenVor.setText("Center Vortex");
 
         RedCorControlSelect.setName(""); // NOI18N
         RedCorControlSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -138,8 +138,8 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel2.setText("Corner Vortex");
+        CorVor.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        CorVor.setText("Corner Vortex");
 
         javax.swing.GroupLayout redLayout = new javax.swing.GroupLayout(red);
         red.setLayout(redLayout);
@@ -151,7 +151,7 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addGroup(redLayout.createSequentialGroup()
                         .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RedCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(CenVor))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(redLayout.createSequentialGroup()
                         .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +163,7 @@ public class SettingsUI extends javax.swing.JFrame {
                                 .addComponent(RedCenContRight))
                             .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, redLayout.createSequentialGroup()
-                                    .addComponent(jLabel2)
+                                    .addComponent(CorVor)
                                     .addGap(229, 229, 229))
                                 .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(redLayout.createSequentialGroup()
@@ -177,7 +177,7 @@ public class SettingsUI extends javax.swing.JFrame {
         redLayout.setVerticalGroup(
             redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(redLayout.createSequentialGroup()
-                .addComponent(jLabel1)
+                .addComponent(CenVor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -186,7 +186,7 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addComponent(RedCenContLeft)
                     .addComponent(RedCenContRight))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addComponent(CorVor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -229,8 +229,8 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel3.setText("Center Vortex");
+        BCenVor.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        BCenVor.setText("Center Vortex");
 
         BlueCorControlSelect.setName(""); // NOI18N
         BlueCorControlSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -261,8 +261,8 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        jLabel4.setText("Corner Vortex");
+        BCorVor.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        BCorVor.setText("Corner Vortex");
 
         javax.swing.GroupLayout blueLayout = new javax.swing.GroupLayout(blue);
         blue.setLayout(blueLayout);
@@ -274,7 +274,7 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addGroup(blueLayout.createSequentialGroup()
                         .addGroup(blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BlueCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(BCenVor))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(blueLayout.createSequentialGroup()
                         .addGroup(blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +292,7 @@ public class SettingsUI extends javax.swing.JFrame {
                                 .addComponent(BlueCenContRight))
                             .addGroup(blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, blueLayout.createSequentialGroup()
-                                    .addComponent(jLabel4)
+                                    .addComponent(BCorVor)
                                     .addGap(229, 229, 229))
                                 .addComponent(BlueCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -300,7 +300,7 @@ public class SettingsUI extends javax.swing.JFrame {
         blueLayout.setVerticalGroup(
             blueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(blueLayout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(BCenVor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -309,7 +309,7 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addComponent(BlueCenContLeft)
                     .addComponent(BlueCenContRight))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(BCorVor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BlueCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
@@ -320,17 +320,17 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Save.setText("Save");
+        Save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                SaveActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Re-Pull Joysticks");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        RePullJS.setText("Re-Pull Joysticks");
+        RePullJS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RePullJSActionPerformed(evt);
             }
         });
 
@@ -346,9 +346,9 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(RePullJS)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(Save)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -360,8 +360,8 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(Save)
+                    .addComponent(RePullJS))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -492,24 +492,24 @@ public class SettingsUI extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_BlueCorContRightActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void RePullJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RePullJSActionPerformed
         RedCenControlSelect.removeAllItems();
         BlueCenControlSelect.removeAllItems();
         RedCorControlSelect.removeAllItems();
         BlueCorControlSelect.removeAllItems();
+        JoystickTest.foundControllers.clear();
+        //JoystickTest.foundControllers.removeIf(!JoystickTest.Controller.poll())
         JoystickTest.searchForControllers();
         //JoystickTest.pulljs();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_RePullJSActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
          this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_SaveActionPerformed
  
     
 public static int getSelectedControllerNameRedCen(){
-    while(true){   
     return RedCenControlSelect.getSelectedIndex();
-    }
 }
     
 public static int getSelectedControllerNameBlueCen(){
@@ -581,6 +581,8 @@ public static int getSelectedControllerNameBlueCor(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BCenVor;
+    private javax.swing.JLabel BCorVor;
     private javax.swing.JCheckBox BlueCenContButton;
     private javax.swing.JCheckBox BlueCenContLeft;
     private javax.swing.JCheckBox BlueCenContRight;
@@ -589,6 +591,9 @@ public static int getSelectedControllerNameBlueCor(){
     private javax.swing.JCheckBox BlueCorContLeft;
     private javax.swing.JCheckBox BlueCorContRight;
     public static javax.swing.JComboBox BlueCorControlSelect;
+    private javax.swing.JLabel CenVor;
+    private javax.swing.JLabel CorVor;
+    private javax.swing.JButton RePullJS;
     private javax.swing.JCheckBox RedCenContButton;
     private javax.swing.JCheckBox RedCenContLeft;
     private javax.swing.JCheckBox RedCenContRight;
@@ -597,13 +602,8 @@ public static int getSelectedControllerNameBlueCor(){
     private javax.swing.JCheckBox RedCorContLeft;
     private javax.swing.JCheckBox RedCorContRight;
     public static javax.swing.JComboBox RedCorControlSelect;
+    private javax.swing.JButton Save;
     private javax.swing.JPanel blue;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel red;
     // End of variables declaration//GEN-END:variables
 }
