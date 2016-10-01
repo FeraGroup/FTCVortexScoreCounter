@@ -890,7 +890,6 @@ public static final String version = "0.1.2-ALPHA";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -899,6 +898,16 @@ public static final String version = "0.1.2-ALPHA";
             RedCorTele = 0;
             BlueCenTele = 0;
             BlueCorTele = 0;
+            RedCenAutoSpin.setValue(0);
+            RedCenTeleSpin.setValue(0);
+            RedCorAutoSpin.setValue(0);
+            RedCorTeleSpin.setValue(0);
+            BlueCenAutoSpin.setValue(0);
+            BlueCenTeleSpin.setValue(0);
+            BlueCorAutoSpin.setValue(0);
+            BlueCorTeleSpin.setValue(0);
+            
+            
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed

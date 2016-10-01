@@ -7,6 +7,7 @@
 package ftc.goal.counter;
 
 import ftc.goal.counter.GoalCounterUI;
+import static ftc.goal.counter.JoystickTest.searchForControllers;
 
 
 
@@ -497,6 +498,7 @@ public class SettingsUI extends javax.swing.JFrame {
         RedCorControlSelect.removeAllItems();
         BlueCorControlSelect.removeAllItems();
         JoystickTest.searchForControllers();
+        //JoystickTest.pulljs();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
