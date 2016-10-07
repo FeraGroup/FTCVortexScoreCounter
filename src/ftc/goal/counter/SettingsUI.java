@@ -6,11 +6,6 @@
  */
 package ftc.goal.counter;
 
-import ftc.goal.counter.GoalCounterUI;
-import static ftc.goal.counter.JoystickTest.searchForControllers;
-
-
-
 /**
  *
  * @author afera
@@ -29,7 +24,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCorBtn = true;
     public static boolean BlueCorLeft = false;
     public static boolean BlueCorRight = false;
-
+    
     /**
      * Creates new form SettingsUI
      */
@@ -498,9 +493,7 @@ public class SettingsUI extends javax.swing.JFrame {
         RedCorControlSelect.removeAllItems();
         BlueCorControlSelect.removeAllItems();
         JoystickTest.foundControllers.clear();
-        //JoystickTest.foundControllers.removeIf(!JoystickTest.Controller.poll())
         JoystickTest.searchForControllers();
-        //JoystickTest.pulljs();
     }//GEN-LAST:event_RePullJSActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed

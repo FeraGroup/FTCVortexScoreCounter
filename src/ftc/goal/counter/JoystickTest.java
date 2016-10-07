@@ -6,19 +6,13 @@ package ftc.goal.counter;
  * During the 2016 - 2017 Game
  */
 
-import ftc.goal.counter.AudDisplay;
-import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 import net.java.games.input.Component;
 import net.java.games.input.Component.Identifier;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
-import ftc.goal.counter.GoalCounterUI;
-import ftc.goal.counter.AudDisplay;
 
 /**
  *
@@ -128,8 +122,7 @@ public class JoystickTest {
      * Starts showing controller data on the window.
      */
     public static void startShowingControllerData(){
-        while(true)
-        {
+        while(true){
             
             GoalCounterUI.spinnersync();
             
@@ -174,56 +167,56 @@ public class JoystickTest {
             }
             
             
-                         if( !controllerRedCen.poll() ){
+            if( !controllerRedCen.poll() ){
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
             }
-                         else{
-             if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
-                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                //AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/jsred.jpg")));
+            else{
+                if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                    //AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/jsred.jpg")));
+                }
+                else {
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                }
+                if( !controllerRedCen.poll() ){
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+                }
             }
-             else {
-                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-             }
-             if( !controllerRedCen.poll() ){
-                GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-            }
-                         }
                          
-                          if( !controllerRedCor.poll() ){
+            if( !controllerRedCor.poll() ){
                 GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
             }
-                          else{            
-            if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
-                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            else{            
+                if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                }
+                else {
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                }
             }
-             else {
-                GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-             }
-                          }
-                              if( !controllerBlueCor.poll() ){
+            if( !controllerBlueCor.poll() ){
                 GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
             } 
-                              else{
-            if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
-                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            else{
+                if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                }
+                else {
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                }
             }
-             else {
-                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-             }
-                              }
             
-                                           if( !controllerBlueCen.poll() ){
+            if( !controllerBlueCen.poll() ){
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
             } 
-                                           else{
-            if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
-                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+            else{
+                if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                }
+                else {
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                }
             }
-             else {
-                GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-             }
-                                           }
             
              
             // Go trough all components of the controller.

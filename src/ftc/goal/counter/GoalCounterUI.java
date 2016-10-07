@@ -23,7 +23,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCenTele = 0;
     public static int RedCorTele = 0;
     public static int BlueCorTele = 0;
-    //public static SettingsUI settings;
     public static AudDisplay AudDisp;
     public static AboutUI about;
     public static JoystickTest JS;
@@ -36,7 +35,6 @@ public static final String version = "0.1.2-ALPHA";
     
     public GoalCounterUI() {
         initComponents();
-
     }
     
     public static void spinnersync(){
@@ -906,8 +904,6 @@ public static final String version = "0.1.2-ALPHA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
-            
-            
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
@@ -954,11 +950,7 @@ public static final String version = "0.1.2-ALPHA";
     /**
      * @param args the command line arguments
      */
-    
-    //public static redcencount {
-      // RedCenVal = RedVortCenVar.get;
-       
-//}
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -989,8 +981,6 @@ public static final String version = "0.1.2-ALPHA";
             public void run() {
                 goal = new GoalCounterUI();
                 goal.setVisible(true);
-                //settings = new SettingsUI();
-                //settings.setVisible(true);
                 AudDisp = new AudDisplay();
                 AudDisp.setVisible(false);
                 about = new AboutUI();
