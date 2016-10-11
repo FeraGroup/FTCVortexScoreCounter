@@ -27,7 +27,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AboutUI about;
     public static JoystickTest JS;
 
-public static final String version = "0.1.2-ALPHA";
+public static final String version = "0.1.3-ALPHA";
 
     /**
      * Creates new form GoalCounterUI
