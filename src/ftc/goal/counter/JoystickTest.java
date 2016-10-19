@@ -73,14 +73,9 @@ public class JoystickTest {
     static public boolean pressLstJSBlueCorRB = false;
     static public boolean PressJSBlueCorRB = false;
     
-    public static SettingsUI settings;
-    
     public static ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
-        
-        settings = new SettingsUI();
-        settings.setVisible(true);
         
         foundControllers = new ArrayList<>();
         searchForControllers();

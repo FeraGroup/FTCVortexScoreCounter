@@ -26,6 +26,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AudDisplay AudDisp;
     public static AboutUI about;
     public static JoystickTest JS;
+    public static SettingsUI settings;
 
 public static final String version = "0.1.3-ALPHA";
 
@@ -907,8 +908,8 @@ public static final String version = "0.1.3-ALPHA";
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
-        if(!JoystickTest.settings.isVisible()){
-            JoystickTest.settings.setVisible(true);
+        if(!settings.isVisible()){
+            settings.setVisible(true);
         }
     }//GEN-LAST:event_SettingButtonActionPerformed
 
@@ -976,11 +977,14 @@ public static final String version = "0.1.3-ALPHA";
         //</editor-fold>
        
         
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 goal = new GoalCounterUI();
                 goal.setVisible(true);
+                settings = new SettingsUI();
+                settings.setVisible(true);
                 AudDisp = new AudDisplay();
                 AudDisp.setVisible(false);
                 about = new AboutUI();
@@ -988,6 +992,7 @@ public static final String version = "0.1.3-ALPHA";
             }   
         });
         JS = new JoystickTest();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
