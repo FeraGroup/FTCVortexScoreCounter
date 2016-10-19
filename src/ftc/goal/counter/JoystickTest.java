@@ -80,11 +80,15 @@ public class JoystickTest {
         foundControllers = new ArrayList<>();
         searchForControllers();
         // If at least one controller was found we start showing controller data on window.
-        if(!foundControllers.isEmpty())
+        if(!foundControllers.isEmpty()){
             startShowingControllerData();
-        else
-            System.out.println("No controller found!");
+        }
+        else{
             SettingsUI.NoControllerName();
+            while(true){
+                GoalCounterUI.spinnersync();
+            }
+        }
     }
 
     /**
@@ -661,15 +665,6 @@ public class JoystickTest {
                     }   
                 
             }
-            
-            AudDisplay.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
-            AudDisplay.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
-            AudDisplay.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
-            AudDisplay.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
-            AudDisplay.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
-            AudDisplay.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
-            AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
-            AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
             
             // We have to give processor some rest.
             try {

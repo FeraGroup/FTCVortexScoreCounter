@@ -47,6 +47,14 @@ public static final String version = "0.1.3-ALPHA";
           BlueCenTele = (Integer) BlueCenTeleSpin.getValue();
           RedCorTele = (Integer) RedCorTeleSpin.getValue();
           BlueCorTele = (Integer) BlueCorTeleSpin.getValue();
+          AudDisplay.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
     
     public void IncrsRedCenA(){
