@@ -543,7 +543,7 @@ public static final String version = "0.1.3-ALPHA";
         RedCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         RedCorTeleSpin.setName("redvorcencount"); // NOI18N
 
-        RedCorTeleLabel.setText("T:");
+        RedCorTeleLabel.setText("D:");
 
         RedCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -558,7 +558,7 @@ public static final String version = "0.1.3-ALPHA";
         RedCorJSStatusLayout.setHorizontalGroup(
             RedCorJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RedCorJSStatusLayout.createSequentialGroup()
-                .addGap(0, 9, Short.MAX_VALUE)
+                .addGap(0, 17, Short.MAX_VALUE)
                 .addComponent(RedCorAutoeLabel)
                 .addGap(6, 6, 6)
                 .addComponent(RedCorAutoSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -589,7 +589,7 @@ public static final String version = "0.1.3-ALPHA";
         RedCenTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         RedCenTeleSpin.setName("redvorcencount"); // NOI18N
 
-        RedCenTeleLabel.setText("T:");
+        RedCenTeleLabel.setText("D:");
 
         RedCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         RedCenAutoSpin.setName("redvorcencount"); // NOI18N
@@ -639,7 +639,7 @@ public static final String version = "0.1.3-ALPHA";
         RedAlliance.setLayout(RedAllianceLayout);
         RedAllianceLayout.setHorizontalGroup(
             RedAllianceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(RedCenJSStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 165, Short.MAX_VALUE)
             .addComponent(RedCorJSStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         RedAllianceLayout.setVerticalGroup(
@@ -656,7 +656,7 @@ public static final String version = "0.1.3-ALPHA";
 
         BlueCenTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        BlueCorTeleLabel.setText("T:");
+        BlueCorTeleLabel.setText("D:");
 
         BlueCenAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -704,7 +704,7 @@ public static final String version = "0.1.3-ALPHA";
 
         BlueCorAutoSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
-        BlueCenTeleLabel.setText("T:");
+        BlueCenTeleLabel.setText("D:");
 
         BlueCorTeleSpin.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -807,14 +807,14 @@ public static final String version = "0.1.3-ALPHA";
         });
 
         Auto.setSelected(true);
-        Auto.setText("Auto");
+        Auto.setText("Autonomous Period");
         Auto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AutoActionPerformed(evt);
             }
         });
 
-        Teleop.setText("Teleop");
+        Teleop.setText("Driver-Controlled Period");
         Teleop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TeleopActionPerformed(evt);
@@ -841,16 +841,16 @@ public static final String version = "0.1.3-ALPHA";
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(SettingButton)
                                         .addComponent(jButton1))
-                                    .addGap(49, 49, 49)
+                                    .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
                                             .addComponent(Auto)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(ResetButton))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(Teleop)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(AboutButton))))
+                                            .addGap(22, 22, 22))
+                                        .addComponent(Teleop))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
