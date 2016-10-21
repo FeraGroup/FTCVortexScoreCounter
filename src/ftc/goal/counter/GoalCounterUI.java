@@ -28,7 +28,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static JoystickTest JS;
     public static SettingsUI settings;
 
-public static final String version = "0.1.3-ALPHA";
+public static final String version = "0.1.4-ALPHA";
 
     /**
      * Creates new form GoalCounterUI
@@ -1014,20 +1014,15 @@ public static final String version = "0.1.3-ALPHA";
         
         
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                goal = new GoalCounterUI();
-                goal.setVisible(true);
-                settings = new SettingsUI();
-                settings.setVisible(true);
-                AudDisp = new AudDisplay();
-                AudDisp.setVisible(false);
-                about = new AboutUI();
-                about.setVisible(false);
-            }   
-        });
-        JS = new JoystickTest();
-        
+        goal = new GoalCounterUI();
+        goal.setVisible(true);
+        settings = new SettingsUI();
+        settings.setVisible(true);
+        AudDisp = new AudDisplay();
+        AudDisp.setVisible(false);
+        about = new AboutUI();
+        about.setVisible(false);
+        JS = new JoystickTest();  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
