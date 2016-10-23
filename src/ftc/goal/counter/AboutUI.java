@@ -31,8 +31,8 @@ public class AboutUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        AboutInfo = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About");
@@ -60,14 +60,11 @@ public class AboutUI extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/VVSmall.png"))); // NOI18N
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("The Vortex Score Counter or Particle Counter, is a score counter developed exclusively for FIRST(R) Tech Challenge (\"FTC\").  At Official in-season FTC events, live support is provided remotely by the development company and FIRST On-Call Support.  \n\nFIRST(R) and FIRST(R) Tech Challenge are registered trademarks of FIRST(R) (The United States Foundation For Inspiration and Recognition of Science and Technology). (R) 2016 FIRST.  All Rights Reserved.\n\nThis Sofware is developed Open Source by \nFera Group, L.L.C.\nNovi, MI, USA 48377\n\nFor collobrating, issue reporting and software documention on this project, please visit: https://github.com/FeraGroup/FTCVortexScoreCounter\n"); // NOI18N
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        AboutInfo.setEditable(false);
+        AboutInfo.setContentType("text/html"); // NOI18N
+        AboutInfo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        AboutInfo.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n    <p style=\"margin-top: 0\">\r\nThe Vortex Score Counter or Particle Counter, is a score counter developed exclusively for <i>FIRST</i>&reg; Tech Challenge (\"FTC\").  At Official in-season FTC events, live support is provide remotely by the development company and <i>FIRST</i>&reg; On-Call Support.<br>\n<br>\n<i>FIRST</i>&reg; and <i>FIRST</i>&reg; Tech Challenge are registered trademarks of <i>FIRST</i>&reg; (The United States Foundation For Inspiration and Recognition of Science and Technology). Copyright &copy; 2016 <i>FIRST</i>&reg;.  All Rights Reserved.<br>\n<br>\nThis Sofware is developed Open Source by <br>\n<a href='http://www.feragroup.com/''>Fera Group, L.L.C.</a><br>\nNovi, MI, USA 48377<br>\nhttp://www.feragroup.com/<br>\n<br>\nFor collobrating, issue reporting and software documention on this project, please visit the <a href='https://www.github.com/FeraGroup/FTCVortexScoreCounter'>GitHub Repository</a><br>\nhttps://www.github.com/FeraGroup/FTCVortexScoreCounter<br>\n<br>\n<a href='http://www.firstinspires.org/robotics/ftc'>FIRSTinspires.org/robotics/FTC</a>\n    </p>\r\n  </body>\r\n</html>\r\n");
+        jScrollPane2.setViewportView(AboutInfo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,7 +73,7 @@ public class AboutUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(Exit))
@@ -96,8 +93,8 @@ public class AboutUI extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Exit)
                 .addGap(188, 188, 188))
@@ -146,11 +143,11 @@ public class AboutUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JEditorPane AboutInfo;
     private javax.swing.JButton Exit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

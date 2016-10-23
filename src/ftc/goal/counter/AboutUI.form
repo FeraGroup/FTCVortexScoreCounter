@@ -40,7 +40,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="Exit" min="-2" max="-2" attributes="0"/>
@@ -66,8 +66,8 @@
                   <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="387" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Exit" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
@@ -112,24 +112,21 @@
         </Property>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JEditorPane" name="AboutInfo">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="columns" type="int" value="20"/>
+            <Property name="contentType" type="java.lang.String" value="text/html" noResource="true"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="12" style="0"/>
             </Property>
-            <Property name="lineWrap" type="boolean" value="true"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="The Vortex Score Counter or Particle Counter, is a score counter developed exclusively for FIRST(R) Tech Challenge (&quot;FTC&quot;).  At Official in-season FTC events, live support is provided remotely by the development company and FIRST On-Call Support.  &#xa;&#xa;FIRST(R) and FIRST(R) Tech Challenge are registered trademarks of FIRST(R) (The United States Foundation For Inspiration and Recognition of Science and Technology). (R) 2016 FIRST.  All Rights Reserved.&#xa;&#xa;This Sofware is developed Open Source by &#xa;Fera Group, L.L.C.&#xa;Novi, MI, USA 48377&#xa;&#xa;For collobrating, issue reporting and software documention on this project, please visit: https://github.com/FeraGroup/FTCVortexScoreCounter&#xa;" noResource="true"/>
-            <Property name="wrapStyleWord" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&#xd;&#xa;  &lt;head&gt;&#xd;&#xa;&#xd;&#xa;  &lt;/head&gt;&#xd;&#xa;  &lt;body&gt;&#xd;&#xa;    &lt;p style=&quot;margin-top: 0&quot;&gt;&#xd;&#xa;The Vortex Score Counter or Particle Counter, is a score counter developed exclusively for &lt;i&gt;FIRST&lt;/i&gt;&amp;reg; Tech Challenge (&quot;FTC&quot;).  At Official in-season FTC events, live support is provide remotely by the development company and &lt;i&gt;FIRST&lt;/i&gt;&amp;reg; On-Call Support.&lt;br&gt;&#xa;&lt;br&gt;&#xa;&lt;i&gt;FIRST&lt;/i&gt;&amp;reg; and &lt;i&gt;FIRST&lt;/i&gt;&amp;reg; Tech Challenge are registered trademarks of &lt;i&gt;FIRST&lt;/i&gt;&amp;reg; (The United States Foundation For Inspiration and Recognition of Science and Technology). Copyright &amp;copy; 2016 &lt;i&gt;FIRST&lt;/i&gt;&amp;reg;.  All Rights Reserved.&lt;br&gt;&#xa;&lt;br&gt;&#xa;This Sofware is developed Open Source by &lt;br&gt;&#xa;&lt;a href=&apos;http://www.feragroup.com/&apos;&apos;&gt;Fera Group, L.L.C.&lt;/a&gt;&lt;br&gt;&#xa;Novi, MI, USA 48377&lt;br&gt;&#xa;http://www.feragroup.com/&lt;br&gt;&#xa;&lt;br&gt;&#xa;For collobrating, issue reporting and software documention on this project, please visit the &lt;a href=&apos;https://www.github.com/FeraGroup/FTCVortexScoreCounter&apos;&gt;GitHub Repository&lt;/a&gt;&lt;br&gt;&#xa;https://www.github.com/FeraGroup/FTCVortexScoreCounter&lt;br&gt;&#xa;&lt;br&gt;&#xa;&lt;a href=&apos;http://www.firstinspires.org/robotics/ftc&apos;&gt;FIRSTinspires.org/robotics/FTC&lt;/a&gt;&#xa;    &lt;/p&gt;&#xd;&#xa;  &lt;/body&gt;&#xd;&#xa;&lt;/html&gt;&#xd;&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

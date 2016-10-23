@@ -60,9 +60,7 @@ public class AudDisplay extends javax.swing.JFrame {
 
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1024, 768));
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
