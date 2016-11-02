@@ -72,6 +72,30 @@ public class JoystickTest {
     static public boolean PressJSBlueCorRT = false;
     static public boolean pressLstJSBlueCorRB = false;
     static public boolean PressJSBlueCorRB = false;
+    static public boolean pressLstJSRedCenXbtn = false;
+    static public boolean PressJSRedCenXbtn = false;
+    static public boolean pressLstJSRedCenStart = false;
+    static public boolean PressJSRedCenStart = false;
+    static public boolean pressLstJSRedCenBack = false;
+    static public boolean PressJSRedCenBack = false;
+    static public boolean pressLstJSBlueCenXbtn = false;
+    static public boolean PressJSBlueCenXbtn = false;
+    static public boolean pressLstJSBlueCenStart = false;
+    static public boolean PressJSBlueCenStart = false;
+    static public boolean pressLstJSBlueCenBack = false;
+    static public boolean PressJSBlueCenBack = false;
+    static public boolean pressLstJSRedCorXbtn = false;
+    static public boolean PressJSRedCorXbtn = false;
+    static public boolean pressLstJSRedCorStart = false;
+    static public boolean PressJSRedCorStart = false;
+    static public boolean pressLstJSRedCorBack = false;
+    static public boolean PressJSRedCorBack = false;
+    static public boolean pressLstJSBlueCorXbtn = false;
+    static public boolean PressJSBlueCorXbtn = false;
+    static public boolean pressLstJSBlueCorStart = false;
+    static public boolean PressJSBlueCorStart = false;
+    static public boolean pressLstJSBlueCorBack = false;
+    static public boolean PressJSBlueCorBack = false;
     
     public static ArrayList<Controller> foundControllers;
 
@@ -265,6 +289,25 @@ public class JoystickTest {
                     GoalCounterUI.goal.DcrsRedCenB();
                     
                 }
+                
+                if(componentIdentifier.getName().matches("^[2]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(component.getPollData() != 0.0f){
+                        PressJSRedCenXbtn = true;    
+                    }
+                    else{
+                        PressJSRedCenXbtn = false;
+                    }
+                      
+                    if(PressJSRedCenXbtn == false){
+                        pressLstJSRedCenXbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.RedCenX();
+                    
+                }
+                
                 if(componentIdentifier.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
@@ -303,6 +346,41 @@ public class JoystickTest {
                     
                 }
 
+                                if(componentIdentifier.getName().matches("^[6]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(component.getPollData() != 0.0f){
+                        PressJSRedCenBack = true;    
+                    }
+                    else{
+                        PressJSRedCenBack = false;
+                    }
+                      
+                    if(PressJSRedCenBack == false){
+                        pressLstJSRedCenBack = false;
+                    }
+                    
+                    GoalCounterUI.goal.RedCenBack();
+                }
+                
+                if(componentIdentifier.getName().matches("^[7]*$")){ // This is for Center Controller B Button
+                    // Is button pressed?
+                    
+                    if(component.getPollData() != 0.0f){
+                        PressJSRedCenStart = true;    
+                    }
+                    else{
+                        PressJSRedCenStart = false;
+                    }
+                      
+                    if(PressJSRedCenStart == false){
+                        pressLstJSRedCenStart = false;
+                    }
+                    
+                    GoalCounterUI.goal.RedCenStart();
+                    
+                }
+                
                 if(componentIdentifier == Component.Identifier.Axis.Z){
                     if(component.getPollData() <= -0.75){
                         PressJSRedCenRT = true;    

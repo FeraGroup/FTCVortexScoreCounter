@@ -28,7 +28,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static JoystickTest JS;
     public static SettingsUI settings;
 
-public static final String version = "0.1.4-ALPHA";
+public static final String version = "1.0.0-BETA";
 
     /**
      * Creates new form GoalCounterUI
@@ -56,6 +56,25 @@ public static final String version = "0.1.4-ALPHA";
           AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
           AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
+    
+        public static void resetcounters(){
+            RedCenAuto = 0;
+            RedCorAuto = 0;
+            BlueCenAuto = 0;
+            BlueCorAuto = 0;
+            RedCenTele = 0;
+            RedCorTele = 0;
+            BlueCenTele = 0;
+            BlueCorTele = 0;
+            RedCenAutoSpin.setValue(0);
+            RedCenTeleSpin.setValue(0);
+            RedCorAutoSpin.setValue(0);
+            RedCorTeleSpin.setValue(0);
+            BlueCenAutoSpin.setValue(0);
+            BlueCenTeleSpin.setValue(0);
+            BlueCorAutoSpin.setValue(0);
+            BlueCorTeleSpin.setValue(0);
+    }    
     
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
@@ -162,6 +181,35 @@ public static final String version = "0.1.4-ALPHA";
                     JoystickTest.pressLstJSRedCenRT = true;
                 }  
             } 
+        }
+    }
+    
+        public void RedCenX(){
+         if(JoystickTest.PressJSRedCenXbtn==true && JoystickTest.pressLstJSRedCenXbtn!=true){
+                if(Auto.isSelected()){
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    JoystickTest.pressLstJSRedCenXbtn = true;  
+                }
+                else{
+                    Auto.setSelected(true);
+                    AutoState = true;
+                    TeleState = false;
+                    JoystickTest.pressLstJSRedCenXbtn = true;  
+                }     
+        }
+    }
+        
+        public void RedCenStart(){
+         if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true){
+
+        }
+    }
+    
+    public void RedCenBack(){
+         if(JoystickTest.PressJSRedCenBack==true && JoystickTest.pressLstJSRedCenBack!=true){
+              resetcounters();
         }
     }
     
@@ -927,22 +975,7 @@ public static final String version = "0.1.4-ALPHA";
     }// </editor-fold>//GEN-END:initComponents
 
     private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
-            RedCenAuto = 0;
-            RedCorAuto = 0;
-            BlueCenAuto = 0;
-            BlueCorAuto = 0;
-            RedCenTele = 0;
-            RedCorTele = 0;
-            BlueCenTele = 0;
-            BlueCorTele = 0;
-            RedCenAutoSpin.setValue(0);
-            RedCenTeleSpin.setValue(0);
-            RedCorAutoSpin.setValue(0);
-            RedCorTeleSpin.setValue(0);
-            BlueCenAutoSpin.setValue(0);
-            BlueCenTeleSpin.setValue(0);
-            BlueCorAutoSpin.setValue(0);
-            BlueCorTeleSpin.setValue(0);
+        resetcounters();
     }//GEN-LAST:event_ResetButtonActionPerformed
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
