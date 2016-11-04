@@ -250,12 +250,14 @@ public static final String version = "1.0.0-BETA";
                     Teleop.setSelected(true);
                     AutoState = false;
                     TeleState = true;
+                    AudDisplay.State.setText("Driver");
                     JoystickTest.pressLstJSRedCenXbtn = true;  
                 }
                 else{
                     Auto.setSelected(true);
                     AutoState = true;
                     TeleState = false;
+                    AudDisplay.State.setText("Auto");
                     JoystickTest.pressLstJSRedCenXbtn = true;  
                 }     
         }
@@ -1069,10 +1071,12 @@ public static final String version = "1.0.0-BETA";
       if(Auto.isSelected()){
          AutoState = true;
          TeleState = false;
+         AudDisplay.State.setText("Auto");
                  }
     else{
          AutoState = false;
          TeleState = true;
+         AudDisplay.State.setText("Driver");
      } 
     }//GEN-LAST:event_AutoActionPerformed
 
@@ -1115,8 +1119,6 @@ public static final String version = "1.0.0-BETA";
             java.util.logging.Logger.getLogger(GoalCounterUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
-      //  countdownclock2();
         
         /* Create and display the form */
         goal = new GoalCounterUI();
