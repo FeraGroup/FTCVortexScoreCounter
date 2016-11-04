@@ -5,6 +5,9 @@
  */
 package ftc.goal.counter;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /*
  * @author afera
  * Alexander Fera
@@ -27,6 +30,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AboutUI about;
     public static JoystickTest JS;
     public static SettingsUI settings;
+    public static Timer timer;
+    public static int interval;
 
 public static final String version = "1.0.0-BETA";
 
@@ -75,7 +80,61 @@ public static final String version = "1.0.0-BETA";
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
     }    
-    
+
+        public static void countdownclock(){
+            int delay = 1000;
+            int period = 1000;
+            int stopsec = 121;
+            timer = new Timer();
+            interval = 150; 
+            timer.scheduleAtFixedRate(new TimerTask(){
+            
+                public void run(){
+                    int i = setInterval(stopsec); 
+                    int mins = i/60; 
+                    int secs = (i - (mins * 60));
+                    if(secs < 10) {
+                        System.out.println(mins + ":0" + secs);
+                    } else {
+                        System.out.println(mins + ":" + secs);   
+                    }    
+                }
+            }, delay, period);
+            
+        }
+        
+        public static void countdownclock2(){
+            int delay = 1000;
+            int period = 1000;
+            int stopsec = 1;
+            timer = new Timer();
+            interval = 120; 
+            timer.scheduleAtFixedRate(new TimerTask(){
+            
+                public void run(){
+                    int i = setInterval(stopsec); 
+                    int mins = i/60; 
+                    int secs = (i - (mins * 60));
+                    if(secs < 10) {
+                        System.out.println(mins + ":0" + secs);
+                    } else {
+                        System.out.println(mins + ":" + secs);   
+                    }    
+                }
+            }, delay, period);
+            
+        }
+        
+        
+        
+        private static final int setInterval(int stoptime){
+            if(interval == stoptime){
+                timer.cancel();
+            }
+            return --interval;
+        }
+       
+        
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
             if(AutoState == true){
@@ -203,7 +262,16 @@ public static final String version = "1.0.0-BETA";
         
         public void RedCenStart(){
          if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true){
-
+         if(AutoState == true) {
+             countdownclock();
+             JoystickTest.pressLstJSRedCenStart = true;
+         } else {
+             if(TeleState == true) {
+                 countdownclock2();
+                 JoystickTest.pressLstJSRedCenStart = true;
+                 
+             }
+         }
         }
     }
     
@@ -1047,7 +1115,7 @@ public static final String version = "1.0.0-BETA";
         }
         //</editor-fold>
        
-        
+      //  countdownclock2();
         
         /* Create and display the form */
         goal = new GoalCounterUI();
