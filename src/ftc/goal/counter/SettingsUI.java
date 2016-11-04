@@ -24,6 +24,10 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCorBtn = true;
     public static boolean BlueCorLeft = false;
     public static boolean BlueCorRight = false;
+    public static boolean RedCen = true;
+    public static boolean RedCor = false;
+    public static boolean BlueCen = false;
+    public static boolean BlueCor = false;
     
     /**
      * Creates new form SettingsUI
@@ -65,6 +69,11 @@ public class SettingsUI extends javax.swing.JFrame {
         BCorVor = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         RePullJS = new javax.swing.JButton();
+        RedCenter = new javax.swing.JCheckBox();
+        RedCorner = new javax.swing.JCheckBox();
+        BlueCorner = new javax.swing.JCheckBox();
+        BlueCenter = new javax.swing.JCheckBox();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setTitle("Settings");
         setResizable(false);
@@ -148,26 +157,27 @@ public class SettingsUI extends javax.swing.JFrame {
                             .addComponent(RedCenControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CenVor))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(redLayout.createSequentialGroup()
+                    .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(redLayout.createSequentialGroup()
-                                .addComponent(RedCenContButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RedCenContLeft)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RedCenContRight))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, redLayout.createSequentialGroup()
+                                .addComponent(CorVor)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(redLayout.createSequentialGroup()
                             .addGroup(redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, redLayout.createSequentialGroup()
-                                    .addComponent(CorVor)
-                                    .addGap(229, 229, 229))
-                                .addComponent(RedCorControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(redLayout.createSequentialGroup()
-                                .addComponent(RedCorContButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RedCorContLeft)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RedCorContRight)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(redLayout.createSequentialGroup()
+                                    .addComponent(RedCenContButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(RedCenContLeft)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(RedCenContRight))
+                                .addGroup(redLayout.createSequentialGroup()
+                                    .addComponent(RedCorContButton)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(RedCorContLeft)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(RedCorContRight)))
+                            .addGap(0, 0, Short.MAX_VALUE)))))
         );
         redLayout.setVerticalGroup(
             redLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,35 +339,89 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
+        RedCenter.setSelected(true);
+        RedCenter.setText("Red Center");
+        RedCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RedCenterActionPerformed(evt);
+            }
+        });
+
+        RedCorner.setText("Red Corner");
+        RedCorner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RedCornerActionPerformed(evt);
+            }
+        });
+
+        BlueCorner.setText("Blue Corner");
+        BlueCorner.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BlueCornerActionPerformed(evt);
+            }
+        });
+
+        BlueCenter.setText("Blue Center");
+        BlueCenter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BlueCenterActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RePullJS)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Save)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(RePullJS)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Save))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 1, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(RedCenter)
+                                .addGap(18, 18, 18)
+                                .addComponent(RedCorner)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BlueCenter)
+                                .addGap(18, 18, 18)
+                                .addComponent(BlueCorner)))
+                        .addGap(78, 78, 78)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(blue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(red, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Save)
-                    .addComponent(RePullJS))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(RedCenter)
+                    .addComponent(RedCorner)
+                    .addComponent(BlueCenter)
+                    .addComponent(BlueCorner))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RePullJS)
+                    .addComponent(Save))
+                .addContainerGap())
         );
 
         pack();
@@ -499,6 +563,42 @@ public class SettingsUI extends javax.swing.JFrame {
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
          this.setVisible(false);
     }//GEN-LAST:event_SaveActionPerformed
+
+    private void RedCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenterActionPerformed
+        if(RedCenter.isSelected()){
+             RedCen = true;
+                     }
+         else{
+             RedCen = false;
+         }
+    }//GEN-LAST:event_RedCenterActionPerformed
+
+    private void RedCornerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCornerActionPerformed
+        if(RedCorner.isSelected()){
+             RedCor = true;
+                     }
+         else{
+             RedCor = false;
+         }
+    }//GEN-LAST:event_RedCornerActionPerformed
+
+    private void BlueCornerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCornerActionPerformed
+        if(BlueCorner.isSelected()){
+             BlueCor = true;
+                     }
+         else{
+             BlueCor = false;
+         }
+    }//GEN-LAST:event_BlueCornerActionPerformed
+
+    private void BlueCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlueCenterActionPerformed
+        if(BlueCenter.isSelected()){
+             BlueCen = true;
+                     }
+         else{
+             BlueCen = false;
+         }
+    }//GEN-LAST:event_BlueCenterActionPerformed
  
     
 public static int getSelectedControllerNameRedCen(){
@@ -580,10 +680,12 @@ public static int getSelectedControllerNameBlueCor(){
     private javax.swing.JCheckBox BlueCenContLeft;
     private javax.swing.JCheckBox BlueCenContRight;
     public static javax.swing.JComboBox BlueCenControlSelect;
+    private javax.swing.JCheckBox BlueCenter;
     private javax.swing.JCheckBox BlueCorContButton;
     private javax.swing.JCheckBox BlueCorContLeft;
     private javax.swing.JCheckBox BlueCorContRight;
     public static javax.swing.JComboBox BlueCorControlSelect;
+    private javax.swing.JCheckBox BlueCorner;
     private javax.swing.JLabel CenVor;
     private javax.swing.JLabel CorVor;
     private javax.swing.JButton RePullJS;
@@ -591,12 +693,15 @@ public static int getSelectedControllerNameBlueCor(){
     private javax.swing.JCheckBox RedCenContLeft;
     private javax.swing.JCheckBox RedCenContRight;
     public static javax.swing.JComboBox RedCenControlSelect;
+    private javax.swing.JCheckBox RedCenter;
     private javax.swing.JCheckBox RedCorContButton;
     private javax.swing.JCheckBox RedCorContLeft;
     private javax.swing.JCheckBox RedCorContRight;
     public static javax.swing.JComboBox RedCorControlSelect;
+    private javax.swing.JCheckBox RedCorner;
     private javax.swing.JButton Save;
     private javax.swing.JPanel blue;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel red;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,9 +31,9 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static JoystickTest JS;
     public static SettingsUI settings;
     public static Timer timer;
-    public static int interval;
+    public static int interval = 150;
 
-public static final String version = "1.0.0-BETA";
+public static final String version = "0.1.5-BETA";
 
     /**
      * Creates new form GoalCounterUI
@@ -80,50 +80,54 @@ public static final String version = "1.0.0-BETA";
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
             AudDisplay.TimerDisplay.setText("2:30");
+            interval = 150;
     }    
 
         public static void countdownclockAuto(){
-            int delay = 1000;
-            int period = 1000;
-            int stopsec = 121;
-            timer = new Timer();
-            interval = 150; 
-            timer.scheduleAtFixedRate(new TimerTask(){
-            
-                public void run(){
-                    int i = setInterval(stopsec); 
-                    int mins = i/60; 
-                    int secs = (i - (mins * 60));
-                    if(secs < 10) {
-                        AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                    } else {
-                        AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
-                    }    
-                }
-            }, delay, period);
-            
+            if(interval == 150){
+                int delay = 1000;
+                int period = 1000;
+                int stopsec = 121;
+                timer = new Timer();
+                interval = 150; 
+                timer.scheduleAtFixedRate(new TimerTask(){
+
+                    public void run(){
+                        int i = setInterval(stopsec); 
+                        int mins = i/60; 
+                        int secs = (i - (mins * 60));
+                        if(secs < 10) {
+                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                        } else {
+                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
+                        }    
+                    }
+                    
+                }, delay, period);
+            }
         }
         
         public static void countdownclockDrive(){
-            int delay = 1000;
-            int period = 1000;
-            int stopsec = 1;
-            timer = new Timer();
-            interval = 120; 
-            timer.scheduleAtFixedRate(new TimerTask(){
-            
-                public void run(){
-                    int i = setInterval(stopsec); 
-                    int mins = i/60; 
-                    int secs = (i - (mins * 60));
-                    if(secs < 10) {
-                        AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                    } else {
-                        AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
-                    }    
-                }
-            }, delay, period);
-            
+            if(interval==120){
+                int delay = 1000;
+                int period = 1000;
+                int stopsec = 1;
+                timer = new Timer();
+                interval = 120; 
+                timer.scheduleAtFixedRate(new TimerTask(){
+
+                    public void run(){
+                        int i = setInterval(stopsec); 
+                        int mins = i/60; 
+                        int secs = (i - (mins * 60));
+                        if(secs < 10) {
+                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                        } else {
+                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
+                        }    
+                    }
+                }, delay, period);
+            }
         }
         
         
@@ -245,7 +249,7 @@ public static final String version = "1.0.0-BETA";
     }
     
         public void RedCenX(){
-         if(JoystickTest.PressJSRedCenXbtn==true && JoystickTest.pressLstJSRedCenXbtn!=true){
+         if(JoystickTest.PressJSRedCenXbtn==true && JoystickTest.pressLstJSRedCenXbtn!=true && SettingsUI.RedCen==true){
                 if(Auto.isSelected()){
                     Teleop.setSelected(true);
                     AutoState = false;
@@ -264,7 +268,7 @@ public static final String version = "1.0.0-BETA";
     }
         
         public void RedCenStart(){
-         if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true){
+         if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true && SettingsUI.RedCen==true){
          if(AutoState == true) {
              countdownclockAuto();
              JoystickTest.pressLstJSRedCenStart = true;
@@ -279,7 +283,7 @@ public static final String version = "1.0.0-BETA";
     }
     
     public void RedCenBack(){
-         if(JoystickTest.PressJSRedCenBack==true && JoystickTest.pressLstJSRedCenBack!=true){
+         if(JoystickTest.PressJSRedCenBack==true && JoystickTest.pressLstJSRedCenBack!=true && SettingsUI.RedCen==true){
               resetcounters();
         }
     }
@@ -392,6 +396,46 @@ public static final String version = "1.0.0-BETA";
         }
     }
         
+            public void BlueCenX(){
+         if(JoystickTest.PressJSBlueCenXbtn==true && JoystickTest.pressLstJSBlueCenXbtn!=true && SettingsUI.BlueCen==true){
+                if(Auto.isSelected()){
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    AudDisplay.State.setText("Driver");
+                    JoystickTest.pressLstJSBlueCenXbtn = true;  
+                }
+                else{
+                    Auto.setSelected(true);
+                    AutoState = true;
+                    TeleState = false;
+                    AudDisplay.State.setText("Auto");
+                    JoystickTest.pressLstJSBlueCenXbtn = true;  
+                }     
+        }
+    }
+    
+            public void BlueCenStart(){
+         if(JoystickTest.PressJSBlueCenStart==true && JoystickTest.pressLstJSBlueCenStart!=true && SettingsUI.BlueCen==true){
+         if(AutoState == true) {
+             countdownclockAuto();
+             JoystickTest.pressLstJSBlueCenStart = true;
+         } else {
+             if(TeleState == true) {
+                 countdownclockDrive();
+                 JoystickTest.pressLstJSBlueCenStart = true;
+                 
+             }
+         }
+        }
+    }
+    
+    public void BlueCenBack(){
+         if(JoystickTest.PressJSBlueCenBack==true && JoystickTest.pressLstJSBlueCenBack!=true && SettingsUI.BlueCen==true){
+              resetcounters();
+        }
+    }
+            
     public void IncrsRedCorA(){
          if(JoystickTest.PressJSRedCorAbtn==true && JoystickTest.pressLstJSRedCorAbtn!=true && SettingsUI.RedCorBtn == true){
             if(AutoState == true){
@@ -499,6 +543,46 @@ public static final String version = "1.0.0-BETA";
             }    
             }
         }
+    
+                public void RedCorX(){
+         if(JoystickTest.PressJSRedCorXbtn==true && JoystickTest.pressLstJSRedCorXbtn!=true && SettingsUI.RedCor==true){
+                if(Auto.isSelected()){
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    AudDisplay.State.setText("Driver");
+                    JoystickTest.pressLstJSRedCorXbtn = true;  
+                }
+                else{
+                    Auto.setSelected(true);
+                    AutoState = true;
+                    TeleState = false;
+                    AudDisplay.State.setText("Auto");
+                    JoystickTest.pressLstJSRedCorXbtn = true;  
+                }     
+        }
+    }
+    
+            public void RedCorStart(){
+         if(JoystickTest.PressJSRedCorStart==true && JoystickTest.pressLstJSRedCorStart!=true && SettingsUI.RedCor==true){
+         if(AutoState == true) {
+             countdownclockAuto();
+             JoystickTest.pressLstJSRedCorStart = true;
+         } else {
+             if(TeleState == true) {
+                 countdownclockDrive();
+                 JoystickTest.pressLstJSRedCorStart = true;
+                 
+             }
+         }
+        }
+    }
+    
+    public void RedCorBack(){
+         if(JoystickTest.PressJSRedCorBack==true && JoystickTest.pressLstJSRedCorBack!=true && SettingsUI.RedCor==true){
+              resetcounters();
+        }
+    }
         
     public void IncrsBlueCorA(){
          if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true && SettingsUI.BlueCorBtn == true){
@@ -606,8 +690,47 @@ public static final String version = "1.0.0-BETA";
             }
         }
     }
-        
-        
+
+            public void BlueCorX(){
+         if(JoystickTest.PressJSBlueCorXbtn==true && JoystickTest.pressLstJSBlueCorXbtn!=true && SettingsUI.BlueCor==true){
+                if(Auto.isSelected()){
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    AudDisplay.State.setText("Driver");
+                    JoystickTest.pressLstJSBlueCorXbtn = true;  
+                }
+                else{
+                    Auto.setSelected(true);
+                    AutoState = true;
+                    TeleState = false;
+                    AudDisplay.State.setText("Auto");
+                    JoystickTest.pressLstJSBlueCorXbtn = true;  
+                }     
+        }
+    }
+    
+            public void BlueCorStart(){
+         if(JoystickTest.PressJSBlueCorStart==true && JoystickTest.pressLstJSBlueCorStart!=true && SettingsUI.BlueCor==true){
+         if(AutoState == true) {
+             countdownclockAuto();
+             JoystickTest.pressLstJSBlueCorStart = true;
+         } else {
+             if(TeleState == true) {
+                 countdownclockDrive();
+                 JoystickTest.pressLstJSBlueCorStart = true;
+                 
+             }
+         }
+        }
+    }
+    
+    public void BlueCorBack(){
+         if(JoystickTest.PressJSBlueCorBack==true && JoystickTest.pressLstJSBlueCorBack!=true && SettingsUI.BlueCor==true){
+              resetcounters();
+        }
+    }
+              
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -619,6 +742,7 @@ public static final String version = "1.0.0-BETA";
     private void initComponents() {
 
         ModeSelect = new javax.swing.ButtonGroup();
+        jButton3 = new javax.swing.JButton();
         RedAlliance = new javax.swing.JPanel();
         RedCorJSStatus = new javax.swing.JPanel();
         RedCorTeleSpin = new javax.swing.JSpinner();
@@ -655,9 +779,17 @@ public static final String version = "1.0.0-BETA";
         jButton1 = new javax.swing.JButton();
         Auto = new javax.swing.JRadioButton();
         Teleop = new javax.swing.JRadioButton();
+        jButton2 = new javax.swing.JButton();
 
         ModeSelect.add(Auto);
         ModeSelect.add(Teleop);
+
+        jButton3.setText("START");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
@@ -822,7 +954,7 @@ public static final String version = "1.0.0-BETA";
                 .addGroup(BlueCenJSStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BlueCenJSStatusLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(BlueCorTeleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(BlueCorTeleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
                     .addGroup(BlueCenJSStatusLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(BlueCenTeleSpin)))
@@ -972,17 +1104,34 @@ public static final String version = "1.0.0-BETA";
             }
         });
 
+        jButton2.setText("START");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(182, 182, 182))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(HeaderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(copyright)
@@ -999,13 +1148,7 @@ public static final String version = "1.0.0-BETA";
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(VersionInfo)
                                     .addComponent(ResetButton)
-                                    .addComponent(AboutButton)))
-                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(AboutButton))))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -1019,7 +1162,9 @@ public static final String version = "1.0.0-BETA";
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1084,12 +1229,28 @@ public static final String version = "1.0.0-BETA";
      if(Teleop.isSelected()){
          TeleState = true;
          AutoState = false;
+         AudDisplay.State.setText("Driver");
      }
      else{
          TeleState = false;
          AutoState = true;
+         AudDisplay.State.setText("Auto");
      } 
     }//GEN-LAST:event_TeleopActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         if(AutoState == true) {
+             countdownclockAuto();
+         } else {
+             if(TeleState == true) {
+                 countdownclockDrive(); 
+             }
+         }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        countdownclockDrive(); 
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public static GoalCounterUI goal;
     /**
@@ -1170,5 +1331,7 @@ public static final String version = "1.0.0-BETA";
     private javax.swing.JLabel VersionInfo;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
 }
