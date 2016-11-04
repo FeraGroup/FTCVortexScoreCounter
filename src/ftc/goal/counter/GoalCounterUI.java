@@ -79,9 +79,10 @@ public static final String version = "1.0.0-BETA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
+            AudDisplay.TimerDisplay.setText("2:30");
     }    
 
-        public static void countdownclock(){
+        public static void countdownclockAuto(){
             int delay = 1000;
             int period = 1000;
             int stopsec = 121;
@@ -94,16 +95,16 @@ public static final String version = "1.0.0-BETA";
                     int mins = i/60; 
                     int secs = (i - (mins * 60));
                     if(secs < 10) {
-                        System.out.println(mins + ":0" + secs);
+                        AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
                     } else {
-                        System.out.println(mins + ":" + secs);   
+                        AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
                     }    
                 }
             }, delay, period);
             
         }
         
-        public static void countdownclock2(){
+        public static void countdownclockDrive(){
             int delay = 1000;
             int period = 1000;
             int stopsec = 1;
@@ -116,9 +117,9 @@ public static final String version = "1.0.0-BETA";
                     int mins = i/60; 
                     int secs = (i - (mins * 60));
                     if(secs < 10) {
-                        System.out.println(mins + ":0" + secs);
+                        AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
                     } else {
-                        System.out.println(mins + ":" + secs);   
+                        AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
                     }    
                 }
             }, delay, period);
@@ -263,11 +264,11 @@ public static final String version = "1.0.0-BETA";
         public void RedCenStart(){
          if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true){
          if(AutoState == true) {
-             countdownclock();
+             countdownclockAuto();
              JoystickTest.pressLstJSRedCenStart = true;
          } else {
              if(TeleState == true) {
-                 countdownclock2();
+                 countdownclockDrive();
                  JoystickTest.pressLstJSRedCenStart = true;
                  
              }
