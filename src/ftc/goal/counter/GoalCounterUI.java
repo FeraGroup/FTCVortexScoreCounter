@@ -158,7 +158,7 @@ public static final String version = "0.1.5-BETA";
                 timer.cancel();
                 timerStarted = false;
                 GoalCounterUI.timerStart.setEnabled(true);
-            }else if(interval == 0){
+            }else if(interval == 1){
                 timer.cancel();
                 timerStarted = false;
                 GoalCounterUI.timerStart.setEnabled(true);
