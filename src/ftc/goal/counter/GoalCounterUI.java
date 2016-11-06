@@ -33,7 +33,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static Timer timer;
     public static int GameClock = 150;
 
-public static final String version = "0.1.5-BETA";
+public static final String version = "0.1.6-BETA";
 
     /**
      * Creates new form GoalCounterUI
@@ -81,6 +81,7 @@ public static final String version = "0.1.5-BETA";
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
             AudDisplay.TimerDisplay.setText("2:30");
+            Timer.setText("Match Time: 2:30");
             GameClock = 150;
             Auto.setSelected(true);
             AutoState = true;
@@ -103,8 +104,10 @@ public static final String version = "0.1.5-BETA";
                         int secs = (i - (mins * 60));
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                            Timer.setText("Match Time: " + mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
+                            AudDisplay.TimerDisplay.setText(mins + ":" + secs); 
+                            Timer.setText("Match Time: " + mins + ":" + secs);
                         }    
                     }
                     
@@ -127,8 +130,10 @@ public static final String version = "0.1.5-BETA";
                         int secs = (i - (mins * 60));
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                            Timer.setText("Match Time: " + mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);   
+                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);
+                            Timer.setText("Match Time: " + mins + ":" + secs);
                         }    
                     }
                 }, delay, period);
@@ -780,7 +785,7 @@ public static final String version = "0.1.5-BETA";
         BlueCenTeleLabel = new javax.swing.JLabel();
         BlueCorTeleSpin = new javax.swing.JSpinner();
         FTCLogoSmall = new javax.swing.JLabel();
-        HeaderLabel = new javax.swing.JLabel();
+        Timer = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
         VersionInfo = new javax.swing.JLabel();
         SettingButton = new javax.swing.JButton();
@@ -790,6 +795,7 @@ public static final String version = "0.1.5-BETA";
         Auto = new javax.swing.JRadioButton();
         Teleop = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
+        HeaderLabel1 = new javax.swing.JLabel();
 
         ModeSelect.add(Auto);
         ModeSelect.add(Teleop);
@@ -1055,9 +1061,9 @@ public static final String version = "0.1.5-BETA";
         FTCLogoSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FTCLogoSmall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ftclogofull.png"))); // NOI18N
 
-        HeaderLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        HeaderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HeaderLabel.setText("Vortex Counter");
+        Timer.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Timer.setText("Match Timer: 2:30");
 
         ResetButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         ResetButton.setText("RESET");
@@ -1121,6 +1127,10 @@ public static final String version = "0.1.5-BETA";
             }
         });
 
+        HeaderLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        HeaderLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        HeaderLabel1.setText("Vortex Counter");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1128,47 +1138,47 @@ public static final String version = "0.1.5-BETA";
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(182, 182, 182))
+                .addGap(170, 170, 170))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(HeaderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(copyright)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(VersionInfo))
                             .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(copyright)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SettingButton)
-                                            .addComponent(jButton1))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Auto)
-                                            .addComponent(Teleop))
-                                        .addGap(55, 55, 55)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(VersionInfo)
-                                    .addComponent(ResetButton)
-                                    .addComponent(AboutButton))))
+                                    .addComponent(SettingButton)
+                                    .addComponent(jButton1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Auto)
+                                    .addComponent(Teleop))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addContainerGap())))
+            .addComponent(Timer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(HeaderLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(FTCLogoSmall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(HeaderLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HeaderLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1194,7 +1204,7 @@ public static final String version = "0.1.5-BETA";
                         .addComponent(AboutButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(VersionInfo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -1320,7 +1330,7 @@ public static final String version = "0.1.5-BETA";
     private javax.swing.JLabel BlueVortCenLabel;
     private javax.swing.JLabel BlueVortCorLabel;
     private javax.swing.JLabel FTCLogoSmall;
-    private javax.swing.JLabel HeaderLabel;
+    private javax.swing.JLabel HeaderLabel1;
     private javax.swing.ButtonGroup ModeSelect;
     private javax.swing.JPanel RedAlliance;
     private javax.swing.JLabel RedCenAutoLabel;
@@ -1338,6 +1348,7 @@ public static final String version = "0.1.5-BETA";
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton SettingButton;
     public static javax.swing.JRadioButton Teleop;
+    public static javax.swing.JLabel Timer;
     private javax.swing.JLabel VersionInfo;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton1;
