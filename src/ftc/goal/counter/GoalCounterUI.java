@@ -31,7 +31,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static JoystickTest JS;
     public static SettingsUI settings;
     public static Timer timer;
-    public static int interval = 150;
+    public static int GameClock = 150;
 
 public static final String version = "0.1.5-BETA";
 
@@ -81,7 +81,7 @@ public static final String version = "0.1.5-BETA";
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
             AudDisplay.TimerDisplay.setText("2:30");
-            interval = 150;
+            GameClock = 150;
             Auto.setSelected(true);
             AutoState = true;
             TeleState = false;
@@ -89,12 +89,12 @@ public static final String version = "0.1.5-BETA";
     }    
 
         public static void countdownclockAuto(){
-            if(interval == 150){
+            if(GameClock == 150){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 121;
                 timer = new Timer();
-                interval = 150; 
+                GameClock = 150; 
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
@@ -113,12 +113,12 @@ public static final String version = "0.1.5-BETA";
         }
         
         public static void countdownclockDrive(){
-            if(interval==120){
+            if(GameClock==120){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 1;
                 timer = new Timer();
-                interval = 120; 
+                GameClock = 120; 
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
@@ -138,10 +138,10 @@ public static final String version = "0.1.5-BETA";
         
         
         private static final int setInterval(int stoptime){
-            if(interval == stoptime){
+            if(GameClock == stoptime){
                 timer.cancel();
             }
-            return --interval;
+            return --GameClock;
         }
        
         
@@ -274,12 +274,17 @@ public static final String version = "0.1.5-BETA";
         
         public void RedCenStart(){
          if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true && SettingsUI.RedCen==true){
-         if(AutoState == true) {
+         if(GameClock == 150) {
              countdownclockAuto();
              JoystickTest.pressLstJSRedCenStart = true;
          } else {
-             if(TeleState == true) {
+             if(GameClock == 120) {
                  countdownclockDrive();
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    AudDisplay.State.setText("Driver");
+                    JoystickTest.pressLstJSRedCenXbtn = true;  
                  JoystickTest.pressLstJSRedCenStart = true;
                  
              }
