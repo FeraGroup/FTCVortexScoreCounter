@@ -5,8 +5,11 @@
  */
 package ftc.goal.counter;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * @author afera
@@ -16,8 +19,8 @@ import java.util.TimerTask;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-    public static boolean AutoState = true;
-    public static boolean TeleState = false;
+    boolean AutoState = true;
+    boolean TeleState = false;
     public static int RedCenAuto = 0;
     public static int BlueCenAuto = 0;
     public static int RedCorAuto = 0;
@@ -31,9 +34,11 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static JoystickTest JS;
     public static SettingsUI settings;
     public static Timer timer;
-    public static int GameClock = 150;
+    public static int interval = 150;
+    public static int secsRemaing = 150;
+    public static boolean timerStarted = false;
 
-public static final String version = "0.1.6-BETA";
+public static final String version = "0.1.5-BETA";
 
     /**
      * Creates new form GoalCounterUI
@@ -61,9 +66,25 @@ public static final String version = "0.1.6-BETA";
           AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
           AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
-    
+        public static void setTimers(String time){
+            //any timers that need to get updated, place here and use the variable time
+            AudDisplay.TimerDisplay.setText(time);
+            GoalCounterUI.goalUITimer.setText(time);
+        }
+       
+        
+        public static void resetTimer(){
+            if (timerStarted == true){
+                GoalCounterUI.timerStart.setEnabled(true);
+                GoalCounterUI.timerStop.setEnabled(false);
+                timer.cancel();
+                timerStarted = false;
+                setTimers("2:30");
+                interval = 150;
+            }
+        }
+        
         public static void resetcounters(){
-            timer.cancel();
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -80,34 +101,27 @@ public static final String version = "0.1.6-BETA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
-            AudDisplay.TimerDisplay.setText("2:30");
-            Timer.setText("Match Time: 2:30");
-            GameClock = 150;
-            Auto.setSelected(true);
-            AutoState = true;
-            TeleState = false;
-            AudDisplay.State.setText("Auto");
-    }    
-
-        public static void countdownclockAuto(){
-            if(GameClock == 150){
+            resetTimer();
+    }   
+                
+        public static void countdownclockAuto(int interval){
+            timerStarted = true;
+            if(interval <= 150){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 121;
                 timer = new Timer();
-                GameClock = 150; 
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
                         int i = setInterval(stopsec); 
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
+                        secsRemaing = ((mins * 60)+ secs);
                         if(secs < 10) {
-                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                            Timer.setText("Match Time: " + mins + ":0" + secs);
+                            setTimers(mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs); 
-                            Timer.setText("Match Time: " + mins + ":" + secs);
+                            setTimers(mins + ":" + secs);
                         }    
                     }
                     
@@ -115,41 +129,43 @@ public static final String version = "0.1.6-BETA";
             }
         }
         
-        public static void countdownclockDrive(){
-            if(GameClock==120){
+        public static void countdownclockDrive(int interval){
+            timerStarted = true;
+            if(interval <= 120){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 1;
                 timer = new Timer();
-                GameClock = 120; 
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
-                        int i = setInterval(stopsec); 
+                        int i = setInterval(stopsec);
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
+                        int secRemaing = ((mins * 60)+ secs);
                         if(secs < 10) {
-                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                            Timer.setText("Match Time: " + mins + ":0" + secs);
+                            setTimers(mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);
-                            Timer.setText("Match Time: " + mins + ":" + secs);
-                        }    
-                    }
+                            setTimers(mins + ":" + secs);
+                        }
+                    } 
                 }, delay, period);
             }
         }
-        
-        
-        
+             
         private static final int setInterval(int stoptime){
-            if(GameClock == stoptime){
+            if(interval == stoptime){
                 timer.cancel();
+                timerStarted = false;
+                GoalCounterUI.timerStart.setEnabled(true);
+            }else if(interval == 0){
+                timer.cancel();
+                timerStarted = false;
+                GoalCounterUI.timerStart.setEnabled(true);
             }
-            return --GameClock;
+            return --interval;
         }
-       
-        
+              
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
             if(AutoState == true){
@@ -279,17 +295,12 @@ public static final String version = "0.1.6-BETA";
         
         public void RedCenStart(){
          if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true && SettingsUI.RedCen==true){
-         if(GameClock == 150) {
-             countdownclockAuto();
+         if(AutoState == true) {
+             countdownclockAuto(150);
              JoystickTest.pressLstJSRedCenStart = true;
          } else {
-             if(GameClock == 120) {
-                 countdownclockDrive();
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSRedCenXbtn = true;  
+             if(TeleState == true) {
+                 countdownclockDrive(120);
                  JoystickTest.pressLstJSRedCenStart = true;
                  
              }
@@ -433,11 +444,11 @@ public static final String version = "0.1.6-BETA";
             public void BlueCenStart(){
          if(JoystickTest.PressJSBlueCenStart==true && JoystickTest.pressLstJSBlueCenStart!=true && SettingsUI.BlueCen==true){
          if(AutoState == true) {
-             countdownclockAuto();
+             countdownclockAuto(150);
              JoystickTest.pressLstJSBlueCenStart = true;
          } else {
              if(TeleState == true) {
-                 countdownclockDrive();
+                 countdownclockDrive(120);
                  JoystickTest.pressLstJSBlueCenStart = true;
                  
              }
@@ -581,11 +592,11 @@ public static final String version = "0.1.6-BETA";
             public void RedCorStart(){
          if(JoystickTest.PressJSRedCorStart==true && JoystickTest.pressLstJSRedCorStart!=true && SettingsUI.RedCor==true){
          if(AutoState == true) {
-             countdownclockAuto();
+             countdownclockAuto(150);
              JoystickTest.pressLstJSRedCorStart = true;
          } else {
              if(TeleState == true) {
-                 countdownclockDrive();
+                 countdownclockDrive(120);
                  JoystickTest.pressLstJSRedCorStart = true;
                  
              }
@@ -728,11 +739,11 @@ public static final String version = "0.1.6-BETA";
             public void BlueCorStart(){
          if(JoystickTest.PressJSBlueCorStart==true && JoystickTest.pressLstJSBlueCorStart!=true && SettingsUI.BlueCor==true){
          if(AutoState == true) {
-             countdownclockAuto();
+             countdownclockAuto(150);
              JoystickTest.pressLstJSBlueCorStart = true;
          } else {
              if(TeleState == true) {
-                 countdownclockDrive();
+                 countdownclockDrive(120);
                  JoystickTest.pressLstJSBlueCorStart = true;
                  
              }
@@ -785,7 +796,7 @@ public static final String version = "0.1.6-BETA";
         BlueCenTeleLabel = new javax.swing.JLabel();
         BlueCorTeleSpin = new javax.swing.JSpinner();
         FTCLogoSmall = new javax.swing.JLabel();
-        Timer = new javax.swing.JLabel();
+        HeaderLabel = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
         VersionInfo = new javax.swing.JLabel();
         SettingButton = new javax.swing.JButton();
@@ -794,8 +805,10 @@ public static final String version = "0.1.6-BETA";
         jButton1 = new javax.swing.JButton();
         Auto = new javax.swing.JRadioButton();
         Teleop = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
-        HeaderLabel1 = new javax.swing.JLabel();
+        timerStart = new javax.swing.JButton();
+        timerStop = new javax.swing.JButton();
+        timerReset = new javax.swing.JButton();
+        goalUITimer = new javax.swing.JLabel();
 
         ModeSelect.add(Auto);
         ModeSelect.add(Teleop);
@@ -1061,9 +1074,9 @@ public static final String version = "0.1.6-BETA";
         FTCLogoSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FTCLogoSmall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ftclogofull.png"))); // NOI18N
 
-        Timer.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Timer.setText("Match Timer: 2:30");
+        HeaderLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        HeaderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        HeaderLabel.setText("Vortex Counter");
 
         ResetButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         ResetButton.setText("RESET");
@@ -1120,70 +1133,101 @@ public static final String version = "0.1.6-BETA";
             }
         });
 
-        jButton2.setText("START");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        timerStart.setText("START");
+        timerStart.setToolTipText("Start the Timer");
+        timerStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                timerStartActionPerformed(evt);
             }
         });
 
-        HeaderLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        HeaderLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        HeaderLabel1.setText("Vortex Counter");
+        timerStop.setText("STOP");
+        timerStop.setToolTipText("Stop the Timer");
+        timerStop.setEnabled(false);
+        timerStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timerStopActionPerformed(evt);
+            }
+        });
+
+        timerReset.setText("RESET TIMER");
+        timerReset.setToolTipText("Reset the Timer");
+        timerReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timerResetActionPerformed(evt);
+            }
+        });
+
+        goalUITimer.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        goalUITimer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        goalUITimer.setText("2:30");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(170, 170, 170))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(copyright)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(VersionInfo))
                             .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SettingButton)
-                                    .addComponent(jButton1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Auto)
-                                    .addComponent(Teleop))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addContainerGap())))
-            .addComponent(Timer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(HeaderLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(copyright)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(SettingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(Teleop)
+                                            .addComponent(Auto))
+                                        .addGap(68, 68, 68)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(VersionInfo)
+                                    .addComponent(ResetButton)
+                                    .addComponent(AboutButton))))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(HeaderLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(timerReset)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(goalUITimer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(timerStart, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(timerStop)
+                        .addGap(103, 103, 103))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(FTCLogoSmall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(HeaderLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(HeaderLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timerStart)
+                    .addComponent(timerStop)
+                    .addComponent(timerReset))
+                .addGap(0, 0, 0)
+                .addComponent(goalUITimer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -1204,7 +1248,7 @@ public static final String version = "0.1.6-BETA";
                         .addComponent(AboutButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(VersionInfo)))
-                .addContainerGap())
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -1214,6 +1258,7 @@ public static final String version = "0.1.6-BETA";
         resetcounters();
     }//GEN-LAST:event_ResetButtonActionPerformed
 
+    
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
         if(!settings.isVisible()){
             settings.setVisible(true);
@@ -1258,20 +1303,43 @@ public static final String version = "0.1.6-BETA";
      } 
     }//GEN-LAST:event_TeleopActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         if(AutoState == true) {
-             countdownclockAuto();
-         } else {
-             if(TeleState == true) {
-                 countdownclockDrive(); 
-             }
-         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void timerStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerStartActionPerformed
+         GoalCounterUI.timerStop.setEnabled(true); 
+         GoalCounterUI.timerStart.setEnabled(false);
+         GoalCounterUI.timerStart.setText("START");
+         GoalCounterUI.timerStart.setToolTipText("Start the Timer");
+         if (timerStarted == false){
+            if(AutoState == true) {
+                countdownclockAuto(secsRemaing);                
+            } else {
+                if(TeleState == true) {
+                    //countdownclockDrive(120); 
+                    countdownclockDrive(secsRemaing); 
+                }
+            }
+         }    
+    }//GEN-LAST:event_timerStartActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        countdownclockDrive(); 
+        countdownclockDrive(120);      
+        countdownclockDrive(120); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void timerStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerStopActionPerformed
+        //timer.getTimeRemaing;
+        GoalCounterUI.timerStart.setEnabled(true);
+        timerStarted = false;
+        GoalCounterUI.timerStart.setText("RESUME");
+        GoalCounterUI.timerStart.setToolTipText("Resume the Timer");
+        timer.cancel();
+        interval = secsRemaing;
+    }//GEN-LAST:event_timerStopActionPerformed
+        
+    private void timerResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerResetActionPerformed
+        resetTimer();
+    }//GEN-LAST:event_timerResetActionPerformed
+
+    
     public static GoalCounterUI goal;
     /**
      * @param args the command line arguments
@@ -1315,7 +1383,7 @@ public static final String version = "0.1.6-BETA";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AboutButton;
-    public static javax.swing.JRadioButton Auto;
+    private javax.swing.JRadioButton Auto;
     private javax.swing.JPanel BlueAlliance;
     private javax.swing.JLabel BlueCenAutoLabel;
     public static javax.swing.JSpinner BlueCenAutoSpin;
@@ -1330,7 +1398,7 @@ public static final String version = "0.1.6-BETA";
     private javax.swing.JLabel BlueVortCenLabel;
     private javax.swing.JLabel BlueVortCorLabel;
     private javax.swing.JLabel FTCLogoSmall;
-    private javax.swing.JLabel HeaderLabel1;
+    private javax.swing.JLabel HeaderLabel;
     private javax.swing.ButtonGroup ModeSelect;
     private javax.swing.JPanel RedAlliance;
     private javax.swing.JLabel RedCenAutoLabel;
@@ -1347,12 +1415,14 @@ public static final String version = "0.1.6-BETA";
     private javax.swing.JLabel RedVortCorLabel;
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton SettingButton;
-    public static javax.swing.JRadioButton Teleop;
-    public static javax.swing.JLabel Timer;
+    private javax.swing.JRadioButton Teleop;
     private javax.swing.JLabel VersionInfo;
     private javax.swing.JLabel copyright;
+    public static javax.swing.JLabel goalUITimer;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton timerReset;
+    public static javax.swing.JButton timerStart;
+    public static javax.swing.JButton timerStop;
     // End of variables declaration//GEN-END:variables
 }
