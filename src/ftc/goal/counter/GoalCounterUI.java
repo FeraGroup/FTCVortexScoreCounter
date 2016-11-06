@@ -16,8 +16,8 @@ import java.util.TimerTask;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-    boolean AutoState = true;
-    boolean TeleState = false;
+    public static boolean AutoState = true;
+    public static boolean TeleState = false;
     public static int RedCenAuto = 0;
     public static int BlueCenAuto = 0;
     public static int RedCorAuto = 0;
@@ -63,6 +63,7 @@ public static final String version = "0.1.5-BETA";
   }
     
         public static void resetcounters(){
+            timer.cancel();
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -81,6 +82,10 @@ public static final String version = "0.1.5-BETA";
             BlueCorTeleSpin.setValue(0);
             AudDisplay.TimerDisplay.setText("2:30");
             interval = 150;
+            Auto.setSelected(true);
+            AutoState = true;
+            TeleState = false;
+            AudDisplay.State.setText("Auto");
     }    
 
         public static void countdownclockAuto(){
@@ -1295,7 +1300,7 @@ public static final String version = "0.1.5-BETA";
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AboutButton;
-    private javax.swing.JRadioButton Auto;
+    public static javax.swing.JRadioButton Auto;
     private javax.swing.JPanel BlueAlliance;
     private javax.swing.JLabel BlueCenAutoLabel;
     public static javax.swing.JSpinner BlueCenAutoSpin;
@@ -1327,7 +1332,7 @@ public static final String version = "0.1.5-BETA";
     private javax.swing.JLabel RedVortCorLabel;
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton SettingButton;
-    private javax.swing.JRadioButton Teleop;
+    public static javax.swing.JRadioButton Teleop;
     private javax.swing.JLabel VersionInfo;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton1;
