@@ -124,8 +124,7 @@ public static final String version = "0.1.6-BETA";
                 TeleState = false;
                 AudDisplay.State.setText("Autonomous Mode");  
                 AutoStarted = true;
-            } else {
-                if(GameClock <= 119){// && TeleStarted == false) {
+            } else if(GameClock <= 120){// && TeleStarted == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
                     countdownclockDrive();
@@ -136,7 +135,6 @@ public static final String version = "0.1.6-BETA";
                     TeleStarted = true;
                 }
             }
-        }
         
         public static void countdownclockAuto(){
             if(GameClock <= 150){
@@ -152,6 +150,10 @@ public static final String version = "0.1.6-BETA";
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
                         ClockRemaining = ((mins * 60)+ secs);
+                        if (GameClock == 120){
+                            timerstart.setEnabled(true);
+                            timerstart.setText("CONTINUE");
+                        }
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
                             Timer.setText("Match Timer: " + mins + ":0" + secs);
