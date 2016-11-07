@@ -91,7 +91,7 @@ public static final String version = "0.1.6-BETA";
             AutoState = true;
             TeleState = false;
             AutoStarted = false;
-            AutoStarted = false;
+            TeleStarted = false;
             AudDisplay.State.setText("Autonomous Mode");
             pauseresume.setText("PAUSE");
     }    
@@ -113,7 +113,7 @@ public static final String version = "0.1.6-BETA";
         }
         
         public static void StartClock(){
-            if(GameClock == 150  && AutoStarted == false) {
+            if(GameClock == 150 && AutoStarted == false) {
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
