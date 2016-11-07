@@ -92,14 +92,33 @@ public static final String version = "0.1.6-BETA";
             TeleState = false;
             AutoStarted = false;
             AutoStarted = false;
-            AudDisplay.State.setText("Auto");
+            AudDisplay.State.setText("Autonomous Mode");
             pauseresume.setText("PAUSE");
     }    
 
+        public static void ModeChange(){
+            if(AutoState == true){
+                Teleop.setSelected(true);
+                AutoState = false;
+                TeleState = true;
+                AudDisplay.State.setText("Driver-Controlled Mode");  
+            }
+            else{ if (TeleState == true){
+                Auto.setSelected(true);
+                AutoState = true;
+                TeleState = false;
+                AudDisplay.State.setText("Autonomous Mode");  
+                }
+            } 
+        }
+        
         public static void StartClock(){
             if(GameClock == 150  && AutoStarted == false) {
                 countdownclockAuto();
-                JoystickTest.pressLstJSRedCenStart = true;
+                Auto.setSelected(true);
+                AutoState = true;
+                TeleState = false;
+                AudDisplay.State.setText("Autonomous Mode");  
                 AutoStarted = true;
             } else {
                 if(GameClock == 120 && TeleStarted == false) {
@@ -107,8 +126,7 @@ public static final String version = "0.1.6-BETA";
                     Teleop.setSelected(true);
                     AutoState = false;
                     TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSRedCenStart = true;
+                    AudDisplay.State.setText("Driver-Controlled Mode"); 
                     TeleStarted = true;
                 }
             }
@@ -167,15 +185,12 @@ public static final String version = "0.1.6-BETA";
             }
         }
         
-        
-        
         private static final int setInterval(int stoptime){
             if(GameClock == stoptime){
                 timer.cancel();
             }
             return --GameClock;
         }
-       
         
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
@@ -287,20 +302,8 @@ public static final String version = "0.1.6-BETA";
     
         public void RedCenX(){
          if(JoystickTest.PressJSRedCenXbtn==true && JoystickTest.pressLstJSRedCenXbtn!=true && SettingsUI.RedCen==true){
-                if(Auto.isSelected()){
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSRedCenXbtn = true;  
-                }
-                else{
-                    Auto.setSelected(true);
-                    AutoState = true;
-                    TeleState = false;
-                    AudDisplay.State.setText("Auto");
-                    JoystickTest.pressLstJSRedCenXbtn = true;  
-                }     
+             ModeChange();
+             JoystickTest.pressLstJSRedCenXbtn = true;
         }
     }
         
@@ -424,43 +427,22 @@ public static final String version = "0.1.6-BETA";
         }
     }
         
-            public void BlueCenX(){
+    public void BlueCenX(){
          if(JoystickTest.PressJSBlueCenXbtn==true && JoystickTest.pressLstJSBlueCenXbtn!=true && SettingsUI.BlueCen==true){
-                if(Auto.isSelected()){
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSBlueCenXbtn = true;  
-                }
-                else{
-                    Auto.setSelected(true);
-                    AutoState = true;
-                    TeleState = false;
-                    AudDisplay.State.setText("Auto");
-                    JoystickTest.pressLstJSBlueCenXbtn = true;  
-                }     
+            ModeChange();
         }
     }
     
             public void BlueCenStart(){
          if(JoystickTest.PressJSBlueCenStart==true && JoystickTest.pressLstJSBlueCenStart!=true && SettingsUI.BlueCen==true){
-         if(AutoState == true) {
-             countdownclockAuto();
-             JoystickTest.pressLstJSBlueCenStart = true;
-         } else {
-             if(TeleState == true) {
-                 countdownclockDrive();
-                 JoystickTest.pressLstJSBlueCenStart = true;
-                 
-             }
-         }
+            StartClock();
+            JoystickTest.pressLstJSBlueCenXbtn = true;
         }
     }
     
     public void BlueCenBack(){
          if(JoystickTest.PressJSBlueCenBack==true && JoystickTest.pressLstJSBlueCenBack!=true && SettingsUI.BlueCen==true){
-              resetcounters();
+            resetcounters();
         }
     }
             
@@ -574,35 +556,14 @@ public static final String version = "0.1.6-BETA";
     
                 public void RedCorX(){
          if(JoystickTest.PressJSRedCorXbtn==true && JoystickTest.pressLstJSRedCorXbtn!=true && SettingsUI.RedCor==true){
-                if(Auto.isSelected()){
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSRedCorXbtn = true;  
-                }
-                else{
-                    Auto.setSelected(true);
-                    AutoState = true;
-                    TeleState = false;
-                    AudDisplay.State.setText("Auto");
-                    JoystickTest.pressLstJSRedCorXbtn = true;  
-                }     
+            ModeChange();
+            JoystickTest.pressLstJSRedCorXbtn = true;
         }
     }
     
-            public void RedCorStart(){
+    public void RedCorStart(){
          if(JoystickTest.PressJSRedCorStart==true && JoystickTest.pressLstJSRedCorStart!=true && SettingsUI.RedCor==true){
-         if(AutoState == true) {
-             countdownclockAuto();
-             JoystickTest.pressLstJSRedCorStart = true;
-         } else {
-             if(TeleState == true) {
-                 countdownclockDrive();
-                 JoystickTest.pressLstJSRedCorStart = true;
-                 
-             }
-         }
+            StartClock();
         }
     }
     
@@ -721,41 +682,20 @@ public static final String version = "0.1.6-BETA";
 
             public void BlueCorX(){
          if(JoystickTest.PressJSBlueCorXbtn==true && JoystickTest.pressLstJSBlueCorXbtn!=true && SettingsUI.BlueCor==true){
-                if(Auto.isSelected()){
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSBlueCorXbtn = true;  
-                }
-                else{
-                    Auto.setSelected(true);
-                    AutoState = true;
-                    TeleState = false;
-                    AudDisplay.State.setText("Auto");
-                    JoystickTest.pressLstJSBlueCorXbtn = true;  
-                }     
+            ModeChange();
+            JoystickTest.pressLstJSBlueCorXbtn = true;
         }
     }
     
             public void BlueCorStart(){
          if(JoystickTest.PressJSBlueCorStart==true && JoystickTest.pressLstJSBlueCorStart!=true && SettingsUI.BlueCor==true){
-         if(AutoState == true) {
-             countdownclockAuto();
-             JoystickTest.pressLstJSBlueCorStart = true;
-         } else {
-             if(TeleState == true) {
-                 countdownclockDrive();
-                 JoystickTest.pressLstJSBlueCorStart = true;
-                 
-             }
-         }
+            StartClock();
         }
     }
     
     public void BlueCorBack(){
          if(JoystickTest.PressJSBlueCorBack==true && JoystickTest.pressLstJSBlueCorBack!=true && SettingsUI.BlueCor==true){
-              resetcounters();
+            resetcounters();
         }
     }
               
@@ -1257,29 +1197,11 @@ public static final String version = "0.1.6-BETA";
     }//GEN-LAST:event_auddisplayActionPerformed
 
     private void AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoActionPerformed
-      if(Auto.isSelected()){
-         AutoState = true;
-         TeleState = false;
-         AudDisplay.State.setText("Auto");
-                 }
-    else{
-         AutoState = false;
-         TeleState = true;
-         AudDisplay.State.setText("Driver");
-     } 
+            ModeChange();
     }//GEN-LAST:event_AutoActionPerformed
 
     private void TeleopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeleopActionPerformed
-     if(Teleop.isSelected()){
-         TeleState = true;
-         AutoState = false;
-         AudDisplay.State.setText("Driver");
-     }
-     else{
-         TeleState = false;
-         AutoState = true;
-         AudDisplay.State.setText("Auto");
-     } 
+            ModeChange();
     }//GEN-LAST:event_TeleopActionPerformed
 
     private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed

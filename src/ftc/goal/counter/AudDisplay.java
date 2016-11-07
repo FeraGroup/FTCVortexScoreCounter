@@ -286,9 +286,9 @@ public class AudDisplay extends javax.swing.JFrame {
                 .addComponent(BlueCorAutoDisplay))
         );
 
-        State.setFont(new java.awt.Font("Arial", 0, 75)); // NOI18N
+        State.setFont(new java.awt.Font("Arial", 1, 75)); // NOI18N
         State.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        State.setText("Auto");
+        State.setText("Autonomous Mode");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -346,10 +346,7 @@ public class AudDisplay extends javax.swing.JFrame {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 17, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(State, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(765, 765, 765))
+            .addComponent(State, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
