@@ -96,6 +96,7 @@ public static final String version = "0.1.6-BETA";
             TeleStarted = false;
             AudDisplay.State.setText("Autonomous Mode");
             pauseresume.setText("PAUSE");
+            timerstart.setText("START");
     }    
 
         public static void ModeChange(){
