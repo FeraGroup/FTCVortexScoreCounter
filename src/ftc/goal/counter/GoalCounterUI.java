@@ -68,6 +68,8 @@ public static final String version = "0.1.6-BETA";
     
         public static void resetcounters(){
             timer.cancel();
+            timerstart.setEnabled(true);
+            pauseresume.setEnabled(false);
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -103,17 +105,19 @@ public static final String version = "0.1.6-BETA";
                 TeleState = true;
                 AudDisplay.State.setText("Driver-Controlled Mode");  
             }
-            else{ if (TeleState == true){
+            else if (TeleState == true){
                 Auto.setSelected(true);
                 AutoState = true;
                 TeleState = false;
                 AudDisplay.State.setText("Autonomous Mode");  
-                }
+               
             } 
         }
         
         public static void StartClock(){
-            if(GameClock == 150 && AutoStarted == false) {
+            if(GameClock >= 121){// && AutoStarted == false) {
+                pauseresume.setEnabled(true);
+                timerstart.setEnabled(false);
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
@@ -121,7 +125,9 @@ public static final String version = "0.1.6-BETA";
                 AudDisplay.State.setText("Autonomous Mode");  
                 AutoStarted = true;
             } else {
-                if(GameClock == 120 && TeleStarted == false) {
+                if(GameClock <= 119){// && TeleStarted == false) {
+                    pauseresume.setEnabled(true);
+                    timerstart.setEnabled(false);
                     countdownclockDrive();
                     Teleop.setSelected(true);
                     AutoState = false;
@@ -138,7 +144,7 @@ public static final String version = "0.1.6-BETA";
                 int period = 1000;
                 int stopsec = 121;
                 timer = new Timer();
-                GameClock = 150; 
+                GameClock = ClockRemaining; 
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
@@ -165,7 +171,7 @@ public static final String version = "0.1.6-BETA";
                 int period = 1000;
                 int stopsec = 1;
                 timer = new Timer();
-                GameClock = 120; 
+                GameClock = ClockRemaining;
                 timer.scheduleAtFixedRate(new TimerTask(){
 
                     public void run(){
@@ -1087,6 +1093,7 @@ public static final String version = "0.1.6-BETA";
         HeaderLabel1.setText("Vortex Counter");
 
         pauseresume.setText("PAUSE");
+        pauseresume.setEnabled(false);
         pauseresume.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pauseresumeActionPerformed(evt);
@@ -1216,17 +1223,20 @@ public static final String version = "0.1.6-BETA";
         if(pause == false){
             timer.cancel();
             GameClock = ClockRemaining;
+            pause = true;
             pauseresume.setText("RESUME");
         } else {
-            pauseresume.setText("PAUSE");            
-            if(AutoState == true) {
+            pauseresume.setText("PAUSE");
+            pause = false;
+            StartClock();
+/*            if(AutoState == true) {
                 countdownclockAuto();                
             } else {
                 if(TeleState == true) {
                     //countdownclockDrive(120); 
                     countdownclockDrive(); 
                 }
-            }
+            }*/
         }
     }//GEN-LAST:event_pauseresumeActionPerformed
 
@@ -1312,6 +1322,6 @@ public static final String version = "0.1.6-BETA";
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton3;
     public static javax.swing.JButton pauseresume;
-    private javax.swing.JButton timerstart;
+    public static javax.swing.JButton timerstart;
     // End of variables declaration//GEN-END:variables
 }
