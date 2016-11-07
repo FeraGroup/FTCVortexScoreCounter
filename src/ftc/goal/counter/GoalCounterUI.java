@@ -18,6 +18,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
 
     public static boolean AutoState = true;
     public static boolean TeleState = false;
+    public static boolean AutoStarted = false;
+    public static boolean TeleStarted = false;
     public static int RedCenAuto = 0;
     public static int BlueCenAuto = 0;
     public static int RedCorAuto = 0;
@@ -32,6 +34,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static SettingsUI settings;
     public static Timer timer;
     public static int GameClock = 150;
+    public static int ClockRemaining;
 
 public static final String version = "0.1.6-BETA";
 
@@ -86,9 +89,29 @@ public static final String version = "0.1.6-BETA";
             Auto.setSelected(true);
             AutoState = true;
             TeleState = false;
+            AutoStarted = false;
+            AutoStarted = false;
             AudDisplay.State.setText("Auto");
     }    
 
+        public static void StartClock(){
+            if(GameClock == 150  && AutoStarted == false) {
+                countdownclockAuto();
+                JoystickTest.pressLstJSRedCenStart = true;
+                AutoStarted = true;
+            } else {
+                if(GameClock == 120 && TeleStarted == false) {
+                    countdownclockDrive();
+                    Teleop.setSelected(true);
+                    AutoState = false;
+                    TeleState = true;
+                    AudDisplay.State.setText("Driver");
+                    JoystickTest.pressLstJSRedCenStart = true;
+                    TeleStarted = true;
+                }
+            }
+        }
+        
         public static void countdownclockAuto(){
             if(GameClock == 150){
                 int delay = 1000;
@@ -279,21 +302,7 @@ public static final String version = "0.1.6-BETA";
         
         public void RedCenStart(){
          if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true && SettingsUI.RedCen==true){
-         if(GameClock == 150) {
-             countdownclockAuto();
-             JoystickTest.pressLstJSRedCenStart = true;
-         } else {
-             if(GameClock == 120) {
-                 countdownclockDrive();
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay.State.setText("Driver");
-                    JoystickTest.pressLstJSRedCenXbtn = true;  
-                 JoystickTest.pressLstJSRedCenStart = true;
-                 
-             }
-         }
+             StartClock();
         }
     }
     
@@ -791,11 +800,12 @@ public static final String version = "0.1.6-BETA";
         SettingButton = new javax.swing.JButton();
         AboutButton = new javax.swing.JButton();
         copyright = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        auddisplay = new javax.swing.JButton();
         Auto = new javax.swing.JRadioButton();
         Teleop = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
+        timerstart = new javax.swing.JButton();
         HeaderLabel1 = new javax.swing.JLabel();
+        pauseresume = new javax.swing.JButton();
 
         ModeSelect.add(Auto);
         ModeSelect.add(Teleop);
@@ -810,6 +820,7 @@ public static final String version = "0.1.6-BETA";
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new java.awt.Dimension(440, 580));
         setResizable(false);
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
@@ -1097,11 +1108,11 @@ public static final String version = "0.1.6-BETA";
         copyright.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         copyright.setText("Copyright (c) 2016 FIRST");
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jButton1.setText("DISPLAY");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        auddisplay.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        auddisplay.setText("DISPLAY");
+        auddisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                auddisplayActionPerformed(evt);
             }
         });
 
@@ -1120,10 +1131,10 @@ public static final String version = "0.1.6-BETA";
             }
         });
 
-        jButton2.setText("START");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        timerstart.setText("START");
+        timerstart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                timerstartActionPerformed(evt);
             }
         });
 
@@ -1131,32 +1142,31 @@ public static final String version = "0.1.6-BETA";
         HeaderLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         HeaderLabel1.setText("Vortex Counter");
 
+        pauseresume.setText("PAUSE");
+        pauseresume.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseresumeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(170, 170, 170))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(copyright)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(VersionInfo))
-                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(SettingButton)
-                                    .addComponent(jButton1))
+                                    .addComponent(auddisplay))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Auto)
@@ -1165,7 +1175,15 @@ public static final String version = "0.1.6-BETA";
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(AboutButton, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(timerstart)
+                            .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pauseresume)))))
             .addComponent(Timer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(HeaderLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1183,15 +1201,17 @@ public static final String version = "0.1.6-BETA";
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timerstart)
+                    .addComponent(pauseresume))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(SettingButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))
+                                .addComponent(auddisplay))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Auto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1204,7 +1224,7 @@ public static final String version = "0.1.6-BETA";
                         .addComponent(AboutButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(VersionInfo)))
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -1226,11 +1246,11 @@ public static final String version = "0.1.6-BETA";
         }
     }//GEN-LAST:event_AboutButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         if(!AudDisp.isVisible()){
             AudDisp.setVisible(true);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_auddisplayActionPerformed
 
     private void AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoActionPerformed
       if(Auto.isSelected()){
@@ -1258,19 +1278,17 @@ public static final String version = "0.1.6-BETA";
      } 
     }//GEN-LAST:event_TeleopActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         if(AutoState == true) {
-             countdownclockAuto();
-         } else {
-             if(TeleState == true) {
-                 countdownclockDrive(); 
-             }
-         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed
+             StartClock();
+    }//GEN-LAST:event_timerstartActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         countdownclockDrive(); 
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void pauseresumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseresumeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pauseresumeActionPerformed
 
     public static GoalCounterUI goal;
     /**
@@ -1350,9 +1368,10 @@ public static final String version = "0.1.6-BETA";
     public static javax.swing.JRadioButton Teleop;
     public static javax.swing.JLabel Timer;
     private javax.swing.JLabel VersionInfo;
+    private javax.swing.JButton auddisplay;
     private javax.swing.JLabel copyright;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton pauseresume;
+    private javax.swing.JButton timerstart;
     // End of variables declaration//GEN-END:variables
 }
