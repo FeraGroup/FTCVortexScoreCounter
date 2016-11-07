@@ -20,6 +20,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static boolean TeleState = false;
     public static boolean AutoStarted = false;
     public static boolean TeleStarted = false;
+    public static boolean pause = false;
     public static int RedCenAuto = 0;
     public static int BlueCenAuto = 0;
     public static int RedCorAuto = 0;
@@ -34,7 +35,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static SettingsUI settings;
     public static Timer timer;
     public static int GameClock = 150;
-    public static int ClockRemaining;
+    public static int ClockRemaining = 150;
 
 public static final String version = "0.1.6-BETA";
 
@@ -84,7 +85,7 @@ public static final String version = "0.1.6-BETA";
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
             AudDisplay.TimerDisplay.setText("2:30");
-            Timer.setText("Match Time: 2:30");
+            Timer.setText("Match Timer: 2:30");
             GameClock = 150;
             Auto.setSelected(true);
             AutoState = true;
@@ -92,6 +93,7 @@ public static final String version = "0.1.6-BETA";
             AutoStarted = false;
             AutoStarted = false;
             AudDisplay.State.setText("Auto");
+            pauseresume.setText("PAUSE");
     }    
 
         public static void StartClock(){
@@ -113,7 +115,7 @@ public static final String version = "0.1.6-BETA";
         }
         
         public static void countdownclockAuto(){
-            if(GameClock == 150){
+            if(GameClock <= 150){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 121;
@@ -125,12 +127,13 @@ public static final String version = "0.1.6-BETA";
                         int i = setInterval(stopsec); 
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
+                        ClockRemaining = ((mins * 60)+ secs);
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                            Timer.setText("Match Time: " + mins + ":0" + secs);
+                            Timer.setText("Match Timer: " + mins + ":0" + secs);
                         } else {
                             AudDisplay.TimerDisplay.setText(mins + ":" + secs); 
-                            Timer.setText("Match Time: " + mins + ":" + secs);
+                            Timer.setText("Match Timer: " + mins + ":" + secs);
                         }    
                     }
                     
@@ -139,7 +142,7 @@ public static final String version = "0.1.6-BETA";
         }
         
         public static void countdownclockDrive(){
-            if(GameClock==120){
+            if(GameClock<=120){
                 int delay = 1000;
                 int period = 1000;
                 int stopsec = 1;
@@ -151,12 +154,13 @@ public static final String version = "0.1.6-BETA";
                         int i = setInterval(stopsec); 
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
+                        ClockRemaining = ((mins * 60)+ secs);
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
-                            Timer.setText("Match Time: " + mins + ":0" + secs);
+                            Timer.setText("Match Timer: " + mins + ":0" + secs);
                         } else {
                             AudDisplay.TimerDisplay.setText(mins + ":" + secs);
-                            Timer.setText("Match Time: " + mins + ":" + secs);
+                            Timer.setText("Match Timer: " + mins + ":" + secs);
                         }    
                     }
                 }, delay, period);
@@ -1287,7 +1291,21 @@ public static final String version = "0.1.6-BETA";
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void pauseresumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseresumeActionPerformed
-        // TODO add your handling code here:
+        if(pause == false){
+            timer.cancel();
+            GameClock = ClockRemaining;
+            pauseresume.setText("RESUME");
+        } else {
+            pauseresume.setText("PAUSE");            
+            if(AutoState == true) {
+                countdownclockAuto();                
+            } else {
+                if(TeleState == true) {
+                    //countdownclockDrive(120); 
+                    countdownclockDrive(); 
+                }
+            }
+        }
     }//GEN-LAST:event_pauseresumeActionPerformed
 
     public static GoalCounterUI goal;
@@ -1371,7 +1389,7 @@ public static final String version = "0.1.6-BETA";
     private javax.swing.JButton auddisplay;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton pauseresume;
+    public static javax.swing.JButton pauseresume;
     private javax.swing.JButton timerstart;
     // End of variables declaration//GEN-END:variables
 }
