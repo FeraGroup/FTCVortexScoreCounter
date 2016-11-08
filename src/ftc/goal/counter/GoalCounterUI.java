@@ -65,11 +65,28 @@ public static final String version = "0.1.6-BETA";
           AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
     
-        public static void resetcounters(){
-            if (GameClock != 150){
-            timer.cancel();
+    public static void resetTimerElements(){
+            if (TimerActive == true){
+                timer.cancel();
+            }
+            GameClock = 150;
+            ClockRemaining = 150;
+            Auto.setSelected(true);
+            AutoState = true;
+            TeleState = false;
+            TimerActive = false;
+            AudDisplay.TimerDisplay.setText("2:30");
+            Timer.setText("Match Timer: 2:30");
+            AudDisplay.State.setText("Autonomous Mode");
             timerstart.setEnabled(true);
+            timerstart.setText("START");
             pauseresume.setEnabled(false);
+            pauseresume.setText("PAUSE");
+            
+            
+    }
+    
+        public static void resetcounters(){
             RedCenAuto = 0;
             RedCorAuto = 0;
             BlueCenAuto = 0;
@@ -86,17 +103,7 @@ public static final String version = "0.1.6-BETA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
-            AudDisplay.TimerDisplay.setText("2:30");
-            Timer.setText("Match Timer: 2:30");
-            GameClock = 150;
-            Auto.setSelected(true);
-            AutoState = true;
-            TeleState = false;
-            TimerActive = false;
-            AudDisplay.State.setText("Autonomous Mode");
-            pauseresume.setText("PAUSE");
-            timerstart.setText("START");
-        }
+            resetTimerElements();        
     }
 
         public static void ModeChange(){
@@ -119,6 +126,7 @@ public static final String version = "0.1.6-BETA";
             if(GameClock >= 121 && TimerActive == false) {
                 pauseresume.setEnabled(true);
                 timerstart.setEnabled(false);
+                timerstart.setText("START");
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
@@ -153,6 +161,7 @@ public static final String version = "0.1.6-BETA";
                         ClockRemaining = ((mins * 60)+ secs);
                         if (GameClock == 120){
                             timerstart.setEnabled(true);
+                            pauseresume.setEnabled(false);
                             timerstart.setText("CONTINUE");
                             TimerActive = false;
                         }
@@ -642,7 +651,20 @@ public static final String version = "0.1.6-BETA";
     
     public void TimerStart(){
          if(JoystickTest.PressJSTimerStart == true && JoystickTest.pressLstJSTimerStart != true){
-            StartClock();
+            //StartClock();
+            if(TimerActive == false && ClockRemaining == 150){
+                StartClock();
+            }else if(pause == false){
+                timer.cancel();
+                GameClock = ClockRemaining;
+                pause = true;
+                TimerActive = false;
+                pauseresume.setText("RESUME");
+        } else {
+                pauseresume.setText("PAUSE");
+                pause = false;
+                StartClock();
+        }
             JoystickTest.pressLstJSTimerStart = true;
         }
     }
@@ -1162,6 +1184,7 @@ public static final String version = "0.1.6-BETA";
 
     private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed
              StartClock();
+             
     }//GEN-LAST:event_timerstartActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
