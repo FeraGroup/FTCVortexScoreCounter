@@ -18,8 +18,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
 
     public static boolean AutoState = true;
     public static boolean TeleState = false;
-    public static boolean AutoStarted = false;
-    public static boolean TeleStarted = false;
+    public static boolean TimerActive = false;
     public static boolean pause = false;
     public static int RedCenAuto = 0;
     public static int BlueCenAuto = 0;
@@ -67,6 +66,7 @@ public static final String version = "0.1.6-BETA";
   }
     
         public static void resetcounters(){
+            if (GameClock != 150){
             timer.cancel();
             timerstart.setEnabled(true);
             pauseresume.setEnabled(false);
@@ -92,12 +92,12 @@ public static final String version = "0.1.6-BETA";
             Auto.setSelected(true);
             AutoState = true;
             TeleState = false;
-            AutoStarted = false;
-            TeleStarted = false;
+            TimerActive = false;
             AudDisplay.State.setText("Autonomous Mode");
             pauseresume.setText("PAUSE");
             timerstart.setText("START");
-    }    
+        }
+    }
 
         public static void ModeChange(){
             if(AutoState == true){
@@ -116,7 +116,7 @@ public static final String version = "0.1.6-BETA";
         }
         
         public static void StartClock(){
-            if(GameClock >= 121){// && AutoStarted == false) {
+            if(GameClock >= 121 && TimerActive == false) {
                 pauseresume.setEnabled(true);
                 timerstart.setEnabled(false);
                 countdownclockAuto();
@@ -124,8 +124,8 @@ public static final String version = "0.1.6-BETA";
                 AutoState = true;
                 TeleState = false;
                 AudDisplay.State.setText("Autonomous Mode");  
-                AutoStarted = true;
-            } else if(GameClock <= 120){// && TeleStarted == false) {
+                TimerActive = true;
+            } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
                     countdownclockDrive();
@@ -133,7 +133,7 @@ public static final String version = "0.1.6-BETA";
                     AutoState = false;
                     TeleState = true;
                     AudDisplay.State.setText("Driver-Controlled Mode"); 
-                    TeleStarted = true;
+                    TimerActive = true;
                 }
             }
         
@@ -154,6 +154,7 @@ public static final String version = "0.1.6-BETA";
                         if (GameClock == 120){
                             timerstart.setEnabled(true);
                             timerstart.setText("CONTINUE");
+                            TimerActive = false;
                         }
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
@@ -1172,19 +1173,12 @@ public static final String version = "0.1.6-BETA";
             timer.cancel();
             GameClock = ClockRemaining;
             pause = true;
+            TimerActive = false;
             pauseresume.setText("RESUME");
         } else {
             pauseresume.setText("PAUSE");
             pause = false;
             StartClock();
-/*            if(AutoState == true) {
-                countdownclockAuto();                
-            } else {
-                if(TeleState == true) {
-                    //countdownclockDrive(120); 
-                    countdownclockDrive(); 
-                }
-            }*/
         }
     }//GEN-LAST:event_pauseresumeActionPerformed
 
