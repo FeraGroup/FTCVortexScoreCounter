@@ -43,11 +43,11 @@ public class AudDisplay extends javax.swing.JFrame {
         AutoBlue = new javax.swing.JLabel();
         AutoRed = new javax.swing.JLabel();
         DriverRed = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        RCorLabel = new javax.swing.JLabel();
         DriverBlue = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        BCenLabel = new javax.swing.JLabel();
+        RCenLabel = new javax.swing.JLabel();
+        BCorLabel = new javax.swing.JLabel();
         BlueCenDisplay1 = new javax.swing.JPanel();
         BlueCenTeleDisplay = new javax.swing.JLabel();
         RedCenDisplay4 = new javax.swing.JPanel();
@@ -176,25 +176,25 @@ public class AudDisplay extends javax.swing.JFrame {
         DriverRed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DriverRed.setText("Driver");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("Corner");
+        RCorLabel.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
+        RCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RCorLabel.setText("Corner");
 
         DriverBlue.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
         DriverBlue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DriverBlue.setText("Driver");
 
-        jLabel14.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
-        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Center");
+        BCenLabel.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
+        BCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BCenLabel.setText("Center");
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Center");
+        RCenLabel.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
+        RCenLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RCenLabel.setText("Center");
 
-        jLabel16.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Corner");
+        BCorLabel.setFont(new java.awt.Font("Dialog", 0, 75)); // NOI18N
+        BCorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BCorLabel.setText("Corner");
 
         BlueCenDisplay1.setBackground(new java.awt.Color(0, 101, 179));
         BlueCenDisplay1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
@@ -330,20 +330,20 @@ public class AudDisplay extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(RCenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BCenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1286, 1286, 1286))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BCorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(35, 35, 35)
                                 .addComponent(BlueCorDisplay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(BlueCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(668, 668, 668)))
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RCorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 17, Short.MAX_VALUE)))
                 .addContainerGap())
             .addComponent(State, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -368,11 +368,11 @@ public class AudDisplay extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BlueCenDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BlueCenDisplay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
+                            .addComponent(RCenLabel))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(115, 115, 115)
-                                .addComponent(jLabel10))
+                                .addComponent(RCorLabel))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -387,9 +387,9 @@ public class AudDisplay extends javax.swing.JFrame {
                             .addComponent(RedCorDisplay1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RedCorDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
+                        .addComponent(BCenLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel16)))
+                        .addComponent(BCorLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(State)
                 .addGap(23, 23, 23))
@@ -447,6 +447,8 @@ public class AudDisplay extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel AutoBlue;
     public static javax.swing.JLabel AutoRed;
+    public static javax.swing.JLabel BCenLabel;
+    public static javax.swing.JLabel BCorLabel;
     public static javax.swing.JLabel BlueCenAutoDisplay;
     private javax.swing.JPanel BlueCenDisplay;
     private javax.swing.JPanel BlueCenDisplay1;
@@ -457,6 +459,8 @@ public class AudDisplay extends javax.swing.JFrame {
     public static javax.swing.JLabel BlueCorTeleDisplay;
     public static javax.swing.JLabel DriverBlue;
     public static javax.swing.JLabel DriverRed;
+    public static javax.swing.JLabel RCenLabel;
+    public static javax.swing.JLabel RCorLabel;
     public static javax.swing.JLabel RedCenAutoDisplay;
     public javax.swing.JPanel RedCenDisplay;
     public javax.swing.JPanel RedCenDisplay4;
@@ -467,10 +471,6 @@ public class AudDisplay extends javax.swing.JFrame {
     public static javax.swing.JLabel RedCorTeleDisplay;
     public static javax.swing.JLabel State;
     public static javax.swing.JLabel TimerDisplay;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     public static javax.swing.JPanel jPanel1;
