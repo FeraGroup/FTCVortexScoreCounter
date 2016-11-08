@@ -309,25 +309,6 @@ public static final String version = "0.1.6-BETA";
         }
     }
     
-        public void RedCenX(){
-         if(JoystickTest.PressJSRedCenXbtn==true && JoystickTest.pressLstJSRedCenXbtn!=true && SettingsUI.RedCen==true){
-             ModeChange();
-             JoystickTest.pressLstJSRedCenXbtn = true;
-        }
-    }
-        
-        public void RedCenStart(){
-         if(JoystickTest.PressJSRedCenStart==true && JoystickTest.pressLstJSRedCenStart!=true && SettingsUI.RedCen==true){
-             StartClock();
-        }
-    }
-    
-    public void RedCenBack(){
-         if(JoystickTest.PressJSRedCenBack==true && JoystickTest.pressLstJSRedCenBack!=true && SettingsUI.RedCen==true){
-              resetcounters();
-        }
-    }
-    
     public void IncrsBlueCenA(){
          if(JoystickTest.PressJSBlueCenAbtn==true && JoystickTest.pressLstJSBlueCenAbtn!=true && SettingsUI.BlueCenBtn == true){
             if(AutoState == true){
@@ -433,25 +414,6 @@ public static final String version = "0.1.6-BETA";
                     JoystickTest.pressLstJSBlueCenRT = true;
                 }  
             }
-        }
-    }
-        
-    public void BlueCenX(){
-         if(JoystickTest.PressJSBlueCenXbtn==true && JoystickTest.pressLstJSBlueCenXbtn!=true && SettingsUI.BlueCen==true){
-            ModeChange();
-        }
-    }
-    
-            public void BlueCenStart(){
-         if(JoystickTest.PressJSBlueCenStart==true && JoystickTest.pressLstJSBlueCenStart!=true && SettingsUI.BlueCen==true){
-            StartClock();
-            JoystickTest.pressLstJSBlueCenXbtn = true;
-        }
-    }
-    
-    public void BlueCenBack(){
-         if(JoystickTest.PressJSBlueCenBack==true && JoystickTest.pressLstJSBlueCenBack!=true && SettingsUI.BlueCen==true){
-            resetcounters();
         }
     }
             
@@ -562,25 +524,6 @@ public static final String version = "0.1.6-BETA";
             }    
             }
         }
-    
-                public void RedCorX(){
-         if(JoystickTest.PressJSRedCorXbtn==true && JoystickTest.pressLstJSRedCorXbtn!=true && SettingsUI.RedCor==true){
-            ModeChange();
-            JoystickTest.pressLstJSRedCorXbtn = true;
-        }
-    }
-    
-    public void RedCorStart(){
-         if(JoystickTest.PressJSRedCorStart==true && JoystickTest.pressLstJSRedCorStart!=true && SettingsUI.RedCor==true){
-            StartClock();
-        }
-    }
-    
-    public void RedCorBack(){
-         if(JoystickTest.PressJSRedCorBack==true && JoystickTest.pressLstJSRedCorBack!=true && SettingsUI.RedCor==true){
-              resetcounters();
-        }
-    }
         
     public void IncrsBlueCorA(){
          if(JoystickTest.PressJSBlueCorAbtn==true && JoystickTest.pressLstJSBlueCorAbtn!=true && SettingsUI.BlueCorBtn == true){
@@ -689,22 +632,24 @@ public static final String version = "0.1.6-BETA";
         }
     }
 
-            public void BlueCorX(){
-         if(JoystickTest.PressJSBlueCorXbtn==true && JoystickTest.pressLstJSBlueCorXbtn!=true && SettingsUI.BlueCor==true){
+    public void TimerXBtn(){
+         if(JoystickTest.PressJSTimerXbtn == true && JoystickTest.pressLstJSTimerXbtn != true && SettingsUI.ModeChange == true){
             ModeChange();
-            JoystickTest.pressLstJSBlueCorXbtn = true;
+            JoystickTest.pressLstJSTimerXbtn = true;
         }
     }
     
-            public void BlueCorStart(){
-         if(JoystickTest.PressJSBlueCorStart==true && JoystickTest.pressLstJSBlueCorStart!=true && SettingsUI.BlueCor==true){
+    public void TimerStart(){
+         if(JoystickTest.PressJSTimerStart == true && JoystickTest.pressLstJSTimerStart != true){
             StartClock();
+            JoystickTest.pressLstJSTimerStart = true;
         }
     }
     
-    public void BlueCorBack(){
-         if(JoystickTest.PressJSBlueCorBack==true && JoystickTest.pressLstJSBlueCorBack!=true && SettingsUI.BlueCor==true){
+    public void TimerBack(){
+         if(JoystickTest.PressJSTimerBack == true && JoystickTest.pressLstJSTimerBack != true){
             resetcounters();
+            JoystickTest.pressLstJSTimerBack = true;
         }
     }
               

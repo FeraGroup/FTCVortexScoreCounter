@@ -72,30 +72,12 @@ public class JoystickTest {
     static public boolean PressJSBlueCorRT = false;
     static public boolean pressLstJSBlueCorRB = false;
     static public boolean PressJSBlueCorRB = false;
-    static public boolean pressLstJSRedCenXbtn = false;
-    static public boolean PressJSRedCenXbtn = false;
-    static public boolean pressLstJSRedCenStart = false;
-    static public boolean PressJSRedCenStart = false;
-    static public boolean pressLstJSRedCenBack = false;
-    static public boolean PressJSRedCenBack = false;
-    static public boolean pressLstJSBlueCenXbtn = false;
-    static public boolean PressJSBlueCenXbtn = false;
-    static public boolean pressLstJSBlueCenStart = false;
-    static public boolean PressJSBlueCenStart = false;
-    static public boolean pressLstJSBlueCenBack = false;
-    static public boolean PressJSBlueCenBack = false;
-    static public boolean pressLstJSRedCorXbtn = false;
-    static public boolean PressJSRedCorXbtn = false;
-    static public boolean pressLstJSRedCorStart = false;
-    static public boolean PressJSRedCorStart = false;
-    static public boolean pressLstJSRedCorBack = false;
-    static public boolean PressJSRedCorBack = false;
-    static public boolean pressLstJSBlueCorXbtn = false;
-    static public boolean PressJSBlueCorXbtn = false;
-    static public boolean pressLstJSBlueCorStart = false;
-    static public boolean PressJSBlueCorStart = false;
-    static public boolean pressLstJSBlueCorBack = false;
-    static public boolean PressJSBlueCorBack = false;
+    static public boolean pressLstJSTimerXbtn = false;
+    static public boolean PressJSTimerXbtn = false;
+    static public boolean pressLstJSTimerStart = false;
+    static public boolean PressJSTimerStart = false;
+    static public boolean pressLstJSTimerBack = false;
+    static public boolean PressJSTimerBack = false;
     
     public static ArrayList<Controller> foundControllers;
 
@@ -189,6 +171,15 @@ public class JoystickTest {
                // break;
             }
             
+        int selectedControllerTimer = SettingsUI.getSelectedControllerNameTimer();
+            Controller controllerTimer = foundControllers.get(selectedControllerTimer);
+
+            // Pull controller for current data, and break while loop if controller is disconnected.
+            
+            if( !controllerTimer.poll() ){
+               // window.showControllerDisconnected();
+               // break;
+            }
             
             if( !controllerRedCen.poll() ){
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
@@ -290,24 +281,6 @@ public class JoystickTest {
                     
                 }
                 
-                if(componentIdentifier.getName().matches("^[2]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(component.getPollData() != 0.0f){
-                        PressJSRedCenXbtn = true;    
-                    }
-                    else{
-                        PressJSRedCenXbtn = false;
-                    }
-                      
-                    if(PressJSRedCenXbtn == false){
-                        pressLstJSRedCenXbtn = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCenX();
-                    
-                }
-                
                 if(componentIdentifier.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
@@ -343,41 +316,6 @@ public class JoystickTest {
                     }
                     
                     GoalCounterUI.goal.IncrsRedCenRB();
-                    
-                }
-
-                                if(componentIdentifier.getName().matches("^[6]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(component.getPollData() != 0.0f){
-                        PressJSRedCenBack = true;    
-                    }
-                    else{
-                        PressJSRedCenBack = false;
-                    }
-                      
-                    if(PressJSRedCenBack == false){
-                        pressLstJSRedCenBack = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCenBack();
-                }
-                
-                if(componentIdentifier.getName().matches("^[7]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(component.getPollData() != 0.0f){
-                        PressJSRedCenStart = true;    
-                    }
-                    else{
-                        PressJSRedCenStart = false;
-                    }
-                      
-                    if(PressJSRedCenStart == false){
-                        pressLstJSRedCenStart = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCenStart();
                     
                 }
                 
@@ -457,24 +395,6 @@ public class JoystickTest {
 
                 }
                 
-                if(componentIdentifierbluecen.getName().matches("^[2]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(componentbluecen.getPollData() != 0.0f){
-                        PressJSBlueCenXbtn = true;    
-                    }
-                    else{
-                        PressJSBlueCenXbtn = false;
-                    }
-                      
-                    if(PressJSBlueCenXbtn == false){
-                        pressLstJSBlueCenXbtn = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCenX();
-
-                }
-                
             if(componentIdentifierbluecen.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
                     
@@ -508,42 +428,6 @@ public class JoystickTest {
                     }
                     
                     GoalCounterUI.goal.IncrsBlueCenRB();
-
-                }
-                
-                if(componentIdentifierbluecen.getName().matches("^[6]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-                    
-                    if(componentbluecen.getPollData() != 0.0f){
-                        PressJSBlueCenBack = true;    
-                    }
-                    else{
-                        PressJSBlueCenBack = false;
-                    }
-                      
-                    if(PressJSBlueCenBack == false){
-                        pressLstJSBlueCenBack = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCenBack();
-
-                }
-                
-                if(componentIdentifierbluecen.getName().matches("^[7]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-                    
-                    if(componentbluecen.getPollData() != 0.0f){
-                        PressJSBlueCenStart = true;    
-                    }
-                    else{
-                        PressJSBlueCenStart = false;
-                    }
-                      
-                    if(PressJSBlueCenStart == false){
-                        pressLstJSBlueCenStart = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCenStart();
 
                 }
                 
@@ -622,24 +506,6 @@ public class JoystickTest {
 
                 }
                 
-                if(componentIdentifierredcor.getName().matches("^[2]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(componentredcor.getPollData() != 0.0f){
-                        PressJSRedCorXbtn = true;    
-                    }
-                    else{
-                        PressJSRedCorXbtn = false;
-                    }
-                      
-                    if(PressJSRedCorXbtn == false){
-                        pressLstJSRedCorXbtn = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCorX();
-
-                }
-                
                 if(componentIdentifierredcor.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
 
@@ -655,8 +521,7 @@ public class JoystickTest {
                         pressLstJSRedCorLB = false;
                     }
                     
-                    GoalCounterUI.goal.IncrsRedCorLB();
-                    
+                    GoalCounterUI.goal.IncrsRedCorLB();                    
                 }
                 
                 if(componentIdentifierredcor.getName().matches("^[5]*$")){ // This is for Center Controller RB Button
@@ -677,45 +542,6 @@ public class JoystickTest {
                     GoalCounterUI.goal.IncrsRedCorRB();
                     
                 }
-                
-                if(componentIdentifierredcor.getName().matches("^[6]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-
-                    if(componentredcor.getPollData() != 0.0f){
-                        PressJSRedCorBack = true;    
-                    }
-                    else{
-                        PressJSRedCorBack = false;
-                    }
-
-                    
-                    if(PressJSRedCorBack == false){
-                        pressLstJSRedCorBack = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCorBack();
-                   
-                }
-                
-                if(componentIdentifierredcor.getName().matches("^[7]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-
-                    if(componentredcor.getPollData() != 0.0f){
-                        PressJSRedCorStart = true;    
-                    }
-                    else{
-                        PressJSRedCorStart = false;
-                    }
-
-                    
-                    if(PressJSRedCorStart == false){
-                        pressLstJSRedCorStart = false;
-                    }
-                    
-                    GoalCounterUI.goal.RedCorStart();
-                   
-                }
-
 
                 if(componentIdentifierredcor == Component.Identifier.Axis.Z){
                     if(componentredcor.getPollData() <= -0.75){
@@ -791,24 +617,6 @@ public class JoystickTest {
 
                 }
                 
-                if(componentIdentifierbluecen.getName().matches("^[2]*$")){ // This is for Center Controller B Button
-                    // Is button pressed?
-                    
-                    if(componentbluecor.getPollData() != 0.0f){
-                        PressJSBlueCorXbtn = true;    
-                    }
-                    else{
-                        PressJSBlueCorXbtn = false;
-                    }
-                      
-                    if(PressJSBlueCorXbtn == false){
-                        pressLstJSBlueCorXbtn = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCorX();
-
-                }
-                
                 if(componentIdentifierbluecen.getName().matches("^[4]*$")){ // This is for Center Controller LB Button
                     // Is button pressed?
                     
@@ -845,42 +653,6 @@ public class JoystickTest {
 
                 }
                 
-                if(componentIdentifierbluecen.getName().matches("^[6]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-                    
-                    if(componentbluecor.getPollData() != 0.0f){
-                        PressJSBlueCorBack = true;    
-                    }
-                    else{
-                        PressJSBlueCorBack = false;
-                    }
-                      
-                    if(PressJSBlueCorBack == false){
-                        pressLstJSBlueCorBack = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCorBack();
-
-                }
-                
-                if(componentIdentifierbluecen.getName().matches("^[7]*$")){ // This is for Center Controller RB Button
-                    // Is button pressed?
-                    
-                    if(componentbluecor.getPollData() != 0.0f){
-                        PressJSBlueCorStart = true;    
-                    }
-                    else{
-                        PressJSBlueCorStart = false;
-                    }
-                      
-                    if(PressJSBlueCorStart == false){
-                        pressLstJSBlueCorStart = false;
-                    }
-                    
-                    GoalCounterUI.goal.BlueCorBack();
-
-                }
-                
                 if(componentIdentifierbluecen == Component.Identifier.Axis.Z){
                     if(componentbluecor.getPollData() <= -0.75){
                         PressJSBlueCorRT = true;    
@@ -909,6 +681,67 @@ public class JoystickTest {
                     GoalCounterUI.goal.DcrsBlueCorLT();
                     }   
                 
+            }
+            
+        Component[] componentstimer = controllerTimer.getComponents();
+            for(int i=0; i < componentstimer.length; i++)
+            {
+                Component componenttimer = componentstimer[i];
+                Identifier componentIdentifierTimer = componenttimer.getIdentifier();
+                
+                if(componentIdentifierTimer.getName().matches("^[2]*$")){ // This is for Center Controller RB Button
+                    // Is button pressed?
+                    
+                    if(componenttimer.getPollData() != 0.0f){
+                        PressJSTimerXbtn = true;    
+                    }
+                    else{
+                        PressJSTimerXbtn = false;
+                    }
+                      
+                    if(PressJSTimerXbtn == false){
+                        pressLstJSTimerXbtn = false;
+                    }
+                    
+                    GoalCounterUI.goal.TimerXBtn();
+
+                }
+            
+                if(componentIdentifierTimer.getName().matches("^[6]*$")){ // This is for Center Controller RB Button
+                    // Is button pressed?
+                    
+                    if(componenttimer.getPollData() != 0.0f){
+                        PressJSTimerBack = true;    
+                    }
+                    else{
+                        PressJSTimerBack = false;
+                    }
+                      
+                    if(PressJSTimerBack == false){
+                        pressLstJSTimerBack = false;
+                    }
+                    
+                    GoalCounterUI.goal.TimerBack();
+
+                }
+                
+                if(componentIdentifierTimer.getName().matches("^[7]*$")){ // This is for Center Controller RB Button
+                    // Is button pressed?
+                    
+                    if(componenttimer.getPollData() != 0.0f){
+                        PressJSTimerStart = true;    
+                    }
+                    else{
+                        PressJSTimerStart = false;
+                    }
+                      
+                    if(PressJSTimerStart == false){
+                        pressLstJSTimerStart = false;
+                    }
+                    
+                    GoalCounterUI.goal.TimerStart();
+
+                }
             }
             
             // We have to give processor some rest.
