@@ -135,6 +135,7 @@ public static final String version = "0.1.6-BETA";
                 AudDisplay.State.setText("Autonomous Mode");  
                 TimerActive = true;
             } else if(GameClock <= 120 && TimerActive == false) {
+                    timerstart.setText("START");
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
                     countdownclockDrive();
