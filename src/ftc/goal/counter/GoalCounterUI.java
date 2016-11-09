@@ -7,6 +7,7 @@ package ftc.goal.counter;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.applet.*;
 
 /*
  * @author afera
@@ -134,6 +135,7 @@ public static final String version = "0.1.6-BETA";
                 AudDisplay.State.setText("Autonomous Mode");  
                 TimerActive = true;
             } else if(GameClock <= 120 && TimerActive == false) {
+                    timerstart.setText("START");
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
                     countdownclockDrive();
