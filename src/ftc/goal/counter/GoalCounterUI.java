@@ -7,6 +7,7 @@ package ftc.goal.counter;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.applet.*;
 
 /*
  * @author afera
