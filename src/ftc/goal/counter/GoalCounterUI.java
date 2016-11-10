@@ -37,7 +37,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
 
-public static final String version = "0.1.6-BETA";
+public static final String version = "0.1.7-BETA";
 
     /**
      * Creates new form GoalCounterUI
