@@ -41,9 +41,11 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCorTeleDisplay = new javax.swing.JLabel();
         RedCenJS = new javax.swing.JLabel();
         RedCorJS = new javax.swing.JLabel();
-        BlueCorJS = new javax.swing.JLabel();
-        BlueCenJS = new javax.swing.JLabel();
+        BlueCenJSGreen = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
+        BlueCorJSGreen = new javax.swing.JLabel();
+        BlueCorJSOrange = new javax.swing.JLabel();
+        BlueCorJSRed = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
@@ -125,17 +127,25 @@ public class AudDisplay extends javax.swing.JFrame {
         jPanel1.add(RedCorJS);
         RedCorJS.setBounds(1380, 970, 90, 70);
 
-        BlueCorJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
-        jPanel1.add(BlueCorJS);
-        BlueCorJS.setBounds(460, 970, 90, 70);
-
-        BlueCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
-        jPanel1.add(BlueCenJS);
-        BlueCenJS.setBounds(450, 270, 90, 70);
+        BlueCenJSGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
+        jPanel1.add(BlueCenJSGreen);
+        BlueCenJSGreen.setBounds(450, 270, 90, 70);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispImagesNew.png"))); // NOI18N
         jPanel1.add(background);
         background.setBounds(0, 0, 1920, 1060);
+
+        BlueCorJSGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
+        jPanel1.add(BlueCorJSGreen);
+        BlueCorJSGreen.setBounds(460, 970, 90, 70);
+
+        BlueCorJSOrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerOrange.png"))); // NOI18N
+        jPanel1.add(BlueCorJSOrange);
+        BlueCorJSOrange.setBounds(460, 970, 90, 70);
+
+        BlueCorJSRed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerRed.png"))); // NOI18N
+        jPanel1.add(BlueCorJSRed);
+        BlueCorJSRed.setBounds(460, 970, 90, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,10 +198,12 @@ public class AudDisplay extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel BlueCenAutoDisplay;
-    public static javax.swing.JLabel BlueCenJS;
+    public static javax.swing.JLabel BlueCenJSGreen;
     public static javax.swing.JLabel BlueCenTeleDisplay;
     public static javax.swing.JLabel BlueCorAutoDisplay;
-    public static javax.swing.JLabel BlueCorJS;
+    public static javax.swing.JLabel BlueCorJSGreen;
+    public static javax.swing.JLabel BlueCorJSOrange;
+    public static javax.swing.JLabel BlueCorJSRed;
     public static javax.swing.JLabel BlueCorTeleDisplay;
     public static javax.swing.JLabel RedCenAutoDisplay;
     public static javax.swing.JLabel RedCenJS;

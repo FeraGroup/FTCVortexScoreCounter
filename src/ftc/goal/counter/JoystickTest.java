@@ -78,6 +78,11 @@ public class JoystickTest {
     static public boolean PressJSTimerStart = false;
     static public boolean pressLstJSTimerBack = false;
     static public boolean PressJSTimerBack = false;
+    static public boolean BlueCorIcon = false;
+    static public boolean RedCorIcon = false;
+    static public boolean BlueCenIcon = false;
+    static public boolean RedCenIcon = false;
+    
     
     public static ArrayList<Controller> foundControllers;
 
@@ -221,38 +226,43 @@ public class JoystickTest {
                     //AudDisplay.RCorLabel.setForeground(new java.awt.Color(245, 126, 37));
                 }
             }
-            if( !controllerBlueCor.poll() ){
-                GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                AudDisplay.BlueCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
-                //AudDisplay.BCorLabel.setForeground(new java.awt.Color(238, 190, 171));
-            } 
-            else{
-                if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
-                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.BlueCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerOrange.png"));
-                    //AudDisplay.BCorLabel.setForeground(new java.awt.Color(0, 0, 0));
+                if( !controllerBlueCor.poll() ){
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+                    AudDisplay.BlueCorJSGreen.setVisible(false);
+                    AudDisplay.BlueCorJSOrange.setVisible(false);
+                    AudDisplay.BlueCorJSRed.setVisible(true);
+                    //AudDisplay.BCorLabel.setForeground(new java.awt.Color(238, 190, 171));
+                } 
+                else{
+                    if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
+                        GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                            AudDisplay.BlueCorJSGreen.setVisible(true);
+                            AudDisplay.BlueCorJSOrange.setVisible(false);
+                            AudDisplay.BlueCorJSRed.setVisible(false);
+                        //AudDisplay.BCorLabel.setForeground(new java.awt.Color(0, 0, 0));
+                    }
+                    else {
+                        GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                        AudDisplay.BlueCorJSGreen.setVisible(false);
+                        AudDisplay.BlueCorJSOrange.setVisible(true);
+                        AudDisplay.BlueCorJSRed.setVisible(false);
+                        //AudDisplay.BCorLabel.setForeground(new java.awt.Color(245, 126, 37));
+                    }
                 }
-                else {
-                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.BlueCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
-                    //AudDisplay.BCorLabel.setForeground(new java.awt.Color(245, 126, 37));
-                }
-            }
-            
             if( !controllerBlueCen.poll() ){
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                AudDisplay.BlueCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
                 //AudDisplay.BCenLabel.setForeground(new java.awt.Color(238, 190, 171));
             } 
             else{
                 if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.BlueCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerOrange.png"));
+                    AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerOrange.png"));
                     //AudDisplay.BCenLabel.setForeground(new java.awt.Color(0, 0, 0));
                 }
                 else {
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.BlueCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
+                    AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
                     //AudDisplay.BCenLabel.setForeground(new java.awt.Color(245, 126, 37));
                 }
                 
@@ -629,14 +639,6 @@ public class JoystickTest {
             {
                 Component componentbluecor = componentsbluecor[i];
                 Identifier componentIdentifierbluecen = componentbluecor.getIdentifier();
-                
-                if(componentIdentifierbluecen.getName().matches("^[0-9]*$")){
-                    if(componentbluecor.getPollData() != 0.0f){
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
-                    }else {
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
-                    }
-                }
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
