@@ -210,12 +210,6 @@ public class JoystickTest {
                     AudDisplay.RedCenJSOrange.setVisible(true);
                     AudDisplay.RedCenJSRed.setVisible(false);
                 }
-                if( !controllerRedCen.poll() ){//peach color
-                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.RedCenJSGreen.setVisible(false);
-                    AudDisplay.RedCenJSOrange.setVisible(false);
-                    AudDisplay.RedCenJSRed.setVisible(true);
-                }
             }
                          
             if( !controllerRedCor.poll() ){
@@ -297,14 +291,6 @@ public class JoystickTest {
             {
                 Component component = components[i];
                 Identifier componentIdentifier = component.getIdentifier();
-                
-                if(componentIdentifier.getName().matches("^[0-9]*$")){
-                    if(component.getPollData() != 0.0f){
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
-                    }else {
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
-                    }
-                }
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
@@ -422,14 +408,6 @@ public class JoystickTest {
                 Component componentbluecen = componentsbluecen[i];
                 Identifier componentIdentifierbluecen = componentbluecen.getIdentifier();
                 
-                if(componentIdentifierbluecen.getName().matches("^[0-9]*$")){
-                    if(componentbluecen.getPollData() != 0.0f){
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
-                    }else {
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
-                    }
-                }
-                
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
@@ -541,14 +519,6 @@ public class JoystickTest {
             {
                 Component componentredcor = componentsredcor[i];
                 Identifier componentIdentifierredcor = componentredcor.getIdentifier();
-                
-                if(componentIdentifierredcor.getName().matches("^[0-9]*$")){
-                    if(componentredcor.getPollData() != 0.0f){
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
-                    }else {
-                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
-                    }
-                }
                 
                 // Buttons
                 //if(component.getName().contains("Button")){ // If the language is not english, this won't work.
