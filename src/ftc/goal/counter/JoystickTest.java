@@ -189,40 +189,55 @@ public class JoystickTest {
             if( !controllerRedCen.poll() ){
                 //peach color
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+                    AudDisplay.RedCenJSGreen.setVisible(false);
+                    AudDisplay.RedCenJSOrange.setVisible(false);
+                    AudDisplay.RedCenJSRed.setVisible(true);
                 //AudDisplay.RCenLabel.setForeground(new java.awt.Color(238, 190, 171));
             }
             else{
                 if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
                     //green
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                    AudDisplay.RedCenJSGreen.setVisible(true);
+                    AudDisplay.RedCenJSOrange.setVisible(false);
+                    AudDisplay.RedCenJSRed.setVisible(false);
                     //AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/jsred.jpg")));
                 }
                 else {
                     //Orange
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerOrange.png"));
+                    AudDisplay.RedCenJSGreen.setVisible(false);
+                    AudDisplay.RedCenJSOrange.setVisible(true);
+                    AudDisplay.RedCenJSRed.setVisible(false);
                 }
                 if( !controllerRedCen.poll() ){//peach color
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
+                    AudDisplay.RedCenJSGreen.setVisible(false);
+                    AudDisplay.RedCenJSOrange.setVisible(false);
+                    AudDisplay.RedCenJSRed.setVisible(true);
                 }
             }
                          
             if( !controllerRedCor.poll() ){
                 GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                AudDisplay.RedCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                    AudDisplay.RedCorJSGreen.setVisible(false);
+                    AudDisplay.RedCorJSOrange.setVisible(false);
+                    AudDisplay.RedCorJSRed.setVisible(true);
                 //AudDisplay.RCorLabel.setForeground(new java.awt.Color(238, 190, 171));
             }
             else{            
                 if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.RedCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllOrange.png"));
+                    AudDisplay.RedCorJSGreen.setVisible(true);
+                    AudDisplay.RedCorJSOrange.setVisible(false);
+                    AudDisplay.RedCorJSRed.setVisible(false);
                     //AudDisplay.RCorLabel.setForeground(new java.awt.Color(0, 0, 0));
                 }
                 else {
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.RedCorJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
+                    AudDisplay.RedCorJSGreen.setVisible(false);
+                    AudDisplay.RedCorJSOrange.setVisible(true);
+                    AudDisplay.RedCorJSRed.setVisible(false);
                     //AudDisplay.RCorLabel.setForeground(new java.awt.Color(245, 126, 37));
                 }
             }
@@ -251,18 +266,24 @@ public class JoystickTest {
                 }
             if( !controllerBlueCen.poll() ){
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                    AudDisplay.BlueCenJSGreen.setVisible(false);
+                    AudDisplay.BlueCenJSOrange.setVisible(false);
+                    AudDisplay.BlueCenJSRed.setVisible(true);
                 //AudDisplay.BCenLabel.setForeground(new java.awt.Color(238, 190, 171));
             } 
             else{
                 if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerOrange.png"));
+                    AudDisplay.BlueCenJSGreen.setVisible(true);
+                    AudDisplay.BlueCenJSOrange.setVisible(false);
+                    AudDisplay.BlueCenJSRed.setVisible(false);
                     //AudDisplay.BCenLabel.setForeground(new java.awt.Color(0, 0, 0));
                 }
                 else {
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.BlueCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerRed.png"));
+                    AudDisplay.BlueCenJSGreen.setVisible(false);
+                    AudDisplay.BlueCenJSOrange.setVisible(true);
+                    AudDisplay.BlueCenJSRed.setVisible(false);
                     //AudDisplay.BCenLabel.setForeground(new java.awt.Color(245, 126, 37));
                 }
                 
@@ -279,9 +300,9 @@ public class JoystickTest {
                 
                 if(componentIdentifier.getName().matches("^[0-9]*$")){
                     if(component.getPollData() != 0.0f){
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
                     }else {
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
                     }
                 }
                 
@@ -403,9 +424,9 @@ public class JoystickTest {
                 
                 if(componentIdentifierbluecen.getName().matches("^[0-9]*$")){
                     if(componentbluecen.getPollData() != 0.0f){
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
                     }else {
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
                     }
                 }
                 
@@ -523,9 +544,9 @@ public class JoystickTest {
                 
                 if(componentIdentifierredcor.getName().matches("^[0-9]*$")){
                     if(componentredcor.getPollData() != 0.0f){
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControlleYellow.png"));
                     }else {
-                        AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
+                        AudDisplay.RedCenJSGreen.setIcon(new javax.swing.ImageIcon("/ftc/goal/counter/images/ControllerGreen.png"));
                     }
                 }
                 
