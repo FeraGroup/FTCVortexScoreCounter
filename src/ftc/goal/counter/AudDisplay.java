@@ -59,19 +59,19 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCorAutoDisplay.setText("0");
         jPanel1.add(BlueCorAutoDisplay);
-        BlueCorAutoDisplay.setBounds(20, 730, 200, 250);
+        BlueCorAutoDisplay.setBounds(20, 700, 210, 250);
 
         BlueCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 175)); // NOI18N
         BlueCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenTeleDisplay.setText("0");
         jPanel1.add(BlueCenTeleDisplay);
-        BlueCenTeleDisplay.setBounds(240, 380, 300, 260);
+        BlueCenTeleDisplay.setBounds(250, 350, 310, 260);
 
         RedCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 175)); // NOI18N
         RedCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCorAutoDisplay.setText("0");
         jPanel1.add(RedCorAutoDisplay);
-        RedCorAutoDisplay.setBounds(1700, 730, 210, 240);
+        RedCorAutoDisplay.setBounds(1690, 700, 220, 260);
 
         State.setFont(new java.awt.Font("Arial", 1, 75)); // NOI18N
         State.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -83,7 +83,7 @@ public class AudDisplay extends javax.swing.JFrame {
         RedCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCorTeleDisplay.setText("0");
         jPanel1.add(RedCorTeleDisplay);
-        RedCorTeleDisplay.setBounds(1380, 730, 320, 250);
+        RedCorTeleDisplay.setBounds(1370, 700, 300, 260);
 
         TimerDisplay.setFont(new java.awt.Font("Dialog", 1, 350)); // NOI18N
         TimerDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -95,13 +95,13 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenAutoDisplay.setText("0");
         jPanel1.add(BlueCenAutoDisplay);
-        BlueCenAutoDisplay.setBounds(20, 380, 200, 260);
+        BlueCenAutoDisplay.setBounds(10, 350, 220, 260);
 
         RedCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 175)); // NOI18N
         RedCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCenTeleDisplay.setText("0");
         jPanel1.add(RedCenTeleDisplay);
-        RedCenTeleDisplay.setBounds(1390, 380, 300, 260);
+        RedCenTeleDisplay.setBounds(1370, 350, 300, 260);
 
         RedCenAutoDisplay.setFont(new java.awt.Font("Arial", 0, 175)); // NOI18N
         RedCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -109,31 +109,31 @@ public class AudDisplay extends javax.swing.JFrame {
         RedCenAutoDisplay.setMaximumSize(new java.awt.Dimension(186, 180));
         RedCenAutoDisplay.setMinimumSize(new java.awt.Dimension(186, 180));
         jPanel1.add(RedCenAutoDisplay);
-        RedCenAutoDisplay.setBounds(1700, 400, 210, 240);
+        RedCenAutoDisplay.setBounds(1700, 350, 200, 250);
 
         BlueCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 175)); // NOI18N
         BlueCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCorTeleDisplay.setText("0");
         jPanel1.add(BlueCorTeleDisplay);
-        BlueCorTeleDisplay.setBounds(240, 730, 300, 260);
+        BlueCorTeleDisplay.setBounds(250, 700, 310, 260);
 
         RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
         jPanel1.add(RedCenJS);
-        RedCenJS.setBounds(1820, 300, 90, 70);
+        RedCenJS.setBounds(1370, 270, 90, 70);
 
         RedCorJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
         jPanel1.add(RedCorJS);
-        RedCorJS.setBounds(1820, 1000, 90, 70);
+        RedCorJS.setBounds(1380, 970, 90, 70);
 
         BlueCorJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
         jPanel1.add(BlueCorJS);
-        BlueCorJS.setBounds(20, 1000, 90, 70);
+        BlueCorJS.setBounds(460, 970, 90, 70);
 
         BlueCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
         jPanel1.add(BlueCenJS);
-        BlueCenJS.setBounds(20, 300, 90, 70);
+        BlueCenJS.setBounds(450, 270, 90, 70);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispImages.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispImagesNew.png"))); // NOI18N
         jPanel1.add(background);
         background.setBounds(0, 0, 1920, 1060);
 
