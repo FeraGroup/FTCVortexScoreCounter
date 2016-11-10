@@ -82,9 +82,7 @@ public static final String version = "0.1.6-BETA";
             timerstart.setEnabled(true);
             timerstart.setText("START");
             pauseresume.setEnabled(false);
-            pauseresume.setText("PAUSE");
-            
-            
+            pauseresume.setText("PAUSE");       
     }
     
         public static void resetcounters(){
