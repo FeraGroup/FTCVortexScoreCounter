@@ -127,7 +127,6 @@ public static final String version = "0.1.6-BETA";
             if(GameClock >= 121 && TimerActive == false) {
                 pauseresume.setEnabled(true);
                 timerstart.setEnabled(false);
-                timerstart.setText("START");
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
@@ -135,7 +134,6 @@ public static final String version = "0.1.6-BETA";
                 AudDisplay.State.setText("Autonomous Mode");  
                 TimerActive = true;
             } else if(GameClock <= 120 && TimerActive == false) {
-                    timerstart.setText("START");
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
                     countdownclockDrive();
@@ -162,10 +160,11 @@ public static final String version = "0.1.6-BETA";
                         int secs = (i - (mins * 60));
                         ClockRemaining = ((mins * 60)+ secs);
                         if (GameClock == 120){
+                            timerstart.setText("CONTINUE");
                             timerstart.setEnabled(true);
                             pauseresume.setEnabled(false);
-                            timerstart.setText("CONTINUE");
                             TimerActive = false;
+                            pause = true;
                         }
                         if(secs < 10) {
                             AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
