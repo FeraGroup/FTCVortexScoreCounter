@@ -6,6 +6,7 @@
  */
 package ftc.goal.counter;
 
+
 /**
  *
  * @author afera
@@ -53,9 +54,21 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCorJSOrange = new javax.swing.JLabel();
         BlueCorJSGreen = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(1024, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -85,7 +98,7 @@ public class AudDisplay extends javax.swing.JFrame {
         State.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         State.setText("Autonomous Mode");
         jPanel1.add(State);
-        State.setBounds(250, 970, 1450, 80);
+        State.setBounds(0, 980, 1930, 80);
 
         RedCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 175)); // NOI18N
         RedCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -191,6 +204,21 @@ public class AudDisplay extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        SettingsUI.toggleFullscreen.setEnabled(false);
+        SettingsUI.toggleFullscreen.setToolTipText("You need to open the Audience display first");
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        SettingsUI.toggleFullscreen.setEnabled(true);
+        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        SettingsUI.toggleFullscreen.setEnabled(true);
+        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -225,6 +253,7 @@ public class AudDisplay extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel BlueCenAutoDisplay;
