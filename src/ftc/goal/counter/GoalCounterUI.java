@@ -43,7 +43,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static Timer timer;
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
-    public static boolean AudioRun = false;
     public static boolean isFullscreen = false;
 
 public static final String version = "0.1.7-BETA";
@@ -92,8 +91,6 @@ public static final String version = "0.1.7-BETA";
             timerstart.setText("START");
             pauseresume.setEnabled(false);
             pauseresume.setText("PAUSE");
-            AudioRun = true;
-            AudioRun = false;
             
     }
     
@@ -232,7 +229,9 @@ public static final String version = "0.1.7-BETA";
         }
         
         private final int setInterval(int stoptime){
-            if(ClockRemaining == 121){
+            if(ClockRemaining == 141){
+                    play("time-endgame");
+                }else if (ClockRemaining == 121){
                     play("end-auto");
                 }else if(ClockRemaining == 31){
                     play("time-endgame");
@@ -241,7 +240,7 @@ public static final String version = "0.1.7-BETA";
             }
             if(GameClock == stoptime){
                 timer.cancel();
-                AudioRun = true;
+                
                 pauseresume.setEnabled(false);
             }
             return --GameClock;
