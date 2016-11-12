@@ -144,7 +144,9 @@ public static final String version = "0.1.7-BETA";
             if(GameClock >= 121 && TimerActive == false) {
                 pauseresume.setEnabled(true);
                 timerstart.setEnabled(false);
-                play("start-auto");
+                if(GameClock == 150){
+                    play("start-auto");
+                }
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
@@ -154,7 +156,9 @@ public static final String version = "0.1.7-BETA";
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
-                    play("start-tele");
+                    if(GameClock == 121){
+                        play("start-tele");
+                    }
                     countdownclockDrive();
                     Teleop.setSelected(true);
                     AutoState = false;
