@@ -85,7 +85,7 @@ public class AudDisplay extends javax.swing.JFrame {
         State.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         State.setText("Autonomous Mode");
         jPanel1.add(State);
-        State.setBounds(250, 970, 1450, 80);
+        State.setBounds(-10, 970, 1930, 80);
 
         RedCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 175)); // NOI18N
         RedCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
