@@ -8,6 +8,12 @@ package ftc.goal.counter;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.applet.*;
+import java.io.File;
+import java.io.InputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 /*
  * @author afera
@@ -36,6 +42,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static Timer timer;
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
+    public static boolean AudioRun = false;
 
 public static final String version = "0.1.7-BETA";
 
@@ -82,7 +89,10 @@ public static final String version = "0.1.7-BETA";
             timerstart.setEnabled(true);
             timerstart.setText("START");
             pauseresume.setEnabled(false);
-            pauseresume.setText("PAUSE");       
+            pauseresume.setText("PAUSE");
+            AudioRun = true;
+            AudioRun = false;
+            
     }
     
         public static void resetcounters(){
@@ -104,6 +114,14 @@ public static final String version = "0.1.7-BETA";
             BlueCorTeleSpin.setValue(0);
             resetTimerElements();        
     }
+        
+        public void play(String filename){
+          try{
+            InputStream inputStream = getClass().getResourceAsStream("/ftc/goal/counter/gamesound/" + filename + ".wav");
+            AudioStream audioStream = new AudioStream(inputStream);
+            AudioPlayer.player.start(audioStream);
+          }catch (Exception e){ System.out.print("didn't work."); }
+        }
 
         public static void ModeChange(){
             if(AutoState == true){
@@ -121,10 +139,12 @@ public static final String version = "0.1.7-BETA";
             } 
         }
         
-        public static void StartClock(){
+        public void StartClock(){
+            pause = false;
             if(GameClock >= 121 && TimerActive == false) {
                 pauseresume.setEnabled(true);
                 timerstart.setEnabled(false);
+                play("start-auto");
                 countdownclockAuto();
                 Auto.setSelected(true);
                 AutoState = true;
@@ -134,6 +154,7 @@ public static final String version = "0.1.7-BETA";
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
+                    play("start-tele");
                     countdownclockDrive();
                     Teleop.setSelected(true);
                     AutoState = false;
@@ -143,7 +164,7 @@ public static final String version = "0.1.7-BETA";
                 }
             }
         
-        public static void countdownclockAuto(){
+        public void countdownclockAuto(){
             if(GameClock <= 150){
                 int delay = 1000;
                 int period = 1000;
@@ -177,7 +198,7 @@ public static final String version = "0.1.7-BETA";
             }
         }
         
-        public static void countdownclockDrive(){
+        public void countdownclockDrive(){
             if(GameClock<=120){
                 int delay = 1000;
                 int period = 1000;
@@ -203,9 +224,18 @@ public static final String version = "0.1.7-BETA";
             }
         }
         
-        private static final int setInterval(int stoptime){
+        private final int setInterval(int stoptime){
+            if(ClockRemaining == 121){
+                    play("end-auto");
+                }else if(ClockRemaining == 31){
+                    play("time-endgame");
+                }else if(ClockRemaining == 1){
+                    play("end-tele");
+            }
             if(GameClock == stoptime){
                 timer.cancel();
+                AudioRun = true;
+                pauseresume.setEnabled(false);
             }
             return --GameClock;
         }
@@ -1182,7 +1212,7 @@ public static final String version = "0.1.7-BETA";
     }//GEN-LAST:event_TeleopActionPerformed
 
     private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed
-             StartClock();
+            StartClock();
              
     }//GEN-LAST:event_timerstartActionPerformed
 
@@ -1193,6 +1223,7 @@ public static final String version = "0.1.7-BETA";
     private void pauseresumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseresumeActionPerformed
         if(pause == false){
             timer.cancel();
+            play("stop-forghorn");
             GameClock = ClockRemaining;
             pause = true;
             TimerActive = false;
