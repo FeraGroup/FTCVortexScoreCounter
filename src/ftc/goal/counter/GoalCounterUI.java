@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.InputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.JFrame;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -43,7 +42,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static Timer timer;
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
-    public static boolean isFullscreen = false;
+    public static boolean AudioRun = false;
 
 public static final String version = "0.1.7-BETA";
 
@@ -91,6 +90,8 @@ public static final String version = "0.1.7-BETA";
             timerstart.setText("START");
             pauseresume.setEnabled(false);
             pauseresume.setText("PAUSE");
+            AudioRun = true;
+            AudioRun = false;
             
     }
     
@@ -111,7 +112,6 @@ public static final String version = "0.1.7-BETA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
-            isFullscreen = false;
             resetTimerElements();        
     }
         
@@ -156,7 +156,7 @@ public static final String version = "0.1.7-BETA";
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
-                    if(GameClock == 121){
+                    if(GameClock == 120){
                         play("start-tele");
                     }
                     countdownclockDrive();
@@ -229,9 +229,7 @@ public static final String version = "0.1.7-BETA";
         }
         
         private final int setInterval(int stoptime){
-            if(ClockRemaining == 141){
-                    play("time-endgame");
-                }else if (ClockRemaining == 121){
+            if(ClockRemaining == 121){
                     play("end-auto");
                 }else if(ClockRemaining == 31){
                     play("time-endgame");
@@ -240,7 +238,7 @@ public static final String version = "0.1.7-BETA";
             }
             if(GameClock == stoptime){
                 timer.cancel();
-                
+                AudioRun = true;
                 pauseresume.setEnabled(false);
             }
             return --GameClock;
@@ -1205,15 +1203,7 @@ public static final String version = "0.1.7-BETA";
 
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         if(!AudDisp.isVisible()){
-            AudDisp.dispose();
-            if (AudDisp.isUndecorated()){
-                AudDisp.setUndecorated(false);
-                AudDisp.setResizable(true);
-            }
             AudDisp.setVisible(true);
-            isFullscreen = false;
-            SettingsUI.toggleFullscreen.setEnabled(true);
-        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
         }
     }//GEN-LAST:event_auddisplayActionPerformed
 
@@ -1226,7 +1216,8 @@ public static final String version = "0.1.7-BETA";
     }//GEN-LAST:event_TeleopActionPerformed
 
     private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed
-            StartClock();        
+            StartClock();
+             
     }//GEN-LAST:event_timerstartActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
