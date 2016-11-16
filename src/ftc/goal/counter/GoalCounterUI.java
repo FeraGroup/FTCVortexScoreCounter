@@ -12,7 +12,6 @@ import java.io.File;
 import java.io.InputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.swing.JFrame;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -43,7 +42,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static Timer timer;
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
-    public static boolean isFullscreen = false;
+    public static boolean AudioRun = false;
 
 public static final String version = "0.1.7-BETA";
 
@@ -91,6 +90,8 @@ public static final String version = "0.1.7-BETA";
             timerstart.setText("START");
             pauseresume.setEnabled(false);
             pauseresume.setText("PAUSE");
+            AudioRun = true;
+            AudioRun = false;
             
     }
     
@@ -111,7 +112,6 @@ public static final String version = "0.1.7-BETA";
             BlueCenTeleSpin.setValue(0);
             BlueCorAutoSpin.setValue(0);
             BlueCorTeleSpin.setValue(0);
-            isFullscreen = false;
             resetTimerElements();        
     }
         
@@ -156,7 +156,7 @@ public static final String version = "0.1.7-BETA";
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
-                    if(GameClock == 121){
+                    if(GameClock == 120){
                         play("start-tele");
                     }
                     countdownclockDrive();
@@ -229,9 +229,7 @@ public static final String version = "0.1.7-BETA";
         }
         
         private final int setInterval(int stoptime){
-            if(ClockRemaining == 141){
-                    play("time-endgame");
-                }else if (ClockRemaining == 121){
+            if(ClockRemaining == 121){
                     play("end-auto");
                 }else if(ClockRemaining == 31){
                     play("time-endgame");
@@ -240,7 +238,7 @@ public static final String version = "0.1.7-BETA";
             }
             if(GameClock == stoptime){
                 timer.cancel();
-                
+                AudioRun = true;
                 pauseresume.setEnabled(false);
             }
             return --GameClock;
@@ -776,7 +774,7 @@ public static final String version = "0.1.7-BETA";
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(440, 580));
+        setPreferredSize(new java.awt.Dimension(440, 600));
         setResizable(false);
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
@@ -1149,11 +1147,11 @@ public static final String version = "0.1.7-BETA";
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(FTCLogoSmall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(HeaderLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1181,7 +1179,7 @@ public static final String version = "0.1.7-BETA";
                         .addComponent(AboutButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(VersionInfo)))
-                .addGap(36, 36, 36))
+                .addGap(2, 2, 2))
         );
 
         pack();
@@ -1205,15 +1203,7 @@ public static final String version = "0.1.7-BETA";
 
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         if(!AudDisp.isVisible()){
-            AudDisp.dispose();
-            if (AudDisp.isUndecorated()){
-                AudDisp.setUndecorated(false);
-                AudDisp.setResizable(true);
-            }
             AudDisp.setVisible(true);
-            isFullscreen = false;
-            SettingsUI.toggleFullscreen.setEnabled(true);
-        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
         }
     }//GEN-LAST:event_auddisplayActionPerformed
 
@@ -1226,7 +1216,8 @@ public static final String version = "0.1.7-BETA";
     }//GEN-LAST:event_TeleopActionPerformed
 
     private void timerstartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timerstartActionPerformed
-            StartClock();        
+            StartClock();
+             
     }//GEN-LAST:event_timerstartActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
