@@ -126,7 +126,276 @@ public class JoystickTest {
             }
         }
     }
-
+    public static void updateJSstatusDisplays(int display, int color){
+        //color 1 = red, color 2 = orange, color 3 = green
+        //display 1 = RedCen, display 2 = RedCor,
+        //display 3 = BlueCen, display 4 = BlueCor
+        switch (display) {
+            case 1:
+                switch (color) {
+                    case 1:
+                        AudDisplay1600.RedCenJSGreen.setVisible(false);
+                        AudDisplay1600.RedCenJSOrange.setVisible(false);
+                        AudDisplay1600.RedCenJSRed.setVisible(true);
+                        AudDisplay1366.RedCenJSGreen.setVisible(false);
+                        AudDisplay1366.RedCenJSOrange.setVisible(false);
+                        AudDisplay1366.RedCenJSRed.setVisible(true);
+                        AudDisplay1080.RedCenJSGreen.setVisible(false);
+                        AudDisplay1080.RedCenJSOrange.setVisible(false);
+                        AudDisplay1080.RedCenJSRed.setVisible(true);
+                        AudDisplay1024.RedCenJSGreen.setVisible(false);
+                        AudDisplay1024.RedCenJSOrange.setVisible(false);
+                        AudDisplay1024.RedCenJSRed.setVisible(true);
+                        AudDisplay800.RedCenJSGreen.setVisible(false);
+                        AudDisplay800.RedCenJSOrange.setVisible(false);
+                        AudDisplay800.RedCenJSRed.setVisible(true);
+                        AudDisplay720.RedCenJSGreen.setVisible(false);
+                        AudDisplay720.RedCenJSOrange.setVisible(false);
+                        AudDisplay720.RedCenJSRed.setVisible(true);
+                        break;
+                    case 2:
+                        AudDisplay1600.RedCenJSGreen.setVisible(false);
+                        AudDisplay1600.RedCenJSOrange.setVisible(true);
+                        AudDisplay1600.RedCenJSRed.setVisible(false);
+                        AudDisplay1366.RedCenJSGreen.setVisible(false);
+                        AudDisplay1366.RedCenJSOrange.setVisible(true);
+                        AudDisplay1366.RedCenJSRed.setVisible(false);
+                        AudDisplay1080.RedCenJSGreen.setVisible(false);
+                        AudDisplay1080.RedCenJSOrange.setVisible(true);
+                        AudDisplay1080.RedCenJSRed.setVisible(false);
+                        AudDisplay1024.RedCenJSGreen.setVisible(false);
+                        AudDisplay1024.RedCenJSOrange.setVisible(true);
+                        AudDisplay1024.RedCenJSRed.setVisible(false);
+                        AudDisplay800.RedCenJSGreen.setVisible(false);
+                        AudDisplay800.RedCenJSOrange.setVisible(true);
+                        AudDisplay800.RedCenJSRed.setVisible(false);
+                        AudDisplay720.RedCenJSGreen.setVisible(false);
+                        AudDisplay720.RedCenJSOrange.setVisible(true);
+                        AudDisplay720.RedCenJSRed.setVisible(false);
+                        break;
+                    case 3:
+                        AudDisplay1600.RedCenJSGreen.setVisible(true);
+                        AudDisplay1600.RedCenJSOrange.setVisible(false);
+                        AudDisplay1600.RedCenJSRed.setVisible(false);
+                        AudDisplay1366.RedCenJSGreen.setVisible(true);
+                        AudDisplay1366.RedCenJSOrange.setVisible(false);
+                        AudDisplay1366.RedCenJSRed.setVisible(false);
+                        AudDisplay1080.RedCenJSGreen.setVisible(true);
+                        AudDisplay1080.RedCenJSOrange.setVisible(false);
+                        AudDisplay1080.RedCenJSRed.setVisible(false);
+                        AudDisplay1024.RedCenJSGreen.setVisible(true);
+                        AudDisplay1024.RedCenJSOrange.setVisible(false);
+                        AudDisplay1024.RedCenJSRed.setVisible(false);
+                        AudDisplay800.RedCenJSGreen.setVisible(true);
+                        AudDisplay800.RedCenJSOrange.setVisible(false);
+                        AudDisplay800.RedCenJSRed.setVisible(false);
+                        AudDisplay720.RedCenJSGreen.setVisible(true);
+                        AudDisplay720.RedCenJSOrange.setVisible(false);
+                        AudDisplay720.RedCenJSRed.setVisible(false);
+                        break;
+                    default:
+                        break;
+                }   break;
+            case 2:
+                switch (color) {
+                    case 1:
+                        AudDisplay1600.RedCorJSGreen.setVisible(false);
+                        AudDisplay1600.RedCorJSOrange.setVisible(false);
+                        AudDisplay1600.RedCorJSRed.setVisible(true);
+                        AudDisplay1366.RedCorJSGreen.setVisible(false);
+                        AudDisplay1366.RedCorJSOrange.setVisible(false);
+                        AudDisplay1366.RedCorJSRed.setVisible(true);
+                        AudDisplay1080.RedCorJSGreen.setVisible(false);
+                        AudDisplay1080.RedCorJSOrange.setVisible(false);
+                        AudDisplay1080.RedCorJSRed.setVisible(true);
+                        AudDisplay1024.RedCorJSGreen.setVisible(false);
+                        AudDisplay1024.RedCorJSOrange.setVisible(false);
+                        AudDisplay1024.RedCorJSRed.setVisible(true);
+                        AudDisplay800.RedCorJSGreen.setVisible(false);
+                        AudDisplay800.RedCenJSOrange.setVisible(false);
+                        AudDisplay800.RedCenJSRed.setVisible(true);
+                        AudDisplay720.RedCorJSGreen.setVisible(false);
+                        AudDisplay720.RedCorJSOrange.setVisible(false);
+                        AudDisplay720.RedCorJSRed.setVisible(true);
+                        break;
+                    case 2:
+                        AudDisplay1600.RedCorJSGreen.setVisible(false);
+                        AudDisplay1600.RedCorJSOrange.setVisible(true);
+                        AudDisplay1600.RedCorJSRed.setVisible(false);
+                        AudDisplay1366.RedCorJSGreen.setVisible(false);
+                        AudDisplay1366.RedCorJSOrange.setVisible(true);
+                        AudDisplay1366.RedCorJSRed.setVisible(false);
+                        AudDisplay1080.RedCorJSGreen.setVisible(false);
+                        AudDisplay1080.RedCorJSOrange.setVisible(true);
+                        AudDisplay1080.RedCorJSRed.setVisible(false);
+                        AudDisplay1024.RedCorJSGreen.setVisible(false);
+                        AudDisplay1024.RedCorJSOrange.setVisible(true);
+                        AudDisplay1024.RedCorJSRed.setVisible(false);
+                        AudDisplay800.RedCorJSGreen.setVisible(false);
+                        AudDisplay800.RedCorJSOrange.setVisible(true);
+                        AudDisplay800.RedCorJSRed.setVisible(false);
+                        AudDisplay720.RedCorJSGreen.setVisible(false);
+                        AudDisplay720.RedCorJSOrange.setVisible(true);
+                        AudDisplay720.RedCorJSRed.setVisible(false);
+                        break;
+                    case 3:
+                        AudDisplay1600.RedCorJSGreen.setVisible(true);
+                        AudDisplay1600.RedCorJSOrange.setVisible(false);
+                        AudDisplay1600.RedCorJSRed.setVisible(false);
+                        AudDisplay1366.RedCorJSGreen.setVisible(true);
+                        AudDisplay1366.RedCorJSOrange.setVisible(false);
+                        AudDisplay1366.RedCorJSRed.setVisible(false);
+                        AudDisplay1080.RedCorJSGreen.setVisible(true);
+                        AudDisplay1080.RedCorJSOrange.setVisible(false);
+                        AudDisplay1080.RedCorJSRed.setVisible(false);
+                        AudDisplay1024.RedCorJSGreen.setVisible(true);
+                        AudDisplay1024.RedCorJSOrange.setVisible(false);
+                        AudDisplay1024.RedCorJSRed.setVisible(false);
+                        AudDisplay800.RedCorJSGreen.setVisible(true);
+                        AudDisplay800.RedCorJSOrange.setVisible(false);
+                        AudDisplay800.RedCorJSRed.setVisible(false);
+                        AudDisplay720.RedCorJSGreen.setVisible(true);
+                        AudDisplay720.RedCorJSOrange.setVisible(false);
+                        AudDisplay720.RedCorJSRed.setVisible(false);
+                        break;
+                    default:
+                        break;
+                }   break;
+            case 3:
+                switch (color) {
+                    case 1:
+                        AudDisplay1600.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1600.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1600.BlueCenJSRed.setVisible(true);
+                        AudDisplay1366.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1366.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1366.BlueCenJSRed.setVisible(true);
+                        AudDisplay1080.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1080.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1080.BlueCenJSRed.setVisible(true);
+                        AudDisplay1024.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1024.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1024.BlueCenJSRed.setVisible(true);
+                        AudDisplay800.BlueCenJSGreen.setVisible(false);
+                        AudDisplay800.BlueCenJSOrange.setVisible(false);
+                        AudDisplay800.BlueCenJSRed.setVisible(true);
+                        AudDisplay720.BlueCenJSGreen.setVisible(false);
+                        AudDisplay720.BlueCenJSOrange.setVisible(false);
+                        AudDisplay720.BlueCenJSRed.setVisible(true);
+                        break;
+                    case 2:
+                        AudDisplay1600.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1600.BlueCenJSOrange.setVisible(true);
+                        AudDisplay1600.BlueCenJSRed.setVisible(false);
+                        AudDisplay1366.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1366.BlueCenJSOrange.setVisible(true);
+                        AudDisplay1366.BlueCenJSRed.setVisible(false);
+                        AudDisplay1080.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1080.BlueCenJSOrange.setVisible(true);
+                        AudDisplay1080.BlueCenJSRed.setVisible(false);
+                        AudDisplay1024.BlueCenJSGreen.setVisible(false);
+                        AudDisplay1024.BlueCenJSOrange.setVisible(true);
+                        AudDisplay1024.BlueCenJSRed.setVisible(false);
+                        AudDisplay800.BlueCenJSGreen.setVisible(false);
+                        AudDisplay800.BlueCenJSOrange.setVisible(true);
+                        AudDisplay800.BlueCenJSRed.setVisible(false);
+                        AudDisplay720.BlueCenJSGreen.setVisible(false);
+                        AudDisplay720.BlueCenJSOrange.setVisible(true);
+                        AudDisplay720.BlueCenJSRed.setVisible(false);
+                        break;
+                    case 3:
+                        AudDisplay1600.BlueCenJSGreen.setVisible(true);
+                        AudDisplay1600.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1600.BlueCenJSRed.setVisible(false);
+                        AudDisplay1366.BlueCenJSGreen.setVisible(true);
+                        AudDisplay1366.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1366.BlueCenJSRed.setVisible(false);
+                        AudDisplay1080.BlueCenJSGreen.setVisible(true);
+                        AudDisplay1080.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1080.BlueCenJSRed.setVisible(false);
+                        AudDisplay1024.BlueCenJSGreen.setVisible(true);
+                        AudDisplay1024.BlueCenJSOrange.setVisible(false);
+                        AudDisplay1024.BlueCenJSRed.setVisible(false);
+                        AudDisplay800.BlueCenJSGreen.setVisible(true);
+                        AudDisplay800.BlueCenJSOrange.setVisible(false);
+                        AudDisplay800.BlueCenJSRed.setVisible(false);
+                        AudDisplay720.BlueCenJSGreen.setVisible(true);
+                        AudDisplay720.BlueCenJSOrange.setVisible(false);
+                        AudDisplay720.BlueCenJSRed.setVisible(false);
+                        break;
+                    default:
+                        break;
+                }   break;
+            case 4:
+                switch (color) {
+                    case 1:
+                        AudDisplay1600.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1600.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1600.BlueCorJSRed.setVisible(true);
+                        AudDisplay1366.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1366.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1366.BlueCorJSRed.setVisible(true);
+                        AudDisplay1080.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1080.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1080.BlueCorJSRed.setVisible(true);
+                        AudDisplay1024.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1024.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1024.BlueCorJSRed.setVisible(true);
+                        AudDisplay800.BlueCorJSGreen.setVisible(false);
+                        AudDisplay800.BlueCorJSOrange.setVisible(false);
+                        AudDisplay800.BlueCorJSRed.setVisible(true);
+                        AudDisplay720.BlueCorJSGreen.setVisible(false);
+                        AudDisplay720.BlueCorJSOrange.setVisible(false);
+                        AudDisplay720.BlueCorJSRed.setVisible(true);
+                        break;
+                    case 2:
+                        AudDisplay1600.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1600.BlueCorJSOrange.setVisible(true);
+                        AudDisplay1600.BlueCorJSRed.setVisible(false);
+                        AudDisplay1366.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1366.BlueCorJSOrange.setVisible(true);
+                        AudDisplay1366.BlueCorJSRed.setVisible(false);
+                        AudDisplay1080.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1080.BlueCorJSOrange.setVisible(true);
+                        AudDisplay1080.BlueCorJSRed.setVisible(false);
+                        AudDisplay1024.BlueCorJSGreen.setVisible(false);
+                        AudDisplay1024.BlueCorJSOrange.setVisible(true);
+                        AudDisplay1024.BlueCorJSRed.setVisible(false);
+                        AudDisplay800.BlueCorJSGreen.setVisible(false);
+                        AudDisplay800.BlueCorJSOrange.setVisible(true);
+                        AudDisplay800.BlueCorJSRed.setVisible(false);
+                        AudDisplay720.BlueCorJSGreen.setVisible(false);
+                        AudDisplay720.BlueCorJSOrange.setVisible(true);
+                        AudDisplay720.BlueCorJSRed.setVisible(false);
+                        break;
+                    case 3:
+                        AudDisplay1600.BlueCorJSGreen.setVisible(true);
+                        AudDisplay1600.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1600.BlueCorJSRed.setVisible(false);
+                        AudDisplay1366.BlueCorJSGreen.setVisible(true);
+                        AudDisplay1366.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1366.BlueCorJSRed.setVisible(false);
+                        AudDisplay1080.BlueCorJSGreen.setVisible(true);
+                        AudDisplay1080.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1080.BlueCorJSRed.setVisible(false);
+                        AudDisplay1024.BlueCorJSGreen.setVisible(true);
+                        AudDisplay1024.BlueCorJSOrange.setVisible(false);
+                        AudDisplay1024.BlueCorJSRed.setVisible(false);
+                        AudDisplay800.BlueCorJSGreen.setVisible(true);
+                        AudDisplay800.BlueCorJSOrange.setVisible(false);
+                        AudDisplay800.BlueCorJSRed.setVisible(false);
+                        AudDisplay720.BlueCorJSGreen.setVisible(true);
+                        AudDisplay720.BlueCorJSOrange.setVisible(false);
+                        AudDisplay720.BlueCorJSRed.setVisible(false);
+                        break;
+                    default:
+                        break;
+                }   break;
+            default:
+                break;
+        }
+   
+    }
     
     /**
      * Starts showing controller data on the window.
@@ -189,95 +458,61 @@ public class JoystickTest {
             if( !controllerRedCen.poll() ){
                 //peach color
                 GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.RedCenJSGreen.setVisible(false);
-                    AudDisplay.RedCenJSOrange.setVisible(false);
-                    AudDisplay.RedCenJSRed.setVisible(true);
-                //AudDisplay.RCenLabel.setForeground(new java.awt.Color(238, 190, 171));
+                updateJSstatusDisplays(1, 1);
             }
             else{
                 if(selectedControllerRedCen != selectedControllerBlueCen && selectedControllerRedCen != selectedControllerRedCor && selectedControllerRedCen != selectedControllerBlueCor){
                     //green
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.RedCenJSGreen.setVisible(true);
-                    AudDisplay.RedCenJSOrange.setVisible(false);
-                    AudDisplay.RedCenJSRed.setVisible(false);
-                    //AudDisplay.RedCenJS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/jsred.jpg")));
+                    updateJSstatusDisplays(1, 3);
                 }
                 else {
                     //Orange
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.RedCenJSGreen.setVisible(false);
-                    AudDisplay.RedCenJSOrange.setVisible(true);
-                    AudDisplay.RedCenJSRed.setVisible(false);
+                    updateJSstatusDisplays(1, 2);
                 }
             }
                          
             if( !controllerRedCor.poll() ){
                 GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.RedCorJSGreen.setVisible(false);
-                    AudDisplay.RedCorJSOrange.setVisible(false);
-                    AudDisplay.RedCorJSRed.setVisible(true);
-                //AudDisplay.RCorLabel.setForeground(new java.awt.Color(238, 190, 171));
+                    updateJSstatusDisplays(2, 1);
             }
             else{            
                 if(selectedControllerRedCor != selectedControllerBlueCen && selectedControllerRedCor != selectedControllerRedCen && selectedControllerRedCor != selectedControllerBlueCor){
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.RedCorJSGreen.setVisible(true);
-                    AudDisplay.RedCorJSOrange.setVisible(false);
-                    AudDisplay.RedCorJSRed.setVisible(false);
-                    //AudDisplay.RCorLabel.setForeground(new java.awt.Color(0, 0, 0));
+                    updateJSstatusDisplays(2, 3);
                 }
                 else {
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.RedCorJSGreen.setVisible(false);
-                    AudDisplay.RedCorJSOrange.setVisible(true);
-                    AudDisplay.RedCorJSRed.setVisible(false);
-                    //AudDisplay.RCorLabel.setForeground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(2, 2);
                 }
             }
                 if( !controllerBlueCor.poll() ){
                     GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.BlueCorJSGreen.setVisible(false);
-                    AudDisplay.BlueCorJSOrange.setVisible(false);
-                    AudDisplay.BlueCorJSRed.setVisible(true);
-                    //AudDisplay.BCorLabel.setForeground(new java.awt.Color(238, 190, 171));
+                    updateJSstatusDisplays(3, 1);
                 } 
                 else{
                     if(selectedControllerBlueCor != selectedControllerBlueCen && selectedControllerBlueCor != selectedControllerRedCen && selectedControllerBlueCor != selectedControllerRedCor){
                         GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                            AudDisplay.BlueCorJSGreen.setVisible(true);
-                            AudDisplay.BlueCorJSOrange.setVisible(false);
-                            AudDisplay.BlueCorJSRed.setVisible(false);
-                        //AudDisplay.BCorLabel.setForeground(new java.awt.Color(0, 0, 0));
+                        updateJSstatusDisplays(3, 3);
                     }
                     else {
                         GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        AudDisplay.BlueCorJSGreen.setVisible(false);
-                        AudDisplay.BlueCorJSOrange.setVisible(true);
-                        AudDisplay.BlueCorJSRed.setVisible(false);
-                        //AudDisplay.BCorLabel.setForeground(new java.awt.Color(245, 126, 37));
+                        updateJSstatusDisplays(3, 2);
                     }
                 }
             if( !controllerBlueCen.poll() ){
                 GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                    AudDisplay.BlueCenJSGreen.setVisible(false);
-                    AudDisplay.BlueCenJSOrange.setVisible(false);
-                    AudDisplay.BlueCenJSRed.setVisible(true);
-                //AudDisplay.BCenLabel.setForeground(new java.awt.Color(238, 190, 171));
+                updateJSstatusDisplays(4, 1);
             } 
             else{
                 if(selectedControllerBlueCen != selectedControllerBlueCor && selectedControllerBlueCen != selectedControllerRedCen && selectedControllerBlueCen != selectedControllerRedCor){
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                    AudDisplay.BlueCenJSGreen.setVisible(true);
-                    AudDisplay.BlueCenJSOrange.setVisible(false);
-                    AudDisplay.BlueCenJSRed.setVisible(false);
-                    //AudDisplay.BCenLabel.setForeground(new java.awt.Color(0, 0, 0));
+                    updateJSstatusDisplays(4, 3);
                 }
                 else {
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                    AudDisplay.BlueCenJSGreen.setVisible(false);
-                    AudDisplay.BlueCenJSOrange.setVisible(true);
-                    AudDisplay.BlueCenJSRed.setVisible(false);
+                    updateJSstatusDisplays(4, 2);
                     //AudDisplay.BCenLabel.setForeground(new java.awt.Color(245, 126, 37));
                 }
                 

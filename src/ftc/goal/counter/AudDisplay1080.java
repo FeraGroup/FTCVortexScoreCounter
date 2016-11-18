@@ -11,12 +11,12 @@ package ftc.goal.counter;
  *
  * @author afera
  */
-public class AudDisplay extends javax.swing.JFrame {
+public class AudDisplay1080 extends javax.swing.JFrame {
 
     /**
      * Creates new form AudDisplay
      */
-    public AudDisplay() {
+    public AudDisplay1080() {
         initComponents();
     }
 
@@ -49,10 +49,10 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCenJSRed = new javax.swing.JLabel();
         BlueCenJSOrange = new javax.swing.JLabel();
         BlueCenJSGreen = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
         BlueCorJSRed = new javax.swing.JLabel();
         BlueCorJSOrange = new javax.swing.JLabel();
         BlueCorJSGreen = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -174,10 +174,6 @@ public class AudDisplay extends javax.swing.JFrame {
         jPanel1.add(BlueCenJSGreen);
         BlueCenJSGreen.setBounds(450, 270, 90, 70);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispImagesNew.png"))); // NOI18N
-        jPanel1.add(background);
-        background.setBounds(0, 0, 1920, 1060);
-
         BlueCorJSRed.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerRed.png"))); // NOI18N
         jPanel1.add(BlueCorJSRed);
         BlueCorJSRed.setBounds(460, 970, 90, 70);
@@ -189,6 +185,10 @@ public class AudDisplay extends javax.swing.JFrame {
         BlueCorJSGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreen.png"))); // NOI18N
         jPanel1.add(BlueCorJSGreen);
         BlueCorJSGreen.setBounds(460, 970, 90, 70);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispBackground1080p.png"))); // NOI18N
+        jPanel1.add(background);
+        background.setBounds(0, 0, 1920, 1060);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,20 +236,21 @@ public class AudDisplay extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AudDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AudDisplay1080.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AudDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AudDisplay1080.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AudDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AudDisplay1080.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AudDisplay.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AudDisplay1080.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AudDisplay().setVisible(true);
+                new AudDisplay1080().setVisible(true);
             }
         });
     }

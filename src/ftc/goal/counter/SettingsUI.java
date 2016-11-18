@@ -6,9 +6,14 @@
  */
 package ftc.goal.counter;
 
-import static ftc.goal.counter.GoalCounterUI.AudDisp;
+import static ftc.goal.counter.GoalCounterUI.AudDisp1024;
 import static ftc.goal.counter.GoalCounterUI.isFullscreen;
 import javax.swing.JFrame;
+import static ftc.goal.counter.GoalCounterUI.AudDisp1080;
+import static ftc.goal.counter.GoalCounterUI.AudDisp1366;
+import static ftc.goal.counter.GoalCounterUI.AudDisp1600;
+import static ftc.goal.counter.GoalCounterUI.AudDisp720;
+import static ftc.goal.counter.GoalCounterUI.AudDisp800;
 
 /**
  *
@@ -33,6 +38,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCen = false;
     public static boolean BlueCor = false;
     public static boolean ModeChange = true;
+    public static int AudDispOpen = 2;
     
     /**
      * Creates new form SettingsUI
@@ -341,7 +347,13 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1600 x 1200", "1366 x 768", "1920 X 1080", "1024 x 768", "800 x 600", "720 x 1080", " " }));
+        jComboBox1.setSelectedIndex(2);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         TimerControlSelect.setName(""); // NOI18N
         TimerControlSelect.addActionListener(new java.awt.event.ActionListener() {
@@ -583,25 +595,126 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ModeActionPerformed
 
     private void toggleFullscreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFullscreenActionPerformed
-       if(AudDisp.isVisible()){
-           if(isFullscreen == false){
-                AudDisp.dispose();
-                AudDisp.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                AudDisp.setUndecorated(true);
-                AudDisp.setResizable(false);
-                AudDisp.setVisible(true);
-                isFullscreen = true;
-                SettingsUI.toggleFullscreen.setEnabled(true);
-           }else{
-               AudDisp.dispose();
-               AudDisp.setUndecorated(false);
-               AudDisp.setResizable(true);
-               AudDisp.setVisible(true);
-               SettingsUI.toggleFullscreen.setEnabled(true);
-               isFullscreen = false;
-           }         
-        }
+       if(SettingsUI.AudDispOpen == 0){
+           if(AudDisp1600.isVisible()){
+                if(isFullscreen == false){
+                     AudDisp1600.dispose();
+                     AudDisp1600.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                     AudDisp1600.setUndecorated(true);
+                     AudDisp1600.setResizable(false);
+                     AudDisp1600.setVisible(true);
+                     isFullscreen = true;
+                     SettingsUI.toggleFullscreen.setEnabled(true);
+                }else{
+                    AudDisp1080.dispose();
+                    AudDisp1080.setUndecorated(false);
+                    AudDisp1080.setResizable(true);
+                    AudDisp1080.setVisible(true);
+                    SettingsUI.toggleFullscreen.setEnabled(true);
+                    isFullscreen = false;
+                }         
+            }else if(SettingsUI.AudDispOpen == 1){
+                if(AudDisp1366.isVisible()){
+                    if(isFullscreen == false){
+                         AudDisp1366.dispose();
+                         AudDisp1366.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                         AudDisp1366.setUndecorated(true);
+                         AudDisp1366.setResizable(false);
+                         AudDisp1366.setVisible(true);
+                         isFullscreen = true;
+                         SettingsUI.toggleFullscreen.setEnabled(true);
+                    }else{
+                        AudDisp1366.dispose();
+                        AudDisp1366.setUndecorated(false);
+                        AudDisp1366.setResizable(true);
+                        AudDisp1366.setVisible(true);
+                        SettingsUI.toggleFullscreen.setEnabled(true);
+                        isFullscreen = false;
+                    }         
+                }
+            }else if(SettingsUI.AudDispOpen == 2){
+                if(AudDisp1080.isVisible()){
+                    if(isFullscreen == false){
+                         AudDisp1080.dispose();
+                         AudDisp1080.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                         AudDisp1080.setUndecorated(true);
+                         AudDisp1080.setResizable(false);
+                         AudDisp1080.setVisible(true);
+                         isFullscreen = true;
+                         SettingsUI.toggleFullscreen.setEnabled(true);
+                    }else{
+                        AudDisp1080.dispose();
+                        AudDisp1080.setUndecorated(false);
+                        AudDisp1080.setResizable(true);
+                        AudDisp1080.setVisible(true);
+                        SettingsUI.toggleFullscreen.setEnabled(true);
+                        isFullscreen = false;
+                    }         
+                 }
+            }else if(SettingsUI.AudDispOpen == 3){
+                if(AudDisp1024.isVisible()){
+                    if(isFullscreen == false){
+                         AudDisp1024.dispose();
+                         AudDisp1024.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                         AudDisp1024.setUndecorated(true);
+                         AudDisp1024.setResizable(false);
+                         AudDisp1024.setVisible(true);
+                         isFullscreen = true;
+                         SettingsUI.toggleFullscreen.setEnabled(true);
+                    }else{
+                        AudDisp1024.dispose();
+                        AudDisp1024.setUndecorated(false);
+                        AudDisp1024.setResizable(true);
+                        AudDisp1024.setVisible(true);
+                        SettingsUI.toggleFullscreen.setEnabled(true);
+                        isFullscreen = false;
+                    }         
+                }
+            }else if(SettingsUI.AudDispOpen == 4){
+                if(AudDisp800.isVisible()){
+                    if(isFullscreen == false){
+                         AudDisp800.dispose();
+                         AudDisp800.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                         AudDisp800.setUndecorated(true);
+                         AudDisp800.setResizable(false);
+                         AudDisp800.setVisible(true);
+                         isFullscreen = true;
+                         SettingsUI.toggleFullscreen.setEnabled(true);
+                    }else{
+                        AudDisp800.dispose();
+                        AudDisp800.setUndecorated(false);
+                        AudDisp800.setResizable(true);
+                        AudDisp800.setVisible(true);
+                        SettingsUI.toggleFullscreen.setEnabled(true);
+                        isFullscreen = false;
+                    }         
+                 }
+            }else if(SettingsUI.AudDispOpen == 5){
+                if(AudDisp720.isVisible()){
+                    if(isFullscreen == false){
+                         AudDisp720.dispose();
+                         AudDisp720.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                         AudDisp720.setUndecorated(true);
+                         AudDisp720.setResizable(false);
+                         AudDisp720.setVisible(true);
+                         isFullscreen = true;
+                         SettingsUI.toggleFullscreen.setEnabled(true);
+                    }else{
+                        AudDisp720.dispose();
+                        AudDisp720.setUndecorated(false);
+                        AudDisp720.setResizable(true);
+                        AudDisp720.setVisible(true);
+                        SettingsUI.toggleFullscreen.setEnabled(true);
+                        isFullscreen = false;
+                    }         
+                }
+            }
+       }
     }//GEN-LAST:event_toggleFullscreenActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        AudDispOpen = jComboBox1.getSelectedIndex();
+    }//GEN-LAST:event_jComboBox1ActionPerformed
  
     
 public static int getSelectedControllerNameRedCen(){

@@ -36,7 +36,12 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCenTele = 0;
     public static int RedCorTele = 0;
     public static int BlueCorTele = 0;
-    public static AudDisplay AudDisp;
+    public static AudDisplay1600 AudDisp1600;
+    public static AudDisplay1366 AudDisp1366;
+    public static AudDisplay1080 AudDisp1080;
+    public static AudDisplay1024 AudDisp1024;
+    public static AudDisplay800 AudDisp800;
+    public static AudDisplay720 AudDisp720;
     public static AboutUI about;
     public static JoystickTest JS;
     public static SettingsUI settings;
@@ -64,15 +69,72 @@ public static final String version = "0.1.7-BETA";
           BlueCenTele = (Integer) BlueCenTeleSpin.getValue();
           RedCorTele = (Integer) RedCorTeleSpin.getValue();
           BlueCorTele = (Integer) BlueCorTeleSpin.getValue();
-          AudDisplay.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
-          AudDisplay.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
-          AudDisplay.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
-          AudDisplay.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
-          AudDisplay.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
-          AudDisplay.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
-          AudDisplay.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
-          AudDisplay.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //1600
+          AudDisplay1600.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1600.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1600.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1600.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1600.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1600.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1600.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1600.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //1366
+          AudDisplay1366.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1366.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1366.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1366.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1366.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1366.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1366.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1366.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //1080
+          AudDisplay1080.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1080.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1080.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1080.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1080.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1080.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1080.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1080.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //1024
+          AudDisplay1024.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1024.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1024.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1024.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1024.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1024.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1024.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1024.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //800
+          AudDisplay800.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay800.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay800.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay800.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay800.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay800.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay800.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay800.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //720
+          AudDisplay720.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay720.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay720.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay720.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay720.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay720.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay720.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay720.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
+    
+    public void updateTimers(String TimerText){
+        AudDisplay1600.TimerDisplay.setText(TimerText);
+        AudDisplay1366.TimerDisplay.setText(TimerText);
+        AudDisplay1080.TimerDisplay.setText(TimerText);
+        AudDisplay1024.TimerDisplay.setText(TimerText);
+        AudDisplay800.TimerDisplay.setText(TimerText);
+        AudDisplay720.TimerDisplay.setText(TimerText);
+    }
+    
+    
     
     public static void resetTimerElements(){
             if (TimerActive == true){
@@ -84,9 +146,19 @@ public static final String version = "0.1.7-BETA";
             AutoState = true;
             TeleState = false;
             TimerActive = false;
-            AudDisplay.TimerDisplay.setText("2:30");
+            AudDisplay1600.TimerDisplay.setText("2:30");
+            AudDisplay1366.TimerDisplay.setText("2:30");
+            AudDisplay1080.TimerDisplay.setText("2:30");
+            AudDisplay1024.TimerDisplay.setText("2:30");
+            AudDisplay800.TimerDisplay.setText("2:30");
+            AudDisplay720.TimerDisplay.setText("2:30");
             Timer.setText("Match Timer: 2:30");
-            AudDisplay.State.setText("Autonomous Mode");
+            AudDisplay1600.State.setText("Autonomous Mode");
+            AudDisplay1366.State.setText("Autonomous Mode");
+            AudDisplay1080.State.setText("Autonomous Mode");
+            AudDisplay1024.State.setText("Autonomous Mode");
+            AudDisplay800.State.setText("Autonomous Mode");
+            AudDisplay720.State.setText("Autonomous Mode");
             timerstart.setEnabled(true);
             timerstart.setText("START");
             pauseresume.setEnabled(false);
@@ -128,13 +200,23 @@ public static final String version = "0.1.7-BETA";
                 Teleop.setSelected(true);
                 AutoState = false;
                 TeleState = true;
-                AudDisplay.State.setText("Driver-Controlled Mode");  
+                AudDisplay1600.State.setText("Driver-Controlled Mode");
+                AudDisplay1366.State.setText("Driver-Controlled Mode");
+                AudDisplay1080.State.setText("Driver-Controlled Mode");
+                AudDisplay1024.State.setText("Driver-Controlled Mode");
+                AudDisplay800.State.setText("Driver-Controlled Mode");
+                AudDisplay720.State.setText("Driver-Controlled Mode");  
             }
             else if (TeleState == true){
                 Auto.setSelected(true);
                 AutoState = true;
                 TeleState = false;
-                AudDisplay.State.setText("Autonomous Mode");  
+                AudDisplay1600.State.setText("Autonomous Mode");
+                AudDisplay1366.State.setText("Autonomous Mode");
+                AudDisplay1080.State.setText("Autonomous Mode");
+                AudDisplay1024.State.setText("Autonomous Mode");
+                AudDisplay800.State.setText("Autonomous Mode");
+                AudDisplay720.State.setText("Autonomous Mode");
                
             } 
         }
@@ -151,7 +233,12 @@ public static final String version = "0.1.7-BETA";
                 Auto.setSelected(true);
                 AutoState = true;
                 TeleState = false;
-                AudDisplay.State.setText("Autonomous Mode");  
+                AudDisplay1600.State.setText("Autonomous Mode");
+                AudDisplay1366.State.setText("Autonomous Mode");
+                AudDisplay1080.State.setText("Autonomous Mode");
+                AudDisplay1024.State.setText("Autonomous Mode");
+                AudDisplay800.State.setText("Autonomous Mode");
+                AudDisplay720.State.setText("Autonomous Mode");  
                 TimerActive = true;
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
@@ -163,7 +250,13 @@ public static final String version = "0.1.7-BETA";
                     Teleop.setSelected(true);
                     AutoState = false;
                     TeleState = true;
-                    AudDisplay.State.setText("Driver-Controlled Mode"); 
+                    AudDisplay1080.State.setText("Driver-Controlled Mode");
+                    AudDisplay1600.State.setText("Driver-Controlled Mode");
+                    AudDisplay1366.State.setText("Driver-Controlled Mode");
+                    AudDisplay1080.State.setText("Driver-Controlled Mode");
+                    AudDisplay1024.State.setText("Driver-Controlled Mode");
+                    AudDisplay800.State.setText("Driver-Controlled Mode");
+                    AudDisplay720.State.setText("Driver-Controlled Mode");
                     TimerActive = true;
                 }
             }
@@ -190,10 +283,12 @@ public static final String version = "0.1.7-BETA";
                             pause = true;
                         }
                         if(secs < 10) {
-                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                            String TimerText = mins + ":0" + secs;
+                            updateTimers(TimerText);
                             Timer.setText("Match Timer: " + mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs); 
+                            String TimerText = mins + ":" + secs;
+                            updateTimers(TimerText);
                             Timer.setText("Match Timer: " + mins + ":" + secs);
                         }    
                     }
@@ -210,17 +305,18 @@ public static final String version = "0.1.7-BETA";
                 timer = new Timer();
                 GameClock = ClockRemaining;
                 timer.scheduleAtFixedRate(new TimerTask(){
-
                     public void run(){
                         int i = setInterval(stopsec); 
                         int mins = i/60; 
                         int secs = (i - (mins * 60));
                         ClockRemaining = ((mins * 60)+ secs);
                         if(secs < 10) {
-                            AudDisplay.TimerDisplay.setText(mins + ":0" + secs);
+                            String TimerText = mins + ":0" + secs;
+                            updateTimers(TimerText);
                             Timer.setText("Match Timer: " + mins + ":0" + secs);
                         } else {
-                            AudDisplay.TimerDisplay.setText(mins + ":" + secs);
+                            String TimerText = mins + ":" + secs;
+                            updateTimers(TimerText);
                             Timer.setText("Match Timer: " + mins + ":" + secs);
                         }    
                     }
@@ -1202,19 +1298,59 @@ public static final String version = "0.1.7-BETA";
             about.setVisible(true);
         }
     }//GEN-LAST:event_AboutButtonActionPerformed
-
+//Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
-        if(!AudDisp.isVisible()){
-            AudDisp.dispose();
-            if (AudDisp.isUndecorated()){
-                AudDisp.setUndecorated(false);
-                AudDisp.setResizable(true);
-            }
-            AudDisp.setVisible(true);
-            isFullscreen = false;
-            SettingsUI.toggleFullscreen.setEnabled(true);
-        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+        switch (SettingsUI.AudDispOpen) {
+            case 0://1600
+                if(!AudDisp1600.isVisible()){
+                    AudDisp1600.dispose();
+                    if (AudDisp1600.isUndecorated()){
+                        AudDisp1600.setUndecorated(false);
+                        AudDisp1600.setResizable(true);
+                    }
+                    AudDisp1600.setVisible(true);
+                }   break;
+            case 1://1366
+                AudDisp1366.dispose();
+                if (AudDisp1366.isUndecorated()){
+                    AudDisp1366.setUndecorated(false);
+                    AudDisp1366.setResizable(true);
+                }   AudDisp1366.setVisible(true);
+                break;
+            case 2://1080
+                AudDisp1080.dispose();
+                if (AudDisp1080.isUndecorated()){
+                    AudDisp1080.setUndecorated(false);
+                    AudDisp1080.setResizable(true);
+                }   AudDisp1080.setVisible(true);
+                break;
+            case 3://1024
+                AudDisp1024.dispose();
+                if (AudDisp1024.isUndecorated()){
+                    AudDisp1024.setUndecorated(false);
+                    AudDisp1024.setResizable(true);
+                }   AudDisp1024.setVisible(true);
+                break;
+            case 4://800
+                AudDisp800.dispose();
+                if (AudDisp800.isUndecorated()){
+                    AudDisp800.setUndecorated(false);
+                    AudDisp800.setResizable(true);
+                }   AudDisp800.setVisible(true);
+                break;
+            case 5://720
+                AudDisp720.dispose();
+                if (AudDisp720.isUndecorated()){
+                    AudDisp720.setUndecorated(false);
+                    AudDisp720.setResizable(true);
+                }   AudDisp720.setVisible(true);
+                break;
+            default:
+                break;
         }
+        isFullscreen = false;
+        SettingsUI.toggleFullscreen.setEnabled(true);
+        SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
     }//GEN-LAST:event_auddisplayActionPerformed
 
     private void AutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AutoActionPerformed
@@ -1282,8 +1418,18 @@ public static final String version = "0.1.7-BETA";
         goal.setVisible(true);
         settings = new SettingsUI();
         settings.setVisible(true);
-        AudDisp = new AudDisplay();
-        AudDisp.setVisible(false);
+        AudDisp1600 = new AudDisplay1600();
+        AudDisp1600.setVisible(false);
+        AudDisp1366 = new AudDisplay1366();
+        AudDisp1366.setVisible(false);
+        AudDisp1080 = new AudDisplay1080();
+        AudDisp1080.setVisible(false);
+        AudDisp1024 = new AudDisplay1024();
+        AudDisp1024.setVisible(false);
+        AudDisp800 = new AudDisplay800();
+        AudDisp800.setVisible(false);
+        AudDisp720 = new AudDisplay720();
+        AudDisp720.setVisible(false);
         about = new AboutUI();
         about.setVisible(false);
         JS = new JoystickTest();  
