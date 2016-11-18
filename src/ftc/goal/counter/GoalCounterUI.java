@@ -776,7 +776,7 @@ public static final String version = "0.1.7-BETA";
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(440, 580));
+        setPreferredSize(new java.awt.Dimension(440, 585));
         setResizable(false);
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
@@ -1149,7 +1149,7 @@ public static final String version = "0.1.7-BETA";
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(FTCLogoSmall)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(HeaderLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
