@@ -347,8 +347,7 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1600 x 1200", "1366 x 768", "1920 X 1080", "1024 x 768", "800 x 600", "720 x 1080", " " }));
-        jComboBox1.setSelectedIndex(2);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1600 x 1200", "1366 x 768", "1920 X 1080", "1024 x 768", "800 x 600", "720 x 1080", "" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);

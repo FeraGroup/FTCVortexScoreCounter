@@ -243,7 +243,7 @@ public static final String version = "0.1.7-BETA";
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
                     timerstart.setEnabled(false);
-                    if(GameClock == 121){
+                    if(GameClock == 120){
                         play("start-tele");
                     }
                     countdownclockDrive();
@@ -791,6 +791,7 @@ public static final String version = "0.1.7-BETA";
                 pause = true;
                 TimerActive = false;
                 pauseresume.setText("RESUME");
+                play("stop-forghorn");
         } else {
                 pauseresume.setText("PAUSE");
                 pause = false;
