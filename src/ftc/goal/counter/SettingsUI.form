@@ -471,15 +471,15 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
+        <Property name="maximumRowCount" type="int" value="6"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
-            <StringItem index="0" value="1600 x 1200"/>
-            <StringItem index="1" value="1366 x 768"/>
-            <StringItem index="2" value="1920 X 1080"/>
-            <StringItem index="3" value="1024 x 768"/>
-            <StringItem index="4" value="800 x 600"/>
-            <StringItem index="5" value="720 x 1080"/>
-            <StringItem index="6" value=""/>
+          <StringArray count="6">
+            <StringItem index="0" value="1920 X 1080"/>
+            <StringItem index="1" value="1600 x 1200"/>
+            <StringItem index="2" value="720 X 1080"/>
+            <StringItem index="3" value="1366 x 768"/>
+            <StringItem index="4" value="1024 x 768"/>
+            <StringItem index="5" value="800 x 600"/>
           </StringArray>
         </Property>
       </Properties>

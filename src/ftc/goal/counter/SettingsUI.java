@@ -347,7 +347,8 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1600 x 1200", "1366 x 768", "1920 X 1080", "1024 x 768", "800 x 600", "720 x 1080", "" }));
+        jComboBox1.setMaximumRowCount(6);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080", "1600 x 1200", "720 X 1080", "1366 x 768", "1024 x 768", "800 x 600" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -594,7 +595,7 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ModeActionPerformed
 
     private void toggleFullscreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFullscreenActionPerformed
-       if(SettingsUI.AudDispOpen == 0){
+       if(SettingsUI.AudDispOpen == 1){//
            if(AudDisp1600.isVisible()){
                 if(isFullscreen == false){
                      AudDisp1600.dispose();
@@ -612,7 +613,7 @@ public class SettingsUI extends javax.swing.JFrame {
                     SettingsUI.toggleFullscreen.setEnabled(true);
                     isFullscreen = false;
                 }         
-            }else if(SettingsUI.AudDispOpen == 1){
+            }else if(SettingsUI.AudDispOpen == 3){
                 if(AudDisp1366.isVisible()){
                     if(isFullscreen == false){
                          AudDisp1366.dispose();
@@ -631,7 +632,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         isFullscreen = false;
                     }         
                 }
-            }else if(SettingsUI.AudDispOpen == 2){
+            }else if(SettingsUI.AudDispOpen == 0){
                 if(AudDisp1080.isVisible()){
                     if(isFullscreen == false){
                          AudDisp1080.dispose();
@@ -650,7 +651,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         isFullscreen = false;
                     }         
                  }
-            }else if(SettingsUI.AudDispOpen == 3){
+            }else if(SettingsUI.AudDispOpen == 4){
                 if(AudDisp1024.isVisible()){
                     if(isFullscreen == false){
                          AudDisp1024.dispose();
@@ -669,7 +670,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         isFullscreen = false;
                     }         
                 }
-            }else if(SettingsUI.AudDispOpen == 4){
+            }else if(SettingsUI.AudDispOpen == 5){
                 if(AudDisp800.isVisible()){
                     if(isFullscreen == false){
                          AudDisp800.dispose();
@@ -688,7 +689,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         isFullscreen = false;
                     }         
                  }
-            }else if(SettingsUI.AudDispOpen == 5){
+            }else if(SettingsUI.AudDispOpen == 2){
                 if(AudDisp720.isVisible()){
                     if(isFullscreen == false){
                          AudDisp720.dispose();
