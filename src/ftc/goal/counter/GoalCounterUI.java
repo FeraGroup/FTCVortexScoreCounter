@@ -1435,8 +1435,7 @@ public static final String version = "0.1.7-BETA";
         AudDisp720 = new AudDisplay720();
         AudDisp720.setVisible(false);
         JSConfigView = new ViewJSConfig();
-        JSConfigView.setVisible(false);
-        
+        JSConfigView.setVisible(false);        
         about = new AboutUI();
         about.setVisible(false);
         JS = new JoystickTest();  

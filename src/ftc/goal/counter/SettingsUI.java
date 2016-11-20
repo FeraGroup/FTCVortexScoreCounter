@@ -15,6 +15,8 @@ import static ftc.goal.counter.GoalCounterUI.AudDisp1600;
 import static ftc.goal.counter.GoalCounterUI.AudDisp720;
 import static ftc.goal.counter.GoalCounterUI.AudDisp800;
 import static ftc.goal.counter.GoalCounterUI.JSConfigView;
+import static ftc.goal.counter.JoystickTest.foundControllers;
+import static ftc.goal.counter.JoystickTest.startShowingControllerData;
 
 /**
  *
@@ -349,7 +351,6 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080", "1600 x 1200", "1366 x 768", "1280 x 720", "1024 x 768", "800 x 600", " " }));
         jComboBox1.setMaximumRowCount(6);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080", "1600 x 1200", "720 X 1080", "1366 x 768", "1024 x 768", "800 x 600" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -385,7 +386,7 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("View Controller Map");
+        jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -457,6 +458,8 @@ public class SettingsUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void RedCenControlSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelectActionPerformed
         
     }//GEN-LAST:event_RedCenControlSelectActionPerformed

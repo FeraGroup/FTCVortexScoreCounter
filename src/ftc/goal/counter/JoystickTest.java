@@ -13,6 +13,7 @@ import net.java.games.input.Component;
 import net.java.games.input.Component.Identifier;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
+import net.java.games.input.DirectAndRawInputEnvironmentPlugin;
 
 /**
  *
@@ -82,23 +83,22 @@ public class JoystickTest {
     static public boolean RedCorIcon = false;
     static public boolean BlueCenIcon = false;
     static public boolean RedCenIcon = false;
+    static public boolean controllerLoop = true;
     
-    
-    public static ArrayList<Controller> foundControllers;
+    static public ArrayList<Controller> foundControllers;
 
     public JoystickTest() {
-        
         foundControllers = new ArrayList<>();
         searchForControllers();
+        
         // If at least one controller was found we start showing controller data on window.
         if(!foundControllers.isEmpty()){
-            startShowingControllerData();
-        }
-        else{
+           startShowingControllerData();
+        }else{
             SettingsUI.NoControllerName();
             while(true){
                 GoalCounterUI.spinnersync();
-            }
+            }   
         }
     }
 
@@ -107,25 +107,28 @@ public class JoystickTest {
      * Controller.Type.GAMEPAD, Controller.Type.WHEEL and Controller.Type.FINGERSTICK.
      */
     public static void searchForControllers() {
+        Controller[] controllers = null;
+ 
+        DirectAndRawInputEnvironmentPlugin directEnv = new DirectAndRawInputEnvironmentPlugin();
         
-        Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
-
+        if (directEnv.isSupported()) {
+            controllers = directEnv.getControllers();
+        } else {
+            controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+        }
+        
         for(int i = 0; i < controllers.length; i++){
             Controller controller = controllers[i];
-
-            if (
-                    controller.getType() == Controller.Type.STICK || 
-                    controller.getType() == Controller.Type.GAMEPAD
-               )
-            {
+            if (controller.getType() == Controller.Type.STICK || 
+                controller.getType() == Controller.Type.GAMEPAD){
                 // Add new controller to the list of all controllers.
                 foundControllers.add(controller);
-                
                 // Add new controller to the list on the window.
                 SettingsUI.addControllerName(controller.getName() + " - " + controller.hashCode());
-            }
+            } 
         }
     }
+        
     public static void updateJSstatusDisplays(int display, int color){
         //color 1 = red, color 2 = orange, color 3 = green
         //display 1 = RedCen, display 2 = RedCor,
@@ -402,11 +405,21 @@ public class JoystickTest {
      */
     public static void startShowingControllerData(){
         while(true){
+            if(controllerLoop == false){break;}
             
             GoalCounterUI.spinnersync();
             
             // Currently selected controller.
             int selectedControllerRedCen = SettingsUI.getSelectedControllerNameRedCen();
+            if (selectedControllerRedCen == -1){
+                    try {
+                        Thread.sleep(250); // Pause the Joystick Checker while we update the Joysticks
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(JoystickTest.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                selectedControllerRedCen = 0;
+            }
+            
             Controller controllerRedCen = foundControllers.get(selectedControllerRedCen);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
@@ -426,6 +439,9 @@ public class JoystickTest {
             }
             
            int selectedControllerRedCor = SettingsUI.getSelectedControllerNameRedCor();
+           if (selectedControllerRedCor == -1){
+                selectedControllerRedCor = 0;
+            }
             Controller controllerRedCor = foundControllers.get(selectedControllerRedCor);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
@@ -436,6 +452,9 @@ public class JoystickTest {
             }
             
             int selectedControllerBlueCor = SettingsUI.getSelectedControllerNameBlueCor();
+            if (selectedControllerBlueCen == -1){
+                selectedControllerBlueCen = 0;
+            }
             Controller controllerBlueCor = foundControllers.get(selectedControllerBlueCor);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
@@ -446,6 +465,9 @@ public class JoystickTest {
             }
             
         int selectedControllerTimer = SettingsUI.getSelectedControllerNameTimer();
+        if (selectedControllerBlueCor == -1){
+                selectedControllerBlueCor = 0;
+            }
             Controller controllerTimer = foundControllers.get(selectedControllerTimer);
 
             // Pull controller for current data, and break while loop if controller is disconnected.
@@ -1039,6 +1061,7 @@ public class JoystickTest {
             } catch (InterruptedException ex) {
                 Logger.getLogger(JoystickTest.class.getName()).log(Level.SEVERE, null, ex);
             }
+            if(!controllerLoop == false) continue;
         }
     }
     
