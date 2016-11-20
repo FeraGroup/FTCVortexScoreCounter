@@ -41,6 +41,8 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean BlueCen = false;
     public static boolean BlueCor = false;
     public static boolean ModeChange = true;
+    public static boolean JSTimer = true;
+    public static boolean Reset = true;
     public static int AudDispOpen = 0;
     
     /**
@@ -85,11 +87,13 @@ public class SettingsUI extends javax.swing.JFrame {
         RePullJS = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         TimerControlSelect = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        JSControllerLabel = new javax.swing.JLabel();
         Mode = new javax.swing.JCheckBox();
-        jLabel2 = new javax.swing.JLabel();
+        AudDisplayLabel = new javax.swing.JLabel();
         toggleFullscreen = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        JSMap = new javax.swing.JButton();
+        JSTimeSelector = new javax.swing.JCheckBox();
+        JSReset = new javax.swing.JCheckBox();
 
         setTitle("Settings");
         setResizable(false);
@@ -366,17 +370,17 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Timer Controller");
+        JSControllerLabel.setText("Timer Controller");
 
         Mode.setSelected(true);
-        Mode.setText("Mode Change (X)");
+        Mode.setText("Mode Change");
         Mode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModeActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Audience Display Controls");
+        AudDisplayLabel.setText("Audience Display Controls");
 
         toggleFullscreen.setText("Toggle Fullscreen");
         toggleFullscreen.setEnabled(false);
@@ -386,10 +390,26 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Joystick Map");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JSMap.setText("Joystick Map");
+        JSMap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JSMapActionPerformed(evt);
+            }
+        });
+
+        JSTimeSelector.setSelected(true);
+        JSTimeSelector.setText("Timer Controls");
+        JSTimeSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JSTimeSelectorActionPerformed(evt);
+            }
+        });
+
+        JSReset.setSelected(true);
+        JSReset.setText("Reset");
+        JSReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JSResetActionPerformed(evt);
             }
         });
 
@@ -407,7 +427,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(JSMap)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(RePullJS)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -415,15 +435,18 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TimerControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JSControllerLabel)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(TimerControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Mode))
-                            .addComponent(jLabel1))
-                        .addGap(76, 76, 76)
+                                .addComponent(JSTimeSelector)
+                                .addGap(18, 18, 18)
+                                .addComponent(JSReset)
+                                .addGap(18, 18, 18)
+                                .addComponent(Mode)))
+                        .addGap(193, 193, 193)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AudDisplayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(34, 34, 34))
                             .addComponent(toggleFullscreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -438,20 +461,23 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addComponent(red, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(JSControllerLabel)
+                    .addComponent(AudDisplayLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TimerControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Mode))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(toggleFullscreen)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(toggleFullscreen)
+                    .addComponent(Mode)
+                    .addComponent(JSTimeSelector)
+                    .addComponent(JSReset))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RePullJS)
                     .addComponent(Save)
-                    .addComponent(jButton1))
+                    .addComponent(JSMap))
                 .addContainerGap())
         );
 
@@ -747,12 +773,30 @@ public class SettingsUI extends javax.swing.JFrame {
         AudDispOpen = jComboBox1.getSelectedIndex();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JSMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSMapActionPerformed
         if(!JSConfigView.isVisible()){
             JSConfigView.setSize(600, 400);
             JSConfigView.setVisible(true);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JSMapActionPerformed
+
+    private void JSTimeSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSTimeSelectorActionPerformed
+     if(Mode.isSelected()){
+         JSTimer = true;
+                 }
+     else{
+         JSTimer = false;
+     }
+    }//GEN-LAST:event_JSTimeSelectorActionPerformed
+
+    private void JSResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSResetActionPerformed
+     if(Mode.isSelected()){
+         Reset = true;
+                 }
+     else{
+         Reset = false;
+     }
+    }//GEN-LAST:event_JSResetActionPerformed
  
     
 public static int getSelectedControllerNameRedCen(){
@@ -833,6 +877,7 @@ public static int getSelectedControllerNameTimer(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AudDisplayLabel;
     private javax.swing.JLabel BCenVor;
     private javax.swing.JLabel BCorVor;
     private javax.swing.JCheckBox BlueCenContButton;
@@ -845,6 +890,10 @@ public static int getSelectedControllerNameTimer(){
     public static javax.swing.JComboBox BlueCorControlSelect;
     private javax.swing.JLabel CenVor;
     private javax.swing.JLabel CorVor;
+    private javax.swing.JLabel JSControllerLabel;
+    private javax.swing.JButton JSMap;
+    private javax.swing.JCheckBox JSReset;
+    private javax.swing.JCheckBox JSTimeSelector;
     private javax.swing.JCheckBox Mode;
     private javax.swing.JButton RePullJS;
     private javax.swing.JCheckBox RedCenContButton;
@@ -858,10 +907,7 @@ public static int getSelectedControllerNameTimer(){
     private javax.swing.JButton Save;
     public static javax.swing.JComboBox TimerControlSelect;
     private javax.swing.JPanel blue;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel red;
     public static javax.swing.JButton toggleFullscreen;
     // End of variables declaration//GEN-END:variables

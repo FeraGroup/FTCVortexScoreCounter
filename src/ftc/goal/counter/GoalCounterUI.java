@@ -51,7 +51,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int ClockRemaining = 150;
     public static boolean isFullscreen = false;
 
-public static final String version = "0.1.7-BETA";
+public static final String version = "1.0.0";
 
     /**
      * Creates new form GoalCounterUI
@@ -782,7 +782,7 @@ public static final String version = "0.1.7-BETA";
     }
     
     public void TimerStart(){
-         if(JoystickTest.PressJSTimerStart == true && JoystickTest.pressLstJSTimerStart != true){
+         if(JoystickTest.PressJSTimerStart == true && JoystickTest.pressLstJSTimerStart != true && SettingsUI.JSTimer == true){
             //StartClock();
             if(TimerActive == false && ClockRemaining == 150){
                 StartClock();
@@ -803,7 +803,7 @@ public static final String version = "0.1.7-BETA";
     }
     
     public void TimerBack(){
-         if(JoystickTest.PressJSTimerBack == true && JoystickTest.pressLstJSTimerBack != true){
+         if(JoystickTest.PressJSTimerBack == true && JoystickTest.pressLstJSTimerBack != true && SettingsUI.Reset == true){
             resetcounters();
             JoystickTest.pressLstJSTimerBack = true;
         }
