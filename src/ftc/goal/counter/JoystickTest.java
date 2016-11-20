@@ -981,10 +981,11 @@ public class JoystickTest {
                     // Is button pressed?
                     
                     if(componenttimer.getPollData() != 0.0f){
-                        PressJSTimerXbtn = true;    
+                        PressJSTimerXbtn = true;
                     }
                     else{
                         PressJSTimerXbtn = false;
+                        
                     }
                       
                     if(PressJSTimerXbtn == false){

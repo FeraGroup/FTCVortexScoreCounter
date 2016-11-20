@@ -42,6 +42,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AudDisplay1024 AudDisp1024;
     public static AudDisplay800 AudDisp800;
     public static AudDisplay720 AudDisp720;
+    public static ViewJSConfig JSConfigView;
     public static AboutUI about;
     public static JoystickTest JS;
     public static SettingsUI settings;
@@ -1302,7 +1303,7 @@ public static final String version = "0.1.7-BETA";
 //Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         switch (SettingsUI.AudDispOpen) {
-            case 0://1600
+            case 1://1600
                 if(!AudDisp1600.isVisible()){
                     AudDisp1600.dispose();
                     if (AudDisp1600.isUndecorated()){
@@ -1311,35 +1312,35 @@ public static final String version = "0.1.7-BETA";
                     }
                     AudDisp1600.setVisible(true);
                 }   break;
-            case 1://1366
+            case 2://1366
                 AudDisp1366.dispose();
                 if (AudDisp1366.isUndecorated()){
                     AudDisp1366.setUndecorated(false);
                     AudDisp1366.setResizable(true);
                 }   AudDisp1366.setVisible(true);
                 break;
-            case 2://1080
+            case 0://1080
                 AudDisp1080.dispose();
                 if (AudDisp1080.isUndecorated()){
                     AudDisp1080.setUndecorated(false);
                     AudDisp1080.setResizable(true);
                 }   AudDisp1080.setVisible(true);
                 break;
-            case 3://1024
+            case 4://1024
                 AudDisp1024.dispose();
                 if (AudDisp1024.isUndecorated()){
                     AudDisp1024.setUndecorated(false);
                     AudDisp1024.setResizable(true);
                 }   AudDisp1024.setVisible(true);
                 break;
-            case 4://800
+            case 5://800
                 AudDisp800.dispose();
                 if (AudDisp800.isUndecorated()){
                     AudDisp800.setUndecorated(false);
                     AudDisp800.setResizable(true);
                 }   AudDisp800.setVisible(true);
                 break;
-            case 5://720
+            case 3://720
                 AudDisp720.dispose();
                 if (AudDisp720.isUndecorated()){
                     AudDisp720.setUndecorated(false);
@@ -1431,6 +1432,9 @@ public static final String version = "0.1.7-BETA";
         AudDisp800.setVisible(false);
         AudDisp720 = new AudDisplay720();
         AudDisp720.setVisible(false);
+        JSConfigView = new ViewJSConfig();
+        JSConfigView.setVisible(false);
+        
         about = new AboutUI();
         about.setVisible(false);
         JS = new JoystickTest();  
