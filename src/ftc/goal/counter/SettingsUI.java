@@ -350,6 +350,8 @@ public class SettingsUI extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080", "1600 x 1200", "1366 x 768", "1280 x 720", "1024 x 768", "800 x 600", " " }));
+        jComboBox1.setMaximumRowCount(6);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920 X 1080", "1600 x 1200", "720 X 1080", "1366 x 768", "1024 x 768", "800 x 600" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -633,6 +635,7 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ModeActionPerformed
 
     private void toggleFullscreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFullscreenActionPerformed
+
        if(SettingsUI.AudDispOpen == 1 && AudDisp1600.isVisible()){
             if(isFullscreen == false){
                  AudDisp1600.dispose();
@@ -734,7 +737,7 @@ public class SettingsUI extends javax.swing.JFrame {
                 SettingsUI.toggleFullscreen.setEnabled(true);
                 isFullscreen = false;
             }
-       }
+        }
     }//GEN-LAST:event_toggleFullscreenActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

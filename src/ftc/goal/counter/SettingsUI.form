@@ -35,8 +35,6 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="RePullJS" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Save" min="-2" max="-2" attributes="0"/>
@@ -91,7 +89,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="RePullJS" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Save" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -474,15 +471,15 @@
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
+        <Property name="maximumRowCount" type="int" value="6"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="7">
+          <StringArray count="6">
             <StringItem index="0" value="1920 X 1080"/>
             <StringItem index="1" value="1600 x 1200"/>
-            <StringItem index="2" value="1366 x 768"/>
-            <StringItem index="3" value="1280 x 720"/>
+            <StringItem index="2" value="720 X 1080"/>
+            <StringItem index="3" value="1366 x 768"/>
             <StringItem index="4" value="1024 x 768"/>
             <StringItem index="5" value="800 x 600"/>
-            <StringItem index="6" value=" "/>
           </StringArray>
         </Property>
       </Properties>
@@ -538,14 +535,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="View Controller Map"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

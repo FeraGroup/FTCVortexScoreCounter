@@ -874,7 +874,7 @@ public static final String version = "0.1.7-BETA";
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(440, 585));
+        setPreferredSize(new java.awt.Dimension(440, 600));
         setResizable(false);
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
@@ -1303,6 +1303,7 @@ public static final String version = "0.1.7-BETA";
 //Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         switch (SettingsUI.AudDispOpen) {
+
             case 1://1600
                 if(!AudDisp1600.isVisible()){
                     AudDisp1600.dispose();
@@ -1312,7 +1313,8 @@ public static final String version = "0.1.7-BETA";
                     }
                     AudDisp1600.setVisible(true);
                 }   break;
-            case 2://1366
+            case 3://1366
+
                 AudDisp1366.dispose();
                 if (AudDisp1366.isUndecorated()){
                     AudDisp1366.setUndecorated(false);
@@ -1340,7 +1342,7 @@ public static final String version = "0.1.7-BETA";
                     AudDisp800.setResizable(true);
                 }   AudDisp800.setVisible(true);
                 break;
-            case 3://720
+            case 2://720
                 AudDisp720.dispose();
                 if (AudDisp720.isUndecorated()){
                     AudDisp720.setUndecorated(false);
