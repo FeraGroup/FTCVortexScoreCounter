@@ -30,9 +30,9 @@ public class ViewJSConfig extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        ResetEverything1 = new javax.swing.JLabel();
+        TimerToggle2 = new javax.swing.JLabel();
         xToggleModes = new javax.swing.JLabel();
-        ResetEverything = new javax.swing.JLabel();
+        TimerToggle1 = new javax.swing.JLabel();
         rbRedCenter = new javax.swing.JLabel();
         rbRedCorner = new javax.swing.JLabel();
         rbBlueCenter = new javax.swing.JLabel();
@@ -46,7 +46,7 @@ public class ViewJSConfig extends javax.swing.JFrame {
         lbBlueCenter = new javax.swing.JLabel();
         lbBlueCorner = new javax.swing.JLabel();
         ResetEverything2 = new javax.swing.JLabel();
-        ResetEverything3 = new javax.swing.JLabel();
+        ResetEverything1 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -60,20 +60,20 @@ public class ViewJSConfig extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(100, 100));
         jPanel1.setLayout(null);
 
-        ResetEverything1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ResetEverything1.setText("Timer Controller");
-        jPanel1.add(ResetEverything1);
-        ResetEverything1.setBounds(320, 60, 110, 20);
+        TimerToggle2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TimerToggle2.setText("Timer Controller");
+        jPanel1.add(TimerToggle2);
+        TimerToggle2.setBounds(320, 60, 110, 20);
 
         xToggleModes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         xToggleModes.setText("Can be used on Timer Controller");
         jPanel1.add(xToggleModes);
         xToggleModes.setBounds(170, 350, 220, 17);
 
-        ResetEverything.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ResetEverything.setText("Can be used on");
-        jPanel1.add(ResetEverything);
-        ResetEverything.setBounds(320, 40, 110, 20);
+        TimerToggle1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TimerToggle1.setText("Can be used on");
+        jPanel1.add(TimerToggle1);
+        TimerToggle1.setBounds(320, 40, 110, 20);
 
         rbRedCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbRedCenter.setText("Asigned to Red Center");
@@ -148,10 +148,10 @@ public class ViewJSConfig extends javax.swing.JFrame {
         jPanel1.add(ResetEverything2);
         ResetEverything2.setBounds(210, 110, 110, 17);
 
-        ResetEverything3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ResetEverything3.setText("Can be used on");
-        jPanel1.add(ResetEverything3);
-        ResetEverything3.setBounds(210, 90, 110, 17);
+        ResetEverything1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ResetEverything1.setText("Can be used on");
+        jPanel1.add(ResetEverything1);
+        ResetEverything1.setBounds(210, 90, 110, 17);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerMap.png"))); // NOI18N
         jPanel1.add(background);
@@ -209,10 +209,10 @@ public class ViewJSConfig extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ResetEverything;
-    private javax.swing.JLabel ResetEverything1;
-    private javax.swing.JLabel ResetEverything2;
-    private javax.swing.JLabel ResetEverything3;
+    public static javax.swing.JLabel ResetEverything1;
+    public static javax.swing.JLabel ResetEverything2;
+    public static javax.swing.JLabel TimerToggle1;
+    public static javax.swing.JLabel TimerToggle2;
     public static javax.swing.JLabel aBlueCenter;
     public static javax.swing.JLabel aBlueCorner;
     public static javax.swing.JLabel aRedCenter;

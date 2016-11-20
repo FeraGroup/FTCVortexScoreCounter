@@ -775,26 +775,32 @@ public class SettingsUI extends javax.swing.JFrame {
 
     private void JSMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSMapActionPerformed
         if(!JSConfigView.isVisible()){
-            JSConfigView.setSize(600, 400);
+            JSConfigView.setSize(600, 410);
             JSConfigView.setVisible(true);
         }
     }//GEN-LAST:event_JSMapActionPerformed
 
     private void JSTimeSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSTimeSelectorActionPerformed
-     if(Mode.isSelected()){
+     if(JSTimeSelector.isSelected()){
          JSTimer = true;
-                 }
-     else{
+         ViewJSConfig.TimerToggle1.setEnabled(true);
+         ViewJSConfig.TimerToggle2.setEnabled(true);
+     }else{
          JSTimer = false;
+         ViewJSConfig.TimerToggle1.setEnabled(false);
+         ViewJSConfig.TimerToggle2.setEnabled(false);
      }
     }//GEN-LAST:event_JSTimeSelectorActionPerformed
 
     private void JSResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSResetActionPerformed
-     if(Mode.isSelected()){
+     if(JSReset.isSelected()){
          Reset = true;
-                 }
-     else{
+         ViewJSConfig.ResetEverything1.setEnabled(true);
+         ViewJSConfig.ResetEverything2.setEnabled(true);
+     }else{
          Reset = false;
+         ViewJSConfig.ResetEverything1.setEnabled(false);
+         ViewJSConfig.ResetEverything2.setEnabled(false);
      }
     }//GEN-LAST:event_JSResetActionPerformed
  
