@@ -63,111 +63,109 @@ public class ViewJSConfig extends javax.swing.JFrame {
         ResetEverything1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything1.setText("Timer Controller");
         jPanel1.add(ResetEverything1);
-        ResetEverything1.setBounds(200, 70, 110, 17);
+        ResetEverything1.setBounds(320, 60, 110, 20);
 
         xToggleModes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         xToggleModes.setText("Can be used on Timer Controller");
         jPanel1.add(xToggleModes);
-        xToggleModes.setBounds(170, 317, 220, 17);
+        xToggleModes.setBounds(170, 350, 220, 17);
 
         ResetEverything.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything.setText("Can be used on");
         jPanel1.add(ResetEverything);
-        ResetEverything.setBounds(200, 50, 110, 17);
+        ResetEverything.setBounds(320, 40, 110, 20);
 
         rbRedCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbRedCenter.setText("Asigned to Red Center");
         rbRedCenter.setEnabled(false);
         jPanel1.add(rbRedCenter);
-        rbRedCenter.setBounds(410, 40, 140, 20);
+        rbRedCenter.setBounds(420, 120, 140, 20);
 
         rbRedCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbRedCorner.setText("Asigned to Red Corner");
         rbRedCorner.setEnabled(false);
         jPanel1.add(rbRedCorner);
-        rbRedCorner.setBounds(410, 60, 140, 20);
+        rbRedCorner.setBounds(420, 140, 140, 20);
 
         rbBlueCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbBlueCenter.setText("Asigned to Blue Center");
         rbBlueCenter.setEnabled(false);
         jPanel1.add(rbBlueCenter);
-        rbBlueCenter.setBounds(410, 80, 140, 20);
+        rbBlueCenter.setBounds(420, 160, 140, 20);
 
         rbBlueCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbBlueCorner.setText("Asigned to Blue Corner");
         rbBlueCorner.setEnabled(false);
         jPanel1.add(rbBlueCorner);
-        rbBlueCorner.setBounds(410, 100, 140, 20);
+        rbBlueCorner.setBounds(420, 180, 140, 20);
 
         aRedCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         aRedCenter.setText("Asigned to Red Center");
         jPanel1.add(aRedCenter);
-        aRedCenter.setBounds(440, 250, 150, 20);
+        aRedCenter.setBounds(440, 280, 150, 20);
 
         aRedCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         aRedCorner.setText("Asigned to Red Corner");
         jPanel1.add(aRedCorner);
-        aRedCorner.setBounds(440, 270, 150, 20);
+        aRedCorner.setBounds(440, 300, 150, 20);
 
         aBlueCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         aBlueCenter.setText("Asigned to Blue Center");
         jPanel1.add(aBlueCenter);
-        aBlueCenter.setBounds(440, 290, 150, 20);
+        aBlueCenter.setBounds(440, 320, 150, 20);
 
         aBlueCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         aBlueCorner.setText("Asigned to Blue Corner");
         jPanel1.add(aBlueCorner);
-        aBlueCorner.setBounds(440, 310, 160, 20);
+        aBlueCorner.setBounds(440, 340, 160, 20);
 
         lbRedCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbRedCenter.setText("Asigned to Red Center");
         lbRedCenter.setEnabled(false);
         jPanel1.add(lbRedCenter);
-        lbRedCenter.setBounds(0, 110, 160, 20);
+        lbRedCenter.setBounds(0, 140, 160, 20);
 
         lbRedCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbRedCorner.setText("Asigned to Red Corner");
         lbRedCorner.setEnabled(false);
         jPanel1.add(lbRedCorner);
-        lbRedCorner.setBounds(0, 130, 160, 20);
+        lbRedCorner.setBounds(0, 160, 160, 20);
 
         lbBlueCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbBlueCenter.setText("Asigned to Blue Center");
         lbBlueCenter.setEnabled(false);
         jPanel1.add(lbBlueCenter);
-        lbBlueCenter.setBounds(0, 150, 160, 20);
+        lbBlueCenter.setBounds(0, 180, 160, 20);
 
         lbBlueCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lbBlueCorner.setText("Asigned to Blue Corner");
         lbBlueCorner.setEnabled(false);
         jPanel1.add(lbBlueCorner);
-        lbBlueCorner.setBounds(0, 170, 160, 20);
+        lbBlueCorner.setBounds(0, 200, 160, 20);
 
         ResetEverything2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything2.setText("Timer Controller");
         jPanel1.add(ResetEverything2);
-        ResetEverything2.setBounds(440, 180, 110, 17);
+        ResetEverything2.setBounds(210, 110, 110, 17);
 
         ResetEverything3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything3.setText("Can be used on");
         jPanel1.add(ResetEverything3);
-        ResetEverything3.setBounds(440, 160, 110, 17);
+        ResetEverything3.setBounds(210, 90, 110, 17);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerMap.png"))); // NOI18N
         jPanel1.add(background);
-        background.setBounds(40, 0, 500, 344);
+        background.setBounds(40, 0, 500, 370);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();

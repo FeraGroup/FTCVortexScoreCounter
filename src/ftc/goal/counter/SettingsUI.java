@@ -749,7 +749,7 @@ public class SettingsUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!JSConfigView.isVisible()){
-            JSConfigView.setSize(600, 384);
+            JSConfigView.setSize(600, 400);
             JSConfigView.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
