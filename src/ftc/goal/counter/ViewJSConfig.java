@@ -45,9 +45,9 @@ public class ViewJSConfig extends javax.swing.JFrame {
         lbRedCorner = new javax.swing.JLabel();
         lbBlueCenter = new javax.swing.JLabel();
         lbBlueCorner = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
         ResetEverything2 = new javax.swing.JLabel();
         ResetEverything3 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -79,25 +79,25 @@ public class ViewJSConfig extends javax.swing.JFrame {
         rbRedCenter.setText("Asigned to Red Center");
         rbRedCenter.setEnabled(false);
         jPanel1.add(rbRedCenter);
-        rbRedCenter.setBounds(440, 110, 140, 20);
+        rbRedCenter.setBounds(410, 40, 140, 20);
 
         rbRedCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbRedCorner.setText("Asigned to Red Corner");
         rbRedCorner.setEnabled(false);
         jPanel1.add(rbRedCorner);
-        rbRedCorner.setBounds(440, 130, 140, 20);
+        rbRedCorner.setBounds(410, 60, 140, 20);
 
         rbBlueCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbBlueCenter.setText("Asigned to Blue Center");
         rbBlueCenter.setEnabled(false);
         jPanel1.add(rbBlueCenter);
-        rbBlueCenter.setBounds(440, 150, 140, 20);
+        rbBlueCenter.setBounds(410, 80, 140, 20);
 
         rbBlueCorner.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rbBlueCorner.setText("Asigned to Blue Corner");
         rbBlueCorner.setEnabled(false);
         jPanel1.add(rbBlueCorner);
-        rbBlueCorner.setBounds(440, 170, 140, 20);
+        rbBlueCorner.setBounds(410, 100, 140, 20);
 
         aRedCenter.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         aRedCenter.setText("Asigned to Red Center");
@@ -143,19 +143,19 @@ public class ViewJSConfig extends javax.swing.JFrame {
         jPanel1.add(lbBlueCorner);
         lbBlueCorner.setBounds(0, 170, 160, 20);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerMap.png"))); // NOI18N
-        jPanel1.add(background);
-        background.setBounds(40, 0, 500, 344);
-
         ResetEverything2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything2.setText("Timer Controller");
         jPanel1.add(ResetEverything2);
-        ResetEverything2.setBounds(390, 50, 110, 17);
+        ResetEverything2.setBounds(440, 180, 110, 17);
 
         ResetEverything3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetEverything3.setText("Can be used on");
         jPanel1.add(ResetEverything3);
-        ResetEverything3.setBounds(390, 30, 110, 17);
+        ResetEverything3.setBounds(440, 160, 110, 17);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerMap.png"))); // NOI18N
+        jPanel1.add(background);
+        background.setBounds(40, 0, 500, 344);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,7 +220,7 @@ public class ViewJSConfig extends javax.swing.JFrame {
     public static javax.swing.JLabel aRedCenter;
     public static javax.swing.JLabel aRedCorner;
     private javax.swing.JLabel background;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lbBlueCenter;
     public static javax.swing.JLabel lbBlueCorner;
     public static javax.swing.JLabel lbRedCenter;
