@@ -14,9 +14,12 @@ import static ftc.goal.counter.GoalCounterUI.AudDisp1366;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1600;
 import static ftc.goal.counter.GoalCounterUI.AudDisp720;
 import static ftc.goal.counter.GoalCounterUI.AudDisp800;
+import static ftc.goal.counter.GoalCounterUI.JS;
 import static ftc.goal.counter.GoalCounterUI.JSConfigView;
 import static ftc.goal.counter.JoystickTest.foundControllers;
 import static ftc.goal.counter.JoystickTest.startShowingControllerData;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,6 +47,10 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean JSTimer = true;
     public static boolean Reset = true;
     public static int AudDispOpen = 0;
+    static public boolean spinnerSyncRun = true;//if you ever need to stop the spinnerSync, set this to false
+    static public boolean spinnerSyncRunning = false;
+    static public boolean showControllerDataRun = true;//if you ever need to stop the startShowingControllerData, set this to false
+    static public boolean showControllerDataRunning = false;
     
     /**
      * Creates new form SettingsUI
@@ -642,6 +649,7 @@ public class SettingsUI extends javax.swing.JFrame {
         BlueCorControlSelect.removeAllItems();
         JoystickTest.foundControllers.clear();
         JoystickTest.searchForControllers();
+        
     }//GEN-LAST:event_RePullJSActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
@@ -913,7 +921,7 @@ public static int getSelectedControllerNameTimer(){
     private javax.swing.JButton Save;
     public static javax.swing.JComboBox TimerControlSelect;
     private javax.swing.JPanel blue;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public static javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel red;
     public static javax.swing.JButton toggleFullscreen;
     // End of variables declaration//GEN-END:variables

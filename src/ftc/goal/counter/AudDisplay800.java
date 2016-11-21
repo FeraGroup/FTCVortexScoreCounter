@@ -202,22 +202,29 @@ public class AudDisplay800 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         SettingsUI.toggleFullscreen.setEnabled(false);
         SettingsUI.toggleFullscreen.setToolTipText("You need to open the Audience display first");
         GoalCounterUI.auddisplay.setEnabled(true);
+        GoalCounterUI.audIsOpen = false;
+        SettingsUI.jComboBox1.setEnabled(true);
+        
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
         GoalCounterUI.auddisplay.setEnabled(false);
+        GoalCounterUI.audIsOpen = true;
+        SettingsUI.jComboBox1.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
         GoalCounterUI.auddisplay.setEnabled(false);
+        GoalCounterUI.audIsOpen = true;
+        SettingsUI.jComboBox1.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
 
     /**
