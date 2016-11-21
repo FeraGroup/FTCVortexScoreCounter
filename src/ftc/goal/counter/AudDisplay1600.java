@@ -196,11 +196,11 @@ public class AudDisplay1600 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1600, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1200, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -209,16 +209,19 @@ public class AudDisplay1600 extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         SettingsUI.toggleFullscreen.setEnabled(false);
         SettingsUI.toggleFullscreen.setToolTipText("You need to open the Audience display first");
+        GoalCounterUI.auddisplay.setEnabled(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+        GoalCounterUI.auddisplay.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+        GoalCounterUI.auddisplay.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -247,10 +250,6 @@ public class AudDisplay1600 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AudDisplay1600.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

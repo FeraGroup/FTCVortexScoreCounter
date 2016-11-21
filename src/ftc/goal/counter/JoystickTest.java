@@ -84,6 +84,7 @@ public class JoystickTest {
     static public boolean BlueCenIcon = false;
     static public boolean RedCenIcon = false;
     static public boolean controllerLoop = true;
+    static public boolean spinnerSyncRun = true;
     
     static public ArrayList<Controller> foundControllers;
 
@@ -96,9 +97,9 @@ public class JoystickTest {
            startShowingControllerData();
         }else{
             SettingsUI.NoControllerName();
-            while(true){
+            do{
                 GoalCounterUI.spinnersync();
-            }   
+            }while(spinnerSyncRun); 
         }
     }
 

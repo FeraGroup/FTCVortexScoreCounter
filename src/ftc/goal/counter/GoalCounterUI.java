@@ -50,6 +50,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int GameClock = 150;
     public static int ClockRemaining = 150;
     public static boolean isFullscreen = false;
+    public static boolean audIsOpen = false;
 
 public static final String version = "1.0.0";
 
@@ -1303,9 +1304,8 @@ public static final String version = "1.0.0";
 //Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         switch (SettingsUI.AudDispOpen) {
-
             case 1://1600
-                if(!AudDisp1600.isVisible()){
+                if(!AudDisp1600.isVisible() && !audIsOpen){
                     AudDisp1600.dispose();
                     if (AudDisp1600.isUndecorated()){
                         AudDisp1600.setUndecorated(false);
@@ -1314,44 +1314,55 @@ public static final String version = "1.0.0";
                     AudDisp1600.setVisible(true);
                 }   break;
             case 3://1366
-
-                AudDisp1366.dispose();
-                if (AudDisp1366.isUndecorated()){
-                    AudDisp1366.setUndecorated(false);
-                    AudDisp1366.setResizable(true);
-                }   AudDisp1366.setVisible(true);
+                if(!AudDisp1366.isVisible() && !audIsOpen){
+                    AudDisp1366.dispose();
+                    if (AudDisp1366.isUndecorated()){
+                        AudDisp1366.setUndecorated(false);
+                        AudDisp1366.setResizable(true);
+                    }   AudDisp1366.setVisible(true);
+                }
                 break;
             case 0://1080
+                 if(!AudDisp1080.isVisible() && !audIsOpen){
                 AudDisp1080.dispose();
-                if (AudDisp1080.isUndecorated()){
-                    AudDisp1080.setUndecorated(false);
-                    AudDisp1080.setResizable(true);
-                }   AudDisp1080.setVisible(true);
+                    if (AudDisp1080.isUndecorated()){
+                        AudDisp1080.setUndecorated(false);
+                        AudDisp1080.setResizable(true);
+                    }   AudDisp1080.setVisible(true);
+                 }
                 break;
             case 4://1024
-                AudDisp1024.dispose();
-                if (AudDisp1024.isUndecorated()){
-                    AudDisp1024.setUndecorated(false);
-                    AudDisp1024.setResizable(true);
-                }   AudDisp1024.setVisible(true);
+                 if(!AudDisp1024.isVisible() && !audIsOpen){
+                    AudDisp1024.dispose();
+                    if (AudDisp1024.isUndecorated()){
+                        AudDisp1024.setUndecorated(false);
+                        AudDisp1024.setResizable(true);
+                    }   AudDisp1024.setVisible(true);
+                 }
                 break;
             case 5://800
-                AudDisp800.dispose();
-                if (AudDisp800.isUndecorated()){
-                    AudDisp800.setUndecorated(false);
-                    AudDisp800.setResizable(true);
-                }   AudDisp800.setVisible(true);
+                 if(!AudDisp800.isVisible() && !audIsOpen){
+                    AudDisp800.dispose();
+                    if (AudDisp800.isUndecorated()){
+                        AudDisp800.setUndecorated(false);
+                        AudDisp800.setResizable(true);
+                    }   AudDisp800.setVisible(true);
+                 }
                 break;
             case 2://720
-                AudDisp720.dispose();
-                if (AudDisp720.isUndecorated()){
-                    AudDisp720.setUndecorated(false);
-                    AudDisp720.setResizable(true);
-                }   AudDisp720.setVisible(true);
+                 if(!AudDisp720.isVisible() && !audIsOpen){
+                    AudDisp720.dispose();
+                    if (AudDisp720.isUndecorated()){
+                        AudDisp720.setUndecorated(false);
+                        AudDisp720.setResizable(true);
+                    }   AudDisp720.setVisible(true);
+                 }
                 break;
             default:
                 break;
         }
+        audIsOpen = true;
+        auddisplay.setEnabled(false);
         isFullscreen = false;
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
@@ -1478,7 +1489,7 @@ public static final String version = "1.0.0";
     public static javax.swing.JRadioButton Teleop;
     public static javax.swing.JLabel Timer;
     private javax.swing.JLabel VersionInfo;
-    private javax.swing.JButton auddisplay;
+    public static javax.swing.JButton auddisplay;
     private javax.swing.JLabel copyright;
     private javax.swing.JButton jButton3;
     public static javax.swing.JButton pauseresume;

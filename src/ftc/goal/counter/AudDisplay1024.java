@@ -212,16 +212,19 @@ public class AudDisplay1024 extends javax.swing.JFrame {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         SettingsUI.toggleFullscreen.setEnabled(false);
         SettingsUI.toggleFullscreen.setToolTipText("You need to open the Audience display first");
+        GoalCounterUI.auddisplay.setEnabled(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+        GoalCounterUI.auddisplay.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         SettingsUI.toggleFullscreen.setEnabled(true);
         SettingsUI.toggleFullscreen.setToolTipText("Toggle Full Screen mode for the Audience Display");
+        GoalCounterUI.auddisplay.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -249,13 +252,6 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(AudDisplay1024.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
