@@ -37,7 +37,9 @@ public class AboutUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("About");
         setBounds(new java.awt.Rectangle(0, 0, 1024, 768));
+        setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
         setResizable(false);
 
         Exit.setText("Exit");
@@ -61,7 +63,7 @@ public class AboutUI extends javax.swing.JFrame {
         AboutInfo.setEditable(false);
         AboutInfo.setContentType("text/html"); // NOI18N
         AboutInfo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        AboutInfo.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n    <p style=\"margin-top: 0\">\r\nThe Vortex Score Counter or Particle Counter, is a score counter developed exclusively for <i>FIRST</i>&reg; Tech Challenge (\"FTC\"). <br>\nAt Official in-season FTC events, live support is provide remotely by the development company and <i>FIRST</i>&reg; On-Call Support.<br>\n<br>\n<i>FIRST</i>&reg; and <i>FIRST</i>&reg; Tech Challenge are registered trademarks of <i>FIRST</i>&reg; (The United States Foundation For Inspiration and Recognition of Science and Technology). Copyright &copy; 2016 <i>FIRST</i>&reg;.  All Rights Reserved.<br>\n<br>\nThis Sofware is developed Open Source by <br>\n<a href='http://www.feragroup.com/''>Fera Group, L.L.C.</a><br>\nNovi, MI, USA 48377<br>\nhttp://www.feragroup.com/<br>\n<br>\nIn collaboration with <a href='spzproductions.x10.bz'>SPZ Productions</a> <br>\nspzproductions.x10.bz<br>\n<br>\nFor collobrating, issue reporting and software documention on this project, please visit the <a href='https://www.github.com/FeraGroup/FTCVortexScoreCounter'>GitHub Repository</a><br>\nhttps://www.github.com/FeraGroup/FTCVortexScoreCounter<br>\n<br>\n<a href='http://www.firstinspires.org/robotics/ftc'>FIRSTinspires.org/robotics/FTC</a><br>\n<br>\nMIT License<br>\n<br>\nCopyright (c) 2016 Fera Group, L.L.C.<br>\n<br>\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including <br>\nwithout limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br>\n<br>\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br>\n<br>\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE <br>\nAND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,<br>\nARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n    </p>\r\n  </body>\r\n</html>\r\n");
+        AboutInfo.setText("<html>\r\n  <head>\r\n\r\n  </head>\r\n  <body>\r\n    <p style=\"margin-top: 0\">\r\nThe Vortex Score Counter or Particle Counter, is a score counter developed exclusively for <i>FIRST</i>&reg; Tech Challenge (\"FTC\"). <br>\nAt Official in-season FTC events, live support is provide remotely by the development company and <i>FIRST</i>&reg; On-Call Support.<br>\n<br>\n<i>FIRST</i>&reg; and <i>FIRST</i>&reg; Tech Challenge are registered trademarks of <i>FIRST</i>&reg; (The United States Foundation For Inspiration and Recognition of Science and Technology). Copyright &copy; 2016 <i>FIRST</i>&reg;.  All Rights Reserved.<br>\n<br>\nThis Sofware is developed Open Source by <br>\n<a href='http://www.feragroup.com/''>Fera Group, L.L.C.</a><br>\nNovi, MI, USA 48377<br>\nhttp://www.feragroup.com/<br>\n<br>\nIn collaboration with <a href='spzproductions.x10.bz'>SPZ Productions</a> <br>\nspzproductions.x10.bz<br>\n<br>\nIcons (Center Vortex, Corner Vortex and Joysticks) Created by Deanna Matthews<br>\n<br>\nFor collobrating, issue reporting and software documention on this project, please visit the <a href='https://www.github.com/FeraGroup/FTCVortexScoreCounter'>GitHub Repository</a><br>\nhttps://www.github.com/FeraGroup/FTCVortexScoreCounter<br>\n<br>\n<a href='http://www.firstinspires.org/robotics/ftc'>FIRSTinspires.org/robotics/FTC</a><br>\n<br>\nMIT License<br>\n<br>\nCopyright (c) 2016 Fera Group, L.L.C.<br>\n<br>\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including <br>\nwithout limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br>\n<br>\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<br>\n<br>\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE <br>\nAND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,<br>\nARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n    </p>\r\n  </body>\r\n</html>\r\n");
         AboutInfo.setToolTipText("");
         AboutInfo.setMaximumSize(new java.awt.Dimension(1000, 2147483647));
         jScrollPane2.setViewportView(AboutInfo);
@@ -73,16 +75,18 @@ public class AboutUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Exit))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Exit)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -94,10 +98,10 @@ public class AboutUI extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Exit)
-                .addGap(188, 188, 188))
+                .addGap(200, 200, 200))
         );
 
         pack();
