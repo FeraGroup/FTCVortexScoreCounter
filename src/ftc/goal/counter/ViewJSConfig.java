@@ -6,6 +6,8 @@
  */
 package ftc.goal.counter;
 
+import com.sun.glass.events.KeyEvent;
+
 
 /**
  *
@@ -53,6 +55,11 @@ public class ViewJSConfig extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(400, 300));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -170,6 +177,13 @@ public class ViewJSConfig extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int key = evt.getKeyCode();
+        if(key == KeyEvent.VK_ESCAPE){
+            SettingsUI.exitFullscreen();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments

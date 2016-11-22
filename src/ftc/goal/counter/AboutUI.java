@@ -6,6 +6,8 @@
  */
 package ftc.goal.counter;
 
+import com.sun.glass.events.KeyEvent;
+
 /**
  * @author afera
  */
@@ -41,6 +43,11 @@ public class AboutUI extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1024, 768));
         setPreferredSize(new java.awt.Dimension(1024, 768));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         Exit.setText("Exit");
         Exit.setToolTipText("");
@@ -110,6 +117,13 @@ public class AboutUI extends javax.swing.JFrame {
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int key = evt.getKeyCode();
+        if(key == KeyEvent.VK_ESCAPE){
+            SettingsUI.exitFullscreen();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments

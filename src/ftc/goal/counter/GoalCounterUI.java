@@ -7,12 +7,9 @@ package ftc.goal.counter;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.applet.*;
-import java.io.File;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.InputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.JFrame;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
@@ -23,6 +20,7 @@ import sun.audio.AudioStream;
  * Novi, MI 48377
  */
 public class GoalCounterUI extends javax.swing.JFrame {
+
 
     public static boolean AutoState = true;
     public static boolean TeleState = false;
@@ -38,10 +36,10 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int BlueCorTele = 0;
     public static AudDisplay1600 AudDisp1600;
     public static AudDisplay1366 AudDisp1366;
-    public static AudDisplay1080 AudDisp1080;
+    public static AudDisplay1920 AudDisp1920;
     public static AudDisplay1024 AudDisp1024;
     public static AudDisplay800 AudDisp800;
-    public static AudDisplay720 AudDisp720;
+    public static AudDisplay1280 AudDisp1280;
     public static ViewJSConfig JSConfigView;
     public static AboutUI about;
     public static JoystickTest JS;
@@ -90,14 +88,14 @@ public static final String version = "1.0.0";
           AudDisplay1366.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
           AudDisplay1366.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
           //1080
-          AudDisplay1080.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
-          AudDisplay1080.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
-          AudDisplay1080.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
-          AudDisplay1080.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
-          AudDisplay1080.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
-          AudDisplay1080.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
-          AudDisplay1080.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
-          AudDisplay1080.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          AudDisplay1920.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1920.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1920.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1920.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1920.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1920.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1920.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1920.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
           //1024
           AudDisplay1024.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
           AudDisplay1024.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
@@ -117,23 +115,23 @@ public static final String version = "1.0.0";
           AudDisplay800.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
           AudDisplay800.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
           //720
-          AudDisplay720.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
-          AudDisplay720.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
-          AudDisplay720.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
-          AudDisplay720.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
-          AudDisplay720.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
-          AudDisplay720.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
-          AudDisplay720.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
-          AudDisplay720.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          AudDisplay1280.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplay1280.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplay1280.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplay1280.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplay1280.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplay1280.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplay1280.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplay1280.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
     
     public void updateTimers(String TimerText){
         AudDisplay1600.TimerDisplay.setText(TimerText);
         AudDisplay1366.TimerDisplay.setText(TimerText);
-        AudDisplay1080.TimerDisplay.setText(TimerText);
+        AudDisplay1920.TimerDisplay.setText(TimerText);
         AudDisplay1024.TimerDisplay.setText(TimerText);
         AudDisplay800.TimerDisplay.setText(TimerText);
-        AudDisplay720.TimerDisplay.setText(TimerText);
+        AudDisplay1280.TimerDisplay.setText(TimerText);
     }
     
     
@@ -150,17 +148,17 @@ public static final String version = "1.0.0";
             TimerActive = false;
             AudDisplay1600.TimerDisplay.setText("2:30");
             AudDisplay1366.TimerDisplay.setText("2:30");
-            AudDisplay1080.TimerDisplay.setText("2:30");
+            AudDisplay1920.TimerDisplay.setText("2:30");
             AudDisplay1024.TimerDisplay.setText("2:30");
             AudDisplay800.TimerDisplay.setText("2:30");
-            AudDisplay720.TimerDisplay.setText("2:30");
+            AudDisplay1280.TimerDisplay.setText("2:30");
             Timer.setText("Match Timer: 2:30");
             AudDisplay1600.State.setText("Autonomous Mode");
             AudDisplay1366.State.setText("Autonomous Mode");
-            AudDisplay1080.State.setText("Autonomous Mode");
+            AudDisplay1920.State.setText("Autonomous Mode");
             AudDisplay1024.State.setText("Autonomous Mode");
             AudDisplay800.State.setText("Autonomous Mode");
-            AudDisplay720.State.setText("Autonomous Mode");
+            AudDisplay1280.State.setText("Autonomous Mode");
             timerstart.setEnabled(true);
             timerstart.setText("START");
             pauseresume.setEnabled(false);
@@ -204,10 +202,10 @@ public static final String version = "1.0.0";
                 TeleState = true;
                 AudDisplay1600.State.setText("Driver-Controlled Mode");
                 AudDisplay1366.State.setText("Driver-Controlled Mode");
-                AudDisplay1080.State.setText("Driver-Controlled Mode");
+                AudDisplay1920.State.setText("Driver-Controlled Mode");
                 AudDisplay1024.State.setText("Driver-Controlled Mode");
                 AudDisplay800.State.setText("Driver-Controlled Mode");
-                AudDisplay720.State.setText("Driver-Controlled Mode");  
+                AudDisplay1280.State.setText("Driver-Controlled Mode");  
             }
             else if (TeleState == true){
                 Auto.setSelected(true);
@@ -215,10 +213,10 @@ public static final String version = "1.0.0";
                 TeleState = false;
                 AudDisplay1600.State.setText("Autonomous Mode");
                 AudDisplay1366.State.setText("Autonomous Mode");
-                AudDisplay1080.State.setText("Autonomous Mode");
+                AudDisplay1920.State.setText("Autonomous Mode");
                 AudDisplay1024.State.setText("Autonomous Mode");
                 AudDisplay800.State.setText("Autonomous Mode");
-                AudDisplay720.State.setText("Autonomous Mode");
+                AudDisplay1280.State.setText("Autonomous Mode");
                
             } 
         }
@@ -237,10 +235,10 @@ public static final String version = "1.0.0";
                 TeleState = false;
                 AudDisplay1600.State.setText("Autonomous Mode");
                 AudDisplay1366.State.setText("Autonomous Mode");
-                AudDisplay1080.State.setText("Autonomous Mode");
+                AudDisplay1920.State.setText("Autonomous Mode");
                 AudDisplay1024.State.setText("Autonomous Mode");
                 AudDisplay800.State.setText("Autonomous Mode");
-                AudDisplay720.State.setText("Autonomous Mode");  
+                AudDisplay1280.State.setText("Autonomous Mode");  
                 TimerActive = true;
             } else if(GameClock <= 120 && TimerActive == false) {
                     pauseresume.setEnabled(true);
@@ -252,13 +250,13 @@ public static final String version = "1.0.0";
                     Teleop.setSelected(true);
                     AutoState = false;
                     TeleState = true;
-                    AudDisplay1080.State.setText("Driver-Controlled Mode");
+                    AudDisplay1920.State.setText("Driver-Controlled Mode");
                     AudDisplay1600.State.setText("Driver-Controlled Mode");
                     AudDisplay1366.State.setText("Driver-Controlled Mode");
-                    AudDisplay1080.State.setText("Driver-Controlled Mode");
+                    AudDisplay1920.State.setText("Driver-Controlled Mode");
                     AudDisplay1024.State.setText("Driver-Controlled Mode");
                     AudDisplay800.State.setText("Driver-Controlled Mode");
-                    AudDisplay720.State.setText("Driver-Controlled Mode");
+                    AudDisplay1280.State.setText("Driver-Controlled Mode");
                     TimerActive = true;
                 }
             }
@@ -808,8 +806,7 @@ public static final String version = "1.0.0";
             resetcounters();
             JoystickTest.pressLstJSTimerBack = true;
         }
-    }
-              
+    }          
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -877,6 +874,11 @@ public static final String version = "1.0.0";
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(440, 600));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         RedAlliance.setBackground(new java.awt.Color(237, 28, 36));
         RedAlliance.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Red Vortex", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -1304,6 +1306,16 @@ public static final String version = "1.0.0";
 //Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         switch (SettingsUI.AudDispOpen) {
+            case 0://1080
+                if(!AudDisp1920.isVisible() && !audIsOpen){
+                    AudDisp1920.dispose();
+                    if (AudDisp1920.isUndecorated()){
+                        AudDisp1920.setUndecorated(false);
+                        AudDisp1920.setResizable(true);
+                    }   AudDisp1920.setVisible(true);
+                    audIsOpen = true;
+                 }   
+                break;
             case 1://1600
                 if(!AudDisp1600.isVisible() && !audIsOpen){
                     AudDisp1600.dispose();
@@ -1312,33 +1324,38 @@ public static final String version = "1.0.0";
                         AudDisp1600.setResizable(true);
                     }
                     AudDisp1600.setVisible(true);
-                }   break;
-            case 3://1366
+                    audIsOpen = true;
+                }
+                break;
+            case 2://1366
                 if(!AudDisp1366.isVisible() && !audIsOpen){
                     AudDisp1366.dispose();
                     if (AudDisp1366.isUndecorated()){
                         AudDisp1366.setUndecorated(false);
                         AudDisp1366.setResizable(true);
                     }   AudDisp1366.setVisible(true);
+                    audIsOpen = true;
                 }
                 break;
-            case 0://1080
-                 if(!AudDisp1080.isVisible() && !audIsOpen){
-                AudDisp1080.dispose();
-                    if (AudDisp1080.isUndecorated()){
-                        AudDisp1080.setUndecorated(false);
-                        AudDisp1080.setResizable(true);
-                    }   AudDisp1080.setVisible(true);
-                 }
+            case 3://720
+                if(!AudDisp1280.isVisible() && !audIsOpen){
+                   AudDisp1280.dispose();
+                   if (AudDisp1280.isUndecorated()){
+                       AudDisp1280.setUndecorated(false);
+                       AudDisp1280.setResizable(true);
+                   }   AudDisp1280.setVisible(true);
+                   audIsOpen = true;
+                }
                 break;
             case 4://1024
-                 if(!AudDisp1024.isVisible() && !audIsOpen){
-                    AudDisp1024.dispose();
-                    if (AudDisp1024.isUndecorated()){
-                        AudDisp1024.setUndecorated(false);
-                        AudDisp1024.setResizable(true);
-                    }   AudDisp1024.setVisible(true);
-                 }
+                if(!AudDisp1024.isVisible() && !audIsOpen){
+                   AudDisp1024.dispose();
+                   if (AudDisp1024.isUndecorated()){
+                       AudDisp1024.setUndecorated(false);
+                       AudDisp1024.setResizable(true);
+                   }   AudDisp1024.setVisible(true);
+                   audIsOpen = true;
+                }
                 break;
             case 5://800
                  if(!AudDisp800.isVisible() && !audIsOpen){
@@ -1347,19 +1364,11 @@ public static final String version = "1.0.0";
                         AudDisp800.setUndecorated(false);
                         AudDisp800.setResizable(true);
                     }   AudDisp800.setVisible(true);
-                 }
-                break;
-            case 2://720
-                 if(!AudDisp720.isVisible() && !audIsOpen){
-                    AudDisp720.dispose();
-                    if (AudDisp720.isUndecorated()){
-                        AudDisp720.setUndecorated(false);
-                        AudDisp720.setResizable(true);
-                    }   AudDisp720.setVisible(true);
+                    audIsOpen = true;
                  }
                 break;
             default:
-                break;
+        break;
         }
         audIsOpen = true;
         auddisplay.setEnabled(false);
@@ -1399,6 +1408,13 @@ public static final String version = "1.0.0";
         }
     }//GEN-LAST:event_pauseresumeActionPerformed
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int key = evt.getKeyCode();
+        if(key == com.sun.glass.events.KeyEvent.VK_ESCAPE){
+            SettingsUI.exitFullscreen();
+        }
+    }//GEN-LAST:event_formKeyPressed
+
     public static GoalCounterUI goal;
     /**
      * @param args the command line arguments
@@ -1433,18 +1449,18 @@ public static final String version = "1.0.0";
         goal.setVisible(true);
         settings = new SettingsUI();
         settings.setVisible(true);
+        AudDisp1920 = new AudDisplay1920();
+        AudDisp1920.setVisible(false);
         AudDisp1600 = new AudDisplay1600();
         AudDisp1600.setVisible(false);
         AudDisp1366 = new AudDisplay1366();
         AudDisp1366.setVisible(false);
-        AudDisp1080 = new AudDisplay1080();
-        AudDisp1080.setVisible(false);
+        AudDisp1280 = new AudDisplay1280();
+        AudDisp1280.setVisible(false);
         AudDisp1024 = new AudDisplay1024();
         AudDisp1024.setVisible(false);
         AudDisp800 = new AudDisplay800();
         AudDisp800.setVisible(false);
-        AudDisp720 = new AudDisplay720();
-        AudDisp720.setVisible(false);
         JSConfigView = new ViewJSConfig();
         JSConfigView.setVisible(false);        
         about = new AboutUI();

@@ -6,6 +6,8 @@
  */
 package ftc.goal.counter;
 
+import com.sun.glass.events.KeyEvent;
+
 
 /**
  *
@@ -58,8 +60,8 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(300, 400));
-        setPreferredSize(new java.awt.Dimension(1024, 768));
-        setSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1042, 768));
+        setSize(new java.awt.Dimension(1042, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -69,6 +71,11 @@ public class AudDisplay1024 extends javax.swing.JFrame {
             }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
+            }
+        });
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
             }
         });
 
@@ -192,6 +199,9 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         TimerDisplay.setBounds(0, 0, 1030, 270);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispBackground1024p.png"))); // NOI18N
+        background.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        background.setMinimumSize(new java.awt.Dimension(400, 300));
+        background.setRequestFocusEnabled(false);
         jPanel1.add(background);
         background.setBounds(0, 0, 1024, 768);
 
@@ -199,11 +209,11 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1920, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -233,6 +243,13 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         GoalCounterUI.audIsOpen = true;
         SettingsUI.jComboBox1.setEnabled(false);
     }//GEN-LAST:event_formWindowActivated
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int key = evt.getKeyCode();
+        if(key == KeyEvent.VK_ESCAPE){
+            SettingsUI.exitFullscreen();
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments
