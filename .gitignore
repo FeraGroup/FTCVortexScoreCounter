@@ -17,6 +17,13 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# IntelliJ IDEA
+*.iml
+.idea
+META-INF
+out
+*.jar
+
 # =========================
 # Operating System Files
 # =========================
