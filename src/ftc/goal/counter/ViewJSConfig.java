@@ -56,6 +56,7 @@ public class ViewJSConfig extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Joystick Map");
         setBackground(new java.awt.Color(0, 0, 0));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(400, 300));
