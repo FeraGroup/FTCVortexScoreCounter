@@ -7,6 +7,8 @@
 package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +21,8 @@ public class JoyStickSelectUI extends javax.swing.JFrame {
      */
     public JoyStickSelectUI() {
         initComponents();
+        Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
+        setIconImage(img);
     }
 
     /**
@@ -55,6 +59,8 @@ public class JoyStickSelectUI extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         if(key == KeyEvent.VK_ESCAPE){
             SettingsUI.exitFullscreen();
+        }else if(key == KeyEvent.VK_F5){
+            SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
 

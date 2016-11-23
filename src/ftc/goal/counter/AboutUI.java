@@ -7,6 +7,8 @@
 package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  * @author afera
@@ -18,6 +20,8 @@ public class AboutUI extends javax.swing.JFrame {
      */
     public AboutUI() {
         initComponents();
+        Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
+        setIconImage(img);
     }
 
     /**

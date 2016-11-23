@@ -7,6 +7,8 @@
 package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -20,6 +22,8 @@ public class AudDisplay800 extends javax.swing.JFrame {
      */
     public AudDisplay800() {
         initComponents();
+        Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
+        setIconImage(img);
     }
 
     /**
@@ -182,6 +186,8 @@ public class AudDisplay800 extends javax.swing.JFrame {
         BlueCorJSOrange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerOrangeSmall.png"))); // NOI18N
         jPanel1.add(BlueCorJSOrange);
         BlueCorJSOrange.setBounds(70, 520, 60, 50);
+
+        BlueCorJSGreen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ControllerGreenSmall.png"))); // NOI18N
         jPanel1.add(BlueCorJSGreen);
         BlueCorJSGreen.setBounds(70, 520, 60, 50);
 
@@ -238,6 +244,8 @@ public class AudDisplay800 extends javax.swing.JFrame {
         int key = evt.getKeyCode();
         if(key == KeyEvent.VK_ESCAPE){
             SettingsUI.exitFullscreen();
+        }else if(key == KeyEvent.VK_F5){
+            SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
 

@@ -5,13 +5,18 @@
  */
 package ftc.goal.counter;
 
+
+import com.sun.glass.events.KeyEvent;
+import java.awt.Image;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.InputStream;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
+import java.awt.Toolkit;
+import java.net.URL;
+import javax.swing.ImageIcon;
+
 
 /*
  * @author afera
@@ -49,8 +54,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static int ClockRemaining = 150;
     public static boolean isFullscreen = false;
     public static boolean audIsOpen = false;
-
-public static final String version = "1.0.0";
+    public static String iconURL = "/ftc/goal/counter/images/FIRSTicon_RGB_withTM.png";
+    public static final String version = "1.0.0";
 
     /**
      * Creates new form GoalCounterUI
@@ -58,6 +63,8 @@ public static final String version = "1.0.0";
     
     public GoalCounterUI() {
         initComponents();
+        Image img = new ImageIcon(getClass().getResource(iconURL)).getImage();
+        setIconImage(img);
     }
     
     public static void spinnersync(){
@@ -1410,8 +1417,10 @@ public static final String version = "1.0.0";
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         int key = evt.getKeyCode();
-        if(key == com.sun.glass.events.KeyEvent.VK_ESCAPE){
+        if(key == KeyEvent.VK_ESCAPE){
             SettingsUI.exitFullscreen();
+        }else if(key == KeyEvent.VK_F5){
+            SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -1466,6 +1475,7 @@ public static final String version = "1.0.0";
         about = new AboutUI();
         about.setVisible(false);
         JS = new JoystickTest();  
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

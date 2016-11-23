@@ -17,6 +17,8 @@ import static ftc.goal.counter.GoalCounterUI.JSConfigView;
 import static ftc.goal.counter.GoalCounterUI.audIsOpen;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1920;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1280;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -50,6 +52,8 @@ public class SettingsUI extends javax.swing.JFrame {
      */
     public SettingsUI() {
         initComponents();
+        Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
+        setIconImage(img);
     }
 
     /**
@@ -394,11 +398,6 @@ public class SettingsUI extends javax.swing.JFrame {
                 toggleFullscreenActionPerformed(evt);
             }
         });
-        toggleFullscreen.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                toggleFullscreenKeyPressed(evt);
-            }
-        });
 
         JSMap.setText("Joystick Map");
         JSMap.addActionListener(new java.awt.event.ActionListener() {
@@ -500,7 +499,7 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp1920.setUndecorated(false);
             AudDisp1920.setResizable(true);
             AudDisp1920.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             audIsOpen = true;
             isFullscreen = false;
         }else if(AudDispOpen == 1 && isFullscreen){
@@ -508,7 +507,7 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp1600.setUndecorated(false);
             AudDisp1600.setResizable(true);
             AudDisp1600.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             isFullscreen = false;         
             audIsOpen = true;
         }else if(AudDispOpen == 2 && isFullscreen){
@@ -516,7 +515,7 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp1366.setUndecorated(false);
             AudDisp1366.setResizable(true);
             AudDisp1366.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             isFullscreen = false;
             audIsOpen = true;
         }else if(AudDispOpen == 3 && isFullscreen){
@@ -524,7 +523,7 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp1280.setUndecorated(false);
             AudDisp1280.setResizable(true);
             AudDisp1280.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             isFullscreen = false;
             audIsOpen = true;
         }else if(AudDispOpen == 4 && isFullscreen){
@@ -532,7 +531,7 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp1024.setUndecorated(false);
             AudDisp1024.setResizable(true);
             AudDisp1024.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             isFullscreen = false;
             audIsOpen = true;
         }else if(AudDispOpen == 5 && isFullscreen){
@@ -540,9 +539,77 @@ public class SettingsUI extends javax.swing.JFrame {
             AudDisp800.setUndecorated(false);
             AudDisp800.setResizable(true);
             AudDisp800.setVisible(true);
-            SettingsUI.toggleFullscreen.setEnabled(true);
+            toggleFullscreen.setEnabled(true);
             isFullscreen = false;
             audIsOpen = true;
+        }
+    }
+    
+    public static void enterFullscreen(){
+         if(SettingsUI.AudDispOpen == 0 && AudDisp1920.isVisible() && isFullscreen == false){//1900
+             AudDisp1920.dispose();
+             AudDisp1920.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             AudDisp1920.setUndecorated(true);
+             AudDisp1920.setResizable(false);
+             AudDisp1920.setVisible(true);
+             isFullscreen = true;
+             toggleFullscreen.setEnabled(true);
+             audIsOpen = true;
+       }else if(SettingsUI.AudDispOpen == 1 && AudDisp1600.isVisible() && isFullscreen == false){//1600
+             AudDisp1600.dispose();
+             AudDisp1600.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             AudDisp1600.setUndecorated(true);
+             AudDisp1600.setResizable(false);
+             AudDisp1600.setVisible(true);
+             isFullscreen = true;
+             audIsOpen = true;
+             SettingsUI.toggleFullscreen.setEnabled(true);
+        }else if(SettingsUI.AudDispOpen == 2 && AudDisp1366.isVisible() && isFullscreen == false){//1366
+             AudDisp1366.dispose();
+             AudDisp1366.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             AudDisp1366.setUndecorated(true);
+             AudDisp1366.setResizable(false);
+             AudDisp1366.setVisible(true);
+             isFullscreen = true;
+             audIsOpen = true;
+             toggleFullscreen.setEnabled(true);
+
+        }else if(SettingsUI.AudDispOpen == 3 && AudDisp1280.isVisible() && isFullscreen == false){//1280
+             AudDisp1280.dispose();
+             AudDisp1280.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             AudDisp1280.setUndecorated(true);
+             AudDisp1280.setResizable(false);
+             AudDisp1280.setVisible(true);
+             isFullscreen = true;
+             toggleFullscreen.setEnabled(true);
+             audIsOpen = true;
+        }else if(SettingsUI.AudDispOpen == 4 && AudDisp1024.isVisible() && isFullscreen == false){//1024
+             AudDisp1024.dispose();
+             AudDisp1024.setExtendedState(JFrame.MAXIMIZED_BOTH);
+             AudDisp1024.setUndecorated(true);
+             AudDisp1024.setResizable(false);
+             AudDisp1024.setVisible(true);
+             isFullscreen = true;
+             toggleFullscreen.setEnabled(true);
+             audIsOpen = true;
+    }else if(SettingsUI.AudDispOpen == 5 && AudDisp800.isVisible() && isFullscreen == false){//800
+            AudDisp800.dispose();
+            AudDisp800.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            AudDisp800.setUndecorated(true);
+            AudDisp800.setResizable(false);
+            AudDisp800.setVisible(true);
+            isFullscreen = true;
+            toggleFullscreen.setEnabled(true);
+            audIsOpen = true;
+        }
+        
+    }
+    
+    public static void toggleFullscreen(){
+        if(isFullscreen){
+            exitFullscreen();
+        }else{
+            enterFullscreen();
         }
     }
     
@@ -728,120 +795,7 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_ModeActionPerformed
 
     private void toggleFullscreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toggleFullscreenActionPerformed
-       if(SettingsUI.AudDispOpen == 0 && AudDisp1920.isVisible()){//1920
-            if(isFullscreen == false){
-                 AudDisp1920.dispose();
-                 AudDisp1920.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1920.setUndecorated(true);
-                 AudDisp1920.setResizable(false);
-                 AudDisp1920.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp1920.dispose();
-                AudDisp1920.setUndecorated(false);
-                AudDisp1920.setResizable(true);
-                AudDisp1920.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;
-            }
-       }else if(SettingsUI.AudDispOpen == 1 && AudDisp1600.isVisible()){//1600
-            if(isFullscreen == false){
-                 AudDisp1600.dispose();
-                 AudDisp1600.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1600.setUndecorated(true);
-                 AudDisp1600.setResizable(false);
-                 AudDisp1600.setVisible(true);
-                 isFullscreen = true;
-                 audIsOpen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-            }else{
-                AudDisp1600.dispose();
-                AudDisp1600.setUndecorated(false);
-                AudDisp1600.setResizable(true);
-                AudDisp1600.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                isFullscreen = false;         
-                audIsOpen = true;
-            }
-        }else if(SettingsUI.AudDispOpen == 2 && AudDisp1366.isVisible()){//1366
-            if(isFullscreen == false){
-                 AudDisp1366.dispose();
-                 AudDisp1366.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1366.setUndecorated(true);
-                 AudDisp1366.setResizable(false);
-                 AudDisp1366.setVisible(true);
-                 isFullscreen = true;
-                 audIsOpen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-            }else{
-                AudDisp1366.dispose();
-                AudDisp1366.setUndecorated(false);
-                AudDisp1366.setResizable(true);
-                AudDisp1366.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                isFullscreen = false;
-                audIsOpen = true;
-            }
-        }else if(SettingsUI.AudDispOpen == 3 && AudDisp1280.isVisible()){//1280
-            if(isFullscreen == false){
-                 AudDisp1280.dispose();
-                 AudDisp1280.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1280.setUndecorated(true);
-                 AudDisp1280.setResizable(false);
-                 AudDisp1280.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp1280.dispose();
-                AudDisp1280.setUndecorated(false);
-                AudDisp1280.setResizable(true);
-                AudDisp1280.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                isFullscreen = false;
-                audIsOpen = true;
-            }
-        }else if(SettingsUI.AudDispOpen == 4 && AudDisp1024.isVisible()){//1024
-            if(isFullscreen == false){
-                 AudDisp1024.dispose();
-                 AudDisp1024.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1024.setUndecorated(true);
-                 AudDisp1024.setResizable(false);
-                 AudDisp1024.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp1024.dispose();
-                AudDisp1024.setUndecorated(false);
-                AudDisp1024.setResizable(true);
-                AudDisp1024.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-            }
-        }else if(SettingsUI.AudDispOpen == 5 && AudDisp800.isVisible()){//800
-                        if(isFullscreen == false){
-                 AudDisp800.dispose();
-                 AudDisp800.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp800.setUndecorated(true);
-                 AudDisp800.setResizable(false);
-                 AudDisp800.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp800.dispose();
-                AudDisp800.setUndecorated(false);
-                AudDisp800.setResizable(true);
-                AudDisp800.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                isFullscreen = false;
-                audIsOpen = true;
-            }
-        }
+       toggleFullscreen();
     }//GEN-LAST:event_toggleFullscreenActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -879,128 +833,12 @@ public class SettingsUI extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_JSResetActionPerformed
 
-    private void toggleFullscreenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_toggleFullscreenKeyPressed
-        if(SettingsUI.AudDispOpen == 0 && AudDisp1920.isVisible()){//1920
-            if(isFullscreen == false){
-                 AudDisp1920.dispose();
-                 AudDisp1920.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1920.setUndecorated(true);
-                 AudDisp1920.setResizable(false);
-                 AudDisp1920.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp1920.dispose();
-                AudDisp1920.setUndecorated(false);
-                AudDisp1920.setResizable(true);
-                AudDisp1920.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;
-            }
-       }else if(SettingsUI.AudDispOpen == 1 && AudDisp1600.isVisible()){//1600
-           if(isFullscreen == false){
-                 AudDisp1600.dispose();
-                 AudDisp1600.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                 AudDisp1600.setUndecorated(true);
-                 AudDisp1600.setResizable(false);
-                 AudDisp1600.setVisible(true);
-                 isFullscreen = true;
-                 SettingsUI.toggleFullscreen.setEnabled(true);
-                 audIsOpen = true;
-            }else{
-                AudDisp1600.dispose();
-                AudDisp1600.setUndecorated(false);
-                AudDisp1600.setResizable(true);
-                AudDisp1600.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;        
-            }    
-       }else if(SettingsUI.AudDispOpen == 2 && AudDisp1366.isVisible()){//1366
-            if(isFullscreen == false){
-                AudDisp1366.dispose();
-                AudDisp1366.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                AudDisp1366.setUndecorated(true);
-                AudDisp1366.setResizable(false);
-                AudDisp1366.setVisible(true);
-                isFullscreen = true;
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-            }else{
-                AudDisp1366.dispose();
-                AudDisp1366.setUndecorated(false);
-                AudDisp1366.setResizable(true);
-                AudDisp1366.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;
-            }    
-       }else if(SettingsUI.AudDispOpen == 3 && AudDisp1280.isVisible()){//1280
-           if(isFullscreen == false){
-                AudDisp1280.dispose();
-                AudDisp1280.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                AudDisp1280.setUndecorated(true);
-                AudDisp1280.setResizable(false);
-                AudDisp1280.setVisible(true);
-                isFullscreen = true;
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-            }else{
-                AudDisp1280.dispose();
-                AudDisp1280.setUndecorated(false);
-                AudDisp1280.setResizable(true);
-                AudDisp1280.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;
-           }
-        }else if(SettingsUI.AudDispOpen == 4 && AudDisp1024.isVisible()){//1024
-            if(isFullscreen == false){
-                AudDisp1024.dispose();
-                AudDisp1024.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                AudDisp1024.setUndecorated(true);
-                AudDisp1024.setResizable(false);
-                AudDisp1024.setVisible(true);
-                isFullscreen = true;
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-            }else{
-                AudDisp1024.dispose();
-                AudDisp1024.setUndecorated(false);
-                AudDisp1024.setResizable(true);
-                AudDisp1024.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;
-            }
-        }else if(SettingsUI.AudDispOpen == 5 && AudDisp800.isVisible()){//800
-            if(isFullscreen == false){
-                AudDisp800.dispose();
-                AudDisp800.setExtendedState(JFrame.MAXIMIZED_BOTH);
-                AudDisp800.setUndecorated(true);
-                AudDisp800.setResizable(false);
-                AudDisp800.setVisible(true);
-                isFullscreen = true;
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-            }else{
-                AudDisp800.dispose();
-                AudDisp800.setUndecorated(false);
-                AudDisp800.setResizable(true);
-                AudDisp800.setVisible(true);
-                SettingsUI.toggleFullscreen.setEnabled(true);
-                audIsOpen = true;
-                isFullscreen = false;   
-            }
-         }   
-    }//GEN-LAST:event_toggleFullscreenKeyPressed
-
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         int key = evt.getKeyCode();
         if(key == KeyEvent.VK_ESCAPE){
             SettingsUI.exitFullscreen();
+        }else if(key == KeyEvent.VK_F5){
+            SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
  
