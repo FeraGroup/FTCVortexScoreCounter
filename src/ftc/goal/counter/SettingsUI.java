@@ -46,6 +46,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean JSTimer = true;
     public static boolean Reset = true;
     public static int AudDispOpen = 0;
+    static public boolean controllerLoopRun = true;
     
     /**
      * Creates new form SettingsUI
@@ -765,14 +766,25 @@ public class SettingsUI extends javax.swing.JFrame {
     }//GEN-LAST:event_BlueCorContRightActionPerformed
 
     private void RePullJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RePullJSActionPerformed
-        RedCenControlSelect.removeAllItems();
-        BlueCenControlSelect.removeAllItems();
-        RedCorControlSelect.removeAllItems();
-        BlueCorControlSelect.removeAllItems();
-        TimerControlSelect.removeAllItems();
-        JoystickTest.foundControllers.clear();
-        JoystickTest.searchForControllers();
-        
+        boolean noControllers = false;
+        JoystickTest.searchControllers.clear();
+        JoystickTest.searchForControllers(true);
+        if(JoystickTest.searchControllers.isEmpty()){
+            noControllers = true;
+            NoControllerName();
+            controllerLoopRun = false;
+            JoystickTest.foundControllers.clear();
+        }else{
+            RedCenControlSelect.removeAllItems();
+            BlueCenControlSelect.removeAllItems();
+            RedCorControlSelect.removeAllItems();
+            BlueCorControlSelect.removeAllItems();
+            TimerControlSelect.removeAllItems();  
+            JoystickTest.foundControllers.clear();
+            JoystickTest.searchForControllers(false);
+            controllerLoopRun = true;
+        }
+     
     }//GEN-LAST:event_RePullJSActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
@@ -842,7 +854,7 @@ public class SettingsUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formKeyPressed
  
-    
+   
 public static int getSelectedControllerNameRedCen(){
     return RedCenControlSelect.getSelectedIndex();
 }
@@ -871,6 +883,11 @@ public static int getSelectedControllerNameTimer(){
     }
     
     public static void NoControllerName(){
+        RedCenControlSelect.removeAllItems();
+        BlueCenControlSelect.removeAllItems();
+        RedCorControlSelect.removeAllItems();
+        BlueCorControlSelect.removeAllItems();
+        TimerControlSelect.removeAllItems();
         RedCenControlSelect.addItem("No Controllers Found");
         BlueCenControlSelect.addItem("No Controllers Found");
         RedCorControlSelect.addItem("No Controllers Found");
