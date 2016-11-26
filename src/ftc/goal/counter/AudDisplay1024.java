@@ -7,8 +7,10 @@
 package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 
 
 /**
@@ -24,6 +26,7 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         initComponents();
         Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
         setIconImage(img);
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -34,6 +37,7 @@ public class AudDisplay1024 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         BlueCorAutoDisplay = new javax.swing.JLabel();
@@ -61,7 +65,7 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(255, 255, 255));
         setIconImages(null);
         setMinimumSize(new java.awt.Dimension(300, 400));
         setPreferredSize(new java.awt.Dimension(1042, 768));
@@ -82,11 +86,19 @@ public class AudDisplay1024 extends javax.swing.JFrame {
                 formKeyPressed(evt);
             }
         });
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0};
+        layout.rowHeights = new int[] {0};
+        layout.columnWeights = new double[] {0.0};
+        layout.rowWeights = new double[] {0.0};
+        getContentPane().setLayout(layout);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 100));
+        jPanel1.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        jPanel1.setAlignmentY(JComponent.CENTER_ALIGNMENT);
+        jPanel1.setMaximumSize(new java.awt.Dimension(1024, 768));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1024, 768));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
         jPanel1.setLayout(null);
 
         BlueCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 90)); // NOI18N
@@ -209,16 +221,11 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         jPanel1.add(background);
         background.setBounds(0, 0, 1024, 768);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1043, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 768, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

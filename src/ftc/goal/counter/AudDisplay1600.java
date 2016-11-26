@@ -7,6 +7,7 @@
 package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -24,6 +25,7 @@ public class AudDisplay1600 extends javax.swing.JFrame {
         initComponents();
         Image img = new ImageIcon(getClass().getResource(GoalCounterUI.iconURL)).getImage();
         setIconImage(img);
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -34,6 +36,7 @@ public class AudDisplay1600 extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         TimerDisplay = new javax.swing.JLabel();
@@ -82,10 +85,16 @@ public class AudDisplay1600 extends javax.swing.JFrame {
                 formKeyPressed(evt);
             }
         });
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0};
+        layout.rowHeights = new int[] {0};
+        layout.columnWeights = new double[] {0.0};
+        layout.rowWeights = new double[] {0.0};
+        getContentPane().setLayout(layout);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        jPanel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1600, 1200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1600, 1200));
         jPanel1.setPreferredSize(new java.awt.Dimension(1600, 1200));
         jPanel1.setLayout(null);
 
@@ -203,18 +212,13 @@ public class AudDisplay1600 extends javax.swing.JFrame {
         jPanel1.add(background);
         background.setBounds(0, 0, 1600, 1200);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1610, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        getContentPane().add(jPanel1, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
