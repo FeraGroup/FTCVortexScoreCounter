@@ -55,7 +55,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static boolean isFullscreen = false;
     public static boolean audIsOpen = false;
     public static String iconURL = "/ftc/goal/counter/images/FIRSTicon_RGB_withTM.png";
-    public static final String version = "1.0.0";
+    public static final String version = "1.0.2";
 
     /**
      * Creates new form GoalCounterUI
