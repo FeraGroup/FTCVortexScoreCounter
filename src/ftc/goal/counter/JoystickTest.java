@@ -105,6 +105,7 @@ public class JoystickTest {
     /**
      * Search (and save) for controllers of type Controller.Type.STICK,
      * Controller.Type.GAMEPAD, Controller.Type.WHEEL and Controller.Type.FINGERSTICK.
+     * @param look
      */
     public static void searchForControllers(boolean look) {
         Controller[] controllers = null;
@@ -484,32 +485,26 @@ public class JoystickTest {
                     //peach color
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(1, 1);
-                }
-                else if(SettingsUI.RedCenBtn == false && SettingsUI.RedCenLeft == false && SettingsUI.RedCenRight == false){
+                }else if(SettingsUI.RedCenBtn == false && SettingsUI.RedCenLeft == false && SettingsUI.RedCenRight == false){
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(1, 1);
-                }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenBtn == true && SettingsUI.RedCorBtn == true){
-                        //Orange
-                        GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(1, 2);
-                    }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenLeft == true && SettingsUI.RedCorLeft == true){
-                        //Orange
-                        GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(1, 2);
-                    }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenRight == true && SettingsUI.RedCorRight == true){
-                        //Orange
-                        GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(1, 2);
-                    }
-                else if(selectedControllerRedCen == selectedControllerBlueCen || selectedControllerRedCen == selectedControllerBlueCor){
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenBtn == true && SettingsUI.RedCorBtn == true){
                     //Orange
-                        GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(1, 2);
-                    }
-                else {
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(1, 2);
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenLeft == true && SettingsUI.RedCorLeft == true){
+                    //Orange
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(1, 2);
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenRight == true && SettingsUI.RedCorRight == true){
+                    //Orange
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(1, 2);
+                }else if(selectedControllerRedCen == selectedControllerBlueCen || selectedControllerRedCen == selectedControllerBlueCor){
+                    //Orange
+                    GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(1, 2);
+                }else {
                     //green
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
                     updateJSstatusDisplays(1, 3);
@@ -517,108 +512,91 @@ public class JoystickTest {
 
                 if( !controllerRedCor.poll() ){
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                        updateJSstatusDisplays(2, 1);
-                }
-                else if(SettingsUI.RedCorBtn == false && SettingsUI.RedCorLeft == false && SettingsUI.RedCorRight == false){
+                    updateJSstatusDisplays(2, 1);
+                }else if(SettingsUI.RedCorBtn == false && SettingsUI.RedCorLeft == false && SettingsUI.RedCorRight == false){
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                        updateJSstatusDisplays(2, 1);
-                }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenBtn == true && SettingsUI.RedCorBtn == true){
-                        //Orange
-                        GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(2, 2);
-                    }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenLeft == true && SettingsUI.RedCorLeft == true){
-                        //Orange
-                        GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(2, 2);
-                    }
-                else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenRight == true && SettingsUI.RedCorRight == true){
-                        //Orange
-                        GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(2, 2);
-                    }
-                else if(selectedControllerRedCor == selectedControllerBlueCen || selectedControllerRedCor == selectedControllerBlueCor){
+                    updateJSstatusDisplays(2, 1);
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenBtn == true && SettingsUI.RedCorBtn == true){
                     //Orange
-                        GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(2, 2);
-                    }
-                else {
-                    //green
-                        GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                        updateJSstatusDisplays(2, 3);
-                }
-                    if( !controllerBlueCor.poll() ){
-                        GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                        updateJSstatusDisplays(3, 1);
-                    }
-                else if(SettingsUI.BlueCorBtn == false && SettingsUI.BlueCorLeft == false && SettingsUI.BlueCorRight == false){
-                        GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
-                        updateJSstatusDisplays(3, 1);
-                }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenBtn == true && SettingsUI.BlueCorBtn == true){
-                        //Orange
-                            GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                            updateJSstatusDisplays(3, 2);
-                    }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenLeft == true && SettingsUI.BlueCorLeft == true){
-                        //Orange
-                            GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                            updateJSstatusDisplays(3, 2);
-                    }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenRight == true && SettingsUI.BlueCorRight == true){
-                        //Orange
-                            GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                            updateJSstatusDisplays(3, 2);
-                    }
-                else if(selectedControllerBlueCor == selectedControllerRedCen || selectedControllerBlueCor == selectedControllerRedCor){
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(2, 2);
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenLeft == true && SettingsUI.RedCorLeft == true){
                     //Orange
-                            GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                            updateJSstatusDisplays(3, 2);
-                    }
-                else {
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(2, 2);
+                }else if(selectedControllerRedCen == selectedControllerRedCor && SettingsUI.RedCenRight == true && SettingsUI.RedCorRight == true){
+                        //Orange
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(2, 2);
+                }else if(selectedControllerRedCor == selectedControllerBlueCen || selectedControllerRedCor == selectedControllerBlueCor){
+                    //Orange
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(2, 2);
+                }else {
                     //green
-                            GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                            updateJSstatusDisplays(3, 3);
+                    GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                    updateJSstatusDisplays(2, 3);
+                }
+                
+                if( !controllerBlueCor.poll() ){
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+                    updateJSstatusDisplays(3, 1);
+                }else if(SettingsUI.BlueCorBtn == false && SettingsUI.BlueCorLeft == false && SettingsUI.BlueCorRight == false){
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
+                    updateJSstatusDisplays(3, 1);
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenBtn == true && SettingsUI.BlueCorBtn == true){
+                    //Orange
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(3, 2);
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenLeft == true && SettingsUI.BlueCorLeft == true){
+                    //Orange
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(3, 2);
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenRight == true && SettingsUI.BlueCorRight == true){
+                    //Orange
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(3, 2);
+                }else if(selectedControllerBlueCor == selectedControllerRedCen || selectedControllerBlueCor == selectedControllerRedCor){
+                    //Orange
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(3, 2);
+                }else {
+                    //green
+                    GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                    updateJSstatusDisplays(3, 3);
                 }
                 if( !controllerBlueCen.poll() ){
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(4, 1);
-                } 
-                else if(SettingsUI.BlueCenBtn == false && SettingsUI.BlueCenLeft == false && SettingsUI.BlueCenRight == false){
+                }else if(SettingsUI.BlueCenBtn == false && SettingsUI.BlueCenLeft == false && SettingsUI.BlueCenRight == false){
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(4, 1);
-                }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenBtn == true && SettingsUI.BlueCorBtn == true){
-                        //Orange
-                        GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(4, 2);
-                    }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenLeft == true && SettingsUI.BlueCorLeft == true){
-                        //Orange
-                        GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(4, 2);
-                    }
-                else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenRight == true && SettingsUI.BlueCorRight == true){
-                        //Orange
-                        GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(4, 2);
-                    }
-                else if(selectedControllerBlueCen == selectedControllerRedCen || selectedControllerBlueCen == selectedControllerRedCor){
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenBtn == true && SettingsUI.BlueCorBtn == true){
                     //Orange
-                        GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
-                        updateJSstatusDisplays(4, 2);
-                    }
-                else {
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(4, 2);
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenLeft == true && SettingsUI.BlueCorLeft == true){
+                    //Orange
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(4, 2);
+                }else if(selectedControllerBlueCen == selectedControllerBlueCor && SettingsUI.BlueCenRight == true && SettingsUI.BlueCorRight == true){
+                        //Orange
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(4, 2);
+                }else if(selectedControllerBlueCen == selectedControllerRedCen || selectedControllerBlueCen == selectedControllerRedCor){
+                    //Orange
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(245, 126, 37));
+                    updateJSstatusDisplays(4, 2);
+                }else {
                     //green
-                        GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
-                        updateJSstatusDisplays(4, 3);
+                    GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(0, 166, 81));
+                    updateJSstatusDisplays(4, 3);
                 }           
 
                 // Go trough all components of the controller.
                 Component[] components = controllerRedCen.getComponents();
-                for(int i=0; i < components.length; i++)
-                {
+                for(int i=0; i < components.length; i++){
+                    
                     Component component = components[i];
                     Identifier componentIdentifier = component.getIdentifier();
 
@@ -746,8 +724,7 @@ public class JoystickTest {
 
                         if(componentbluecen.getPollData() != 0.0f){
                             PressJSBlueCenAbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenAbtn = false;
                         }
 
@@ -765,8 +742,7 @@ public class JoystickTest {
 
                         if(componentbluecen.getPollData() != 0.0f){
                             PressJSBlueCenBbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenBbtn = false;
                         }
 
@@ -783,8 +759,7 @@ public class JoystickTest {
 
                         if(componentbluecen.getPollData() != 0.0f){
                             PressJSBlueCenLB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenLB = false;
                         }
 
@@ -801,8 +776,7 @@ public class JoystickTest {
 
                         if(componentbluecen.getPollData() != 0.0f){
                             PressJSBlueCenRB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenRB = false;
                         }
 
@@ -817,8 +791,7 @@ public class JoystickTest {
                     if(componentIdentifierbluecen == Component.Identifier.Axis.Z){
                         if(componentbluecen.getPollData() <= -0.75){
                             PressJSBlueCenRT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenRT = false;
                         }
 
@@ -831,8 +804,7 @@ public class JoystickTest {
                     if(componentIdentifierbluecen == Component.Identifier.Axis.Z){
                         if(componentbluecen.getPollData() <= 0.75){
                             PressJSBlueCenLT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCenLT = false;
                         }
 
@@ -857,16 +829,14 @@ public class JoystickTest {
 
                         if(componentredcor.getPollData() != 0.0f){
                             PressJSRedCorAbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorAbtn = false;
                         }
-
-
+                        
                         if(PressJSRedCorAbtn == false){
                             pressLstJSRedCorAbtn = false;
                         }
-
+                        
                         GoalCounterUI.goal.IncrsRedCorA();
 
                     }
@@ -876,8 +846,7 @@ public class JoystickTest {
 
                         if(componentredcor.getPollData() != 0.0f){
                             PressJSRedCorBbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorBbtn = false;
                         }
 
@@ -894,8 +863,7 @@ public class JoystickTest {
 
                         if(componentredcor.getPollData() != 0.0f){
                             PressJSRedCorLB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorLB = false;
                         }
 
@@ -912,11 +880,9 @@ public class JoystickTest {
 
                         if(componentredcor.getPollData() != 0.0f){
                             PressJSRedCorRB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorRB = false;
                         }
-
 
                         if(PressJSRedCorRB == false){
                             pressLstJSRedCorRB = false;
@@ -929,8 +895,7 @@ public class JoystickTest {
                     if(componentIdentifierredcor == Component.Identifier.Axis.Z){
                         if(componentredcor.getPollData() <= -0.75){
                             PressJSRedCorRT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorRT = false;
                         }
 
@@ -938,13 +903,12 @@ public class JoystickTest {
                             pressLstJSRedCorRT = false;
                         }
                         GoalCounterUI.goal.DcrsRedCorRT();
-                        }
+                    }
 
                     if(componentIdentifierredcor == Component.Identifier.Axis.Z){
                         if(componentredcor.getPollData() <= 0.75){
                             PressJSRedCorLT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSRedCorLT = false;
                         }
 
@@ -952,7 +916,7 @@ public class JoystickTest {
                             pressLstJSRedCorLT = false;
                         }
                         GoalCounterUI.goal.DcrsRedCorLT();
-                        }
+                    }
                 }
 
                 Component[] componentsbluecor = controllerBlueCor.getComponents();
@@ -968,11 +932,9 @@ public class JoystickTest {
 
                         if(componentbluecor.getPollData() != 0.0f){
                             PressJSBlueCorAbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorAbtn = false;
                         }
-
 
                         if(PressJSBlueCorAbtn == false){
                             pressLstJSBlueCorAbtn = false;
@@ -987,8 +949,7 @@ public class JoystickTest {
 
                         if(componentbluecor.getPollData() != 0.0f){
                             PressJSBlueCorBbtn = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorBbtn = false;
                         }
 
@@ -1005,8 +966,7 @@ public class JoystickTest {
 
                         if(componentbluecor.getPollData() != 0.0f){
                             PressJSBlueCorLB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorLB = false;
                         }
 
@@ -1023,8 +983,7 @@ public class JoystickTest {
 
                         if(componentbluecor.getPollData() != 0.0f){
                             PressJSBlueCorRB = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorRB = false;
                         }
 
@@ -1039,8 +998,7 @@ public class JoystickTest {
                     if(componentIdentifierbluecen == Component.Identifier.Axis.Z){
                         if(componentbluecor.getPollData() <= -0.75){
                             PressJSBlueCorRT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorRT = false;
                         }
 
@@ -1053,8 +1011,7 @@ public class JoystickTest {
                     if(componentIdentifierbluecen == Component.Identifier.Axis.Z){
                         if(componentbluecor.getPollData() <= 0.75){
                             PressJSBlueCorLT = true;    
-                        }
-                        else{
+                        }else{
                             PressJSBlueCorLT = false;
                         }
 
@@ -1062,7 +1019,7 @@ public class JoystickTest {
                             pressLstJSBlueCorLT = false;
                         }
                         GoalCounterUI.goal.DcrsBlueCorLT();
-                        }   
+                    }   
 
                 }
 
@@ -1077,8 +1034,7 @@ public class JoystickTest {
 
                         if(componenttimer.getPollData() != 0.0f){
                             PressJSTimerXbtn = true;
-                        }
-                        else{
+                        }else{
                             PressJSTimerXbtn = false;
 
                         }
@@ -1096,8 +1052,7 @@ public class JoystickTest {
 
                         if(componenttimer.getPollData() != 0.0f){
                             PressJSTimerBack = true;    
-                        }
-                        else{
+                        }else{
                             PressJSTimerBack = false;
                         }
 
@@ -1114,8 +1069,7 @@ public class JoystickTest {
 
                         if(componenttimer.getPollData() != 0.0f){
                             PressJSTimerStart = true;    
-                        }
-                        else{
+                        }else{
                             PressJSTimerStart = false;
                         }
 

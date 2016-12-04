@@ -13,8 +13,6 @@ import java.util.TimerTask;
 import java.io.InputStream;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-import java.awt.Toolkit;
-import java.net.URL;
 import javax.swing.ImageIcon;
 
 
