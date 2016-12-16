@@ -13,10 +13,12 @@ import javax.swing.JFrame;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1366;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1600;
 import static ftc.goal.counter.GoalCounterUI.AudDisp800;
+import static ftc.goal.counter.GoalCounterUI.GreenDisp;
 import static ftc.goal.counter.GoalCounterUI.JSConfigView;
 import static ftc.goal.counter.GoalCounterUI.audIsOpen;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1920;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1280;
+import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -99,6 +101,7 @@ public class SettingsUI extends javax.swing.JFrame {
         JSMap = new javax.swing.JButton();
         JSTimeSelector = new javax.swing.JCheckBox();
         JSReset = new javax.swing.JCheckBox();
+        launchKeyableDisplay = new javax.swing.JButton();
 
         setTitle("Settings");
         setResizable(false);
@@ -423,6 +426,13 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
+        launchKeyableDisplay.setText("Launch Keyable Display");
+        launchKeyableDisplay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                launchKeyableDisplayActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -436,7 +446,8 @@ public class SettingsUI extends javax.swing.JFrame {
                         .addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(launchKeyableDisplay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JSMap)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(RePullJS)
@@ -487,7 +498,8 @@ public class SettingsUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RePullJS)
                     .addComponent(Save)
-                    .addComponent(JSMap))
+                    .addComponent(JSMap)
+                    .addComponent(launchKeyableDisplay))
                 .addContainerGap())
         );
 
@@ -853,6 +865,13 @@ public class SettingsUI extends javax.swing.JFrame {
             SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void launchKeyableDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_launchKeyableDisplayActionPerformed
+        if(!GreenDisp.isVisible()){
+            GreenDisp.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_launchKeyableDisplayActionPerformed
  
    
 public static int getSelectedControllerNameRedCen(){
@@ -969,6 +988,7 @@ public static int getSelectedControllerNameTimer(){
     public static javax.swing.JComboBox TimerControlSelect;
     private javax.swing.JPanel blue;
     public static javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton launchKeyableDisplay;
     private javax.swing.JPanel red;
     public static javax.swing.JButton toggleFullscreen;
     // End of variables declaration//GEN-END:variables

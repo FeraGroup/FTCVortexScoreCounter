@@ -43,6 +43,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static AudDisplay1024 AudDisp1024;
     public static AudDisplay800 AudDisp800;
     public static AudDisplay1280 AudDisp1280;
+    public static AudDisplayGreen1280 GreenDisp;
     public static ViewJSConfig JSConfigView;
     public static AboutUI about;
     public static JoystickTest JS;
@@ -128,6 +129,15 @@ public class GoalCounterUI extends javax.swing.JFrame {
           AudDisplay1280.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
           AudDisplay1280.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
           AudDisplay1280.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
+          //GREEN
+          AudDisplayGreen1280.RedCenAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCenAuto));
+          AudDisplayGreen1280.RedCenTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCenTele));
+          AudDisplayGreen1280.RedCorAutoDisplay.setText(Integer.toString(GoalCounterUI.RedCorAuto));
+          AudDisplayGreen1280.RedCorTeleDisplay.setText(Integer.toString(GoalCounterUI.RedCorTele));
+          AudDisplayGreen1280.BlueCenAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCenAuto));
+          AudDisplayGreen1280.BlueCenTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCenTele));
+          AudDisplayGreen1280.BlueCorAutoDisplay.setText(Integer.toString(GoalCounterUI.BlueCorAuto));
+          AudDisplayGreen1280.BlueCorTeleDisplay.setText(Integer.toString(GoalCounterUI.BlueCorTele));
   }
     
     public void updateTimers(String TimerText){
@@ -1485,6 +1495,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
         AudDisp1024.setVisible(false);
         AudDisp800 = new AudDisplay800();
         AudDisp800.setVisible(false);
+        GreenDisp = new AudDisplayGreen1280();
+        GreenDisp.setVisible(false);
         JSConfigView = new ViewJSConfig();
         JSConfigView.setVisible(false);        
         about = new AboutUI();
