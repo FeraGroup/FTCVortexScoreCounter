@@ -593,6 +593,17 @@ public class JoystickTest {
                     updateJSstatusDisplays(4, 3);
                 }           
 
+                
+                if( !controllerRedCen.poll() ){
+                    //peach color
+                    GoalCounterUI.TimerStatus.setBackground(new java.awt.Color(238, 190, 171));
+                }else if(SettingsUI.JSTimer == false && SettingsUI.Reset == false && SettingsUI.ModeChange == false){
+                    GoalCounterUI.TimerStatus.setBackground(new java.awt.Color(240,240,240));
+                }else {
+                    //green
+                    GoalCounterUI.TimerStatus.setBackground(new java.awt.Color(0, 166, 81));
+                }
+                
                 // Go trough all components of the controller.
                 Component[] components = controllerRedCen.getComponents();
                 for(int i=0; i < components.length; i++){

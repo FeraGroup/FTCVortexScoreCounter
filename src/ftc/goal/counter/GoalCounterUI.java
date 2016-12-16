@@ -53,7 +53,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     public static boolean isFullscreen = false;
     public static boolean audIsOpen = false;
     public static String iconURL = "/ftc/goal/counter/images/FIRSTicon_RGB_withTM.png";
-    public static final String version = "1.0.2";
+    public static final String version = "1.0.3";
 
     /**
      * Creates new form GoalCounterUI
@@ -851,7 +851,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
         BlueCenTeleLabel = new javax.swing.JLabel();
         BlueCorTeleSpin = new javax.swing.JSpinner();
         FTCLogoSmall = new javax.swing.JLabel();
-        Timer = new javax.swing.JLabel();
         ResetButton = new javax.swing.JButton();
         VersionInfo = new javax.swing.JLabel();
         SettingButton = new javax.swing.JButton();
@@ -863,6 +862,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
         timerstart = new javax.swing.JButton();
         HeaderLabel1 = new javax.swing.JLabel();
         pauseresume = new javax.swing.JButton();
+        TimerStatus = new javax.swing.JPanel();
+        Timer = new javax.swing.JLabel();
 
         ModeSelect.add(Auto);
         ModeSelect.add(Teleop);
@@ -877,7 +878,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Vortex Counter");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(440, 600));
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -1134,10 +1134,6 @@ public class GoalCounterUI extends javax.swing.JFrame {
         FTCLogoSmall.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FTCLogoSmall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/ftclogofull.png"))); // NOI18N
 
-        Timer.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Timer.setText("Match Timer: 2:30");
-
         ResetButton.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         ResetButton.setText("RESET");
         ResetButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1212,6 +1208,24 @@ public class GoalCounterUI extends javax.swing.JFrame {
             }
         });
 
+        Timer.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Timer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Timer.setText("Match Timer: 2:30");
+
+        javax.swing.GroupLayout TimerStatusLayout = new javax.swing.GroupLayout(TimerStatus);
+        TimerStatus.setLayout(TimerStatusLayout);
+        TimerStatusLayout.setHorizontalGroup(
+            TimerStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TimerStatusLayout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(Timer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(137, 137, 137))
+        );
+        TimerStatusLayout.setVerticalGroup(
+            TimerStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Timer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1225,7 +1239,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                                 .addComponent(copyright)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(VersionInfo))
-                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                            .addComponent(FTCLogoSmall, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(SettingButton)
@@ -1240,15 +1254,18 @@ public class GoalCounterUI extends javax.swing.JFrame {
                                     .addComponent(ResetButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(timerstart)
-                            .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pauseresume)))))
-            .addComponent(Timer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(HeaderLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TimerStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(timerstart)
+                                    .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(BlueAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pauseresume))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(HeaderLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 420, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1258,7 +1275,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(HeaderLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TimerStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(RedAlliance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1512,6 +1529,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
     private javax.swing.JButton SettingButton;
     public static javax.swing.JRadioButton Teleop;
     public static javax.swing.JLabel Timer;
+    public static javax.swing.JPanel TimerStatus;
     private javax.swing.JLabel VersionInfo;
     public static javax.swing.JButton auddisplay;
     private javax.swing.JLabel copyright;
