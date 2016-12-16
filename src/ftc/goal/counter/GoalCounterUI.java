@@ -23,7 +23,7 @@ import javax.swing.ImageIcon;
  * Novi, MI 48377
  */
 public class GoalCounterUI extends javax.swing.JFrame {
-
+//Testing First Commit on new branch
 
     public static boolean AutoState = true;
     public static boolean TeleState = false;
