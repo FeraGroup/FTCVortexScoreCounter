@@ -769,20 +769,48 @@ public class SettingsUI extends javax.swing.JFrame {
         boolean noControllers = false;
         JoystickTest.searchControllers.clear();
         JoystickTest.searchForControllers(true);
+        
         if(JoystickTest.searchControllers.isEmpty()){
             noControllers = true;
             NoControllerName();
             controllerLoopRun = false;
             JoystickTest.foundControllers.clear();
         }else{
-            RedCenControlSelect.removeAllItems();
-            BlueCenControlSelect.removeAllItems();
-            RedCorControlSelect.removeAllItems();
-            BlueCorControlSelect.removeAllItems();
-            TimerControlSelect.removeAllItems();  
-            JoystickTest.foundControllers.clear();
-            JoystickTest.searchForControllers(false);
-            controllerLoopRun = true;
+            int RedCenSel = RedCenControlSelect.getSelectedIndex();
+            int RedCorSel = RedCorControlSelect.getSelectedIndex();
+            int BlueCenSel = BlueCenControlSelect.getSelectedIndex();
+            int BlueCorSel = BlueCorControlSelect.getSelectedIndex();
+            int TimeSel = TimerControlSelect.getSelectedIndex();
+
+            JoystickTest.searchForControllers(true);
+            int newContCount = JoystickTest.searchControllers.size();
+            int oldContCount = JoystickTest.foundControllers.size();
+
+            if(newContCount == oldContCount){
+                RedCenControlSelect.removeAllItems();
+                BlueCenControlSelect.removeAllItems();
+                RedCorControlSelect.removeAllItems();
+                BlueCorControlSelect.removeAllItems();
+                TimerControlSelect.removeAllItems();  
+                JoystickTest.foundControllers.clear();
+                JoystickTest.searchForControllers(false);
+                controllerLoopRun = true;
+                RedCenControlSelect.setSelectedIndex(RedCenSel);
+                BlueCenControlSelect.setSelectedIndex(BlueCenSel);
+                RedCorControlSelect.setSelectedIndex(RedCorSel);
+                BlueCorControlSelect.setSelectedIndex(BlueCorSel);
+                TimerControlSelect.setSelectedIndex(TimeSel);  
+            }else{
+                RedCenControlSelect.removeAllItems();
+                BlueCenControlSelect.removeAllItems();
+                RedCorControlSelect.removeAllItems();
+                BlueCorControlSelect.removeAllItems();
+                TimerControlSelect.removeAllItems();  
+                JoystickTest.foundControllers.clear();
+                JoystickTest.searchForControllers(false);
+                controllerLoopRun = true;
+            }
+                
         }
      
     }//GEN-LAST:event_RePullJSActionPerformed
