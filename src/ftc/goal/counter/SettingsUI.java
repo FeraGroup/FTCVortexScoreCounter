@@ -776,17 +776,21 @@ public class SettingsUI extends javax.swing.JFrame {
             controllerLoopRun = false;
             JoystickTest.foundControllers.clear();
         }else{
+            System.out.println("Running This");
             int RedCenSel = RedCenControlSelect.getSelectedIndex();
             int RedCorSel = RedCorControlSelect.getSelectedIndex();
             int BlueCenSel = BlueCenControlSelect.getSelectedIndex();
             int BlueCorSel = BlueCorControlSelect.getSelectedIndex();
             int TimeSel = TimerControlSelect.getSelectedIndex();
-
+            
+            JoystickTest.searchControllers.clear();
             JoystickTest.searchForControllers(true);
             int newContCount = JoystickTest.searchControllers.size();
             int oldContCount = JoystickTest.foundControllers.size();
+            System.out.println(newContCount + " is the New Controller Count, this is the old: " + oldContCount);
 
             if(newContCount == oldContCount){
+                System.out.println("Controller Count The same");
                 RedCenControlSelect.removeAllItems();
                 BlueCenControlSelect.removeAllItems();
                 RedCorControlSelect.removeAllItems();
