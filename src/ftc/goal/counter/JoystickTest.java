@@ -84,6 +84,7 @@ public class JoystickTest {
     static public boolean RedCorIcon = false;
     static public boolean BlueCenIcon = false;
     static public boolean RedCenIcon = false;
+    static boolean alwaysTrue = true;
     
     static public ArrayList<Controller> foundControllers;
     static public ArrayList<Controller> searchControllers;
@@ -415,7 +416,7 @@ public class JoystickTest {
      * Starts showing controller data on the window.
      */
     public static void startShowingControllerData(){
-        while(true){
+        while(alwaysTrue){
             GoalCounterUI.spinnersync();
             if(SettingsUI.controllerLoopRun){
                 // Currently selected controller.
@@ -1081,6 +1082,7 @@ public class JoystickTest {
                 }
             }   
         }
+        logger.severe("Joystick Update loop crashed");
     }
     
 }
