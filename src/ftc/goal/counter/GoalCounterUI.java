@@ -8,9 +8,18 @@ package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.io.InputStream;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 import javax.swing.ImageIcon;
@@ -24,7 +33,8 @@ import javax.swing.ImageIcon;
  */
 public class GoalCounterUI extends javax.swing.JFrame {
 
-
+    public static Logger logger = Logger.getLogger("GoalCounter");  
+    public static FileHandler fh;
     public static boolean AutoState = true;
     public static boolean TeleState = false;
     public static boolean TimerActive = false;
@@ -139,12 +149,13 @@ public class GoalCounterUI extends javax.swing.JFrame {
         AudDisplay1280.TimerDisplay.setText(TimerText);
     }
     
-    
-    
     public static void resetTimerElements(){
             if (TimerActive == true){
                 timer.cancel();
             }
+            logger.info("User force reset everything during" + AudDisplay1920.State.getText() + " at: " + GameClock + System.lineSeparator() + 
+                    "Scores," + RedCenAuto + "," + RedCenTele + "," + RedCorAuto + "," + RedCorTele + 
+                    "," + BlueCenAuto + "," + BlueCenTele + "," + BlueCorAuto + "," + BlueCorTele);
             GameClock = 150;
             ClockRemaining = 150;
             Auto.setSelected(true);
@@ -171,182 +182,196 @@ public class GoalCounterUI extends javax.swing.JFrame {
             
     }
     
-        public static void resetcounters(){
-            RedCenAuto = 0;
-            RedCorAuto = 0;
-            BlueCenAuto = 0;
-            BlueCorAuto = 0;
-            RedCenTele = 0;
-            RedCorTele = 0;
-            BlueCenTele = 0;
-            BlueCorTele = 0;
-            RedCenAutoSpin.setValue(0);
-            RedCenTeleSpin.setValue(0);
-            RedCorAutoSpin.setValue(0);
-            RedCorTeleSpin.setValue(0);
-            BlueCenAutoSpin.setValue(0);
-            BlueCenTeleSpin.setValue(0);
-            BlueCorAutoSpin.setValue(0);
-            BlueCorTeleSpin.setValue(0);
-            isFullscreen = false;
-            resetTimerElements();        
+    public static void resetcounters(){
+        RedCenAuto = 0;
+        RedCorAuto = 0;
+        BlueCenAuto = 0;
+        BlueCorAuto = 0;
+        RedCenTele = 0;
+        RedCorTele = 0;
+        BlueCenTele = 0;
+        BlueCorTele = 0;
+        RedCenAutoSpin.setValue(0);
+        RedCenTeleSpin.setValue(0);
+        RedCorAutoSpin.setValue(0);
+        RedCorTeleSpin.setValue(0);
+        BlueCenAutoSpin.setValue(0);
+        BlueCenTeleSpin.setValue(0);
+        BlueCorAutoSpin.setValue(0);
+        BlueCorTeleSpin.setValue(0);
+        isFullscreen = false;
+        resetTimerElements();        
     }
         
-        public void play(String filename){
-          try{
-            InputStream inputStream = getClass().getResourceAsStream("/ftc/goal/counter/gamesound/" + filename + ".wav");
-            AudioStream audioStream = new AudioStream(inputStream);
-            AudioPlayer.player.start(audioStream);
-          }catch (Exception e){ System.out.print("didn't work."); }
-        }
+    public void play(String filename){
+      try{
+        InputStream inputStream = getClass().getResourceAsStream("/ftc/goal/counter/gamesound/" + filename + ".wav");
+        AudioStream audioStream = new AudioStream(inputStream);
+        AudioPlayer.player.start(audioStream);
+      }catch (Exception e){ 
+          logger.severe("Couldn't play " + filename);
+          logger.severe(e.getLocalizedMessage());
+          e.printStackTrace();
+      }
+    }
 
-        public static void ModeChange(){
-            if(AutoState == true){
+    public static void ModeChange(){
+        if(AutoState == true){
+            Teleop.setSelected(true);
+            AutoState = false;
+            TeleState = true;
+            AudDisplay1600.State.setText("Driver-Controlled Mode");
+            AudDisplay1366.State.setText("Driver-Controlled Mode");
+            AudDisplay1920.State.setText("Driver-Controlled Mode");
+            AudDisplay1024.State.setText("Driver-Controlled Mode");
+            AudDisplay800.State.setText("Driver-Controlled Mode");
+            AudDisplay1280.State.setText("Driver-Controlled Mode");  
+            logger.info("Set Mode to Driver-Controlled");
+        }
+        else if (TeleState == true){
+            Auto.setSelected(true);
+            AutoState = true;
+            TeleState = false;
+            AudDisplay1600.State.setText("Autonomous Mode");
+            AudDisplay1366.State.setText("Autonomous Mode");
+            AudDisplay1920.State.setText("Autonomous Mode");
+            AudDisplay1024.State.setText("Autonomous Mode");
+            AudDisplay800.State.setText("Autonomous Mode");
+            AudDisplay1280.State.setText("Autonomous Mode");
+            logger.info("Set Mode to Driver-Controlled");
+
+        } 
+    }
+
+    public void StartClock(){
+        pause = false;
+        if(GameClock >= 121 && TimerActive == false) {
+            pauseresume.setEnabled(true);
+            timerstart.setEnabled(false);
+            if(GameClock == 150){
+                play("start-auto");
+            }
+            countdownclockAuto();
+            Auto.setSelected(true);
+            AutoState = true;
+            TeleState = false;
+            AudDisplay1600.State.setText("Autonomous Mode");
+            AudDisplay1366.State.setText("Autonomous Mode");
+            AudDisplay1920.State.setText("Autonomous Mode");
+            AudDisplay1024.State.setText("Autonomous Mode");
+            AudDisplay800.State.setText("Autonomous Mode");
+            AudDisplay1280.State.setText("Autonomous Mode");  
+            TimerActive = true;
+            logger.info("Started Timer in Auto Mode at time " + GameClock);
+        } else if(GameClock <= 120 && TimerActive == false) {
+                pauseresume.setEnabled(true);
+                timerstart.setEnabled(false);
+                if(GameClock == 120){
+                    play("start-tele");
+                }
+                countdownclockDrive();
                 Teleop.setSelected(true);
                 AutoState = false;
                 TeleState = true;
+                AudDisplay1920.State.setText("Driver-Controlled Mode");
                 AudDisplay1600.State.setText("Driver-Controlled Mode");
                 AudDisplay1366.State.setText("Driver-Controlled Mode");
                 AudDisplay1920.State.setText("Driver-Controlled Mode");
                 AudDisplay1024.State.setText("Driver-Controlled Mode");
                 AudDisplay800.State.setText("Driver-Controlled Mode");
-                AudDisplay1280.State.setText("Driver-Controlled Mode");  
-            }
-            else if (TeleState == true){
-                Auto.setSelected(true);
-                AutoState = true;
-                TeleState = false;
-                AudDisplay1600.State.setText("Autonomous Mode");
-                AudDisplay1366.State.setText("Autonomous Mode");
-                AudDisplay1920.State.setText("Autonomous Mode");
-                AudDisplay1024.State.setText("Autonomous Mode");
-                AudDisplay800.State.setText("Autonomous Mode");
-                AudDisplay1280.State.setText("Autonomous Mode");
-               
-            } 
-        }
-        
-        public void StartClock(){
-            pause = false;
-            if(GameClock >= 121 && TimerActive == false) {
-                pauseresume.setEnabled(true);
-                timerstart.setEnabled(false);
-                if(GameClock == 150){
-                    play("start-auto");
-                }
-                countdownclockAuto();
-                Auto.setSelected(true);
-                AutoState = true;
-                TeleState = false;
-                AudDisplay1600.State.setText("Autonomous Mode");
-                AudDisplay1366.State.setText("Autonomous Mode");
-                AudDisplay1920.State.setText("Autonomous Mode");
-                AudDisplay1024.State.setText("Autonomous Mode");
-                AudDisplay800.State.setText("Autonomous Mode");
-                AudDisplay1280.State.setText("Autonomous Mode");  
+                AudDisplay1280.State.setText("Driver-Controlled Mode");
                 TimerActive = true;
-            } else if(GameClock <= 120 && TimerActive == false) {
-                    pauseresume.setEnabled(true);
-                    timerstart.setEnabled(false);
-                    if(GameClock == 120){
-                        play("start-tele");
-                    }
-                    countdownclockDrive();
-                    Teleop.setSelected(true);
-                    AutoState = false;
-                    TeleState = true;
-                    AudDisplay1920.State.setText("Driver-Controlled Mode");
-                    AudDisplay1600.State.setText("Driver-Controlled Mode");
-                    AudDisplay1366.State.setText("Driver-Controlled Mode");
-                    AudDisplay1920.State.setText("Driver-Controlled Mode");
-                    AudDisplay1024.State.setText("Driver-Controlled Mode");
-                    AudDisplay800.State.setText("Driver-Controlled Mode");
-                    AudDisplay1280.State.setText("Driver-Controlled Mode");
-                    TimerActive = true;
-                }
+                logger.info("Started Timer in Driver Mode at time " + GameClock);
             }
-        
-        public void countdownclockAuto(){
-            if(GameClock <= 150){
-                int delay = 1000;
-                int period = 1000;
-                int stopsec = 121;
-                timer = new Timer();
-                GameClock = ClockRemaining; 
-                timer.scheduleAtFixedRate(new TimerTask(){
+        }
 
-                    public void run(){
-                        int i = setInterval(stopsec); 
-                        int mins = i/60; 
-                        int secs = (i - (mins * 60));
-                        ClockRemaining = ((mins * 60)+ secs);
-                        if (GameClock == 120){
-                            timerstart.setText("CONTINUE");
-                            timerstart.setEnabled(true);
-                            pauseresume.setEnabled(false);
-                            TimerActive = false;
-                            pause = true;
-                        }
-                        if(secs < 10) {
-                            String TimerText = mins + ":0" + secs;
-                            updateTimers(TimerText);
-                            Timer.setText("Match Timer: " + mins + ":0" + secs);
-                        } else {
-                            String TimerText = mins + ":" + secs;
-                            updateTimers(TimerText);
-                            Timer.setText("Match Timer: " + mins + ":" + secs);
-                        }    
+    public void countdownclockAuto(){
+        if(GameClock <= 150){
+            int delay = 1000;
+            int period = 1000;
+            int stopsec = 121;
+            timer = new Timer();
+            GameClock = ClockRemaining; 
+            timer.scheduleAtFixedRate(new TimerTask(){
+
+                public void run(){
+                    int i = setInterval(stopsec); 
+                    int mins = i/60; 
+                    int secs = (i - (mins * 60));
+                    ClockRemaining = ((mins * 60)+ secs);
+                    if (GameClock == 120){
+                        timerstart.setText("CONTINUE");
+                        timerstart.setEnabled(true);
+                        pauseresume.setEnabled(false);
+                        TimerActive = false;
+                        pause = true;
                     }
-                    
-                }, delay, period);
-            }
+                    if(secs < 10) {
+                        String TimerText = mins + ":0" + secs;
+                        updateTimers(TimerText);
+                        Timer.setText("Match Timer: " + mins + ":0" + secs);
+                    } else {
+                        String TimerText = mins + ":" + secs;
+                        updateTimers(TimerText);
+                        Timer.setText("Match Timer: " + mins + ":" + secs);
+                    }    
+                }
+
+            }, delay, period);
         }
-        
-        public void countdownclockDrive(){
-            if(GameClock<=120){
-                int delay = 1000;
-                int period = 1000;
-                int stopsec = 1;
-                timer = new Timer();
-                GameClock = ClockRemaining;
-                timer.scheduleAtFixedRate(new TimerTask(){
-                    public void run(){
-                        int i = setInterval(stopsec); 
-                        int mins = i/60; 
-                        int secs = (i - (mins * 60));
-                        ClockRemaining = ((mins * 60)+ secs);
-                        if(secs < 10) {
-                            String TimerText = mins + ":0" + secs;
-                            updateTimers(TimerText);
-                            Timer.setText("Match Timer: " + mins + ":0" + secs);
-                        } else {
-                            String TimerText = mins + ":" + secs;
-                            updateTimers(TimerText);
-                            Timer.setText("Match Timer: " + mins + ":" + secs);
-                        }    
-                    }
-                }, delay, period);
-            }
+    }
+
+    public void countdownclockDrive(){
+        if(GameClock<=120){
+            int delay = 1000;
+            int period = 1000;
+            int stopsec = 1;
+            timer = new Timer();
+            GameClock = ClockRemaining;
+            timer.scheduleAtFixedRate(new TimerTask(){
+                public void run(){
+                    int i = setInterval(stopsec); 
+                    int mins = i/60; 
+                    int secs = (i - (mins * 60));
+                    ClockRemaining = ((mins * 60)+ secs);
+                    if(secs < 10) {
+                        String TimerText = mins + ":0" + secs;
+                        updateTimers(TimerText);
+                        Timer.setText("Match Timer: " + mins + ":0" + secs);
+                    } else {
+                        String TimerText = mins + ":" + secs;
+                        updateTimers(TimerText);
+                        Timer.setText("Match Timer: " + mins + ":" + secs);
+                    }    
+                }
+            }, delay, period);
         }
-        
-        private final int setInterval(int stoptime){
-            if(ClockRemaining == 141){
-                    play("time-endgame");
-                }else if (ClockRemaining == 121){
-                    play("end-auto");
-                }else if(ClockRemaining == 31){
-                    play("time-endgame");
-                }else if(ClockRemaining == 1){
-                    play("end-tele");
-            }
-            if(GameClock == stoptime){
-                timer.cancel();
-                
-                pauseresume.setEnabled(false);
-            }
-            return --GameClock;
+    }
+
+    private final int setInterval(int stoptime){
+        if(ClockRemaining == 141){
+                play("time-endgame");
+                logger.info("Played Auto Endgame at time " + ClockRemaining);
+            }else if (ClockRemaining == 121){
+                play("end-auto");
+                logger.info("Played End Auto at time " + ClockRemaining);
+            }else if(ClockRemaining == 31){
+                play("time-endgame");
+                logger.info("Played Driver Endgame at time " + ClockRemaining);
+            }else if(ClockRemaining == 1){
+                play("end-tele");
+                logger.info("Played End Driver at time " + ClockRemaining);
         }
-        
+        if(GameClock == stoptime){
+            timer.cancel();
+            pauseresume.setEnabled(false);
+            logger.info(AudDisplay1920.State.getText() + " Timer Expired, Timer Stopped at " + GameClock + System.lineSeparator() + 
+                    "Scores," + RedCenAuto + "," + RedCenTele + "," + RedCorAuto + "," + RedCorTele + 
+                    "," + BlueCenAuto + "," + BlueCenTele + "," + BlueCorAuto + "," + BlueCorTele);
+        }
+        return --GameClock;
+    }
+
     public void IncrsRedCenA(){
          if(JoystickTest.PressJSRedCenAbtn==true && JoystickTest.pressLstJSRedCenAbtn!=true && SettingsUI.RedCenBtn == true){
             if(AutoState == true){
@@ -359,7 +384,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
             }
         }
     }
-    
+
     public void DcrsRedCenB(){
          if(JoystickTest.PressJSRedCenBbtn==true && JoystickTest.pressLstJSRedCenBbtn!=true && SettingsUI.RedCenBtn == true){
             if(AutoState == true){
@@ -382,8 +407,8 @@ public class GoalCounterUI extends javax.swing.JFrame {
             }  
         }
     }
-        
-     public void IncrsRedCenLB(){
+
+    public void IncrsRedCenLB(){
          if(JoystickTest.PressJSRedCenLB==true && JoystickTest.pressLstJSRedCenLB!=true && SettingsUI.RedCenLeft==true){
                 if(AutoState == true){
                           RedCenAutoSpin.setValue(++RedCenAuto);
@@ -419,18 +444,18 @@ public class GoalCounterUI extends javax.swing.JFrame {
         } 
     }
     
-         public void IncrsRedCenRB(){
-         if(JoystickTest.PressJSRedCenRB==true && JoystickTest.pressLstJSRedCenRB!=true && SettingsUI.RedCenRight==true){
-                if(AutoState == true){
-                          RedCenAutoSpin.setValue(++RedCenAuto);
-                          JoystickTest.pressLstJSRedCenRB = true;     
-                }
-                if(TeleState == true){
-                          RedCenTeleSpin.setValue(++RedCenTele);
-                          JoystickTest.pressLstJSRedCenRB = true;     
-                }
-            }
-         }
+    public void IncrsRedCenRB(){
+    if(JoystickTest.PressJSRedCenRB==true && JoystickTest.pressLstJSRedCenRB!=true && SettingsUI.RedCenRight==true){
+           if(AutoState == true){
+                     RedCenAutoSpin.setValue(++RedCenAuto);
+                     JoystickTest.pressLstJSRedCenRB = true;     
+           }
+           if(TeleState == true){
+                     RedCenTeleSpin.setValue(++RedCenTele);
+                     JoystickTest.pressLstJSRedCenRB = true;     
+           }
+       }
+    }
         
     public void DcrsRedCenRT(){
          if(JoystickTest.PressJSRedCenRT==true && JoystickTest.pressLstJSRedCenRT!=true && SettingsUI.RedCenRight==true){
@@ -706,6 +731,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
             }  
         }     
     }
+    
     public void IncrsBlueCorLB(){
          if(JoystickTest.PressJSBlueCorLB==true && JoystickTest.pressLstJSBlueCorLB!=true && SettingsUI.BlueCorLeft==true){
             if(AutoState == true){
@@ -1323,12 +1349,14 @@ public class GoalCounterUI extends javax.swing.JFrame {
     private void AboutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutButtonActionPerformed
         if(!about.isVisible()){
             about.setVisible(true);
+            logger.info("Set About Window Visible");
         }
     }//GEN-LAST:event_AboutButtonActionPerformed
 //Pro Java Coding Going on here:
     private void auddisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_auddisplayActionPerformed
         switch (SettingsUI.AudDispOpen) {
             case 0://1080
+                logger.info("Set 1920 Audience Display Open");
                 if(!AudDisp1920.isVisible() && !audIsOpen){
                     AudDisp1920.dispose();
                     if (AudDisp1920.isUndecorated()){
@@ -1339,6 +1367,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                  }   
                 break;
             case 1://1600
+                logger.info("Set 1600 Audience Display Open");
                 if(!AudDisp1600.isVisible() && !audIsOpen){
                     AudDisp1600.dispose();
                     if (AudDisp1600.isUndecorated()){
@@ -1350,6 +1379,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 }
                 break;
             case 2://1366
+                logger.info("Set 1366 Audience Display Open");
                 if(!AudDisp1366.isVisible() && !audIsOpen){
                     AudDisp1366.dispose();
                     if (AudDisp1366.isUndecorated()){
@@ -1360,6 +1390,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 }
                 break;
             case 3://720
+                logger.info("Set 1280 Audience Display Open");
                 if(!AudDisp1280.isVisible() && !audIsOpen){
                    AudDisp1280.dispose();
                    if (AudDisp1280.isUndecorated()){
@@ -1370,6 +1401,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 }
                 break;
             case 4://1024
+                logger.info("Set 1024 Audience Display Open");
                 if(!AudDisp1024.isVisible() && !audIsOpen){
                    AudDisp1024.dispose();
                    if (AudDisp1024.isUndecorated()){
@@ -1380,6 +1412,7 @@ public class GoalCounterUI extends javax.swing.JFrame {
                 }
                 break;
             case 5://800
+                logger.info("Set 800 Audience Display Open");
                  if(!AudDisp800.isVisible() && !audIsOpen){
                     AudDisp800.dispose();
                     if (AudDisp800.isUndecorated()){
@@ -1418,12 +1451,16 @@ public class GoalCounterUI extends javax.swing.JFrame {
     private void pauseresumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseresumeActionPerformed
         if(pause == false){
             timer.cancel();
+            logger.info("User force paused timer during" + AudDisplay1920.State.getText() + " at: " + GameClock + System.lineSeparator() + 
+                    "Scores," + RedCenAuto + "," + RedCenTele + "," + RedCorAuto + "," + RedCorTele + 
+                    "," + BlueCenAuto + "," + BlueCenTele + "," + BlueCorAuto + "," + BlueCorTele);
             play("stop-forghorn");
             GameClock = ClockRemaining;
             pause = true;
             TimerActive = false;
             pauseresume.setText("RESUME");
         } else {
+            logger.info("User resumed timer with" +  AudDisplay1920.State.getText() + " selected, at " + GameClock);
             pauseresume.setText("PAUSE");
             pause = false;
             StartClock();
@@ -1445,6 +1482,26 @@ public class GoalCounterUI extends javax.swing.JFrame {
      */
 
     public static void main(String args[]) {
+        DateFormat df = new SimpleDateFormat("dd-MM-yy-HH-mm-ss");
+        Date date = new Date();
+        URL url = GoalCounterUI.class.getProtectionDomain().getCodeSource().getLocation();
+        String filePath = url.toString().substring(6) + "\\logs\\";
+        
+        File directory = new File(String.valueOf(filePath));
+        if (! directory.exists()){
+            directory.mkdir();
+        }
+        
+        try { 
+            fh = new FileHandler(filePath + "goalCounterLog" + df.format(date) + ".log");  
+            logger.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();  
+            fh.setFormatter(formatter);   
+            logger.info("Logger Initilized");
+        } catch (SecurityException | IOException e) {  
+            e.printStackTrace();  
+        } 
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1471,25 +1528,36 @@ public class GoalCounterUI extends javax.swing.JFrame {
         /* Create and display the form */
         goal = new GoalCounterUI();
         goal.setVisible(true);
+        logger.info("Created Main Goal Display");
         settings = new SettingsUI();
         settings.setVisible(true);
+        logger.info("Created Settings Display");
         AudDisp1920 = new AudDisplay1920();
         AudDisp1920.setVisible(false);
+        logger.info("Created 1920 Audience Display");
         AudDisp1600 = new AudDisplay1600();
         AudDisp1600.setVisible(false);
+        logger.info("Created 1600 Audience Display");
         AudDisp1366 = new AudDisplay1366();
         AudDisp1366.setVisible(false);
+        logger.info("Created 1366 Audience Display");
         AudDisp1280 = new AudDisplay1280();
         AudDisp1280.setVisible(false);
+        logger.info("Created 1280 Audience Display");
         AudDisp1024 = new AudDisplay1024();
         AudDisp1024.setVisible(false);
+        logger.info("Created 1024 Audience Display");
         AudDisp800 = new AudDisplay800();
         AudDisp800.setVisible(false);
+        logger.info("Created 800 Audience Display");
         JSConfigView = new ViewJSConfig();
-        JSConfigView.setVisible(false);        
+        JSConfigView.setVisible(false);       
+        logger.info("Created Joystick Mapping Display"); 
         about = new AboutUI();
         about.setVisible(false);
+        logger.info("Created About Display");
         JS = new JoystickTest();  
+        logger.info("Created Joystick Reader");
         
     }
 

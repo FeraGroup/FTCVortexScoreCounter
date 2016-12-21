@@ -6,6 +6,7 @@ package ftc.goal.counter;
  * During the 2016 - 2017 Game
  */
 
+import static ftc.goal.counter.GoalCounterUI.logger;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -96,6 +97,7 @@ public class JoystickTest {
         if(!foundControllers.isEmpty()){
             startShowingControllerData();
         }else{
+            logger.info("No Controllers Found");
             SettingsUI.NoControllerName();
             SettingsUI.controllerLoopRun = false;
             startShowingControllerData();
@@ -115,6 +117,7 @@ public class JoystickTest {
         if (directEnv.isSupported()) {
             controllers = directEnv.getControllers();
         } else {
+            logger.info("Direct Environment is not Supported, Controller Refresh will not work");
             controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
         }
         
@@ -125,8 +128,10 @@ public class JoystickTest {
                 // Add new controller to the list of all controllers.
                 if(look){
                   searchControllers.add(controller);  
+                  GoalCounterUI.logger.info("Search Controllers Found:" + controller.getName() + " - " + controller.hashCode());
                 }else{
                   foundControllers.add(controller);
+                  GoalCounterUI.logger.info("Found Controller: " + controller.getName() + " - " + controller.hashCode());
                 }
                 
                 // Add new controller to the list on the window.
@@ -425,22 +430,10 @@ public class JoystickTest {
                 }
 
                 Controller controllerRedCen = foundControllers.get(selectedControllerRedCen);
-
-                // Pull controller for current data, and break while loop if controller is disconnected.
-                if( !controllerRedCen.poll() ){
-                   // window.showControllerDisconnected();
-                   // break;
-                }
-
+                
                 int selectedControllerBlueCen = SettingsUI.getSelectedControllerNameBlueCen();
                 Controller controllerBlueCen = foundControllers.get(selectedControllerBlueCen);
-
-                // Pull controller for current data, and break while loop if controller is disconnected.
-
-                if( !controllerBlueCen.poll() ){
-                   // window.showControllerDisconnected();
-                   // break;
-                }
+                
 
                int selectedControllerRedCor = SettingsUI.getSelectedControllerNameRedCor();
                if (selectedControllerRedCor == -1){
@@ -448,25 +441,12 @@ public class JoystickTest {
                 }
                 Controller controllerRedCor = foundControllers.get(selectedControllerRedCor);
 
-                // Pull controller for current data, and break while loop if controller is disconnected.
-
-                if( !controllerRedCor.poll() ){
-                   // window.showControllerDisconnected();
-                   // break;
-                }
-
                 int selectedControllerBlueCor = SettingsUI.getSelectedControllerNameBlueCor();
                 if (selectedControllerBlueCen == -1){
                     selectedControllerBlueCen = 0;
                 }
+                
                 Controller controllerBlueCor = foundControllers.get(selectedControllerBlueCor);
-
-                // Pull controller for current data, and break while loop if controller is disconnected.
-
-                if( !controllerBlueCor.poll() ){
-                   // window.showControllerDisconnected();
-                   // break;
-                }
 
             int selectedControllerTimer = SettingsUI.getSelectedControllerNameTimer();
             if (selectedControllerBlueCor == -1){
@@ -474,15 +454,9 @@ public class JoystickTest {
                 }
                 Controller controllerTimer = foundControllers.get(selectedControllerTimer);
 
-                // Pull controller for current data, and break while loop if controller is disconnected.
-
-                if( !controllerTimer.poll() ){
-                   // window.showControllerDisconnected();
-                   // break;
-                }
-
                 if( !controllerRedCen.poll() ){
                     //peach color
+                    logger.severe("Cannot Poll Red Center Controller" + controllerRedCen.hashCode() + " - " + controllerRedCen.getName());
                     GoalCounterUI.RedCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(1, 1);
                 }else if(SettingsUI.RedCenBtn == false && SettingsUI.RedCenLeft == false && SettingsUI.RedCenRight == false){
@@ -511,6 +485,7 @@ public class JoystickTest {
                 }
 
                 if( !controllerRedCor.poll() ){
+                    logger.severe("Cannot Poll Red Corner Controller" + controllerRedCor.hashCode() + " - " + controllerRedCor.getName());
                     GoalCounterUI.RedCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(2, 1);
                 }else if(SettingsUI.RedCorBtn == false && SettingsUI.RedCorLeft == false && SettingsUI.RedCorRight == false){
@@ -539,6 +514,7 @@ public class JoystickTest {
                 }
                 
                 if( !controllerBlueCor.poll() ){
+                    logger.severe("Cannot Poll Blue Corner Controller" + controllerBlueCor.hashCode() + " - " + controllerBlueCor.getName());
                     GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(3, 1);
                 }else if(SettingsUI.BlueCorBtn == false && SettingsUI.BlueCorLeft == false && SettingsUI.BlueCorRight == false){
@@ -565,7 +541,9 @@ public class JoystickTest {
                     GoalCounterUI.BlueCorJSStatus.setBackground(new java.awt.Color(0, 166, 81));
                     updateJSstatusDisplays(3, 3);
                 }
+                
                 if( !controllerBlueCen.poll() ){
+                    logger.severe("Cannot Poll Blue Center Controller" + controllerBlueCen.hashCode() + " - " + controllerBlueCen.getName());
                     GoalCounterUI.BlueCenJSStatus.setBackground(new java.awt.Color(238, 190, 171));
                     updateJSstatusDisplays(4, 1);
                 }else if(SettingsUI.BlueCenBtn == false && SettingsUI.BlueCenLeft == false && SettingsUI.BlueCenRight == false){
@@ -593,11 +571,13 @@ public class JoystickTest {
                     updateJSstatusDisplays(4, 3);
                 }           
 
-                
-                if( !controllerRedCen.poll() ){
+                if( !controllerTimer.poll() ){
                     //peach color
+                    logger.severe("Cannot Poll Timer Controller" + controllerTimer.hashCode() + " - " + controllerTimer.getName());
                     GoalCounterUI.TimerStatus.setBackground(new java.awt.Color(238, 190, 171));
+                    
                 }else if(SettingsUI.JSTimer == false && SettingsUI.Reset == false && SettingsUI.ModeChange == false){
+                    //white
                     GoalCounterUI.TimerStatus.setBackground(new java.awt.Color(240,240,240));
                 }else {
                     //green

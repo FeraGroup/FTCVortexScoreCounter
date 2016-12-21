@@ -17,6 +17,7 @@ import static ftc.goal.counter.GoalCounterUI.JSConfigView;
 import static ftc.goal.counter.GoalCounterUI.audIsOpen;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1920;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1280;
+import static ftc.goal.counter.GoalCounterUI.logger;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -776,7 +777,6 @@ public class SettingsUI extends javax.swing.JFrame {
             controllerLoopRun = false;
             JoystickTest.foundControllers.clear();
         }else{
-            System.out.println("Running This");
             int RedCenSel = RedCenControlSelect.getSelectedIndex();
             int RedCorSel = RedCorControlSelect.getSelectedIndex();
             int BlueCenSel = BlueCenControlSelect.getSelectedIndex();
@@ -848,6 +848,7 @@ public class SettingsUI extends javax.swing.JFrame {
 
     private void JSMapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JSMapActionPerformed
         if(!JSConfigView.isVisible()){
+            logger.info("Set Joystick Map Visible");
             JSConfigView.setSize(600, 410);
             JSConfigView.setVisible(true);
         }
