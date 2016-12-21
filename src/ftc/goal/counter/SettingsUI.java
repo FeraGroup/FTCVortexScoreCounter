@@ -359,7 +359,7 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
-        RePullJS.setText("Re-Pull Joysticks");
+        RePullJS.setText("Re-Poll Joysticks");
         RePullJS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RePullJSActionPerformed(evt);
