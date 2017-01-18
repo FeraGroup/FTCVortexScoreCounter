@@ -105,42 +105,49 @@ public class AudDisplay1600 extends javax.swing.JFrame {
         TimerDisplay.setBounds(1, -10, 1600, 460);
 
         BlueCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 150)); // NOI18N
+        BlueCorAutoDisplay.setForeground(new java.awt.Color(255, 255, 255));
         BlueCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCorAutoDisplay.setText("0");
         jPanel1.add(BlueCorAutoDisplay);
         BlueCorAutoDisplay.setBounds(20, 800, 170, 250);
 
         BlueCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 150)); // NOI18N
+        BlueCenTeleDisplay.setForeground(new java.awt.Color(255, 255, 255));
         BlueCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenTeleDisplay.setText("0");
         jPanel1.add(BlueCenTeleDisplay);
         BlueCenTeleDisplay.setBounds(210, 450, 250, 250);
 
         RedCorAutoDisplay.setFont(new java.awt.Font("Arial", 0, 150)); // NOI18N
+        RedCorAutoDisplay.setForeground(new java.awt.Color(255, 255, 255));
         RedCorAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCorAutoDisplay.setText("0");
         jPanel1.add(RedCorAutoDisplay);
         RedCorAutoDisplay.setBounds(1410, 800, 180, 250);
 
         RedCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 150)); // NOI18N
+        RedCorTeleDisplay.setForeground(new java.awt.Color(255, 255, 255));
         RedCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCorTeleDisplay.setText("0");
         jPanel1.add(RedCorTeleDisplay);
         RedCorTeleDisplay.setBounds(1140, 800, 250, 250);
 
         BlueCenAutoDisplay.setFont(new java.awt.Font("Arial", 0, 150)); // NOI18N
+        BlueCenAutoDisplay.setForeground(new java.awt.Color(255, 255, 255));
         BlueCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCenAutoDisplay.setText("0");
         jPanel1.add(BlueCenAutoDisplay);
         BlueCenAutoDisplay.setBounds(20, 450, 170, 250);
 
         RedCenTeleDisplay.setFont(new java.awt.Font("Arial", 1, 150)); // NOI18N
+        RedCenTeleDisplay.setForeground(new java.awt.Color(255, 255, 255));
         RedCenTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCenTeleDisplay.setText("0");
         jPanel1.add(RedCenTeleDisplay);
         RedCenTeleDisplay.setBounds(1140, 450, 250, 260);
 
         RedCenAutoDisplay.setFont(new java.awt.Font("Arial", 0, 150)); // NOI18N
+        RedCenAutoDisplay.setForeground(new java.awt.Color(255, 255, 255));
         RedCenAutoDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RedCenAutoDisplay.setText("0");
         RedCenAutoDisplay.setMaximumSize(new java.awt.Dimension(186, 180));
@@ -149,6 +156,7 @@ public class AudDisplay1600 extends javax.swing.JFrame {
         RedCenAutoDisplay.setBounds(1410, 450, 180, 250);
 
         BlueCorTeleDisplay.setFont(new java.awt.Font("Arial", 1, 150)); // NOI18N
+        BlueCorTeleDisplay.setForeground(new java.awt.Color(255, 255, 255));
         BlueCorTeleDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BlueCorTeleDisplay.setText("0");
         jPanel1.add(BlueCorTeleDisplay);
