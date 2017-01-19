@@ -222,9 +222,11 @@ public class AudDisplay1024 extends javax.swing.JFrame {
         jPanel1.add(TimerDisplay);
         TimerDisplay.setBounds(0, 0, 1030, 270);
 
+        background.setBackground(new java.awt.Color(255, 255, 255));
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispBackground1024p.png"))); // NOI18N
         background.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         background.setMinimumSize(new java.awt.Dimension(400, 300));
+        background.setOpaque(true);
         background.setRequestFocusEnabled(false);
         jPanel1.add(background);
         background.setBounds(0, 0, 1024, 768);
@@ -331,7 +333,7 @@ public class AudDisplay1024 extends javax.swing.JFrame {
     public static javax.swing.JLabel RedCorTeleDisplay;
     public static javax.swing.JLabel State;
     public static javax.swing.JLabel TimerDisplay;
-    private javax.swing.JLabel background;
+    public static javax.swing.JLabel background;
     public static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

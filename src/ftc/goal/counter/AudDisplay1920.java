@@ -214,7 +214,9 @@ public class AudDisplay1920 extends javax.swing.JFrame {
         jPanel1.add(BlueCorJSGreen);
         BlueCorJSGreen.setBounds(460, 970, 90, 70);
 
+        background.setBackground(new java.awt.Color(255, 255, 255));
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ftc/goal/counter/images/AudDispBackground1920p.png"))); // NOI18N
+        background.setOpaque(true);
         jPanel1.add(background);
         background.setBounds(0, 0, 1920, 1060);
 
@@ -325,7 +327,7 @@ public class AudDisplay1920 extends javax.swing.JFrame {
     public static javax.swing.JLabel RedCorTeleDisplay;
     public static javax.swing.JLabel State;
     public static javax.swing.JLabel TimerDisplay;
-    private javax.swing.JLabel background;
+    public static javax.swing.JLabel background;
     public static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -8,19 +8,24 @@ package ftc.goal.counter;
 
 import com.sun.glass.events.KeyEvent;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1024;
-import static ftc.goal.counter.GoalCounterUI.isFullscreen;
-import javax.swing.JFrame;
+import static ftc.goal.counter.GoalCounterUI.AudDisp1280;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1366;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1600;
-import static ftc.goal.counter.GoalCounterUI.AudDisp800;
-import static ftc.goal.counter.GoalCounterUI.JSConfigView;
-import static ftc.goal.counter.GoalCounterUI.audIsOpen;
 import static ftc.goal.counter.GoalCounterUI.AudDisp1920;
-import static ftc.goal.counter.GoalCounterUI.AudDisp1280;
-import static ftc.goal.counter.GoalCounterUI.logger;
+import static ftc.goal.counter.GoalCounterUI.AudDisp800;
+import javax.swing.JFrame;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-
+import javax.imageio.ImageIO;
+import static ftc.goal.counter.GoalCounterUI.JSConfigView;
+import static ftc.goal.counter.GoalCounterUI.audIsOpen;
+import static ftc.goal.counter.GoalCounterUI.logger;
+import static ftc.goal.counter.GoalCounterUI.isFullscreen;
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author afera
@@ -47,6 +52,7 @@ public class SettingsUI extends javax.swing.JFrame {
     public static boolean JSTimer = true;
     public static boolean Reset = true;
     public static int AudDispOpen = 0;
+    public static boolean DarkMode = false;
     static public boolean controllerLoopRun = true;
     
     /**
@@ -100,6 +106,7 @@ public class SettingsUI extends javax.swing.JFrame {
         JSMap = new javax.swing.JButton();
         JSTimeSelector = new javax.swing.JCheckBox();
         JSReset = new javax.swing.JCheckBox();
+        darkModeCheck = new javax.swing.JCheckBox();
 
         setTitle("Settings");
         setResizable(false);
@@ -424,6 +431,14 @@ public class SettingsUI extends javax.swing.JFrame {
             }
         });
 
+        darkModeCheck.setSelected(true);
+        darkModeCheck.setText("Light Mode");
+        darkModeCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                darkModeCheckActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -435,7 +450,7 @@ public class SettingsUI extends javax.swing.JFrame {
                         .addComponent(red, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(blue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(JSMap)
@@ -446,21 +461,26 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TimerControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JSControllerLabel)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(JSTimeSelector)
                                 .addGap(18, 18, 18)
                                 .addComponent(JSReset)
                                 .addGap(18, 18, 18)
-                                .addComponent(Mode)))
-                        .addGap(193, 193, 193)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Mode)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(darkModeCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(toggleFullscreen, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(AudDisplayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(34, 34, 34))
-                            .addComponent(toggleFullscreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JSControllerLabel)
+                                    .addComponent(TimerControlSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(AudDisplayLabel)
+                                        .addGap(88, 88, 88)))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -483,7 +503,8 @@ public class SettingsUI extends javax.swing.JFrame {
                     .addComponent(toggleFullscreen)
                     .addComponent(Mode)
                     .addComponent(JSTimeSelector)
-                    .addComponent(JSReset))
+                    .addComponent(JSReset)
+                    .addComponent(darkModeCheck))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RePullJS)
@@ -615,6 +636,125 @@ public class SettingsUI extends javax.swing.JFrame {
         }
     }
     
+    public void lightModeOff(){
+        AudDisplay1920.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1920.BlueCorAutoDisplay.setForeground(Color.BLACK);
+        
+        AudDisplay1600.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1600.BlueCorAutoDisplay.setForeground(Color.BLACK);
+        
+        AudDisplay1366.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1366.BlueCorAutoDisplay.setForeground(Color.BLACK);
+        
+        AudDisplay1280.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1280.BlueCorAutoDisplay.setForeground(Color.BLACK);
+        
+        AudDisplay1024.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay1024.BlueCorAutoDisplay.setForeground(Color.BLACK);
+        
+        AudDisplay800.RedCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay800.BlueCenTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay800.RedCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay800.BlueCorTeleDisplay.setForeground(Color.BLACK);
+        AudDisplay800.RedCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay800.BlueCenAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay800.RedCorAutoDisplay.setForeground(Color.BLACK);
+        AudDisplay800.BlueCorAutoDisplay.setForeground(Color.BLACK);
+    }   
+   
+    public void lightModeOn(){
+        AudDisplay1920.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1920.BlueCorAutoDisplay.setForeground(Color.WHITE);
+        
+        AudDisplay1600.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1600.BlueCorAutoDisplay.setForeground(Color.WHITE);
+        
+        AudDisplay1366.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1366.BlueCorAutoDisplay.setForeground(Color.WHITE);
+        
+        AudDisplay1280.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1280.BlueCorAutoDisplay.setForeground(Color.WHITE);
+        
+        AudDisplay1024.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay1024.BlueCorAutoDisplay.setForeground(Color.WHITE);
+        
+        AudDisplay800.RedCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay800.BlueCenTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay800.RedCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay800.BlueCorTeleDisplay.setForeground(Color.WHITE);
+        AudDisplay800.RedCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay800.BlueCenAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay800.RedCorAutoDisplay.setForeground(Color.WHITE);
+        AudDisplay800.BlueCorAutoDisplay.setForeground(Color.WHITE);
+    }   
+    
+    public void toggleLightMode(){
+        if(darkModeCheck.isSelected()){
+            lightModeOn();
+        }else{
+            lightModeOff();
+        }
+    }  
     
     
     private void RedCenControlSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RedCenControlSelectActionPerformed
@@ -886,6 +1026,10 @@ public class SettingsUI extends javax.swing.JFrame {
             SettingsUI.toggleFullscreen();
         }
     }//GEN-LAST:event_formKeyPressed
+
+    private void darkModeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_darkModeCheckActionPerformed
+        toggleLightMode();
+    }//GEN-LAST:event_darkModeCheckActionPerformed
  
    
 public static int getSelectedControllerNameRedCen(){
@@ -1001,6 +1145,7 @@ public static int getSelectedControllerNameTimer(){
     private javax.swing.JButton Save;
     public static javax.swing.JComboBox TimerControlSelect;
     private javax.swing.JPanel blue;
+    public static javax.swing.JCheckBox darkModeCheck;
     public static javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel red;
     public static javax.swing.JButton toggleFullscreen;
