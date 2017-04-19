@@ -1,13 +1,35 @@
+The Vortex Score Counter or Particle Counter, is a score counter developed exclusively for FIRST® Tech Challenge ("FTC").
+At Official in-season FTC events, live support is provide remotely by the development company and FIRST® On-Call Support.
+
+FIRST® and FIRST® Tech Challenge are registered trademarks of FIRST® (The United States Foundation For Inspiration and Recognition of Science and Technology). Copyright © 2016 FIRST®. All Rights Reserved.
+
+This Sofware is developed Open Source by
+Fera Group, L.L.C.
+Novi, MI, USA 48377
+http://www.feragroup.com/
+
+In collaboration with SPZ Productions and FIRST Robotics Team 503 - Frog Force
+spzproductions.x10.bz
+frogforce503.org
+
+Support by FIRST in Michigan
+firstinmichigan.org
+
+Icons (Center Vortex, Corner Vortex and Joysticks) Created by Deanna Matthews
+
+For collobrating, issue reporting and software documention on this project, please visit the GitHub Repository
+https://www.github.com/FeraGroup/FTCVortexScoreCounter
+
+FIRSTinspires.org/robotics/FTC
+
 MIT License
 
-Copyright (c) 2016 Fera Group
+Copyright (c) 2016 Fera Group, L.L.C.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files 
+(the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, 
+publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
